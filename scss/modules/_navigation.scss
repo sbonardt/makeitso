@@ -1,0 +1,134 @@
+/**
+ * File:        _navigation.scss
+ * Description: _navigation.scss contains all navigation styles for makeitso 
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
+
+.toggle-btn-wrap {
+    @extend .group;
+    float:right;
+    overflow: hidden;
+    margin-bottom: 0;
+    .toggleable-menu & {
+        overflow:hidden;
+        float:none;
+        width:100%;
+        @include respond-to(medium-screens) {
+            float:right;
+            width:auto;
+        }
+    }
+}
+
+.toggle-menu {
+    float:left;
+    display:none;
+    margin-right:1em;
+    @include respond-to(medium-screens) {
+        display:none;
+    }
+}
+
+.toggle-search {
+    float:right;
+    display:none;
+    @include respond-to(medium-screens) {
+        display:none;
+    }
+}
+
+nav {
+    // border-bottom:1px solid $grey;
+    padding-bottom:0.75em;
+    background-color: $lightGrey;
+    @include respond-to(medium-screens) {
+        padding-bottom: 0;
+    }
+    .menu {
+        float:left;
+        width:calc(100% - 80px);
+        margin:1rem auto;
+        @include respond-to(medium-screens) {
+            //width: calc(100% - 290px);
+            margin: 0 auto;
+        }
+    }
+    ul {
+        padding:0;
+        overflow:hidden;
+        @include respond-to(medium-screens) {
+            margin-bottom:0;
+        }
+    }
+    li {
+        list-style: none;
+        float: left;
+        a {
+            padding:0.5em 0.75em; 
+            display:block;
+            margin:0;
+            &:hover, &:active, &:focus, &.active {
+                background-color: $white;
+            }
+        }    
+    }
+    .toggleable-menu & {
+        float:left;
+        width:100%;
+        .menu {
+            float:left;
+            width:100%;
+            // @include respond-to(medium-screens) {
+            //     //float:none;
+            //     width:calc(100% - 80px);
+            // }
+            // @include respond-to(large-screens) {
+            //     //float:none;
+            //     width:calc(100% - 280px);
+            // }
+        }
+        li {
+            float:none;  
+            a {
+                padding:0.5em 0;
+            }
+        }
+        @include respond-to(medium-screens) {
+            li {
+                float:left;
+                a {
+                    padding:0.5em 0.75em;
+                }
+            }
+        }
+    }
+}
+
+.menu {
+    margin-bottom: 0;
+}
+
+.secondary-menu, .meta-menu {
+    overflow: hidden;
+    position:absolute;
+    top:0;
+    left:0;
+    @include respond-to(medium-screens) {
+        float:right;
+    }
+    @include respond-to(large-screens) {
+        position:absolute;
+        bottom:0;
+        right:0;
+        left:auto;
+        top:auto;
+    }
+    li {
+        list-style: none;
+        float:left;
+        a {
+            padding:0.5em; 
+            display:block; 
+        }    
+    }
+}

@@ -1,0 +1,90 @@
+/**
+ * File:        _forms.scss
+ * Description: _forms.scss contains all form styles for makeitso 
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
+
+form {
+    width:100%;
+    margin-bottom: $baseBottomMargin;
+}
+
+legend {
+    @include font-size(1.5);
+    text-transform:uppercase;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    color:$black;
+    @include font-size(1.25);
+    display:block;
+    font-weight:bold;
+}
+
+.required-field {
+    color:$red;
+    @include font-size(0.8);
+    font-weight:bold;
+    margin-left: 0.5rem;
+}
+
+input {
+    border:1px solid $grey;
+    padding: 0.25rem 0.5rem;
+    @include font-size(1);
+    margin-bottom:1.75rem;
+    width:100%;
+    border-radius: 3px;
+    &:focus {
+        border-color:$black;
+    }
+    &.error {
+        background-color: lighten($red, 53%);
+        &:focus {
+            background-color:$white;
+        }
+    }
+    &[type="submit"] {
+        display:block;
+        clear:both;
+        width:auto;  
+        font-weight: bold;     
+        padding:0.25rem 1rem;
+        color:$black;
+        border:0;
+        @include font-size(0.9375);
+        &:hover, &:active, &:focus {
+            //background-color: darken($red, 10%);
+        }
+    }
+    &[type="radio"] {
+        width: auto;
+        margin-right:0.5rem;
+        display:inline-block;
+        margin-bottom:0;
+        margin-bottom:0;
+        & + label {
+            display: inline-block;
+        }
+    }
+}
+
+// .options-wrapper {
+//     margin-bottom: 2rem;
+//     padding-left:0.5rem;
+//     > div {
+//         &.error {
+//             label {
+//                 color:$red;
+//             }
+//         }
+//     }
+//     &.error {
+//         border-left: 1px solid $red;
+//     }
+// }
+
+// select {
+//     margin-bottom:1.75rem;
+// }

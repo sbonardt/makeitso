@@ -1,0 +1,28 @@
+/**
+ * File:        old_ie.scss
+ * Description: Stylesheet for IE browsers < IE9 - 'Make it so' base theme
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
+ 
+// set $old-ie to true to incorporate old-ie styles
+$old-ie: true;
+
+// set $fix-mqs value to the width you would like the css to be generated in
+// regards to the media queries. All css media queries up to this width will be
+// generated in the special old-ie stylesheet
+$fix-mqs: 64; 
+ 
+@import "base/_base.scss";
+@import "base/_normalize.scss";
+@import "modules/_overrides.scss";
+@import "modules/_defaults.scss";
+@import "modules/_layout.scss";
+@import "modules/_typography.scss";
+@import "modules/_general_elements.scss";
+@import "modules/_navigation.scss";
+@import "modules/_forms.scss";
+@import "modules/_search.scss";
+
+
+// 3rd party
+@import "modules/_cycle2.scss";

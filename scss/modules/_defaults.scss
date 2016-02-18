@@ -1,0 +1,132 @@
+/* Clearfix IE8 and up, more semantic class group */
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.group { 
+    zoom: 1;
+    overflow:hidden;
+}
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+    -moz-box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    box-sizing: border-box;
+ }
+
+// clean up webkit safari rounded borders on inputs
+input {
+    // -webkit-appearance: none;
+    border-radius: 0;
+}
+
+.is-visible {
+  display:block;
+}
+
+.is-invisible, .element-invisible {
+  display:none;
+  visibility: hidden;
+}
+
+.is-hidden {
+  visibility:hidden;
+}
+
+.up-to-small-screens {
+  display:block;
+  @include respond-to(small-screens) {
+    display:none;
+    visibility: hidden;
+  }
+}
+
+.small-screens-up {
+  display:none;
+  @include respond-to(small-screens) {
+    display:block;    
+  }
+}
+
+.up-to-medium-screens {
+  display:block;
+  @include respond-to(medium-screens) {
+    display:none;
+    visibility: hidden;
+  }
+}
+
+.medium-screens-up {
+  display:none;
+  @include respond-to(medium-screens) {
+    display:block;    
+  }
+}
+
+.up-to-large-screens {
+  display:block;
+  @include respond-to(large-screens) {
+    display:none;
+    visibility: hidden;
+  }
+}
+
+.large-screens-up {
+  display:none;
+  @include respond-to(large-screens) {
+    display:block;    
+  }
+}
+
+.up-to-xlarge-screens {
+  display:block;
+  @include respond-to(xlarge-screens) {
+    display:none;
+    visibility: hidden;
+  }
+}
+
+.xlarge-screens-up {
+  display:none;
+  @include respond-to(xlarge-screens) {
+    display:block;    
+  }
+}
+
+.up-to-wide-screens {
+  display:block;
+  @include respond-to(wide-screens) {
+    display:none;
+    visibility: hidden;
+  }
+}
+
+.wide-screens-up {
+  display:none;
+  @include respond-to(wide-screens) {
+    display:block;    
+  }
+}
+
+img {
+  max-width:100%;
+}
+
+blockquote {
+  //quotes: "\201C""\201D""\2018""\2019";
+  clear:both;
+}
+
+blockquote:before { 
+  //content: open-quote;
+  //margin-right:0.1em; 
+  }
+
+blockquote:after { 
+  //content: close-quote;
+  //margin-left:0em;
+}

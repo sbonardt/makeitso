@@ -1,0 +1,57 @@
+/**
+ * File:        _search.scss
+ * Description: _search.scss contains all search styles for makeitso 
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
+
+// search block styling
+.search {
+    margin:2rem 0 0;
+    overflow:hidden;
+    //max-width:480px;
+    display:block;
+    @include respond-to(small-screens) {
+        float:right;
+    }
+    @include respond-to(medium-screens) {
+        position:absolute;
+        right:0.625rem;
+        top:-6rem;
+        margin-top:1.2rem;
+        max-width:250px;
+    }
+    @include respond-to(large-screens) {
+        max-width:320px;
+    }
+    @include respond-to(xlarge-screens) {
+        max-width:none;
+        width:27%;
+        right:1.125rem;
+    }
+    label {
+        display:none;
+        clear:both;
+    }
+    [type="submit"] {
+        padding:0 0.75em;
+        border-left:0;
+        width:90px;
+        clear:none;
+        background-color:$darkGrey;
+        color:$white;
+        border-radius: 0 3px 3px 0;
+        &:hover, &:active, &:focus {
+            background-color: $black;
+        }
+    }
+    [type="text"], [type="search"] {
+        width: calc(100% - 90px);
+        border-radius:3px 0 0 3px;
+    }
+    input, button {
+        float:left;
+        width:calc(100% - 71px);
+        padding-left:0.35em;
+        height:35px;
+    }
+}

@@ -1,0 +1,31 @@
+// Cycle 2 plugin slideshow styling
+.gallery, .cycle-slideshow {
+    @extend .group;
+    margin-bottom: 0.625rem;
+    .slide {
+        display: block;
+    }
+}
+
+.cycle-slideshow-pager {
+    margin-bottom: 3rem;
+    img  {
+        cursor: pointer;
+        margin-right:0.5rem;
+    }
+    .cycle-nav {
+        color: $red;
+        padding:0.25rem 0;
+        &:link, &:visited {
+            text-decoration: none;
+        }
+        &:hover, &:active, &:focus {
+
+        }
+    }
+    .slideshow-count {
+        padding:0.25rem 0;
+        float:right;
+        color: $grey;
+    }
+}

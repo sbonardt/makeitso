@@ -1,0 +1,186 @@
+/**
+* File:        _layout.scss
+* Description: _layout.scss contains all styles for page structure setup for makeitso
+* Author:      Sebastiaan Bonardt - @_sebbon
+*/
+
+/**
+* About the Responsive Web Design breakpoints in this setup:
+* from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
+* Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
+* 
+* page setup: body direct descendants are the main wrappers containing direct 
+* descendant with .inner-wrap class set to center the content on the page. Used in favor 
+* of a general top level wrap all wrapper for esthetics sake. 
+*
+* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
+* background color, but the contents needs to be centered on the page
+*
+* ! If no full width background-colors are in the design you can remove the inner-wrap div's and
+* set the $site-max-width on the body with margin:0 auto;
+*
+*/
+
+html {
+    height:100%;
+}
+
+body {
+    min-height:100%;
+    margin:0;
+    position:relative;
+    padding:0;
+    > header, footer, main, [role="main"] {
+        width:100%;
+        display:block;
+        overflow:hidden;
+    }
+    > header {
+        background-color: $lightGrey;
+        padding:0.625rem 0 0;
+        @include respond-to(medium-screens) {
+            padding-top:1rem;
+        }
+    }
+    > main, [role="main"] {
+        margin:1em 0 0;  
+        > aside {
+            padding: 1rem 0;
+            background-color: $lightGrey;
+        }
+    }
+    > footer {
+        min-height:5em;
+        background-color:$black;
+        padding:1em 0;
+    }
+}
+
+.inner-wrap {
+    @extend %group;
+    margin: 0 auto;
+    padding:0 0.625em;
+    max-width: $site-max-width;
+    position:relative;
+    @include respond-to(large-screens) {
+        padding:0 1.25em;
+    }
+}
+
+.skipcontent {
+    background-color: #fff;
+    left: -9999px;
+    padding: 0.3125em 1em;
+    position: absolute;
+    padding:1rem;
+    display:inline-block;  
+    z-index:2;
+    font-weight: bolder;
+    &:after {
+        content: ">>";
+        margin-left:0.625rem;
+    }
+    &:focus {
+        left:1.25em;                     
+    }
+}
+
+.logo {
+    margin-bottom:1em;
+    a {
+        display:block;
+        margin-bottom:0;
+    }
+    @include respond-to(medium-screens) {
+        float:left;
+    }
+    span {
+        display:none;
+    }
+    &.centered {
+        text-align: center;
+        @include respond-to(medium-screens) {
+            float:none;
+        }
+        a {
+            display:inline-block;
+        }
+    }
+}
+
+.site-name {
+    display:block;
+}
+
+.breadcrumb {
+    margin:1em 0;
+}
+
+.main-content {
+    overflow:hidden;
+    padding-top:2rem;
+    margin-bottom: 2rem;
+    & + aside {
+
+    }
+}
+
+.sidebar {
+    padding-top: 2rem;
+    @include respond-to(medium-screens) {
+        float: left;
+        width: 20%;
+        margin-right: 4%;
+    }
+    & + .main-content {
+        @include respond-to(medium-screens) {
+        float: left;
+        width: 76%;
+        }
+    }
+}
+
+// body content is the content-wrapper used in the main-content
+.body-content {
+    @extend .group;
+    margin-bottom: 1rem;
+    @include respond-to(large-screens) {
+        max-width:44rem;
+    }
+    @include respond-to(xlarge-screens) {
+        float: left;
+        width:66%;
+    }
+    @include respond-to(wide-screens) {
+        max-width:50rem;
+    }
+    & + aside {
+        @include respond-to(xlarge-screens) {
+            float: right;
+            width: 28%;
+        }
+    }
+}
+
+footer {
+    .inner-wrap {
+        @include respond-to(medium-screens) {
+            display: flex;
+            justify-content: flex-start;
+            align-items:stretch;
+        }
+    }
+}
+
+.footer-block {
+    @include respond-to(medium-screens) {
+        float:left;
+        width:46%;
+        margin-right:2%;
+
+
+    }
+    @include respond-to(large-screens) {
+        width:31%;
+    }
+}

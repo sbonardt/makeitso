@@ -1,0 +1,65 @@
+{% extends '_base.twig' %}
+{% block body %}
+{% set image = random(theme.images) %}
+<div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div>
+<div class="flex container margin padding popUppers">
+    <section class="eight s-twelve">
+        {{ widgets('main_top') }}
+        {% if taxonomytype is defined %}
+            <h1>
+                {{ __('Overview for') }}
+                {% if taxonomy.options[slug] is defined %}
+                    {{ taxonomy.options[slug] }}
+                {% else %}
+                    {{ slug }}
+                {% endif %}
+            </h1>
+        {% set records = records|order(app.config.get('general/listing_sort')) %}
+        {% elseif search is defined %}
+            <h1>
+                {{ __('Search results for <b> %search% </b>.', { '%search%': search|escape }) }}
+            </h1>
+        {% elseif records %}
+            <h1>
+                {{ __('Overview for') }}
+                {{records|first.contenttype.name}}
+            </h1>
+        {% endif %}
+        {% for record in records %}
+            {% set image = record.image ?: random(theme.images) %}
+            <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+            {# display something introduction-like.. #}
+            {{ popup(image, 440, 0) }}
+            {% if record.introduction %}
+                {{ record.introduction }}
+            {% elseif record.teaser %}
+                {{ record.teaser }}
+            {% else %}
+                <p>{{ record.excerpt(300) }}</p>
+            {% endif %}
+            {% include '_recordfooter.twig' with {'record': record} %}
+            {% if not loop.last %}<hr>{% endif %}
+        {% else %}
+            <article>
+                {% if search is defined %}
+                    <p>
+                        {{ __("No results found for '%SEARCHTERM%'. Please try another search.", { '%SEARCHTERM%': search|escape }) }}
+                    </p>
+                {% else %}
+                    <h2>{{ __("No content found.") }}</h2>
+                    <p>
+                        {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': paths.root} ) }}
+                    </p>
+                {% endif %}
+                {#
+                optionally, you can redirect the browser to another page. Just uncomment the next line to do so.
+                {{ redirect('/') }}
+                #}
+            </article>
+        {% endfor %}
+        {{ pager() }}
+        {{ widgets('main_bottom') }}
+    </section>
+    {% include '_aside.twig' %}
+    </div>
+{% endblock %}

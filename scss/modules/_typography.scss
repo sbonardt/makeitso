@@ -1,0 +1,196 @@
+/**
+ * File:        _typography.scss
+ * Description: _typography.scss contains all text styles for makeitso 
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
+
+// Split up webfont definitions for weights and styles. Be sure to declare
+// proper fallback fonts for your serif's or non-serifs, and use corresponding
+// font-weights and styles throughout your styles!
+
+// @font-face { 
+//     font-family: "yourFont"; 
+//     src: url("../path/yourFont.eot"); 
+//     src: url("../path/yourFont.eot?#iefix") format("embedded-opentype"),
+//     url("../path/yourFont.woff") format("woff"),
+//     url("../path/yourFont.svg#yourFont") format("svg"); 
+//     font-weight: normal; 
+//     font-style: normal;
+// } 
+// @font-face { 
+//     font-family: "yourFontBold"; 
+//     src: url("../path/yourFontBold.eot"); 
+//     src: url("../path/yourFontBold.eot?#iefix") format("embedded-opentype"),
+//     url("../path/yourFontBold.woff") format("woff"),
+//     url("../path/yourFontBold.svg#yourFont") format("svg"); 
+//     font-weight: bold; 
+//     font-style: normal;
+// } 
+// @font-face { 
+//     font-family: "yourFontItalic"; 
+//     src: url("../path/yourFontItalic.eot"); 
+//     src: url("../path/yourFontItalic.eot?#iefix") format("embedded-opentype"),
+//     url("../path/yourFontItalic.woff") format("woff"),
+//     url("../path/yourFontItalic.svg#yourFont") format("svg"); 
+//     font-weight: normal; 
+//     font-style: italic;
+// }
+
+body {
+    font-size:100%;
+    font-family:$baseFontFamily;
+    color:$baseFontColour;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 0;
+    color:$baseFontHeaderColour;
+}
+
+h1, .alpha {
+    @include header-font-size(2.5);
+}
+
+h2, .beta {
+    @include header-font-size(2);
+}
+
+h3, .gamma {
+    @include header-font-size(1.5);
+}
+
+h4, .delta {
+    @include header-font-size(1.125);
+}
+
+h5, .epsilon {
+    @include header-font-size(1);
+}
+
+p, ul, ol, dt, dd, a, pre, blockquote, table {
+    margin:0 0 1.5em 0;
+    @include font-size(1);
+    @include respond-to(wide-screens) {
+        @include font-size(1.125);    
+    }
+    footer & {
+        color: $white;
+    }
+}
+
+ul {
+    padding:0 0 0 1rem;
+    margin:0 0 $baseBottomMargin;
+    li {
+        padding:0;
+        margin:0;
+    }
+}
+
+ol {
+    counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+    > li {
+        position:relative; /* Create a positioning context */
+        list-style:none; /* Disable the normal item numbering */
+        padding-left:1.25em;
+        margin-bottom:1em;
+        &:before {
+            position:absolute;
+            left:0.2rem;
+            @include font-size(0.9375);
+            width:2em;
+            text-align:left;
+            content:counter(li); /* Use the counter as content */
+            counter-increment:li; /* Increment the counter by 1 */
+            top:0.05rem;
+            font-weight: bolder;
+            @include respond-to(wide-screens) {
+                top:0.135em;
+            }
+        }
+    }
+}
+li ol, li ul {
+    margin-top:0.5em;
+}
+ol ol li:last-child {
+    margin-bottom:0;
+}
+
+.stripped {
+    padding: 0;
+    margin: 0 0 $baseBottomMargin;
+    list-style: none;
+    li {
+        margin: 0 0 $baseBottomMargin;
+    }
+}
+
+blockquote {
+    @include header-font-size(1.5);
+    padding:1em;
+    background-color:$lightGrey;
+    display:inline-block;
+    clear:both;
+    color:$black;
+    border-left: solid $darkGrey 3px;
+    @include font-size(1.5);
+    font-weight: bold;
+    margin: $baseBottomMargin auto;
+    @include respond-to(medium-screens) {
+        max-width:80%;
+        display:block;
+    }
+    @include respond-to(large-screens) {
+        max-width: 65%;
+    }
+    p {
+        margin:0;
+        @include font-size(1.5);
+    }
+}
+
+a, a:link, a:visited {
+    color:$baseLinkColour;
+}
+
+a:hover, a:active, a:focus {
+    text-decoration:none;
+    color: darken($baseLinkColour, 20%);
+}
+
+.btn, button {
+    background-color: #F7B91C;
+    border:0;
+    color:$white; 
+    float: left;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 3px;
+    &:link, &:visited {
+        color:$white; 
+        text-decoration:none;
+    }
+    &:hover, &:active, &:focus {
+        background-color: darken(#F7B91C, 8%);
+    }
+}
+
+.teaser {
+    a {
+        &:link, &:visited {
+            text-decoration: none;
+            h1 {
+                text-decoration: underline;
+            }
+        }
+        &:hover, &:active, &:focus {
+            h1 {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
