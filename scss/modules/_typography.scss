@@ -4,9 +4,10 @@
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
 
-// Split up webfont definitions for weights and styles. Be sure to declare
-// proper fallback fonts for your serif's or non-serifs, and use corresponding
-// font-weights and styles throughout your styles!
+/* Split up webfont definitions for weights and styles. Be sure to declare
+ * proper fallback fonts for your serif's or non-serifs, and use corresponding
+ * font-weights and styles throughout your styles!
+ */
 
 // @font-face { 
 //     font-family: "yourFont"; 
@@ -45,6 +46,7 @@ body {
 h1, h2, h3, h4, h5 {
     margin-top: 0;
     color:$baseFontHeaderColour;
+    margin-bottom: 0.35em;
 }
 
 h1, .alpha {
@@ -67,13 +69,13 @@ h5, .epsilon {
     @include header-font-size(1);
 }
 
-p, ul, ol, dt, dd, a, pre, blockquote, table {
+p, ul, ol, dt, dd, pre, blockquote, table {
     margin:0 0 1.5em 0;
     @include font-size(1);
     @include respond-to(wide-screens) {
         @include font-size(1.125);    
     }
-    footer & {
+    body > footer & {
         color: $white;
     }
 }
@@ -154,11 +156,17 @@ blockquote {
 
 a, a:link, a:visited {
     color:$baseLinkColour;
+    body > footer & {
+        color: $white;
+    }
 }
 
 a:hover, a:active, a:focus {
     text-decoration:none;
     color: darken($baseLinkColour, 20%);
+    body > footer & {
+        color: darken($white, 10%);
+    }
 }
 
 .btn, button {
@@ -192,5 +200,9 @@ a:hover, a:active, a:focus {
             }
         }
     }
+}
+
+mark {
+    background-color: #F7B91C;
 }
 

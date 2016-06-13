@@ -1,9 +1,16 @@
 {% extends '_base.twig' %}
+
+{% block aside_sidebar_first %}
+{# <aside class="sidebar sidebar-first">
+</aside> #}
+{% endblock %}
+
 {% block body %}
 {% set image = random(theme.images) %}
-<div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div>
-<div class="flex container margin padding popUppers">
-    <section class="eight s-twelve">
+{# <div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div> #}
+
+    <section class="main-content">
+        <a id="content" tabindex="0"></a>
         {{ widgets('main_top') }}
         {% if taxonomytype is defined %}
             <h1>
@@ -26,6 +33,7 @@
             </h1>
         {% endif %}
         {% for record in records %}
+        <article>
             {% set image = record.image ?: random(theme.images) %}
             <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
             {# display something introduction-like.. #}
@@ -39,6 +47,7 @@
             {% endif %}
             {% include '_recordfooter.twig' with {'record': record} %}
             {% if not loop.last %}<hr>{% endif %}
+        </article>
         {% else %}
             <article>
                 {% if search is defined %}
@@ -60,6 +69,16 @@
         {{ pager() }}
         {{ widgets('main_bottom') }}
     </section>
-    {% include '_aside.twig' %}
-    </div>
+{% endblock %}
+
+{% block aside_sidebar_second %}
+{# <aside class="sidebar sidebar-second">
+</aside> #}
+{% endblock %}
+
+{% block main_aside_one %}
+    {# <aside>
+        <div class="inner-wrap">
+        </div>
+    </aside> #}
 {% endblock %}

@@ -30,8 +30,9 @@ label {
 }
 
 input {
+    box-sizing: border-box;
     border:1px solid $grey;
-    padding: 0.25rem 0.5rem;
+    padding: 0.35rem 0.5rem;
     @include font-size(1);
     margin-bottom:1.75rem;
     width:100%;
@@ -50,13 +51,7 @@ input {
         clear:both;
         width:auto;  
         font-weight: bold;     
-        padding:0.25rem 1rem;
         color:$black;
-        border:0;
-        @include font-size(0.9375);
-        &:hover, &:active, &:focus {
-            //background-color: darken($red, 10%);
-        }
     }
     &[type="radio"] {
         width: auto;
@@ -69,22 +64,3 @@ input {
         }
     }
 }
-
-// .options-wrapper {
-//     margin-bottom: 2rem;
-//     padding-left:0.5rem;
-//     > div {
-//         &.error {
-//             label {
-//                 color:$red;
-//             }
-//         }
-//     }
-//     &.error {
-//         border-left: 1px solid $red;
-//     }
-// }
-
-// select {
-//     margin-bottom:1.75rem;
-// }

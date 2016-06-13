@@ -27,6 +27,9 @@ jQuery(function ($) {
     // actions for the UI based on screen size
     preLoadChecks();
 
+    // alle external class links to target _blank
+    $('a.external').attr('target', "_blank");
+
     // do some checks when window is resized
     var resizeId;
     $(window).resize(function() {       
@@ -37,7 +40,7 @@ jQuery(function ($) {
     //toggle .search when hidden on small/mobile devices
     $(".toggle-search").on( "click", function(e) {
         e.preventDefault();
-        var searchform = $(".search");
+        var searchform = $(".search-block");
         var nav = $("nav .menu");
         if (searchform.hasClass("expanded")) {
             $(this).removeClass("toggle-active");
@@ -63,7 +66,7 @@ jQuery(function ($) {
     $(".toggle-menu").on( "click", function(e) {
         e.preventDefault();
         var nav = $("nav .menu");
-        var searchform = $(".search");
+        var searchform = $(".search-block");
         if (nav.hasClass("expanded")) {
             $(this).removeClass("toggle-active");
             nav.slideUp('fast').removeClass("expanded");
@@ -98,7 +101,10 @@ jQuery(function ($) {
         }
 
         if (windowWidthEms < breakMedium) {
-            $(".search").hide();
+            if ($('body > header .search-block').length > 0) {
+                $(".search-block").appendTo('body > nav > .inner-wrap');
+            }
+            $(".search-block").hide();
             $(".toggle-search").show(); 
             if (toggleableMenu) {
                 $("nav .menu").hide();
@@ -107,7 +113,7 @@ jQuery(function ($) {
             $(".logo img").attr("src", $(".logo img").attr("data-src-mobile") );
         }
         else {
-            $(".search").show();
+            $(".search-block").appendTo('body > header .inner-wrap').show();
             $(".toggle-search").hide(); 
             if (toggleableMenu) {
                 $("nav .menu").show();
@@ -122,5 +128,5 @@ jQuery(function ($) {
         else {
             //$(".search").show();
         }
-    }    
+    }
 });

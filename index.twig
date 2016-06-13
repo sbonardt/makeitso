@@ -1,4 +1,10 @@
 {% extends '_base.twig' %}
+
+{% block aside_sidebar_first %}
+{# <aside class="sidebar sidebar-first">
+</aside> #}
+{% endblock %}
+
 {% block body %}
 {# Make sure we can get info from both listings and single records: #}
 {% if record is not defined and records is defined %}
@@ -9,36 +15,51 @@
 {% else %}
     {% set image = theme.frontpage_image %}
 {% endif %}
-<div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div>
-<div class="flex container margin padding popUppers">
+{# <div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div> #}
     {% if record %}
-        <article class="six s-twelve">
+        <article class="main-content">
+            <a id="content" tabindex="0"></a>
             {{ widgets('main_top') }}
-                <h1>{{record.title}}</h1>
-                {{record.body}}
+            <h1>{{record.title}}</h1>
+            <div class="body-content">
+            {{record.body}}
+            </div>
             {{ widgets('main_bottom') }}
         </article>
     {% endif %}
-    {% for ct in theme.frontpage_contenttypes %}
-        {% setcontent records = ct ~ "/latest/2" %}
-            {% if records %}
-                <div class="three s-twelve">
-                    {% for record in records %}
-                        {% set image = record.image ?: random(theme.images) %}
-                        {% if loop.first %}
-                            {{ widgets('aside_top') }}
-                            <h2>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct}) }}</h2>
-                        {% endif %}
-                        <h3><a href="{{record.link}}">{{ record.title }}</a></h3>
-                        {{ showimage(image, 440, 0) }}
-                        <p>{{record.body|excerpt(250)}}</p>
-                        {% if loop.last %}
-                            <p><a href="{{ paths.root }}{{ct}}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct}) }} &raquo;</a></p>
-                            {{ widgets('aside_bottom') }}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-    {% endfor %}
-</div>
+{% endblock %}
+
+{% block aside_sidebar_second %}
+{# <aside class="sidebar sidebar-second">
+</aside> #}
+{% endblock %}
+
+{% block main_aside_one %}
+    <aside>
+        <div class="inner-wrap">
+        {% for ct in theme.frontpage_contenttypes %}
+            {% setcontent records = ct ~ "/latest/2" %}
+                {% if records %}
+                    <div class="latest-items">
+                        {% for record in records %}
+                            {% set image = record.image ?: random(theme.images) %}
+                            {% if loop.first %}
+                                {{ widgets('aside_top') }}
+                                <h2>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct}) }}</h2>
+                            {% endif %}
+                            <article class="teaser">
+                            <h1 class="gamma"><a href="{{record.link}}">{{ record.title }}</a></h1>
+                            {{ showimage(image, 440, 0) }}
+                            <p>{{record.body|excerpt(250)}}</p>
+                        </article>
+                            {% if loop.last %}
+                                <p><a href="{{ paths.root }}{{ct}}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct}) }} &raquo;</a></p>
+                                {{ widgets('aside_bottom') }}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+        {% endfor %}
+        </div>
+    </aside>
 {% endblock %}

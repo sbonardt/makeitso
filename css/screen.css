@@ -39,7 +39,7 @@
  * for retina able browsers background-size values are added
 */
 /* line 201, ../scss/base/_base.scss */
-.inner-wrap:after {
+.inner-wrap:after, .main-wrap:after {
   content: "";
   display: table;
   clear: both;
@@ -857,81 +857,106 @@ blockquote {
 * Author:      Sebastiaan Bonardt - @_sebbon
 */
 /**
-* About the Responsive Web Design breakpoints in this setup:
+* About the Responsive Web Design breakpoints in this setup
+* =========================================================
 * from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
 * Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
+*
+* About the design pattern
+* ========================
+* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
+* background color, but the contents/website needs to be centered on the page
 * 
 * page setup: body direct descendants are the main wrappers containing direct 
 * descendant with .inner-wrap class set to center the content on the page. Used in favor 
 * of a general top level wrap all wrapper for esthetics sake. 
 *
-* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
-* background color, but the contents needs to be centered on the page
-*
 * ! If no full width background-colors are in the design you can remove the inner-wrap div's and
 * set the $site-max-width on the body with margin:0 auto;
 *
 */
-/* line 24, ../scss/modules/_layout.scss */
+/* line 27, ../scss/modules/_layout.scss */
 html {
   height: 100%;
 }
 
-/* line 28, ../scss/modules/_layout.scss */
+/* line 31, ../scss/modules/_layout.scss */
 body {
   min-height: 100%;
   margin: 0;
   position: relative;
   padding: 0;
 }
-/* line 33, ../scss/modules/_layout.scss */
+/* line 36, ../scss/modules/_layout.scss */
 body > header, body footer, body main, body [role="main"] {
   width: 100%;
   display: block;
   overflow: hidden;
 }
-/* line 38, ../scss/modules/_layout.scss */
+/* line 41, ../scss/modules/_layout.scss */
 body > header {
-  background-color: #eee;
-  padding: 0.625rem 0 0;
+  padding: 0;
 }
-@media only screen and (min-width: 37.5em) {
-  /* line 38, ../scss/modules/_layout.scss */
-  body > header {
-    padding-top: 1rem;
-  }
-}
-/* line 45, ../scss/modules/_layout.scss */
-body > main, body [role="main"] {
-  margin: 1em 0 0;
-}
-/* line 47, ../scss/modules/_layout.scss */
-body > main > aside, body [role="main"] > aside {
-  padding: 1rem 0;
-  background-color: #eee;
-}
-/* line 52, ../scss/modules/_layout.scss */
+/* line 44, ../scss/modules/_layout.scss */
 body > footer {
   min-height: 5em;
-  background-color: #222;
   padding: 1em 0;
 }
 
-/* line 59, ../scss/modules/_layout.scss */
+/* line 50, ../scss/modules/_layout.scss */
+main, [role="main"] {
+  margin: 1em 0 0;
+}
+/* line 52, ../scss/modules/_layout.scss */
+main > .inner-wrap, main aside, main article, main section, [role="main"] > .inner-wrap, [role="main"] aside, [role="main"] article, [role="main"] section {
+  margin-bottom: 2rem;
+}
+
+/* line 57, ../scss/modules/_layout.scss */
+aside {
+  background-color: #eee;
+  overflow: hidden;
+  clear: both;
+  margin-bottom: 2rem;
+}
+/* line 62, ../scss/modules/_layout.scss */
+aside:last-child {
+  margin-bottom: 0;
+}
+
+/* line 67, ../scss/modules/_layout.scss */
 .inner-wrap {
   margin: 0 auto;
-  padding: 0 0.625em;
+  padding: 1rem 0.625em;
   max-width: 74em;
   position: relative;
 }
 @media only screen and (min-width: 48em) {
-  /* line 59, ../scss/modules/_layout.scss */
+  /* line 67, ../scss/modules/_layout.scss */
   .inner-wrap {
-    padding: 0 1.25em;
+    padding: 1rem 1.25em;
+  }
+}
+/* line 76, ../scss/modules/_layout.scss */
+main > .inner-wrap {
+  padding: 2rem 0.625rem 0;
+}
+@media only screen and (min-width: 48em) {
+  /* line 76, ../scss/modules/_layout.scss */
+  main > .inner-wrap {
+    padding: 2rem 1.25em 0;
   }
 }
 
-/* line 70, ../scss/modules/_layout.scss */
+/* line 84, ../scss/modules/_layout.scss */
+.main-wrap {
+  margin: 0 auto;
+  padding: 1rem 0.625em;
+  max-width: 74em;
+  position: relative;
+}
+
+/* line 92, ../scss/modules/_layout.scss */
 .skipcontent {
   background-color: #fff;
   left: -9999px;
@@ -942,120 +967,126 @@ body > footer {
   z-index: 2;
   font-weight: bolder;
 }
-/* line 79, ../scss/modules/_layout.scss */
+/* line 101, ../scss/modules/_layout.scss */
 .skipcontent:after {
   content: ">>";
   margin-left: 0.625rem;
 }
-/* line 83, ../scss/modules/_layout.scss */
+/* line 105, ../scss/modules/_layout.scss */
 .skipcontent:focus {
   left: 1.25em;
 }
 
-/* line 88, ../scss/modules/_layout.scss */
+/* line 110, ../scss/modules/_layout.scss */
 .logo {
   margin-bottom: 1em;
 }
-/* line 90, ../scss/modules/_layout.scss */
+/* line 112, ../scss/modules/_layout.scss */
 .logo a {
   display: block;
   margin-bottom: 0;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 88, ../scss/modules/_layout.scss */
+  /* line 110, ../scss/modules/_layout.scss */
   .logo {
     float: left;
   }
 }
-/* line 97, ../scss/modules/_layout.scss */
+/* line 119, ../scss/modules/_layout.scss */
 .logo span {
   display: none;
 }
-/* line 100, ../scss/modules/_layout.scss */
+/* line 122, ../scss/modules/_layout.scss */
 .logo.centered {
   text-align: center;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 100, ../scss/modules/_layout.scss */
+  /* line 122, ../scss/modules/_layout.scss */
   .logo.centered {
     float: none;
   }
 }
-/* line 105, ../scss/modules/_layout.scss */
+/* line 127, ../scss/modules/_layout.scss */
 .logo.centered a {
   display: inline-block;
 }
+/* line 131, ../scss/modules/_layout.scss */
+.logo img {
+  width: 345px;
+  max-width: 200px;
+}
 
-/* line 111, ../scss/modules/_layout.scss */
+/* line 137, ../scss/modules/_layout.scss */
 .site-name {
   display: block;
 }
 
-/* line 115, ../scss/modules/_layout.scss */
+/* line 141, ../scss/modules/_layout.scss */
 .breadcrumb {
   margin: 1em 0;
 }
 
-/* line 119, ../scss/modules/_layout.scss */
+/* line 145, ../scss/modules/_layout.scss */
 .main-content {
   overflow: hidden;
-  padding-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-/* line 128, ../scss/modules/_layout.scss */
-.sidebar {
-  padding-top: 2rem;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 128, ../scss/modules/_layout.scss */
-  .sidebar {
-    float: left;
-    width: 20%;
-    margin-right: 4%;
-  }
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 135, ../scss/modules/_layout.scss */
-  .sidebar + .main-content {
-    float: left;
-    width: 76%;
-  }
-}
-
-/* line 144, ../scss/modules/_layout.scss */
-.body-content {
-  margin-bottom: 1rem;
 }
 @media only screen and (min-width: 48em) {
-  /* line 144, ../scss/modules/_layout.scss */
-  .body-content {
+  /* line 145, ../scss/modules/_layout.scss */
+  .main-content {
+    max-width: 68%;
+    float: left;
+  }
+}
+/* line 151, ../scss/modules/_layout.scss */
+.main-content aside {
+  clear: none;
+  background-color: transparent;
+}
+@media only screen and (min-width: 60em) {
+  /* line 151, ../scss/modules/_layout.scss */
+  .main-content aside {
+    display: block;
+    clear: both;
     max-width: 44rem;
   }
 }
-@media only screen and (min-width: 60em) {
-  /* line 144, ../scss/modules/_layout.scss */
-  .body-content {
+
+/* line 163, ../scss/modules/_layout.scss */
+.body-content {
+  margin-bottom: 2.5rem;
+}
+
+/* line 178, ../scss/modules/_layout.scss */
+.sidebar {
+  background-color: transparent;
+}
+@media only screen and (min-width: 48em) {
+  /* line 178, ../scss/modules/_layout.scss */
+  .sidebar {
     float: left;
-    width: 66%;
+    width: 26%;
+    margin-right: 6%;
+    clear: none;
   }
 }
-@media only screen and (min-width: 100em) {
-  /* line 144, ../scss/modules/_layout.scss */
-  .body-content {
-    max-width: 50rem;
+@media only screen and (min-width: 48em) {
+  /* line 186, ../scss/modules/_layout.scss */
+  .sidebar + .main-content {
+    float: left;
+    width: 68%;
   }
 }
-@media only screen and (min-width: 60em) {
-  /* line 157, ../scss/modules/_layout.scss */
-  .body-content + aside {
+
+@media only screen and (min-width: 48em) {
+  /* line 197, ../scss/modules/_layout.scss */
+  .sidebar.sidebar-second {
     float: right;
-    width: 28%;
+    margin-right: 0;
   }
 }
 
 @media only screen and (min-width: 37.5em) {
-  /* line 166, ../scss/modules/_layout.scss */
+  /* line 222, ../scss/modules/_layout.scss */
   footer .inner-wrap {
     display: flex;
     justify-content: flex-start;
@@ -1064,7 +1095,7 @@ body > footer {
 }
 
 @media only screen and (min-width: 37.5em) {
-  /* line 175, ../scss/modules/_layout.scss */
+  /* line 231, ../scss/modules/_layout.scss */
   .footer-block {
     float: left;
     width: 46%;
@@ -1072,7 +1103,7 @@ body > footer {
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 175, ../scss/modules/_layout.scss */
+  /* line 231, ../scss/modules/_layout.scss */
   .footer-block {
     width: 31%;
   }
@@ -1083,79 +1114,84 @@ body > footer {
  * Description: _typography.scss contains all text styles for makeitso 
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
-/* line 39, ../scss/modules/_typography.scss */
+/* Split up webfont definitions for weights and styles. Be sure to declare
+ * proper fallback fonts for your serif's or non-serifs, and use corresponding
+ * font-weights and styles throughout your styles!
+ */
+/* line 40, ../scss/modules/_typography.scss */
 body {
   font-size: 100%;
   font-family: "Droid Sans", Arial, Sans-serif;
   color: #222;
 }
 
-/* line 45, ../scss/modules/_typography.scss */
+/* line 46, ../scss/modules/_typography.scss */
 h1, h2, h3, h4, h5 {
   margin-top: 0;
   color: #333;
+  margin-bottom: 0.35em;
 }
 
-/* line 50, ../scss/modules/_typography.scss */
+/* line 52, ../scss/modules/_typography.scss */
 h1, .alpha {
   font-size: 2.5rem;
   line-height: 3rem;
 }
 
-/* line 54, ../scss/modules/_typography.scss */
+/* line 56, ../scss/modules/_typography.scss */
 h2, .beta {
   font-size: 2rem;
   line-height: 2.4rem;
 }
 
-/* line 58, ../scss/modules/_typography.scss */
+/* line 60, ../scss/modules/_typography.scss */
 h3, .gamma {
   font-size: 1.5rem;
   line-height: 1.8rem;
 }
 
-/* line 62, ../scss/modules/_typography.scss */
+/* line 64, ../scss/modules/_typography.scss */
 h4, .delta {
   font-size: 1.125rem;
   line-height: 1.35rem;
 }
 
-/* line 66, ../scss/modules/_typography.scss */
+/* line 68, ../scss/modules/_typography.scss */
 h5, .epsilon {
   font-size: 1rem;
   line-height: 1.2rem;
 }
 
-/* line 70, ../scss/modules/_typography.scss */
-p, ul, ol, dt, dd, a, pre, blockquote, table {
+/* line 72, ../scss/modules/_typography.scss */
+p, ul, ol, dt, dd, pre, blockquote, table {
   margin: 0 0 1.5em 0;
   font-size: 1rem;
   line-height: 1.5rem;
 }
 @media only screen and (min-width: 100em) {
-  /* line 70, ../scss/modules/_typography.scss */
-  p, ul, ol, dt, dd, a, pre, blockquote, table {
+  /* line 72, ../scss/modules/_typography.scss */
+  p, ul, ol, dt, dd, pre, blockquote, table {
     font-size: 1.125rem;
     line-height: 1.6875rem;
   }
 }
-/* line 76, ../scss/modules/_typography.scss */
-footer p, footer ul, footer ol, footer dt, footer dd, footer a, footer pre, footer blockquote, footer table {
+/* line 78, ../scss/modules/_typography.scss */
+body > footer p, body > footer ul, body > footer ol, body > footer dt, body > footer dd, body > footer pre, body > footer blockquote, body > footer table {
   color: #fff;
 }
 
-/* line 81, ../scss/modules/_typography.scss */
+/* line 83, ../scss/modules/_typography.scss */
 ul {
   padding: 0 0 0 1rem;
   margin: 0 0 2.5rem;
 }
-/* line 84, ../scss/modules/_typography.scss */
+/* line 86, ../scss/modules/_typography.scss */
 ul li {
   padding: 0;
   margin: 0;
 }
 
-/* line 90, ../scss/modules/_typography.scss */
+/* line 92, ../scss/modules/_typography.scss */
 ol {
   counter-reset: li;
   /* Initiate a counter */
@@ -1164,7 +1200,7 @@ ol {
   padding-left: 0;
   /* Remove the default left padding */
 }
-/* line 94, ../scss/modules/_typography.scss */
+/* line 96, ../scss/modules/_typography.scss */
 ol > li {
   position: relative;
   /* Create a positioning context */
@@ -1173,7 +1209,7 @@ ol > li {
   padding-left: 1.25em;
   margin-bottom: 1em;
 }
-/* line 99, ../scss/modules/_typography.scss */
+/* line 101, ../scss/modules/_typography.scss */
 ol > li:before {
   position: absolute;
   left: 0.2rem;
@@ -1189,34 +1225,34 @@ ol > li:before {
   font-weight: bolder;
 }
 @media only screen and (min-width: 100em) {
-  /* line 99, ../scss/modules/_typography.scss */
+  /* line 101, ../scss/modules/_typography.scss */
   ol > li:before {
     top: 0.135em;
   }
 }
 
-/* line 115, ../scss/modules/_typography.scss */
+/* line 117, ../scss/modules/_typography.scss */
 li ol, li ul {
   margin-top: 0.5em;
 }
 
-/* line 118, ../scss/modules/_typography.scss */
+/* line 120, ../scss/modules/_typography.scss */
 ol ol li:last-child {
   margin-bottom: 0;
 }
 
-/* line 122, ../scss/modules/_typography.scss */
+/* line 124, ../scss/modules/_typography.scss */
 .stripped {
   padding: 0;
   margin: 0 0 2.5rem;
   list-style: none;
 }
-/* line 126, ../scss/modules/_typography.scss */
+/* line 128, ../scss/modules/_typography.scss */
 .stripped li {
   margin: 0 0 2.5rem;
 }
 
-/* line 131, ../scss/modules/_typography.scss */
+/* line 133, ../scss/modules/_typography.scss */
 blockquote {
   font-size: 1.5rem;
   line-height: 1.8rem;
@@ -1232,37 +1268,45 @@ blockquote {
   margin: 2.5rem auto;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 131, ../scss/modules/_typography.scss */
+  /* line 133, ../scss/modules/_typography.scss */
   blockquote {
     max-width: 80%;
     display: block;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 131, ../scss/modules/_typography.scss */
+  /* line 133, ../scss/modules/_typography.scss */
   blockquote {
     max-width: 65%;
   }
 }
-/* line 149, ../scss/modules/_typography.scss */
+/* line 151, ../scss/modules/_typography.scss */
 blockquote p {
   margin: 0;
   font-size: 1.5rem;
   line-height: 2.25rem;
 }
 
-/* line 155, ../scss/modules/_typography.scss */
+/* line 157, ../scss/modules/_typography.scss */
 a, a:link, a:visited {
   color: #4a90e2;
 }
-
 /* line 159, ../scss/modules/_typography.scss */
+body > footer a, body > footer a:link, body > footer a:visited {
+  color: #fff;
+}
+
+/* line 164, ../scss/modules/_typography.scss */
 a:hover, a:active, a:focus {
   text-decoration: none;
   color: #1b5dab;
 }
+/* line 167, ../scss/modules/_typography.scss */
+body > footer a:hover, body > footer a:active, body > footer a:focus {
+  color: #e6e6e6;
+}
 
-/* line 164, ../scss/modules/_typography.scss */
+/* line 172, ../scss/modules/_typography.scss */
 .btn, button {
   background-color: #F7B91C;
   border: 0;
@@ -1272,27 +1316,32 @@ a:hover, a:active, a:focus {
   padding: 0.5rem 0.75rem;
   border-radius: 3px;
 }
-/* line 172, ../scss/modules/_typography.scss */
+/* line 180, ../scss/modules/_typography.scss */
 .btn:link, .btn:visited, button:link, button:visited {
   color: #fff;
   text-decoration: none;
 }
-/* line 176, ../scss/modules/_typography.scss */
+/* line 184, ../scss/modules/_typography.scss */
 .btn:hover, .btn:active, .btn:focus, button:hover, button:active, button:focus {
   background-color: #e2a408;
 }
 
-/* line 183, ../scss/modules/_typography.scss */
+/* line 191, ../scss/modules/_typography.scss */
 .teaser a:link, .teaser a:visited {
   text-decoration: none;
 }
-/* line 185, ../scss/modules/_typography.scss */
+/* line 193, ../scss/modules/_typography.scss */
 .teaser a:link h1, .teaser a:visited h1 {
   text-decoration: underline;
 }
-/* line 190, ../scss/modules/_typography.scss */
+/* line 198, ../scss/modules/_typography.scss */
 .teaser a:hover h1, .teaser a:active h1, .teaser a:focus h1 {
   text-decoration: none;
+}
+
+/* line 205, ../scss/modules/_typography.scss */
+mark {
+  background-color: #F7B91C;
 }
 
 /* line 1, ../scss/modules/_general_elements.scss */
@@ -1339,130 +1388,152 @@ figure > div {
   float: right;
   overflow: hidden;
   margin-bottom: 0;
+  padding: 0 0.625rem;
 }
-/* line 12, ../scss/modules/_navigation.scss */
+/* line 13, ../scss/modules/_navigation.scss */
 .toggleable-menu .toggle-btn-wrap {
   overflow: hidden;
   float: none;
   width: 100%;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 12, ../scss/modules/_navigation.scss */
+  /* line 13, ../scss/modules/_navigation.scss */
   .toggleable-menu .toggle-btn-wrap {
     float: right;
     width: auto;
   }
 }
 
-/* line 23, ../scss/modules/_navigation.scss */
+/* line 24, ../scss/modules/_navigation.scss */
 .toggle-menu {
   float: left;
   display: none;
   margin-right: 1em;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 23, ../scss/modules/_navigation.scss */
+  /* line 24, ../scss/modules/_navigation.scss */
   .toggle-menu {
     display: none;
   }
 }
 
-/* line 32, ../scss/modules/_navigation.scss */
+/* line 33, ../scss/modules/_navigation.scss */
 .toggle-search {
   float: right;
   display: none;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 32, ../scss/modules/_navigation.scss */
+  /* line 33, ../scss/modules/_navigation.scss */
   .toggle-search {
     display: none;
   }
 }
 
-/* line 40, ../scss/modules/_navigation.scss */
+/* line 41, ../scss/modules/_navigation.scss */
 nav {
   padding-bottom: 0.75em;
   background-color: #eee;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 40, ../scss/modules/_navigation.scss */
+  /* line 41, ../scss/modules/_navigation.scss */
   nav {
     padding-bottom: 0;
   }
 }
-/* line 47, ../scss/modules/_navigation.scss */
+/* line 48, ../scss/modules/_navigation.scss */
 nav .menu {
   float: left;
   width: calc(100% - 80px);
   margin: 1rem auto;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 47, ../scss/modules/_navigation.scss */
+  /* line 48, ../scss/modules/_navigation.scss */
   nav .menu {
     margin: 0 auto;
   }
 }
-/* line 56, ../scss/modules/_navigation.scss */
+/* line 57, ../scss/modules/_navigation.scss */
+nav .inner-wrap {
+  padding: 0;
+  position: inherit;
+}
+@media only screen and (min-width: 48em) {
+  /* line 57, ../scss/modules/_navigation.scss */
+  nav .inner-wrap {
+    max-width: 74em;
+    padding: 0 0.625rem;
+    margin: 0 auto;
+  }
+}
+/* line 66, ../scss/modules/_navigation.scss */
 nav ul {
   padding: 0;
   overflow: hidden;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 56, ../scss/modules/_navigation.scss */
+  /* line 66, ../scss/modules/_navigation.scss */
   nav ul {
     margin-bottom: 0;
   }
 }
-/* line 63, ../scss/modules/_navigation.scss */
+/* line 73, ../scss/modules/_navigation.scss */
 nav li {
   list-style: none;
   float: left;
 }
-/* line 66, ../scss/modules/_navigation.scss */
+/* line 76, ../scss/modules/_navigation.scss */
 nav li a {
   padding: 0.5em 0.75em;
   display: block;
   margin: 0;
 }
-/* line 70, ../scss/modules/_navigation.scss */
-nav li a:hover, nav li a:active, nav li a:focus, nav li a.active {
+/* line 80, ../scss/modules/_navigation.scss */
+nav li a:hover, nav li a:active, nav li a:focus {
+  background-color: #e6e6e6;
+}
+/* line 83, ../scss/modules/_navigation.scss */
+nav li a.active {
   background-color: #fff;
 }
-/* line 75, ../scss/modules/_navigation.scss */
+@media only screen and (min-width: 37.5em) {
+  /* line 76, ../scss/modules/_navigation.scss */
+  nav li a {
+    padding: 0.5rem 1.125rem;
+    margin-left: 2px;
+  }
+}
+/* line 92, ../scss/modules/_navigation.scss */
 .toggleable-menu nav {
   float: left;
   width: 100%;
 }
-/* line 78, ../scss/modules/_navigation.scss */
+/* line 95, ../scss/modules/_navigation.scss */
 .toggleable-menu nav .menu {
   float: left;
   width: 100%;
 }
-/* line 90, ../scss/modules/_navigation.scss */
+/* line 107, ../scss/modules/_navigation.scss */
 .toggleable-menu nav li {
   float: none;
 }
-/* line 92, ../scss/modules/_navigation.scss */
-.toggleable-menu nav li a {
-  padding: 0.5em 0;
-}
 @media only screen and (min-width: 37.5em) {
-  /* line 97, ../scss/modules/_navigation.scss */
+  /* line 111, ../scss/modules/_navigation.scss */
   .toggleable-menu nav li {
     float: left;
   }
-  /* line 99, ../scss/modules/_navigation.scss */
-  .toggleable-menu nav li a {
-    padding: 0.5em 0.75em;
-  }
 }
 
-/* line 107, ../scss/modules/_navigation.scss */
+/* line 118, ../scss/modules/_navigation.scss */
 .menu {
   margin-bottom: 0;
+  padding-left: 0;
+}
+/* line 121, ../scss/modules/_navigation.scss */
+.menu li {
+  list-style: none;
 }
 
-/* line 111, ../scss/modules/_navigation.scss */
+/* line 126, ../scss/modules/_navigation.scss */
 .secondary-menu, .meta-menu {
   overflow: hidden;
   position: absolute;
@@ -1470,13 +1541,13 @@ nav li a:hover, nav li a:active, nav li a:focus, nav li a.active {
   left: 0;
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 111, ../scss/modules/_navigation.scss */
+  /* line 126, ../scss/modules/_navigation.scss */
   .secondary-menu, .meta-menu {
     float: right;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 111, ../scss/modules/_navigation.scss */
+  /* line 126, ../scss/modules/_navigation.scss */
   .secondary-menu, .meta-menu {
     position: absolute;
     bottom: 0;
@@ -1485,12 +1556,12 @@ nav li a:hover, nav li a:active, nav li a:focus, nav li a.active {
     top: auto;
   }
 }
-/* line 126, ../scss/modules/_navigation.scss */
+/* line 141, ../scss/modules/_navigation.scss */
 .secondary-menu li, .meta-menu li {
   list-style: none;
   float: left;
 }
-/* line 129, ../scss/modules/_navigation.scss */
+/* line 144, ../scss/modules/_navigation.scss */
 .secondary-menu li a, .meta-menu li a {
   padding: 0.5em;
   display: block;
@@ -1535,39 +1606,36 @@ label {
 
 /* line 32, ../scss/modules/_forms.scss */
 input {
+  box-sizing: border-box;
   border: 1px solid #999;
-  padding: 0.25rem 0.5rem;
+  padding: 0.35rem 0.5rem;
   font-size: 1rem;
   line-height: 1.5rem;
   margin-bottom: 1.75rem;
   width: 100%;
   border-radius: 3px;
 }
-/* line 39, ../scss/modules/_forms.scss */
+/* line 40, ../scss/modules/_forms.scss */
 input:focus {
   border-color: #222;
 }
-/* line 42, ../scss/modules/_forms.scss */
+/* line 43, ../scss/modules/_forms.scss */
 input.error {
   background-color: white;
 }
-/* line 44, ../scss/modules/_forms.scss */
+/* line 45, ../scss/modules/_forms.scss */
 input.error:focus {
   background-color: #fff;
 }
-/* line 48, ../scss/modules/_forms.scss */
+/* line 49, ../scss/modules/_forms.scss */
 input[type="submit"] {
   display: block;
   clear: both;
   width: auto;
   font-weight: bold;
-  padding: 0.25rem 1rem;
   color: #222;
-  border: 0;
-  font-size: 0.9375rem;
-  line-height: 1.40625rem;
 }
-/* line 61, ../scss/modules/_forms.scss */
+/* line 56, ../scss/modules/_forms.scss */
 input[type="radio"] {
   width: auto;
   margin-right: 0.5rem;
@@ -1575,60 +1643,57 @@ input[type="radio"] {
   margin-bottom: 0;
   margin-bottom: 0;
 }
-/* line 67, ../scss/modules/_forms.scss */
+/* line 62, ../scss/modules/_forms.scss */
 input[type="radio"] + label {
   display: inline-block;
 }
 
 /**
  * File:        _search.scss
- * Description: _search.scss contains all search styles for makeitso 
+ * Description: _search.scss contains all search block styles for makeitso. The
+ *              search block is at the top right of the default page templates
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
-/* line 8, ../scss/modules/_search.scss */
-.search {
+/* line 9, ../scss/modules/_search.scss */
+.search-block {
   margin: 2rem 0 0;
   overflow: hidden;
   display: block;
+  padding: 0 0.625rem;
 }
 @media only screen and (min-width: 30.0625em) {
-  /* line 8, ../scss/modules/_search.scss */
-  .search {
+  /* line 9, ../scss/modules/_search.scss */
+  .search-block {
     float: right;
   }
 }
 @media only screen and (min-width: 37.5em) {
-  /* line 8, ../scss/modules/_search.scss */
-  .search {
-    position: absolute;
-    right: 0.625rem;
-    top: -6rem;
-    margin-top: 1.2rem;
-    max-width: 250px;
+  /* line 9, ../scss/modules/_search.scss */
+  .search-block {
+    max-width: 220px;
+    margin-top: 0;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 8, ../scss/modules/_search.scss */
-  .search {
+  /* line 9, ../scss/modules/_search.scss */
+  .search-block {
     max-width: 320px;
   }
 }
 @media only screen and (min-width: 60em) {
-  /* line 8, ../scss/modules/_search.scss */
-  .search {
+  /* line 9, ../scss/modules/_search.scss */
+  .search-block {
     max-width: none;
     width: 27%;
-    right: 1.125rem;
   }
 }
-/* line 31, ../scss/modules/_search.scss */
-.search label {
+/* line 28, ../scss/modules/_search.scss */
+.search-block label {
   display: none;
   clear: both;
 }
-/* line 35, ../scss/modules/_search.scss */
-.search [type="submit"] {
-  padding: 0 0.75em;
+/* line 32, ../scss/modules/_search.scss */
+.search-block [type="submit"] {
   border-left: 0;
   width: 90px;
   clear: none;
@@ -1636,21 +1701,51 @@ input[type="radio"] + label {
   color: #fff;
   border-radius: 0 3px 3px 0;
 }
-/* line 43, ../scss/modules/_search.scss */
-.search [type="submit"]:hover, .search [type="submit"]:active, .search [type="submit"]:focus {
+/* line 39, ../scss/modules/_search.scss */
+.search-block [type="submit"]:hover, .search-block [type="submit"]:active, .search-block [type="submit"]:focus {
   background-color: #222;
 }
-/* line 47, ../scss/modules/_search.scss */
-.search [type="text"], .search [type="search"] {
+/* line 43, ../scss/modules/_search.scss */
+.search-block [type="text"], .search-block [type="search"] {
   width: calc(100% - 90px);
   border-radius: 3px 0 0 3px;
+  box-sizing: border-box;
 }
-/* line 51, ../scss/modules/_search.scss */
-.search input, .search button {
+/* line 48, ../scss/modules/_search.scss */
+.search-block input, .search-block button {
   float: left;
   width: calc(100% - 71px);
   padding-left: 0.35em;
-  height: 35px;
+}
+
+/* line 2, ../scss/modules/_theme.scss */
+body > header {
+  background-color: #eee;
+}
+@media only screen and (min-width: 37.5em) {
+  /* line 2, ../scss/modules/_theme.scss */
+  body > header {
+    background-color: transparent;
+  }
+}
+/* line 8, ../scss/modules/_theme.scss */
+body > footer {
+  background-color: #666;
+}
+
+/* line 15, ../scss/modules/_theme.scss */
+.teaser a:link, .teaser a:visited {
+  text-decoration: none;
+}
+/* line 18, ../scss/modules/_theme.scss */
+.teaser a:hover, .teaser a:active, .teaser a:focus {
+  text-decoration: underline;
+}
+
+/* line 24, ../scss/modules/_theme.scss */
+ul.footer-block {
+  list-style: none;
+  padding: 0;
 }
 
 /* line 2, ../scss/modules/_cycle2.scss */

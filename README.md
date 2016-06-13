@@ -1,9 +1,7 @@
-#makeitso, for Bolt
+makeitso
 ========
 
-Make it so - Bolt Theme
-
-WORK IN PROGRESS, DO NOT USE 
+Make it so - Static front-end 
 
 ---
  

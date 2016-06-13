@@ -9,6 +9,7 @@
     float:right;
     overflow: hidden;
     margin-bottom: 0;
+    padding: 0 0.625rem;
     .toggleable-menu & {
         overflow:hidden;
         float:none;
@@ -53,6 +54,15 @@ nav {
             margin: 0 auto;
         }
     }
+    .inner-wrap {
+        padding: 0;
+        position: inherit;
+        @include respond-to(large-screens) {
+            max-width: $site-max-width;
+            padding: 0 0.625rem;
+            margin:0 auto;
+        }
+    }
     ul {
         padding:0;
         overflow:hidden;
@@ -64,13 +74,20 @@ nav {
         list-style: none;
         float: left;
         a {
-            padding:0.5em 0.75em; 
+            padding: 0.5em 0.75em; 
             display:block;
             margin:0;
-            &:hover, &:active, &:focus, &.active {
+            &:hover, &:active, &:focus {
+                background-color: darken($white, 10%);
+            }
+            &.active {
                 background-color: $white;
             }
-        }    
+            @include respond-to(medium-screens) {
+                padding: 0.5rem 1.125rem;
+                margin-left: 2px;
+            }
+        }
     }
     .toggleable-menu & {
         float:left;
@@ -89,16 +106,10 @@ nav {
         }
         li {
             float:none;  
-            a {
-                padding:0.5em 0;
-            }
         }
         @include respond-to(medium-screens) {
             li {
                 float:left;
-                a {
-                    padding:0.5em 0.75em;
-                }
             }
         }
     }
@@ -106,6 +117,10 @@ nav {
 
 .menu {
     margin-bottom: 0;
+    padding-left: 0;
+    li {
+        list-style : none;
+    }
 }
 
 .secondary-menu, .meta-menu {
