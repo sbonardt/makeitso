@@ -1,0 +1,110 @@
+/**
+ * File:        _base.scss
+ * Description: This base file contains all project VARIABLES, MIXINS and EXTENDS 
+ * Author:      Sebastiaan Bonardt - @_sebbon
+ */
+
+// WEBSITE SETTINGS. Change these as desired:
+$baseFontFamily: "Droid Sans", Arial, Sans-serif;
+$baseHeaderFontFamily: "Droid Sans", Arial, Sans-serif; //check your typography.scss for webfonts
+$baseBottomMargin: 2.5rem;
+
+// Theme colors
+$baseFontColour:#222;
+$baseFontHeaderColour:#333;
+$baseLinkColour:#4a90e2;
+$baseFirstThemeColour:#ccc; //this colour is "Colour name 'e.g. Pink'" the main theme colour used in
+$baseSecondThemeColour:#eee; //this colour is the secondary theme colour used in
+
+// Generic helper colours
+$errorColour: #e32118;
+$succesColour: #5CC65C;
+$informationColour: #A4CAF6;
+$noticeColour: #fffbde; 
+$black: #222;
+$darkGrey: #666;
+$grey: #999;
+$lightGrey: #eee;
+$white: #fff;
+$red: #f00;
+$highlightColour: $baseLinkColour;
+
+// Media Query Breakpoints
+$break-midmobile: 400; //400px = 25rem
+$break-small: 481; //481px
+$break-medium: 600; //600px
+$break-large: 768; //700px custom break at 700 for the tabs between generic iupad break and 600
+$break-xlarge: 960; //1024px
+$break-wide: 1280; //1200px
+$break-xwide: 1400; //1400px
+$break-xxwide: 1600; //1600px
+$break-r-u-insane: 1840; //1840px
+
+$site-max-width:64rem; // insert your sane value here
+
+
+@mixin respond-to($media) {
+    @if $media == midmobile {
+        @media only screen and (min-width: ($break-midmobile / 16) + 'em') { 
+           @content;
+        }
+    } 
+    @if $media == small-screens {
+        @media only screen and (min-width: ($break-small / 16) + 'em') { 
+           @content;  
+        }
+    } 
+    @if $media == medium-screens {
+        @media only screen and (min-width: ($break-medium / 16) + 'em') { 
+           @content;
+        }
+    } 
+    @if $media == large-screens {
+        @media only screen and (min-width: ($break-large / 16) + 'em') { 
+           @content;
+        }
+    }
+    @if $media == up-to-large-screens {
+        @media only screen and (max-width: (($break-large - 1) / 16) + 'em') { 
+           @content;
+        }
+    }  
+    @if $media == xlarge-screens {
+        @media only screen and (min-width: ($break-xlarge / 16) + 'em') { 
+           @content;
+        }  
+    }  
+    @if $media == wide-screens {
+        @media only screen and (min-width: ($break-wide / 16) + 'em') { 
+           @content;
+        }
+    }
+    @if $media == xwide-screens {
+        @media only screen and (min-width: ($break-xwide / 16) + 'em') { 
+           @content;
+        } 
+    }
+    @if $media == xxwide-screens {
+        @media only screen and (min-width: ($break-xxwide / 16) + 'em') { 
+           @content;
+        }
+    }
+    @if $media == r-u-insane {
+        @media only screen and (min-width: ($break-r-u-insane / 16) + 'em') { 
+           @content;
+        }
+    }
+}
+
+// Mixin: REM to Px
+@function remToPx($number) {
+    @return #{$number}rem;
+}
+
+%clearfix, %group {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

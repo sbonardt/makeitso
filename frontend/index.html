@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <title>MakeItSo - Article page</title>
+    <title>MakeItSo - about Make It So</title>
     <meta charset="utf-8" />
     <meta http_equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0" />
@@ -9,26 +9,20 @@
     <!-- For IE 9 and below. ICO should be 32x32 pixels in size -->
     <!--[if IE]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
     <!-- Touch Icons - iOS and Android 2.1+ 180x180 pixels in size. --> 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
-    <link rel="icon" href="favicon.png">
-    <link type="text/css" rel="stylesheet" href="css/screen.css" media="all" />
-    <!--[if lt IE 9]>
-    <link type="text/css" rel="stylesheet" href="css/old_ie.css" media="all" />
-    <script type="text/javascript" src="js/html5shiv.js"></script>
-    <![endif]-->
+    <link rel="icon" href="../favicon.png">
+    <link type="text/css" rel="stylesheet" href="../css/screen.css" media="all" />
 </head>
 
-<body>
+<body class="home overview">
     <header role="banner">
         <div class="inner-wrap">
-        <a class="skipcontent" href="#content">Ga naar de inhoud</a>
-            <h1 class="logo">
-                <a href="index.html">
-                    <img src="img/mob-logo.png" alt="" data-src="img/logo.png" data-src-mobile="img/mob-logo.png" />
-                    <span>Make it so</span>
-                </a>
-            </h1>
+            <a class="skipcontent" href="#content">Ga naar de inhoud</a>
+            <a href="index.html" class="logo">
+                <img src="../img/mob-logo.png" alt="" data-src="../img/logo.png" data-src-mobile="../img/mob-logo.png" />
+                <span>Make it so</span>
+            </a>
         </div>
     </header>
 
@@ -40,18 +34,18 @@
             </div>
             <ul class="menu">                
                 <li class="first active">
-                    <a href="index.html">Home</a>
+                    <a href="index.html" class="active">Home</a>
                 </li>
                 <li>
-                    <a href="article.html" class="active">Article page</a>
-                </li>            
+                    <a href="article.html">Article page</a>
+                </li>
                 <li>
                     <a href="listing.html">Listing page</a>
-                </li>     
+                </li>         
             </ul>
             <form action="/" method="post" accept-charset="UTF-8" class="search-block">
                 <label for="search_field">Search</label>
-                <input title="Enter the terms you wish to search for" type="text" name="search_field" value="" class="search_field" />
+                <input title="Enter the terms you wish to search for" type="search" name="search_field" value="" class="search_field" />
                 <input type="submit" value="search" />
             </form>
         </div>             
@@ -59,21 +53,14 @@
 
     <main role="main">
         <div class="inner-wrap">
-            <!-- <aside class="sidebar sidebar-first">
-                <h1 class="gamma">Sub navigation</h1>
-                <ul class="menu menu_sub-menu">
-                    <li><a href="#">Lorem ipsum</a></li>
-                    <li><a href="#">Dolor sit amet</a></li>
-                    <li><a href="#">Consectetuer adipliscing</a></li>
-                    <li><a href="#">Duo Reges</a></li>
-                    <li><a href="#">Construccio Interrete</a></li>
-                </ul>
-            </aside> -->
-            <article class="main-content">
+            <section class="main-content">
                 <a id="content" tabindex="0"></a>
-                <h1>Article page</h1>     
+                <h1>Make it so</h1>     
                 <div class="body-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <b>Sic enim censent, oportunitatis esse beate vivere.</b> Quid igitur dubitamus in tota eius natura quaerere quid sit effectum? Et quod est munus, quod opus sapientiae? <a href='http://loripsum.net/' target='_blank'>In schola desinis.</a> Quamquam te quidem video minime esse deterritum. Quid est igitur, cur ita semper deum appellet Epicurus beatum et aeternum? Duo Reges: constructio interrete. <a href='http://loripsum.net/' target='_blank'>Torquatus, is qui consul cum Cn.</a> <i>Quae diligentissime contra Aristonem dicuntur a Chryippo.</i> </p>
+                    <p><strong><i>Make it so</i></strong> is a bare startup theme with the minimum of styling. It is set up with the assumption a modern day website is centered and full width. It is however very easy to remove the full width aspect and make a max-width centered layout. <strong><i>Make it so</i></strong> is <i>responsive</i> and built mobile first. Any changes and additions you make should be added in a mobile first workflow. Default (mobile) styling is done outside of media queries concerning viewport width. As the viewport widens with every larger sized medium, styles get added and overwritten.  
+                    <h2>Why you don't need a HTML framework</h2>
+                    <p>You don't need Foundation or Bootstrap to built a sleek and efficient front-end, nor should you need <strong><i>Make it so</i></strong> for that matter. For protoyping a framework like Foundation can be handy. However, <strong><i>Make it so</i></strong> strives to not give you unneeded and excessive markup and/or stylesheet files and can be used . <br>Normalize.css is used as default to align browsers rendering appearrance and positioning behaviour. The rest is bare bones... <br>Need a grid in place at a certain break-point? Just declare (wrapper) widths in percentages and be done with it. Not 'col-6' or 'spacer-3' classes schmasses... Use your head, use ye'olde CSS and good accessible HTML!
+                    </p>
 
                     <blockquote cite='http://loripsum.net'>
                     <p>
@@ -81,7 +68,7 @@
                     </p>
                     </blockquote>
 
-                    <h2>Nihil acciderat ei, quod nollet, nisi quod anulum, quo delectabatur, in mari abiecerat.</h2>
+                    <h2>Nihil acciderat ei, quod nollet</h2>
 
                     <p>Quae hic rei publicae vulnera inponebat, eadem ille sanabat. <a href='http://loripsum.net/'>Qui est in parvis malis.</a> Illum mallem levares, quo optimum atque humanissimum virum, Cn. Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem; Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate sapientis. Sed ad illum redeo. </p>
 
@@ -105,22 +92,14 @@
                     <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re; <a href='http://loripsum.net/'>Hoc simile tandem est?</a> Ea, quae dialectici nunc tradunt et docent, nonne ab illis instituta sunt aut inventa sunt? Sed quot homines, tot sententiae; Scio enim esse quosdam, qui quavis lingua philosophari possint; <a href='http://loripsum.net/'>ALIO MODO.</a> Ergo, inquit, tibi Q.
                     </p>
                     <a href="#" class="btn">Link button style</a>
-                </div> 
-                <aside>
-                    <h1>Article aside</h1>
-                    <p>Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re. Ea, quae dialectici nunc tradunt et docent, nonne ab illis instituta sunt aut inventa sunt? Sed quot homines, tot sententiae; Scio enim esse quosdam, qui quavis lingua philosophari possint; <a href='http://loripsum.net/'>ALIO MODO.</a> Ergo, inquit, tibi Q.
-                </p>
-                </aside> 
-            </article>
+                </div>
+            </section>
             <aside class="sidebar sidebar-second">
-                <h1 class="gamma">Sub navigation</h1>
-                <ul class="menu menu_sub-menu">
-                    <li><a href="#">Lorem ipsum</a></li>
-                    <li><a href="#">Dolor sit amet</a></li>
-                    <li><a href="#">Consectetuer adipliscing</a></li>
-                    <li><a href="#">Duo Reges</a></li>
-                    <li><a href="#">Construccio Interrete</a></li>
-                </ul>
+                <div class="contentblock">    
+                    <h2>Content block</h2>                    
+                    <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re; <a href='http://loripsum.net/'>Hoc simile tandem est?</a> Ea, quae dialectici nunc tradunt et docent, nonne ab illis instituta sunt aut inventa sunt? Sed quot homines, tot sententiae; Scio enim esse quosdam, qui quavis lingua philosophari possint; <a href='http://loripsum.net/'>ALIO MODO.</a> Ergo, inquit, tibi Q.
+                    </p>
+                </div>
             </aside>
         </div>
         <aside>
@@ -140,17 +119,19 @@
 
     <footer>
         <div class="inner-wrap">
-            <ul class="footer-block">
-                <li>
-                    <a href="#">Lorem ipsum</a>    
-                </li>
-                <li>
-                    <a href="#">Dolot sit amet</a>    
-                </li>
-                <li>
-                    <a href="#">Consectetuer adipliscing</a>    
-                </li>
-            </ul>
+            <div class="footer-block">
+                <ul class="stripped menu">
+                    <li>
+                        <a href="#">Lorem ipsum</a>    
+                    </li>
+                    <li>
+                        <a href="#">Dolot sit amet</a>    
+                    </li>
+                    <li>
+                        <a href="#">Consectetuer adipliscing</a>    
+                    </li>
+                </ul>
+            </div>
 
             <div class="footer-block">
                 <p>Lorem ipsum dolor sit amet consectetuer adipliscing elit</p>
@@ -158,10 +139,10 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/vendor/modernizr.custom.40091.js"></script>
-    <script type="text/javascript" src="js/vendor/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript" src="js/vendor/viewportSize-min.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script> 
+    <script type="text/javascript" src="../js/lib/modernizr.custom.40091.js"></script>
+    <script type="text/javascript" src="../js/lib/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../js/lib/viewportSize-min.js"></script>
+    <script type="text/javascript" src="../js/custom.js"></script> 
 
 </body>
 </html>

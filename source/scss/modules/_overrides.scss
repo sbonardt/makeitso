@@ -74,7 +74,7 @@ ul.tabs li a:hover {
 .messages {
   .msg {
     margin-top:0;
-    @include font-size(0.875);
+    font-size: 0.875rem;
   }
 }
 

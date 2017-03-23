@@ -5,483 +5,417 @@
  */
 /**
  * File:        _base.scss
- * Description: This base file contains all project VARIABLES and (custom) mixins 
+ * Description: This base file contains all project VARIABLES, MIXINS and EXTENDS 
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
-/**
-* WEBSITE SETTINGS. Change these as desired:
-*/
-/* Theme colors */
-/* Generic helper colours */
-/* Media Query Breakpoints */
-/* 
- * Mixin: Breakpoints handling RWD including Old-IE (lte IE98)
-*/
-/* 
- * Mixin: Old IE. Only print this for Old-ie stylesheet
-*/
-/* 
- * Mixin: Font size rem and px mixin
-*/
-/* 
- * Mixin: Header font size rem and px mixin
-*/
-/*
- * Mixin: REM to Px
-*/
-/* 
- * Mixin: Linear gradient 
-*/
-/* Mixin: Background retina image
- * set one background image for both retina, normal and IE screens without issues.
- * use as: @include background-image(spritename, 0  0, 500px 1500px);
- * save images sprite twice the size, set the $size to half e.g. sprite img dimensions: 1000 x 1000, size 500 x 500
- * for retina able browsers background-size values are added
-*/
-/* line 201, ../scss/base/_base.scss */
 .inner-wrap:after, .main-wrap:after {
   content: "";
   display: table;
-  clear: both;
-}
+  clear: both; }
 
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
- * 1. Set default font family to sans-serif.
- * 2. Prevent iOS text size adjust after orientation change, without disabling
- *    user zoom.
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
  */
-/* line 9, ../scss/base/_normalize.scss */
+/* Document
+   ========================================================================== */
 html {
   font-family: sans-serif;
   /* 1 */
+  line-height: 1.15;
+  /* 2 */
   -ms-text-size-adjust: 100%;
-  /* 2 */
+  /* 3 */
   -webkit-text-size-adjust: 100%;
-  /* 2 */
-}
+  /* 3 */ }
 
-/**
- * Remove default margin.
- */
-/* line 19, ../scss/base/_normalize.scss */
-body {
-  margin: 0;
-}
-
-/* HTML5 display definitions
+/* Sections
    ========================================================================== */
 /**
- * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11
- * and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
+ * Remove the margin in all browsers (opinionated).
  */
-/* line 33, ../scss/base/_normalize.scss */
+body {
+  margin: 0; }
+
+/**
+ * Add the correct display in IE 9-.
+ */
 article,
 aside,
-details,
-figcaption,
-figure,
 footer,
 header,
-hgroup,
-main,
-menu,
 nav,
-section,
-summary {
-  display: block;
-}
+section {
+  display: block; }
 
 /**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
  */
-/* line 54, ../scss/base/_normalize.scss */
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  /* 1 */
-  vertical-align: baseline;
-  /* 2 */
-}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
 
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-/* line 67, ../scss/base/_normalize.scss */
-audio:not([controls]) {
-  display: none;
-  height: 0;
-}
-
-/**
- * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
- */
-/* line 77, ../scss/base/_normalize.scss */
-[hidden],
-template {
-  display: none;
-}
-
-/* Links
+/* Grouping content
    ========================================================================== */
 /**
- * Remove the gray background color from active links in IE 10.
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
  */
-/* line 89, ../scss/base/_normalize.scss */
-a {
-  background-color: transparent;
-}
+figcaption,
+figure,
+main {
+  /* 1 */
+  display: block; }
 
 /**
- * Improve readability when focused and also mouse hovered in all browsers.
+ * Add the correct margin in IE 8.
  */
-/* line 97, ../scss/base/_normalize.scss */
-a:active,
-a:hover {
-  outline: 0;
-}
+figure {
+  margin: 1em 40px; }
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
 
 /* Text-level semantics
    ========================================================================== */
 /**
- * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
  */
-/* line 109, ../scss/base/_normalize.scss */
-abbr[title] {
-  border-bottom: 1px dotted;
-}
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */ }
 
 /**
- * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
  */
-/* line 117, ../scss/base/_normalize.scss */
+a:active,
+a:hover {
+  outline-width: 0; }
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
 b,
 strong {
-  font-weight: bold;
-}
+  font-weight: inherit; }
 
 /**
- * Address styling not present in Safari and Chrome.
+ * Add the correct font weight in Chrome, Edge, and Safari.
  */
-/* line 126, ../scss/base/_normalize.scss */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
 dfn {
-  font-style: italic;
-}
+  font-style: italic; }
 
 /**
- * Address variable `h1` font-size and margin within `section` and `article`
- * contexts in Firefox 4+, Safari, and Chrome.
+ * Add the correct background and color in IE 9-.
  */
-/* line 135, ../scss/base/_normalize.scss */
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-
-/**
- * Address styling not present in IE 8/9.
- */
-/* line 144, ../scss/base/_normalize.scss */
 mark {
-  background: #ff0;
-  color: #000;
-}
+  background-color: #ff0;
+  color: #000; }
 
 /**
- * Address inconsistent and variable font size in all browsers.
+ * Add the correct font size in all browsers.
  */
-/* line 153, ../scss/base/_normalize.scss */
 small {
-  font-size: 80%;
-}
+  font-size: 80%; }
 
 /**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
  */
-/* line 161, ../scss/base/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
 
-/* line 169, ../scss/base/_normalize.scss */
-sup {
-  top: -0.5em;
-}
-
-/* line 173, ../scss/base/_normalize.scss */
 sub {
-  bottom: -0.25em;
-}
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
 
 /* Embedded content
    ========================================================================== */
 /**
- * Remove border when inside `a` element in IE 8/9/10.
+ * Add the correct display in IE 9-.
  */
-/* line 184, ../scss/base/_normalize.scss */
+audio,
+video {
+  display: inline-block; }
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
 img {
-  border: 0;
-}
+  border-style: none; }
 
 /**
- * Correct overflow not hidden in IE 9/10/11.
+ * Hide the overflow in IE.
  */
-/* line 192, ../scss/base/_normalize.scss */
 svg:not(:root) {
-  overflow: hidden;
-}
-
-/* Grouping content
-   ========================================================================== */
-/**
- * Address margin not present in IE 8/9 and Safari.
- */
-/* line 203, ../scss/base/_normalize.scss */
-figure {
-  margin: 1em 40px;
-}
-
-/**
- * Address differences between Firefox and other browsers.
- */
-/* line 211, ../scss/base/_normalize.scss */
-hr {
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  height: 0;
-}
-
-/**
- * Contain overflow in all browsers.
- */
-/* line 221, ../scss/base/_normalize.scss */
-pre {
-  overflow: auto;
-}
-
-/**
- * Address odd `em`-unit font size rendering in all browsers.
- */
-/* line 229, ../scss/base/_normalize.scss */
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
+  overflow: hidden; }
 
 /* Forms
    ========================================================================== */
 /**
- * Known limitation: by default, Chrome and Safari on OS X allow very limited
- * styling of `select`, unless a `border` property is set.
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
  */
-/**
- * 1. Correct color not being inherited.
- *    Known issue: affects color of disabled elements.
- * 2. Correct font properties not being inherited.
- * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
- */
-/* line 252, ../scss/base/_normalize.scss */
 button,
 input,
 optgroup,
 select,
 textarea {
-  color: inherit;
+  font-family: sans-serif;
   /* 1 */
-  font: inherit;
-  /* 2 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
   margin: 0;
-  /* 3 */
-}
+  /* 2 */ }
 
 /**
- * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
  */
-/* line 266, ../scss/base/_normalize.scss */
-button {
-  overflow: visible;
-}
+button,
+input {
+  /* 1 */
+  overflow: visible; }
 
 /**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
- * Correct `select` style inheritance in Firefox.
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
  */
-/* line 277, ../scss/base/_normalize.scss */
 button,
 select {
-  text-transform: none;
-}
+  /* 1 */
+  text-transform: none; }
 
 /**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
- *    `input` and others.
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
  */
-/* line 290, ../scss/base/_normalize.scss */
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html [type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
-  /* 2 */
-  cursor: pointer;
-  /* 3 */
-}
+  /* 2 */ }
 
 /**
- * Re-set default cursor for disabled elements.
+ * Remove the inner border and padding in Firefox.
  */
-/* line 302, ../scss/base/_normalize.scss */
-button[disabled],
-html input[disabled] {
-  cursor: default;
-}
-
-/**
- * Remove inner padding and border in Firefox 4+.
- */
-/* line 311, ../scss/base/_normalize.scss */
 button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
 
 /**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
- * the UA stylesheet.
+ * Restore the focus styles unset by the previous rule.
  */
-/* line 322, ../scss/base/_normalize.scss */
-input {
-  line-height: normal;
-}
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
 
 /**
- * It's recommended that you don't attempt to style these elements.
- * Firefox's implementation doesn't respect box-sizing, padding, or width.
- *
- * 1. Address box sizing set to `content-box` in IE 8/9/10.
- * 2. Remove excess padding in IE 8/9/10.
+ * Change the border, margin, and padding in all browsers (opinionated).
  */
-/* line 334, ../scss/base/_normalize.scss */
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  /* 1 */
-  padding: 0;
-  /* 2 */
-}
-
-/**
- * Fix the cursor style for Chrome's increment/decrement buttons. For certain
- * `font-size` values of the `input`, it causes the cursor style of the
- * decrement button to change from `default` to `text`.
- */
-/* line 346, ../scss/base/_normalize.scss */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-/**
- * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
- *    (include `-moz` to future-proof).
- */
-/* line 357, ../scss/base/_normalize.scss */
-input[type="search"] {
-  -webkit-appearance: textfield;
-  /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  /* 2 */
-  box-sizing: content-box;
-}
-
-/**
- * Remove inner padding and search cancel button in Safari and Chrome on OS X.
- * Safari (but not Chrome) clips the cancel button when the search input has
- * padding (and `textfield` appearance).
- */
-/* line 370, ../scss/base/_normalize.scss */
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-/**
- * Define consistent border, margin, and padding.
- */
-/* line 379, ../scss/base/_normalize.scss */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
+  padding: 0.35em 0.625em 0.75em; }
 
 /**
- * 1. Correct `color` not being inherited in IE 8/9/10/11.
- * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
  */
-/* line 390, ../scss/base/_normalize.scss */
 legend {
-  border: 0;
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
   /* 1 */
   padding: 0;
-  /* 2 */
-}
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
 
 /**
- * Remove default vertical scrollbar in IE 8/9/10/11.
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
-/* line 399, ../scss/base/_normalize.scss */
+progress {
+  display: inline-block;
+  /* 1 */
+  vertical-align: baseline;
+  /* 2 */ }
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
 textarea {
-  overflow: auto;
-}
+  overflow: auto; }
 
 /**
- * Don't inherit the `font-weight` (applied by a rule above).
- * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
  */
-/* line 408, ../scss/base/_normalize.scss */
-optgroup {
-  font-weight: bold;
-}
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
 
-/* Tables
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+details,
+menu {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/* Scripting
    ========================================================================== */
 /**
- * Remove most spacing between table cells.
+ * Add the correct display in IE 9-.
  */
-/* line 419, ../scss/base/_normalize.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+canvas {
+  display: inline-block; }
 
-/* line 424, ../scss/base/_normalize.scss */
-td,
-th {
-  padding: 0;
-}
+/**
+ * Add the correct display in IE.
+ */
+template {
+  display: none; }
+
+/* Hidden
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10-.
+ */
+[hidden] {
+  display: none; }
 
 /**
  * File:        _overrides.scss
@@ -489,22 +423,18 @@ th {
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
 /**
-* General OS overrides
-*/
-/* line 12, ../scss/modules/_overrides.scss */
+ * General OS overrides
+ */
 input[type="search"], input[type="text"] {
   -webkit-appearance: none;
-  border-radius: 0;
-}
+  border-radius: 0; }
 
 /**
-* Drupal overrides
-*/
+ * Drupal overrides
+ */
 /* Drupal additions and overrides */
-/* line 22, ../scss/modules/_overrides.scss */
 .field-collection-container {
-  border: 0;
-}
+  border: 0; }
 
 /* Drupal system.menu.css */
 /**
@@ -514,7 +444,6 @@ input[type="search"], input[type="text"] {
 /**
  * Markup generated by theme_menu_local_tasks().
  */
-/* line 34, ../scss/modules/_overrides.scss */
 ul.tabs {
   overflow: hidden;
   border-bottom: 1px solid #bbb;
@@ -525,16 +454,12 @@ ul.tabs {
   margin: 5px;
   padding: 0 0 0 1em;
   /* LTR */
-  white-space: nowrap;
-}
+  white-space: nowrap; }
 
-/* line 45, ../scss/modules/_overrides.scss */
 ul.tabs li {
   display: inline;
-  float: left;
-}
+  float: left; }
 
-/* line 49, ../scss/modules/_overrides.scss */
 ul.tabs li a {
   background-color: #eee;
   border-color: #bbb;
@@ -544,34 +469,24 @@ ul.tabs li a {
   margin-right: 0.5em;
   /* LTR */
   padding: 0 1em;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
-/* line 59, ../scss/modules/_overrides.scss */
 ul.tabs li.active a {
   background-color: #fff;
   border: 1px solid #bbb;
-  border-bottom: 1px solid #fff;
-}
+  border-bottom: 1px solid #fff; }
 
-/* line 64, ../scss/modules/_overrides.scss */
 ul.tabs li a:hover {
   background-color: #efefef;
   border-color: #ccc;
-  border-bottom-color: #efefef;
-}
+  border-bottom-color: #efefef; }
 
-/* line 70, ../scss/modules/_overrides.scss */
 .front .block {
-  margin-bottom: 30px;
-}
+  margin-bottom: 30px; }
 
-/* line 75, ../scss/modules/_overrides.scss */
 .messages .msg {
   margin-top: 0;
-  font-size: 0.875rem;
-  line-height: 1.3125rem;
-}
+  font-size: 0.875rem; }
 
 /**
 * from system.css
@@ -582,274 +497,217 @@ ul.tabs li a:hover {
 * @see autocomplete.js
 */
 /* Suggestion list */
-/* line 91, ../scss/modules/_overrides.scss */
 #autocomplete li.selected {
   background: #0072b9;
-  color: #fff;
-}
+  color: #fff; }
 
 /**
 * Collapsible fieldsets.
 *
 * @see collapse.js
 */
-/* line 101, ../scss/modules/_overrides.scss */
 html.js fieldset.collapsible .fieldset-legend {
   background: url(../../misc/menu-expanded.png) 5px 65% no-repeat;
   /* LTR */
   padding-left: 15px;
-  /* LTR */
-}
+  /* LTR */ }
 
-/* line 105, ../scss/modules/_overrides.scss */
 html.js fieldset.collapsed .fieldset-legend {
   background-image: url(../../misc/menu-collapsed.png);
   /* LTR */
   background-position: 5px 50%;
-  /* LTR */
-}
+  /* LTR */ }
 
-/* line 109, ../scss/modules/_overrides.scss */
 .fieldset-legend span.summary {
   color: #999;
   font-size: 0.9em;
-  margin-left: 0.5em;
-}
+  margin-left: 0.5em; }
 
 /**
 * TableDrag behavior.
 *
 * @see tabledrag.js
 */
-/* line 120, ../scss/modules/_overrides.scss */
 tr.drag {
-  background-color: #fffff0;
-}
+  background-color: #fffff0; }
 
-/* line 123, ../scss/modules/_overrides.scss */
 tr.drag-previous {
-  background-color: #ffd;
-}
+  background-color: #ffd; }
 
-/* line 126, ../scss/modules/_overrides.scss */
 .tabledrag-toggle-weight {
-  font-size: 0.9em;
-}
+  font-size: 0.9em; }
 
-/* line 129, ../scss/modules/_overrides.scss */
 body div.tabledrag-changed-warning {
-  margin-bottom: 0.5em;
-}
+  margin-bottom: 0.5em; }
 
 /**
 * TableSelect behavior.
 *
 * @see tableselect.js
 */
-/* line 138, ../scss/modules/_overrides.scss */
 tr.selected td {
-  background: #ffc;
-}
+  background: #ffc; }
 
-/* line 141, ../scss/modules/_overrides.scss */
 td.checkbox,
 th.checkbox {
-  text-align: center;
-}
+  text-align: center; }
 
 /**
 * Progress bar.
 *
 * @see progress.js
 */
-/* line 151, ../scss/modules/_overrides.scss */
 .progress {
-  font-weight: bold;
-}
+  font-weight: bold; }
 
-/* line 154, ../scss/modules/_overrides.scss */
 .progress .bar {
   background: #ccc;
   border-color: #666;
   margin: 0 0.2em;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
+  border-radius: 3px; }
 
-/* line 162, ../scss/modules/_overrides.scss */
 .progress .filled {
-  background: #0072b9 url(../../misc/progress.gif);
-}
+  background: #0072b9 url(../../misc/progress.gif); }
 
 /* Clearfix IE8 and up, more semantic class group */
-/* line 2, ../scss/modules/_defaults.scss */
 .group:after, .body-content:after, .toggle-btn-wrap:after, .gallery:after, .cycle-slideshow:after {
   content: "";
   display: table;
-  clear: both;
-}
+  clear: both; }
 
 /* For IE 6/7 (trigger hasLayout) */
-/* line 9, ../scss/modules/_defaults.scss */
 .group, .body-content, .toggle-btn-wrap, .gallery, .cycle-slideshow {
   zoom: 1;
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 /* apply a natural box layout model to all elements */
-/* line 15, ../scss/modules/_defaults.scss */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
-/* line 22, ../scss/modules/_defaults.scss */
 input {
-  border-radius: 0;
-}
+  -webkit-appearance: none;
+  border-radius: 0; }
 
-/* line 27, ../scss/modules/_defaults.scss */
+.invisible-accessible, .sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; }
+
 .is-visible {
-  display: block;
-}
+  display: block; }
 
-/* line 31, ../scss/modules/_defaults.scss */
 .is-invisible, .element-invisible {
   display: none;
-  visibility: hidden;
-}
+  visibility: hidden; }
 
-/* line 36, ../scss/modules/_defaults.scss */
 .is-hidden {
-  visibility: hidden;
-}
+  visibility: hidden; }
 
-/* line 40, ../scss/modules/_defaults.scss */
 .up-to-small-screens {
-  display: block;
-}
-@media only screen and (min-width: 30.0625em) {
-  /* line 40, ../scss/modules/_defaults.scss */
-  .up-to-small-screens {
-    display: none;
-    visibility: hidden;
-  }
-}
+  display: block; }
+  @media only screen and (min-width: 30.0625em) {
+    .up-to-small-screens {
+      display: none;
+      visibility: hidden; } }
 
-/* line 48, ../scss/modules/_defaults.scss */
 .small-screens-up {
-  display: none;
-}
-@media only screen and (min-width: 30.0625em) {
-  /* line 48, ../scss/modules/_defaults.scss */
-  .small-screens-up {
-    display: block;
-  }
-}
+  display: none; }
+  @media only screen and (min-width: 30.0625em) {
+    .small-screens-up {
+      display: block; } }
 
-/* line 55, ../scss/modules/_defaults.scss */
 .up-to-medium-screens {
-  display: block;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 55, ../scss/modules/_defaults.scss */
-  .up-to-medium-screens {
-    display: none;
-    visibility: hidden;
-  }
-}
+  display: block; }
+  @media only screen and (min-width: 37.5em) {
+    .up-to-medium-screens {
+      display: none;
+      visibility: hidden; } }
 
-/* line 63, ../scss/modules/_defaults.scss */
 .medium-screens-up {
-  display: none;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 63, ../scss/modules/_defaults.scss */
-  .medium-screens-up {
-    display: block;
-  }
-}
+  display: none; }
+  @media only screen and (min-width: 37.5em) {
+    .medium-screens-up {
+      display: block; } }
 
-/* line 70, ../scss/modules/_defaults.scss */
 .up-to-large-screens {
-  display: block;
-}
-@media only screen and (min-width: 48em) {
-  /* line 70, ../scss/modules/_defaults.scss */
-  .up-to-large-screens {
-    display: none;
-    visibility: hidden;
-  }
-}
+  display: block; }
+  @media only screen and (min-width: 48em) {
+    .up-to-large-screens {
+      display: none;
+      visibility: hidden; } }
 
-/* line 78, ../scss/modules/_defaults.scss */
 .large-screens-up {
-  display: none;
-}
-@media only screen and (min-width: 48em) {
-  /* line 78, ../scss/modules/_defaults.scss */
-  .large-screens-up {
-    display: block;
-  }
-}
+  display: none; }
+  @media only screen and (min-width: 48em) {
+    .large-screens-up {
+      display: block; } }
 
-/* line 85, ../scss/modules/_defaults.scss */
 .up-to-xlarge-screens {
-  display: block;
-}
-@media only screen and (min-width: 60em) {
-  /* line 85, ../scss/modules/_defaults.scss */
-  .up-to-xlarge-screens {
-    display: none;
-    visibility: hidden;
-  }
-}
+  display: block; }
+  @media only screen and (min-width: 60em) {
+    .up-to-xlarge-screens {
+      display: none;
+      visibility: hidden; } }
 
-/* line 93, ../scss/modules/_defaults.scss */
 .xlarge-screens-up {
-  display: none;
-}
-@media only screen and (min-width: 60em) {
-  /* line 93, ../scss/modules/_defaults.scss */
-  .xlarge-screens-up {
-    display: block;
-  }
-}
+  display: none; }
+  @media only screen and (min-width: 60em) {
+    .xlarge-screens-up {
+      display: block; } }
 
-/* line 100, ../scss/modules/_defaults.scss */
 .up-to-wide-screens {
-  display: block;
-}
-@media only screen and (min-width: 100em) {
-  /* line 100, ../scss/modules/_defaults.scss */
-  .up-to-wide-screens {
-    display: none;
-    visibility: hidden;
-  }
-}
+  display: block; }
+  @media only screen and (min-width: 80em) {
+    .up-to-wide-screens {
+      display: none;
+      visibility: hidden; } }
 
-/* line 108, ../scss/modules/_defaults.scss */
 .wide-screens-up {
-  display: none;
-}
-@media only screen and (min-width: 100em) {
-  /* line 108, ../scss/modules/_defaults.scss */
-  .wide-screens-up {
-    display: block;
-  }
-}
+  display: none; }
+  @media only screen and (min-width: 80em) {
+    .wide-screens-up {
+      display: block; } }
 
-/* line 115, ../scss/modules/_defaults.scss */
 img {
-  max-width: 100%;
-}
+  max-width: 100%; }
 
-/* line 119, ../scss/modules/_defaults.scss */
 blockquote {
-  clear: both;
-}
+  clear: both; }
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg); } }
+
+.spinner {
+  transition: 400ms padding ease-in-out; }
+  .spinner:after {
+    display: none; }
+  .spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: auto;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #222;
+    border-top-color: #333;
+    animation: spinner .6s linear infinite;
+    right: 0.625rem; }
 
 /**
 * File:        _layout.scss
@@ -857,106 +715,76 @@ blockquote {
 * Author:      Sebastiaan Bonardt - @_sebbon
 */
 /**
-* About the Responsive Web Design breakpoints in this setup
-* =========================================================
+* About the Responsive Web Design breakpoints in this setup:
 * from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
 * Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
-*
-* About the design pattern
-* ========================
-* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
-* background color, but the contents/website needs to be centered on the page
 * 
 * page setup: body direct descendants are the main wrappers containing direct 
 * descendant with .inner-wrap class set to center the content on the page. Used in favor 
 * of a general top level wrap all wrapper for esthetics sake. 
 *
+* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
+* background color, but the contents needs to be centered on the page
+*
 * ! If no full width background-colors are in the design you can remove the inner-wrap div's and
 * set the $site-max-width on the body with margin:0 auto;
 *
 */
-/* line 27, ../scss/modules/_layout.scss */
 html {
-  height: 100%;
-}
+  height: 100%; }
 
-/* line 31, ../scss/modules/_layout.scss */
 body {
   min-height: 100%;
   margin: 0;
   position: relative;
-  padding: 0;
-}
-/* line 36, ../scss/modules/_layout.scss */
-body > header, body footer, body main, body [role="main"] {
-  width: 100%;
-  display: block;
-  overflow: hidden;
-}
-/* line 41, ../scss/modules/_layout.scss */
-body > header {
-  padding: 0;
-}
-/* line 44, ../scss/modules/_layout.scss */
-body > footer {
-  min-height: 5em;
-  padding: 1em 0;
-}
+  padding: 0; }
+  body > header, body footer, body main, body [role="main"] {
+    width: 100%;
+    display: block;
+    overflow: hidden; }
+  body > header {
+    background-color: #eee;
+    padding: 0; }
+  body > footer {
+    min-height: 5rem;
+    background-color: #222;
+    padding: 1em 0; }
 
-/* line 50, ../scss/modules/_layout.scss */
 main, [role="main"] {
-  margin: 1em 0 0;
-}
-/* line 52, ../scss/modules/_layout.scss */
-main > .inner-wrap, main aside, main article, main section, [role="main"] > .inner-wrap, [role="main"] aside, [role="main"] article, [role="main"] section {
-  margin-bottom: 2rem;
-}
+  margin: 1rem 0 0; }
+  main > .inner-wrap, main aside, main article, main section, [role="main"] > .inner-wrap, [role="main"] aside, [role="main"] article, [role="main"] section {
+    margin-bottom: 2rem; }
+  main > aside, [role="main"] > aside {
+    padding: 1rem 0; }
 
-/* line 57, ../scss/modules/_layout.scss */
 aside {
   background-color: #eee;
   overflow: hidden;
   clear: both;
-  margin-bottom: 2rem;
-}
-/* line 62, ../scss/modules/_layout.scss */
-aside:last-child {
-  margin-bottom: 0;
-}
+  margin-bottom: 2rem; }
+  aside:last-child {
+    margin-bottom: 0; }
 
-/* line 67, ../scss/modules/_layout.scss */
 .inner-wrap {
   margin: 0 auto;
-  padding: 1rem 0.625em;
-  max-width: 74em;
-  position: relative;
-}
-@media only screen and (min-width: 48em) {
-  /* line 67, ../scss/modules/_layout.scss */
-  .inner-wrap {
-    padding: 1rem 1.25em;
-  }
-}
-/* line 76, ../scss/modules/_layout.scss */
-main > .inner-wrap {
-  padding: 2rem 0.625rem 0;
-}
-@media only screen and (min-width: 48em) {
-  /* line 76, ../scss/modules/_layout.scss */
+  padding: 2rem 0.625rem;
+  max-width: 64rem;
+  position: relative; }
+  @media only screen and (min-width: 48em) {
+    .inner-wrap {
+      padding: 1rem 1.25em; } }
   main > .inner-wrap {
-    padding: 2rem 1.25em 0;
-  }
-}
+    padding: 2rem 0.625rem 0; }
+    @media only screen and (min-width: 48em) {
+      main > .inner-wrap {
+        padding: 2rem 1.25rem 0; } }
 
-/* line 84, ../scss/modules/_layout.scss */
 .main-wrap {
   margin: 0 auto;
-  padding: 1rem 0.625em;
-  max-width: 74em;
-  position: relative;
-}
+  padding: 1rem 0.625rem;
+  max-width: 64rem;
+  position: relative; }
 
-/* line 92, ../scss/modules/_layout.scss */
 .skipcontent {
   background-color: #fff;
   left: -9999px;
@@ -965,149 +793,94 @@ main > .inner-wrap {
   padding: 1rem;
   display: inline-block;
   z-index: 2;
-  font-weight: bolder;
-}
-/* line 101, ../scss/modules/_layout.scss */
-.skipcontent:after {
-  content: ">>";
-  margin-left: 0.625rem;
-}
-/* line 105, ../scss/modules/_layout.scss */
-.skipcontent:focus {
-  left: 1.25em;
-}
+  font-weight: bolder; }
+  .skipcontent:after {
+    content: ">>";
+    margin-left: 0.625rem; }
+  .skipcontent:focus {
+    left: 1.25em; }
 
-/* line 110, ../scss/modules/_layout.scss */
 .logo {
-  margin-bottom: 1em;
-}
-/* line 112, ../scss/modules/_layout.scss */
-.logo a {
-  display: block;
-  margin-bottom: 0;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 110, ../scss/modules/_layout.scss */
-  .logo {
-    float: left;
-  }
-}
-/* line 119, ../scss/modules/_layout.scss */
-.logo span {
-  display: none;
-}
-/* line 122, ../scss/modules/_layout.scss */
-.logo.centered {
-  text-align: center;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 122, ../scss/modules/_layout.scss */
-  .logo.centered {
-    float: none;
-  }
-}
-/* line 127, ../scss/modules/_layout.scss */
-.logo.centered a {
-  display: inline-block;
-}
-/* line 131, ../scss/modules/_layout.scss */
-.logo img {
-  width: 345px;
-  max-width: 200px;
-}
-
-/* line 137, ../scss/modules/_layout.scss */
-.site-name {
-  display: block;
-}
-
-/* line 141, ../scss/modules/_layout.scss */
-.breadcrumb {
-  margin: 1em 0;
-}
-
-/* line 145, ../scss/modules/_layout.scss */
-.main-content {
-  overflow: hidden;
-}
-@media only screen and (min-width: 48em) {
-  /* line 145, ../scss/modules/_layout.scss */
-  .main-content {
-    max-width: 68%;
-    float: left;
-  }
-}
-/* line 151, ../scss/modules/_layout.scss */
-.main-content aside {
-  clear: none;
-  background-color: transparent;
-}
-@media only screen and (min-width: 60em) {
-  /* line 151, ../scss/modules/_layout.scss */
-  .main-content aside {
+  margin-bottom: 1rem; }
+  .logo a {
     display: block;
-    clear: both;
-    max-width: 44rem;
-  }
-}
+    margin-bottom: 0; }
+  @media only screen and (min-width: 37.5em) {
+    .logo {
+      float: left; } }
+  .logo span {
+    display: none; }
+  .logo.centered {
+    text-align: center; }
+    @media only screen and (min-width: 37.5em) {
+      .logo.centered {
+        float: none; } }
+    .logo.centered a {
+      display: inline-block; }
+  .logo img {
+    width: 345px; }
 
-/* line 163, ../scss/modules/_layout.scss */
-.body-content {
-  margin-bottom: 2.5rem;
-}
+.site-name {
+  display: block; }
 
-/* line 178, ../scss/modules/_layout.scss */
-.sidebar {
-  background-color: transparent;
-}
-@media only screen and (min-width: 48em) {
-  /* line 178, ../scss/modules/_layout.scss */
-  .sidebar {
-    float: left;
-    width: 26%;
-    margin-right: 6%;
+.breadcrumb {
+  margin: 1em 0; }
+
+.main-content {
+  overflow: hidden; }
+  @media only screen and (min-width: 48em) {
+    .main-content {
+      max-width: 68%;
+      float: left; } }
+  .main-content aside {
     clear: none;
-  }
-}
-@media only screen and (min-width: 48em) {
-  /* line 186, ../scss/modules/_layout.scss */
-  .sidebar + .main-content {
-    float: left;
-    width: 68%;
-  }
-}
+    background-color: transparent; }
+    @media only screen and (min-width: 60em) {
+      .main-content aside {
+        display: block;
+        clear: both;
+        max-width: 44rem; } }
+
+.body-content {
+  margin-bottom: 2.5rem; }
+
+.sidebar {
+  background-color: transparent; }
+  @media only screen and (min-width: 48em) {
+    .sidebar {
+      float: left;
+      width: 26%;
+      margin-right: 6%;
+      clear: none;
+      margin-top: 4.625rem; } }
+  @media only screen and (min-width: 48em) {
+    .sidebar + .main-content {
+      float: left;
+      width: 68%; } }
 
 @media only screen and (min-width: 48em) {
-  /* line 197, ../scss/modules/_layout.scss */
   .sidebar.sidebar-second {
     float: right;
-    margin-right: 0;
-  }
-}
+    margin-right: 0; } }
 
 @media only screen and (min-width: 37.5em) {
-  /* line 222, ../scss/modules/_layout.scss */
   footer .inner-wrap {
     display: flex;
     justify-content: flex-start;
-    align-items: stretch;
-  }
-}
+    align-items: stretch; } }
 
 @media only screen and (min-width: 37.5em) {
-  /* line 231, ../scss/modules/_layout.scss */
   .footer-block {
     float: left;
     width: 46%;
-    margin-right: 2%;
-  }
-}
+    margin-right: 2%; } }
+
 @media only screen and (min-width: 48em) {
-  /* line 231, ../scss/modules/_layout.scss */
   .footer-block {
-    width: 31%;
-  }
-}
+    width: 31%; } }
+
+.contentblock {
+  margin: 0 0 2.5rem; }
 
 /**
  * File:        _typography.scss
@@ -1118,144 +891,94 @@ main > .inner-wrap {
  * proper fallback fonts for your serif's or non-serifs, and use corresponding
  * font-weights and styles throughout your styles!
  */
-/* line 40, ../scss/modules/_typography.scss */
 body {
   font-size: 100%;
   font-family: "Droid Sans", Arial, Sans-serif;
   color: #222;
-}
+  line-height: 1.5; }
 
-/* line 46, ../scss/modules/_typography.scss */
 h1, h2, h3, h4, h5 {
   margin-top: 0;
   color: #333;
-  margin-bottom: 0.35em;
-}
+  margin-bottom: 0.625em;
+  line-height: 1.25; }
 
-/* line 52, ../scss/modules/_typography.scss */
 h1, .alpha {
-  font-size: 2.5rem;
-  line-height: 3rem;
-}
+  font-size: 2.5rem; }
 
-/* line 56, ../scss/modules/_typography.scss */
 h2, .beta {
-  font-size: 2rem;
-  line-height: 2.4rem;
-}
+  font-size: 2rem; }
 
-/* line 60, ../scss/modules/_typography.scss */
 h3, .gamma {
-  font-size: 1.5rem;
-  line-height: 1.8rem;
-}
+  font-size: 1.5rem; }
 
-/* line 64, ../scss/modules/_typography.scss */
 h4, .delta {
-  font-size: 1.125rem;
-  line-height: 1.35rem;
-}
+  font-size: 1.125rem; }
 
-/* line 68, ../scss/modules/_typography.scss */
 h5, .epsilon {
-  font-size: 1rem;
-  line-height: 1.2rem;
-}
+  font-size: 1rem; }
 
-/* line 72, ../scss/modules/_typography.scss */
 p, ul, ol, dt, dd, pre, blockquote, table {
   margin: 0 0 1.5em 0;
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-@media only screen and (min-width: 100em) {
-  /* line 72, ../scss/modules/_typography.scss */
-  p, ul, ol, dt, dd, pre, blockquote, table {
-    font-size: 1.125rem;
-    line-height: 1.6875rem;
-  }
-}
-/* line 78, ../scss/modules/_typography.scss */
-body > footer p, body > footer ul, body > footer ol, body > footer dt, body > footer dd, body > footer pre, body > footer blockquote, body > footer table {
-  color: #fff;
-}
+  font-size: 1rem; }
+  @media only screen and (min-width: 80em) {
+    p, ul, ol, dt, dd, pre, blockquote, table {
+      font-size: 1.125rem; } }
+  footer p, footer ul, footer ol, footer dt, footer dd, footer pre, footer blockquote, footer table {
+    color: #fff; }
 
-/* line 83, ../scss/modules/_typography.scss */
 ul {
   padding: 0 0 0 1rem;
-  margin: 0 0 2.5rem;
-}
-/* line 86, ../scss/modules/_typography.scss */
-ul li {
-  padding: 0;
-  margin: 0;
-}
+  margin: 0 0 2.5rem; }
+  ul li {
+    padding: 0;
+    margin: 0; }
 
-/* line 92, ../scss/modules/_typography.scss */
 ol {
   counter-reset: li;
   /* Initiate a counter */
   margin-left: 0;
   /* Remove the default left margin */
   padding-left: 0;
-  /* Remove the default left padding */
-}
-/* line 96, ../scss/modules/_typography.scss */
-ol > li {
-  position: relative;
-  /* Create a positioning context */
-  list-style: none;
-  /* Disable the normal item numbering */
-  padding-left: 1.25em;
-  margin-bottom: 1em;
-}
-/* line 101, ../scss/modules/_typography.scss */
-ol > li:before {
-  position: absolute;
-  left: 0.2rem;
-  font-size: 0.9375rem;
-  line-height: 1.40625rem;
-  width: 2em;
-  text-align: left;
-  content: counter(li);
-  /* Use the counter as content */
-  counter-increment: li;
-  /* Increment the counter by 1 */
-  top: 0.05rem;
-  font-weight: bolder;
-}
-@media only screen and (min-width: 100em) {
-  /* line 101, ../scss/modules/_typography.scss */
-  ol > li:before {
-    top: 0.135em;
-  }
-}
+  /* Remove the default left padding */ }
+  ol > li {
+    position: relative;
+    /* Create a positioning context */
+    list-style: none;
+    /* Disable the normal item numbering */
+    padding-left: 1.25em;
+    margin-bottom: 1em; }
+    ol > li:before {
+      position: absolute;
+      left: 0.2rem;
+      font-size: 0.9375rem;
+      width: 2em;
+      text-align: left;
+      content: counter(li);
+      /* Use the counter as content */
+      counter-increment: li;
+      /* Increment the counter by 1 */
+      top: 0.05rem;
+      font-weight: bolder; }
+      @media only screen and (min-width: 80em) {
+        ol > li:before {
+          top: 0.135em; } }
 
-/* line 117, ../scss/modules/_typography.scss */
 li ol, li ul {
-  margin-top: 0.5em;
-}
+  margin-top: 0.5em; }
 
-/* line 120, ../scss/modules/_typography.scss */
 ol ol li:last-child {
-  margin-bottom: 0;
-}
+  margin-bottom: 0; }
 
-/* line 124, ../scss/modules/_typography.scss */
 .stripped {
   padding: 0;
-  margin: 0 0 2.5rem;
-  list-style: none;
-}
-/* line 128, ../scss/modules/_typography.scss */
-.stripped li {
-  margin: 0 0 2.5rem;
-}
+  margin: 0;
+  list-style: none; }
+  .stripped li {
+    margin: 0; }
 
-/* line 133, ../scss/modules/_typography.scss */
 blockquote {
   font-size: 1.5rem;
-  line-height: 1.8rem;
   padding: 1em;
   background-color: #eee;
   display: inline-block;
@@ -1263,390 +986,251 @@ blockquote {
   color: #222;
   border-left: solid #666 3px;
   font-size: 1.5rem;
-  line-height: 2.25rem;
   font-weight: bold;
-  margin: 2.5rem auto;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 133, ../scss/modules/_typography.scss */
-  blockquote {
-    max-width: 80%;
-    display: block;
-  }
-}
-@media only screen and (min-width: 48em) {
-  /* line 133, ../scss/modules/_typography.scss */
-  blockquote {
-    max-width: 65%;
-  }
-}
-/* line 151, ../scss/modules/_typography.scss */
-blockquote p {
-  margin: 0;
-  font-size: 1.5rem;
-  line-height: 2.25rem;
-}
+  margin: 2.5rem auto; }
+  @media only screen and (min-width: 37.5em) {
+    blockquote {
+      max-width: 80%;
+      display: block; } }
+  @media only screen and (min-width: 48em) {
+    blockquote {
+      max-width: 65%; } }
+  blockquote p {
+    margin: 0;
+    font-size: 1.5rem; }
 
-/* line 157, ../scss/modules/_typography.scss */
 a, a:link, a:visited {
-  color: #4a90e2;
-}
-/* line 159, ../scss/modules/_typography.scss */
-body > footer a, body > footer a:link, body > footer a:visited {
-  color: #fff;
-}
+  color: #4a90e2; }
 
-/* line 164, ../scss/modules/_typography.scss */
 a:hover, a:active, a:focus {
   text-decoration: none;
-  color: #1b5dab;
-}
-/* line 167, ../scss/modules/_typography.scss */
-body > footer a:hover, body > footer a:active, body > footer a:focus {
-  color: #e6e6e6;
-}
+  color: #1b5dab; }
 
-/* line 172, ../scss/modules/_typography.scss */
 .btn, button {
-  background-color: #F7B91C;
+  background-color: #222;
   border: 0;
   color: #fff;
   float: left;
   display: block;
-  padding: 0.5rem 0.75rem;
-  border-radius: 3px;
-}
-/* line 180, ../scss/modules/_typography.scss */
-.btn:link, .btn:visited, button:link, button:visited {
-  color: #fff;
-  text-decoration: none;
-}
-/* line 184, ../scss/modules/_typography.scss */
-.btn:hover, .btn:active, .btn:focus, button:hover, button:active, button:focus {
-  background-color: #e2a408;
-}
+  padding: 0.35rem 0.75em;
+  border-radius: 2px;
+  line-height: 1.5; }
+  .btn:link, .btn:visited, button:link, button:visited {
+    color: #fff;
+    text-decoration: none; }
+  .btn:hover, .btn:active, .btn:focus, button:hover, button:active, button:focus {
+    background-color: #666; }
+  .btn:active, button:active {
+    top: 1px;
+    left: 1px;
+    position: relative;
+    background-color: #222; }
 
-/* line 191, ../scss/modules/_typography.scss */
 .teaser a:link, .teaser a:visited {
-  text-decoration: none;
-}
-/* line 193, ../scss/modules/_typography.scss */
-.teaser a:link h1, .teaser a:visited h1 {
-  text-decoration: underline;
-}
-/* line 198, ../scss/modules/_typography.scss */
+  text-decoration: none; }
+  .teaser a:link h1, .teaser a:visited h1 {
+    text-decoration: underline; }
+
 .teaser a:hover h1, .teaser a:active h1, .teaser a:focus h1 {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
-/* line 205, ../scss/modules/_typography.scss */
 mark {
-  background-color: #F7B91C;
-}
+  background-color: #4a90e2; }
 
-/* line 1, ../scss/modules/_general_elements.scss */
 figure {
   margin: 0 0 2rem;
-  text-align: center;
-}
-/* line 4, ../scss/modules/_general_elements.scss */
-figure figcaption {
-  text-align: right;
-}
-/* line 7, ../scss/modules/_general_elements.scss */
-figure > div {
-  display: inline-block;
-  margin: 0 auto;
-  max-width: 100%;
-}
+  text-align: center; }
+  figure figcaption {
+    text-align: right; }
+  figure > div {
+    display: inline-block;
+    margin: 0 auto;
+    max-width: 100%; }
 
-/* line 14, ../scss/modules/_general_elements.scss */
 .video {
   position: relative;
   padding-bottom: 56.25%;
   /* 16:9 */
   padding-top: 25px;
   height: 0;
-  margin-bottom: 3rem;
-}
-/* line 21, ../scss/modules/_general_elements.scss */
-.video iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+  margin-bottom: 3rem; }
+  .video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
 
 /**
  * File:        _navigation.scss
  * Description: _navigation.scss contains all navigation styles for makeitso 
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
-/* line 7, ../scss/modules/_navigation.scss */
 .toggle-btn-wrap {
   float: right;
   overflow: hidden;
   margin-bottom: 0;
-  padding: 0 0.625rem;
-}
-/* line 13, ../scss/modules/_navigation.scss */
-.toggleable-menu .toggle-btn-wrap {
-  overflow: hidden;
-  float: none;
-  width: 100%;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 13, ../scss/modules/_navigation.scss */
+  padding: 0 0.625rem; }
   .toggleable-menu .toggle-btn-wrap {
-    float: right;
-    width: auto;
-  }
-}
+    overflow: hidden;
+    float: none;
+    width: 100%; }
+    @media only screen and (min-width: 37.5em) {
+      .toggleable-menu .toggle-btn-wrap {
+        float: right;
+        width: auto; } }
 
-/* line 24, ../scss/modules/_navigation.scss */
 .toggle-menu {
   float: left;
   display: none;
-  margin-right: 1em;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 24, ../scss/modules/_navigation.scss */
-  .toggle-menu {
-    display: none;
-  }
-}
+  margin-right: 1em; }
+  @media only screen and (min-width: 37.5em) {
+    .toggle-menu {
+      display: none; } }
 
-/* line 33, ../scss/modules/_navigation.scss */
 .toggle-search {
   float: right;
-  display: none;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 33, ../scss/modules/_navigation.scss */
-  .toggle-search {
-    display: none;
-  }
-}
+  display: none; }
+  @media only screen and (min-width: 37.5em) {
+    .toggle-search {
+      display: none; } }
 
-/* line 41, ../scss/modules/_navigation.scss */
 nav {
   padding-bottom: 0.75em;
-  background-color: #eee;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 41, ../scss/modules/_navigation.scss */
-  nav {
-    padding-bottom: 0;
-  }
-}
-/* line 48, ../scss/modules/_navigation.scss */
-nav .menu {
-  float: left;
-  width: calc(100% - 80px);
-  margin: 1rem auto;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 48, ../scss/modules/_navigation.scss */
+  background-color: #eee; }
+  @media only screen and (min-width: 37.5em) {
+    nav {
+      padding-bottom: 0; } }
   nav .menu {
-    margin: 0 auto;
-  }
-}
-/* line 57, ../scss/modules/_navigation.scss */
-nav .inner-wrap {
-  padding: 0;
-  position: inherit;
-}
-@media only screen and (min-width: 48em) {
-  /* line 57, ../scss/modules/_navigation.scss */
-  nav .inner-wrap {
-    max-width: 74em;
-    padding: 0 0.625rem;
-    margin: 0 auto;
-  }
-}
-/* line 66, ../scss/modules/_navigation.scss */
-nav ul {
-  padding: 0;
-  overflow: hidden;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 66, ../scss/modules/_navigation.scss */
-  nav ul {
-    margin-bottom: 0;
-  }
-}
-/* line 73, ../scss/modules/_navigation.scss */
-nav li {
-  list-style: none;
-  float: left;
-}
-/* line 76, ../scss/modules/_navigation.scss */
-nav li a {
-  padding: 0.5em 0.75em;
-  display: block;
-  margin: 0;
-}
-/* line 80, ../scss/modules/_navigation.scss */
-nav li a:hover, nav li a:active, nav li a:focus {
-  background-color: #e6e6e6;
-}
-/* line 83, ../scss/modules/_navigation.scss */
-nav li a.active {
-  background-color: #fff;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 76, ../scss/modules/_navigation.scss */
-  nav li a {
-    padding: 0.5rem 1.125rem;
-    margin-left: 2px;
-  }
-}
-/* line 92, ../scss/modules/_navigation.scss */
-.toggleable-menu nav {
-  float: left;
-  width: 100%;
-}
-/* line 95, ../scss/modules/_navigation.scss */
-.toggleable-menu nav .menu {
-  float: left;
-  width: 100%;
-}
-/* line 107, ../scss/modules/_navigation.scss */
-.toggleable-menu nav li {
-  float: none;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 111, ../scss/modules/_navigation.scss */
-  .toggleable-menu nav li {
     float: left;
-  }
-}
+    width: calc(100% - 80px);
+    margin: 1rem auto; }
+    @media only screen and (min-width: 37.5em) {
+      nav .menu {
+        margin: 0 auto; } }
+  nav .inner-wrap {
+    padding: 0;
+    position: inherit; }
+    @media only screen and (min-width: 48em) {
+      nav .inner-wrap {
+        max-width: 64rem;
+        padding: 0 0.625rem;
+        margin: 0 auto; } }
+  nav ul {
+    padding: 0;
+    overflow: hidden; }
+    @media only screen and (min-width: 37.5em) {
+      nav ul {
+        margin-bottom: 0; } }
+  nav li {
+    list-style: none;
+    float: left; }
+    nav li a {
+      padding: 0.5em 0.75em;
+      display: block;
+      margin: 0; }
+      nav li a:hover, nav li a:active, nav li a:focus {
+        background-color: #e6e6e6; }
+      nav li a.active {
+        background-color: #fff; }
+      @media only screen and (min-width: 37.5em) {
+        nav li a {
+          padding: 0.5rem 1.125rem;
+          margin-left: 2px; } }
+  .toggleable-menu nav {
+    float: left;
+    width: 100%; }
+    .toggleable-menu nav .menu {
+      float: left;
+      width: 100%; }
+    .toggleable-menu nav li {
+      float: none; }
+    @media only screen and (min-width: 37.5em) {
+      .toggleable-menu nav li {
+        float: left; } }
 
-/* line 118, ../scss/modules/_navigation.scss */
 .menu {
   margin-bottom: 0;
-  padding-left: 0;
-}
-/* line 121, ../scss/modules/_navigation.scss */
-.menu li {
-  list-style: none;
-}
+  padding-left: 0; }
+  .menu li {
+    list-style: none; }
 
-/* line 126, ../scss/modules/_navigation.scss */
 .secondary-menu, .meta-menu {
   overflow: hidden;
   position: absolute;
   top: 0;
-  left: 0;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 126, ../scss/modules/_navigation.scss */
-  .secondary-menu, .meta-menu {
-    float: right;
-  }
-}
-@media only screen and (min-width: 48em) {
-  /* line 126, ../scss/modules/_navigation.scss */
-  .secondary-menu, .meta-menu {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: auto;
-    top: auto;
-  }
-}
-/* line 141, ../scss/modules/_navigation.scss */
-.secondary-menu li, .meta-menu li {
-  list-style: none;
-  float: left;
-}
-/* line 144, ../scss/modules/_navigation.scss */
-.secondary-menu li a, .meta-menu li a {
-  padding: 0.5em;
-  display: block;
-}
+  left: 0; }
+  @media only screen and (min-width: 37.5em) {
+    .secondary-menu, .meta-menu {
+      float: right; } }
+  @media only screen and (min-width: 48em) {
+    .secondary-menu, .meta-menu {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: auto;
+      top: auto; } }
+  .secondary-menu li, .meta-menu li {
+    list-style: none;
+    float: left; }
+    .secondary-menu li a, .meta-menu li a {
+      padding: 0.5em;
+      display: block; }
 
 /**
  * File:        _forms.scss
  * Description: _forms.scss contains all form styles for makeitso 
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
-/* line 7, ../scss/modules/_forms.scss */
 form {
   width: 100%;
-  margin-bottom: 2.5rem;
-}
+  margin-bottom: 2.5rem; }
 
-/* line 12, ../scss/modules/_forms.scss */
 legend {
   font-size: 1.5rem;
-  line-height: 2.25rem;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
-}
+  margin-bottom: 1.5rem; }
 
-/* line 18, ../scss/modules/_forms.scss */
 label {
   color: #222;
   font-size: 1.25rem;
-  line-height: 1.875rem;
   display: block;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
-/* line 25, ../scss/modules/_forms.scss */
 .required-field {
   color: #f00;
   font-size: 0.8rem;
-  line-height: 1.2rem;
   font-weight: bold;
-  margin-left: 0.5rem;
-}
+  margin-left: 0.5rem; }
 
-/* line 32, ../scss/modules/_forms.scss */
 input {
   box-sizing: border-box;
   border: 1px solid #999;
   padding: 0.35rem 0.5rem;
   font-size: 1rem;
-  line-height: 1.5rem;
   margin-bottom: 1.75rem;
   width: 100%;
-  border-radius: 3px;
-}
-/* line 40, ../scss/modules/_forms.scss */
-input:focus {
-  border-color: #222;
-}
-/* line 43, ../scss/modules/_forms.scss */
-input.error {
-  background-color: white;
-}
-/* line 45, ../scss/modules/_forms.scss */
-input.error:focus {
-  background-color: #fff;
-}
-/* line 49, ../scss/modules/_forms.scss */
-input[type="submit"] {
-  display: block;
-  clear: both;
-  width: auto;
-  font-weight: bold;
-  color: #222;
-}
-/* line 56, ../scss/modules/_forms.scss */
-input[type="radio"] {
-  width: auto;
-  margin-right: 0.5rem;
-  display: inline-block;
-  margin-bottom: 0;
-  margin-bottom: 0;
-}
-/* line 62, ../scss/modules/_forms.scss */
-input[type="radio"] + label {
-  display: inline-block;
-}
+  border-radius: 3px; }
+  input:focus {
+    border-color: #222; }
+  input.error {
+    background-color: white; }
+    input.error:focus {
+      background-color: #fff; }
+  input[type="submit"] {
+    display: block;
+    clear: both;
+    width: auto;
+    font-weight: bold;
+    color: #222; }
+  input[type="radio"] {
+    width: auto;
+    margin-right: 0.5rem;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-bottom: 0; }
+    input[type="radio"] + label {
+      display: inline-block; }
 
 /**
  * File:        _search.scss
@@ -1654,130 +1238,62 @@ input[type="radio"] + label {
  *              search block is at the top right of the default page templates
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
-/* line 9, ../scss/modules/_search.scss */
 .search-block {
   margin: 2rem 0 0;
   overflow: hidden;
   display: block;
-  padding: 0 0.625rem;
-}
-@media only screen and (min-width: 30.0625em) {
-  /* line 9, ../scss/modules/_search.scss */
-  .search-block {
-    float: right;
-  }
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 9, ../scss/modules/_search.scss */
-  .search-block {
-    max-width: 220px;
-    margin-top: 0;
-  }
-}
-@media only screen and (min-width: 48em) {
-  /* line 9, ../scss/modules/_search.scss */
-  .search-block {
-    max-width: 320px;
-  }
-}
-@media only screen and (min-width: 60em) {
-  /* line 9, ../scss/modules/_search.scss */
-  .search-block {
-    max-width: none;
-    width: 27%;
-  }
-}
-/* line 28, ../scss/modules/_search.scss */
-.search-block label {
-  display: none;
-  clear: both;
-}
-/* line 32, ../scss/modules/_search.scss */
-.search-block [type="submit"] {
-  border-left: 0;
-  width: 90px;
-  clear: none;
-  background-color: #666;
-  color: #fff;
-  border-radius: 0 3px 3px 0;
-}
-/* line 39, ../scss/modules/_search.scss */
-.search-block [type="submit"]:hover, .search-block [type="submit"]:active, .search-block [type="submit"]:focus {
-  background-color: #222;
-}
-/* line 43, ../scss/modules/_search.scss */
-.search-block [type="text"], .search-block [type="search"] {
-  width: calc(100% - 90px);
-  border-radius: 3px 0 0 3px;
-  box-sizing: border-box;
-}
-/* line 48, ../scss/modules/_search.scss */
-.search-block input, .search-block button {
-  float: left;
-  width: calc(100% - 71px);
-  padding-left: 0.35em;
-}
+  padding: 0 0.625rem; }
+  @media only screen and (min-width: 30.0625em) {
+    .search-block {
+      float: right; } }
+  @media only screen and (min-width: 37.5em) {
+    .search-block {
+      max-width: 220px;
+      margin-top: 0; } }
+  @media only screen and (min-width: 48em) {
+    .search-block {
+      max-width: 320px; } }
+  @media only screen and (min-width: 60em) {
+    .search-block {
+      max-width: none;
+      width: 27%; } }
+  .search-block label {
+    display: none;
+    clear: both; }
+  .search-block [type="submit"] {
+    border-left: 0;
+    width: 90px;
+    clear: none;
+    background-color: #666;
+    color: #fff;
+    border-radius: 0 3px 3px 0; }
+    .search-block [type="submit"]:hover, .search-block [type="submit"]:active, .search-block [type="submit"]:focus {
+      background-color: #222; }
+  .search-block [type="text"], .search-block [type="search"] {
+    width: calc(100% - 90px);
+    border-radius: 3px 0 0 3px;
+    box-sizing: border-box; }
+  .search-block input, .search-block button {
+    float: left;
+    width: calc(100% - 71px);
+    padding-left: 0.35em; }
 
-/* line 2, ../scss/modules/_theme.scss */
-body > header {
-  background-color: #eee;
-}
-@media only screen and (min-width: 37.5em) {
-  /* line 2, ../scss/modules/_theme.scss */
-  body > header {
-    background-color: transparent;
-  }
-}
-/* line 8, ../scss/modules/_theme.scss */
-body > footer {
-  background-color: #666;
-}
-
-/* line 15, ../scss/modules/_theme.scss */
-.teaser a:link, .teaser a:visited {
-  text-decoration: none;
-}
-/* line 18, ../scss/modules/_theme.scss */
-.teaser a:hover, .teaser a:active, .teaser a:focus {
-  text-decoration: underline;
-}
-
-/* line 24, ../scss/modules/_theme.scss */
-ul.footer-block {
-  list-style: none;
-  padding: 0;
-}
-
-/* line 2, ../scss/modules/_cycle2.scss */
 .gallery, .cycle-slideshow {
-  margin-bottom: 0.625rem;
-}
-/* line 5, ../scss/modules/_cycle2.scss */
-.gallery .slide, .cycle-slideshow .slide {
-  display: block;
-}
+  margin-bottom: 0.625rem; }
+  .gallery .slide, .cycle-slideshow .slide {
+    display: block; }
 
-/* line 10, ../scss/modules/_cycle2.scss */
 .cycle-slideshow-pager {
-  margin-bottom: 3rem;
-}
-/* line 12, ../scss/modules/_cycle2.scss */
-.cycle-slideshow-pager img {
-  cursor: pointer;
-  margin-right: 0.5rem;
-}
-/* line 16, ../scss/modules/_cycle2.scss */
-.cycle-slideshow-pager .cycle-nav {
-  color: #f00;
-  padding: 0.25rem 0;
-}
-/* line 19, ../scss/modules/_cycle2.scss */
-.cycle-slideshow-pager .cycle-nav:link, .cycle-slideshow-pager .cycle-nav:visited {
-  text-decoration: none;
-}
-/* line 26, ../scss/modules/_cycle2.scss */
-.cycle-slideshow-pager .slideshow-count {
-  padding: 0.25rem 0;
-  float: right;
-  color: #999;
-}
+  margin-bottom: 3rem; }
+  .cycle-slideshow-pager img {
+    cursor: pointer;
+    margin-right: 0.5rem; }
+  .cycle-slideshow-pager .cycle-nav {
+    color: #f00;
+    padding: 0.25rem 0; }
+    .cycle-slideshow-pager .cycle-nav:link, .cycle-slideshow-pager .cycle-nav:visited {
+      text-decoration: none; }
+  .cycle-slideshow-pager .slideshow-count {
+    padding: 0.25rem 0;
+    float: right;
+    color: #999; }

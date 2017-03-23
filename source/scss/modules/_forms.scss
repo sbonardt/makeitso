@@ -10,21 +10,21 @@ form {
 }
 
 legend {
-    @include font-size(1.5);
+    font-size: 1.5rem;
     text-transform:uppercase;
     margin-bottom: 1.5rem;
 }
 
 label {
     color:$black;
-    @include font-size(1.25);
+    font-size: 1.25rem;
     display:block;
     font-weight:bold;
 }
 
 .required-field {
     color:$red;
-    @include font-size(0.8);
+    font-size: 0.8rem;
     font-weight:bold;
     margin-left: 0.5rem;
 }
@@ -33,7 +33,7 @@ input {
     box-sizing: border-box;
     border:1px solid $grey;
     padding: 0.35rem 0.5rem;
-    @include font-size(1);
+    font-size: 1rem;
     margin-bottom:1.75rem;
     width:100%;
     border-radius: 3px;

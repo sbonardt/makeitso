@@ -5,19 +5,16 @@
 */
 
 /**
-* About the Responsive Web Design breakpoints in this setup
-* =========================================================
+* About the Responsive Web Design breakpoints in this setup:
 * from base.scss, use small-screens, medium-screens, large-screens, xlarge-screens, wide-screens
 * Use them with "respond-to" mixin from base.scss as "@include respond-to(small-screens) {}"
-*
-* About the design pattern
-* ========================
-* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
-* background color, but the contents/website needs to be centered on the page
 * 
 * page setup: body direct descendants are the main wrappers containing direct 
 * descendant with .inner-wrap class set to center the content on the page. Used in favor 
 * of a general top level wrap all wrapper for esthetics sake. 
+*
+* The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
+* background color, but the contents needs to be centered on the page
 *
 * ! If no full width background-colors are in the design you can remove the inner-wrap div's and
 * set the $site-max-width on the body with margin:0 auto;
@@ -39,18 +36,23 @@ body {
         overflow:hidden;
     }
     > header {
+        background-color: $lightGrey;
         padding:0;
     }
     > footer {
-        min-height:5em;
+        min-height:5rem;
+        background-color:$black;
         padding:1em 0;
     }
 }
 
 main, [role="main"] {
-    margin:1em 0 0;  
+    margin: 1rem 0 0;  
     > .inner-wrap, aside, article, section {
         margin-bottom: 2rem;
+    }
+    > aside {
+        padding: 1rem 0;
     }
 }
 
@@ -67,7 +69,7 @@ aside {
 .inner-wrap {
     @extend %group;
     margin: 0 auto;
-    padding: 1rem 0.625em;
+    padding: 2rem 0.625rem;
     max-width: $site-max-width;
     position:relative;
     @include respond-to(large-screens) {
@@ -76,7 +78,7 @@ aside {
     main > & {
         padding: 2rem 0.625rem 0;
         @include respond-to(large-screens) {
-            padding: 2rem 1.25em 0;
+            padding: 2rem 1.25rem 0;
         }
     }
 }
@@ -84,7 +86,7 @@ aside {
 .main-wrap {
     @extend %group;
     margin: 0 auto;
-    padding: 1rem 0.625em;
+    padding: 1rem 0.625rem;
     max-width: $site-max-width;
     position: relative;
 }
@@ -108,7 +110,7 @@ aside {
 }
 
 .logo {
-    margin-bottom:1em;
+    margin-bottom:1rem;
     a {
         display:block;
         margin-bottom:0;
@@ -130,7 +132,6 @@ aside {
     }
     img {
         width: 345px;
-        max-width: 200px;
     }
 }
 
@@ -182,6 +183,7 @@ aside {
         width: 26%;
         margin-right: 6%;
         clear: none;
+        margin-top: 4.625rem;
     }
     & + .main-content {
         @include respond-to(large-screens) {
@@ -239,4 +241,9 @@ footer {
     @include respond-to(large-screens) {
         width:31%;
     }
+}
+
+
+.contentblock {
+    margin: 0 0 $baseBottomMargin;
 }

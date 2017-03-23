@@ -20,8 +20,22 @@
 
 // clean up webkit safari rounded borders on inputs
 input {
-    // -webkit-appearance: none;
+    -webkit-appearance: none;
     border-radius: 0;
+}
+
+// http://hugogiraudel.com/2016/10/13/css-hide-and-seek/ Screenreaders-only sr-only
+.invisible-accessible, .sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+          clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
 }
 
 .is-visible {
@@ -113,6 +127,7 @@ input {
 }
 
 img {
+  // responsive images
   max-width:100%;
 }
 

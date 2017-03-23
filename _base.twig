@@ -19,10 +19,6 @@
         <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
         <link rel="icon" href="{{ paths.theme }}favicon.png">
         <link type="text/css" rel="stylesheet" href="{{ paths.theme }}css/screen.css" media="all" />
-        <!--[if lt IE 9]>
-        <link type="text/css" rel="stylesheet" href="{{ paths.theme }}css/old_ie.css" media="all" />
-        <script type="text/javascript" src="{{ paths.theme }}js/html5shiv.js"></script>
-        <![endif]-->
     </head>
 
     <body class="{% if app.request.pathInfo == "/" %}homepage{% endif %}{{app.request.pathInfo|split("/")|join(" ")}}">
@@ -85,9 +81,9 @@
         </div>
     </footer>
 
-    <script src="{{ paths.theme }}js/vendor/modernizr.custom.40091.js"></script>
-    <script src="{{ paths.theme }}js/vendor/jquery-1.11.1.min.js"></script>
-    <script src="{{ paths.theme }}js/vendor/viewportSize-min.js"></script>
+    <script src="{{ paths.theme }}js/lib/modernizr.custom.40091.js"></script>
+    <script src="{{ paths.theme }}js/lib/jquery-1.11.1.min.js"></script>
+    <script src="{{ paths.theme }}js/lib/viewportSize-min.js"></script>
     <script src="{{ paths.theme }}js/custom.js"></script> 
 
 </body>

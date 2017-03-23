@@ -10,21 +10,27 @@
 {% if record is not defined and records is defined %}
     {% set record = records|first %}
 {% endif %}
-{% if record %}
+{% if record is defined %}
     {% set image = record.image ?: theme.frontpage_image %}
-{% else %}
+{% elseif theme.frontpage_image is defined %}
     {% set image = theme.frontpage_image %}
 {% endif %}
 {# <div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div> #}
-    {% if record %}
+    {% if record is defined %}
         <article class="main-content">
             <a id="content" tabindex="0"></a>
-            {{ widgets('main_top') }}
             <h1>{{record.title}}</h1>
             <div class="body-content">
             {{record.body}}
             </div>
-            {{ widgets('main_bottom') }}
+        </article>
+    {% else %}
+        <article class="main-content">
+            <a id="content" tabindex="0"></a>
+            <h1>No frontpage found!</h1>
+            <div class="body-content">
+            <p>No page has been set as the frontpage. Please create a page in the backend or set the frontpage to another type of content.
+            </div>
         </article>
     {% endif %}
 {% endblock %}

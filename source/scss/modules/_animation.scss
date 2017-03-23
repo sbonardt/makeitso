@@ -1,0 +1,26 @@
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner {
+  transition: 400ms padding ease-in-out;
+  &:after {
+    display: none;
+  }
+  &:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: auto;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid $black;
+    border-top-color: #333;
+    animation: spinner .6s linear infinite;
+    right: 0.625rem;
+  }
+}

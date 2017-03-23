@@ -1,0 +1,11 @@
+
+.teaser {
+	a {
+		&:link, &:visited {
+				text-decoration: none;
+		}
+		&:hover, &:active, &:focus {
+
+		}
+	}
+}
