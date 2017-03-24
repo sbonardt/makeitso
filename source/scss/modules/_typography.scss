@@ -69,20 +69,19 @@ h4, .delta {
 
 h5, .epsilon {
     font-size: 1rem;
+    font-weight: normal;
 }
 
 p, ul, ol, dt, dd, pre, blockquote, table {
     margin:0 0 1.5em 0;
     font-size: 1rem;
-    @include respond-to(wide-screens) {
-        font-size: 1.125rem;
-    }
     footer & {
         color: $white;
     }
 }
 
 ul {
+    @extend .group;
     padding:0 0 0 1rem;
     margin:0 0 $baseBottomMargin;
     li {
@@ -92,30 +91,10 @@ ul {
 }
 
 ol {
-    counter-reset:li; /* Initiate a counter */
-    margin-left:0; /* Remove the default left margin */
-    padding-left:0; /* Remove the default left padding */
-    > li {
-        position:relative; /* Create a positioning context */
-        list-style:none; /* Disable the normal item numbering */
-        padding-left:1.25em;
-        margin-bottom:1em;
-        &:before {
-            position:absolute;
-            left:0.2rem;
-            font-size: 0.9375rem;
-            width:2em;
-            text-align:left;
-            content:counter(li); /* Use the counter as content */
-            counter-increment:li; /* Increment the counter by 1 */
-            top:0.05rem;
-            font-weight: bolder;
-            @include respond-to(wide-screens) {
-                top:0.135em;
-            }
-        }
-    }
+    @extend .group;
+    margin:0 0 $baseBottomMargin;
 }
+
 li ol, li ul {
     margin-top:0.5em;
 }
@@ -125,7 +104,7 @@ ol ol li:last-child {
 
 .stripped {
     padding: 0;
-    margin: 0;
+    margin: 0 0 $baseBottomMargin;
     list-style: none;
     li {
         margin: 0;
@@ -171,12 +150,12 @@ a:hover, a:active, a:focus {
     color:$white; 
     float: left;
     display: block;
-    padding: 0.35rem 0.75em;
-    border-radius: 2px;
+    padding: 0.5rem 0.8125em;
     line-height: 1.5;
+    margin-bottom: 1.5rem;
     &:link, &:visited {
-        color:$white; 
         text-decoration:none;
+        color:$white; 
     }
     &:hover, &:active, &:focus {
         background-color: $darkGrey;
@@ -207,5 +186,20 @@ a:hover, a:active, a:focus {
 
 mark {
     background-color: $highlightColour;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: left;
+  margin-bottom: $baseBottomMargin;
+  caption {
+    text-align: center;
+    border-bottom: 1px solid $grey;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.25em;
+    font-weight: bold;
+  }
 }
 

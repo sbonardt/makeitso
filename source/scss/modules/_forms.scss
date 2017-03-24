@@ -9,10 +9,13 @@ form {
     margin-bottom: $baseBottomMargin;
 }
 
+fieldset {
+    margin-bottom: 1.5rem;
+}
+
 legend {
     font-size: 1.5rem;
     text-transform:uppercase;
-    margin-bottom: 1.5rem;
 }
 
 label {
@@ -34,9 +37,9 @@ input {
     border:1px solid $grey;
     padding: 0.35rem 0.5rem;
     font-size: 1rem;
-    margin-bottom:1.75rem;
+    margin-bottom:1.5rem;
     width:100%;
-    border-radius: 3px;
+    border-radius: 2px;
     &:focus {
         border-color:$black;
     }
@@ -46,21 +49,57 @@ input {
             background-color:$white;
         }
     }
-    &[type="submit"] {
+    &[type="text"] {
+        -webkit-appearance: none;
+    }
+    &[type="search"] {
+        -webkit-appearance: none;
+    }
+    &[type="submit"], button[type="submit"] {
+        border:0;
+        color:$white; 
+        float: left;
+        display: block;
+        padding: 0.35rem 0.75em;
+        line-height: 1.5;
         display:block;
         clear:both;
         width:auto;  
-        font-weight: bold;     
-        color:$black;
+        background-color: $darkGrey;   
+        border-radius: 0;
     }
     &[type="radio"] {
         width: auto;
-        margin-right:0.5rem;
+        margin-right:0.25rem;
         display:inline-block;
         margin-bottom:0;
         margin-bottom:0;
         & + label {
             display: inline-block;
+            font-size: 1rem;
+            margin-right: 1rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            position: relative;
+            top: 2px;
+        }
+    }
+}
+
+textarea {
+    width: 100%;
+    min-height: 200px;
+    resize: vertical;
+    border:1px solid $grey;
+    margin-bottom:1.5rem;
+    &:focus {
+        border-color:$black;
+        outline:none;
+    }
+    &.error {
+        background-color: lighten($red, 53%);
+        &:focus {
+            background-color:$white;
         }
     }
 }

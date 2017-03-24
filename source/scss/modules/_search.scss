@@ -48,6 +48,9 @@
     input, button {
         float:left;
         width:calc(100% - 71px);
-        padding-left:0.35em;
+        padding-left: 0.35em;
+    }
+    .search-field {
+        padding: 0.45em 0.35em;
     }
 }

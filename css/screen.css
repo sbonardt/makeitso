@@ -572,13 +572,13 @@ th.checkbox {
   background: #0072b9 url(../../misc/progress.gif); }
 
 /* Clearfix IE8 and up, more semantic class group */
-.group:after, .body-content:after, .toggle-btn-wrap:after, .gallery:after, .cycle-slideshow:after {
+.group:after, .body-content:after, ul:after, ol:after, .toggle-btn-wrap:after, .gallery:after, .cycle-slideshow:after {
   content: "";
   display: table;
   clear: both; }
 
 /* For IE 6/7 (trigger hasLayout) */
-.group, .body-content, .toggle-btn-wrap, .gallery, .cycle-slideshow {
+.group, .body-content, ul, ol, .toggle-btn-wrap, .gallery, .cycle-slideshow {
   zoom: 1;
   overflow: hidden; }
 
@@ -587,10 +587,6 @@ th.checkbox {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
-
-input {
-  -webkit-appearance: none;
-  border-radius: 0; }
 
 .invisible-accessible, .sr-only {
   border: 0 !important;
@@ -916,14 +912,12 @@ h4, .delta {
   font-size: 1.125rem; }
 
 h5, .epsilon {
-  font-size: 1rem; }
+  font-size: 1rem;
+  font-weight: normal; }
 
 p, ul, ol, dt, dd, pre, blockquote, table {
   margin: 0 0 1.5em 0;
   font-size: 1rem; }
-  @media only screen and (min-width: 80em) {
-    p, ul, ol, dt, dd, pre, blockquote, table {
-      font-size: 1.125rem; } }
   footer p, footer ul, footer ol, footer dt, footer dd, footer pre, footer blockquote, footer table {
     color: #fff; }
 
@@ -935,34 +929,7 @@ ul {
     margin: 0; }
 
 ol {
-  counter-reset: li;
-  /* Initiate a counter */
-  margin-left: 0;
-  /* Remove the default left margin */
-  padding-left: 0;
-  /* Remove the default left padding */ }
-  ol > li {
-    position: relative;
-    /* Create a positioning context */
-    list-style: none;
-    /* Disable the normal item numbering */
-    padding-left: 1.25em;
-    margin-bottom: 1em; }
-    ol > li:before {
-      position: absolute;
-      left: 0.2rem;
-      font-size: 0.9375rem;
-      width: 2em;
-      text-align: left;
-      content: counter(li);
-      /* Use the counter as content */
-      counter-increment: li;
-      /* Increment the counter by 1 */
-      top: 0.05rem;
-      font-weight: bolder; }
-      @media only screen and (min-width: 80em) {
-        ol > li:before {
-          top: 0.135em; } }
+  margin: 0 0 2.5rem; }
 
 li ol, li ul {
   margin-top: 0.5em; }
@@ -972,7 +939,7 @@ ol ol li:last-child {
 
 .stripped {
   padding: 0;
-  margin: 0;
+  margin: 0 0 2.5rem;
   list-style: none; }
   .stripped li {
     margin: 0; }
@@ -1012,12 +979,12 @@ a:hover, a:active, a:focus {
   color: #fff;
   float: left;
   display: block;
-  padding: 0.35rem 0.75em;
-  border-radius: 2px;
-  line-height: 1.5; }
+  padding: 0.5rem 0.8125em;
+  line-height: 1.5;
+  margin-bottom: 1.5rem; }
   .btn:link, .btn:visited, button:link, button:visited {
-    color: #fff;
-    text-decoration: none; }
+    text-decoration: none;
+    color: #fff; }
   .btn:hover, .btn:active, .btn:focus, button:hover, button:active, button:focus {
     background-color: #666; }
   .btn:active, button:active {
@@ -1036,6 +1003,19 @@ a:hover, a:active, a:focus {
 
 mark {
   background-color: #4a90e2; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2.5rem; }
+  table caption {
+    text-align: center;
+    border-bottom: 1px solid #999;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.25em;
+    font-weight: bold; }
 
 figure {
   margin: 0 0 2rem;
@@ -1155,6 +1135,9 @@ nav {
   .menu li {
     list-style: none; }
 
+.menu_block {
+  margin-bottom: 2.5rem; }
+
 .secondary-menu, .meta-menu {
   overflow: hidden;
   position: absolute;
@@ -1186,10 +1169,12 @@ form {
   width: 100%;
   margin-bottom: 2.5rem; }
 
+fieldset {
+  margin-bottom: 1.5rem; }
+
 legend {
   font-size: 1.5rem;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem; }
+  text-transform: uppercase; }
 
 label {
   color: #222;
@@ -1208,29 +1193,59 @@ input {
   border: 1px solid #999;
   padding: 0.35rem 0.5rem;
   font-size: 1rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   width: 100%;
-  border-radius: 3px; }
+  border-radius: 2px; }
   input:focus {
     border-color: #222; }
   input.error {
     background-color: white; }
     input.error:focus {
       background-color: #fff; }
-  input[type="submit"] {
+  input[type="text"] {
+    -webkit-appearance: none; }
+  input[type="search"] {
+    -webkit-appearance: none; }
+  input[type="submit"], input button[type="submit"] {
+    border: 0;
+    color: #fff;
+    float: left;
+    display: block;
+    padding: 0.35rem 0.75em;
+    line-height: 1.5;
     display: block;
     clear: both;
     width: auto;
-    font-weight: bold;
-    color: #222; }
+    background-color: #666;
+    border-radius: 0; }
   input[type="radio"] {
     width: auto;
-    margin-right: 0.5rem;
+    margin-right: 0.25rem;
     display: inline-block;
     margin-bottom: 0;
     margin-bottom: 0; }
     input[type="radio"] + label {
-      display: inline-block; }
+      display: inline-block;
+      font-size: 1rem;
+      margin-right: 1rem;
+      font-weight: normal;
+      margin-bottom: 1rem;
+      position: relative;
+      top: 2px; }
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+  border: 1px solid #999;
+  margin-bottom: 1.5rem; }
+  textarea:focus {
+    border-color: #222;
+    outline: none; }
+  textarea.error {
+    background-color: white; }
+    textarea.error:focus {
+      background-color: #fff; }
 
 /**
  * File:        _search.scss
@@ -1277,6 +1292,8 @@ input {
     float: left;
     width: calc(100% - 71px);
     padding-left: 0.35em; }
+  .search-block .search-field {
+    padding: 0.45em 0.35em; }
 
 .gallery, .cycle-slideshow {
   margin-bottom: 0.625rem; }

@@ -123,6 +123,10 @@ nav {
     }
 }
 
+.menu_block {
+    margin-bottom: $baseBottomMargin;
+}
+
 .secondary-menu, .meta-menu {
     overflow: hidden;
     position:absolute;

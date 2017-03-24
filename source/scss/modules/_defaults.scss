@@ -18,12 +18,6 @@
     box-sizing: border-box;
  }
 
-// clean up webkit safari rounded borders on inputs
-input {
-    -webkit-appearance: none;
-    border-radius: 0;
-}
-
 // http://hugogiraudel.com/2016/10/13/css-hide-and-seek/ Screenreaders-only sr-only
 .invisible-accessible, .sr-only {
   border: 0 !important;
