@@ -564,8 +564,6 @@ th.checkbox {
   background: #ccc;
   border-color: #666;
   margin: 0 0.2em;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
   border-radius: 3px; }
 
 .progress .filled {
@@ -584,8 +582,6 @@ th.checkbox {
 
 /* apply a natural box layout model to all elements */
 *, *:before, *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 .invisible-accessible, .sr-only {
@@ -861,8 +857,11 @@ aside {
 
 @media only screen and (min-width: 37.5em) {
   footer .inner-wrap {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: start;
     justify-content: flex-start;
+    -ms-flex-align: stretch;
     align-items: stretch; } }
 
 @media only screen and (min-width: 37.5em) {
@@ -1292,7 +1291,7 @@ textarea {
     float: left;
     width: calc(100% - 71px);
     padding-left: 0.35em; }
-  .search-block .search-field {
+  .search-block .search_field {
     padding: 0.45em 0.35em; }
 
 .gallery, .cycle-slideshow {
