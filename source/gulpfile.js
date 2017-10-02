@@ -1,57 +1,121 @@
 var gulp            = require('gulp');
-// Requires the gulp-sass plugin
+// load 'em all'
+var plugins         = require('gulp-load-plugins')();
+//
+// load specifics
+var gutil           = require('gulp-util');
 var sass            = require('gulp-sass');
 var autoprefixer    = require('gulp-autoprefixer');
-//var browserSync = require('browser-sync').create();
-var cssnano         = require('gulp-cssnano');
-var gulpIf          = require('gulp-if');
 var runSequence     = require('run-sequence');
+var cleanCss        = require('gulp-clean-css');
+var sourcemaps      = require('gulp-sourcemaps');
 
+// Allows gulp --dev to be run for a more verbose output.
+// So if you want readable css, do "gulp --dev"
+var isProduction = true;
+var sassStyle = 'compressed';
 
+if (gutil.env.dev === true) {
+  sassStyle = 'expanded';
+  isProduction = false;
+}
+
+var jsFiles = [
+    '../js/lib/modernizr.custom.40091.js',
+    '../js/lib/jquery-1.11.1.min.js',
+    '../js/lib/viewportSize-min.js',
+    '../js/custom.js'
+];
+
+var jsDest = '../js/';
+
+gulp.task('scripts', function() {
+    return gulp.src(jsFiles)
+    .pipe(plugins.concat('scripts.min.js'))
+    .pipe(gulp.dest(jsDest))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest(jsDest));
+});
+
+gulp.task('watch', function() {
+    gulp.watch('scss/**/*.scss', ['sass']); 
+    gulp.watch('../*.css', ['autoprefixer']);
+    gulp.watch('../js/**/*.js', ['scripts']);
+});
 
 gulp.task('sass', function() {
     return gulp.src('scss/**/*.scss')
-    .pipe(sass()) // Using gulp-sass
-    .pipe(gulp.dest('../css'))
-    // .pipe(browserSync.reload({
-    //   stream: true
-    // }))
+    .pipe(plugins.sourcemaps.init())
+    .pipe(plugins.sass({
+        outputStyle: sassStyle
+    }))
+    .pipe(plugins.autoprefixer({
+        browsers: ['last 2 versions'],
+        cascade: false
+    }))
+    .pipe(isProduction ? plugins.cleanCss() : gutil.noop())
+    .pipe(plugins.sourcemaps.write())
+    .pipe(gulp.dest('../css/'))
 });
 
-gulp.task('watch', function (){
-    gulp.watch('scss/**/*.scss', ['sass']); 
-    gulp.watch('../*.css', ['autoprefixer']);
-});
+gulp.task('default', function(callback) {
+    runSequence('sass', 'watch', callback);
+})
 
-gulp.task('autoprefixer', function (){
-    gulp.src('../css/screen.css')
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('../css'))
-});
+// var gulp            = require('gulp');
+// // Requires the gulp-sass plugin
+// var sass            = require('gulp-sass');
+// var autoprefixer    = require('gulp-autoprefixer');
+// //var browserSync = require('browser-sync').create();
+// var cssnano         = require('gulp-cssnano');
+// var gulpIf          = require('gulp-if');
+// var runSequence     = require('run-sequence');
 
-gulp.task('minifycss', function(){
-    return gulp.src('../css/**/*.css')
-    .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('../css'))
-});
 
-// gulp.task('browserSync', function() {
-//   browserSync.init({
-//     server: {
-//       baseDir: '/'
-//     },
-//   })
+
+// gulp.task('sass', function() {
+//     return gulp.src('scss/**/*.scss')
+//     .pipe(sass()) // Using gulp-sass
+//     .pipe(gulp.dest('../css'))
+//     // .pipe(browserSync.reload({
+//     //   stream: true
+//     // }))
+// });
+
+// gulp.task('watch', function (){
+//     gulp.watch('scss/**/*.scss', ['sass']); 
+//     gulp.watch('../*.css', ['autoprefixer']);
+// });
+
+// gulp.task('autoprefixer', function (){
+//     gulp.src('../css/screen.css')
+//         .pipe(autoprefixer({
+//             browsers: ['last 2 versions'],
+//             cascade: false
+//         }))
+//         .pipe(gulp.dest('../css'))
+// });
+
+// gulp.task('minifycss', function(){
+//     return gulp.src('../css/**/*.css')
+//     .pipe(gulpIf('*.css', cssnano()))
+//     .pipe(gulp.dest('../css'))
+// });
+
+// // gulp.task('browserSync', function() {
+// //   browserSync.init({
+// //     server: {
+// //       baseDir: '/'
+// //     },
+// //   })
+// // })
+
+// // gulp.task('watch', ['browserSync', 'sass'], function(){
+// gulp.task('default', function(callback) {
+//     runSequence('sass', 'autoprefixer', 'watch', callback);
 // })
 
-// gulp.task('watch', ['browserSync', 'sass'], function(){
-gulp.task('default', function(callback) {
-    runSequence('sass', 'autoprefixer', 'watch', callback);
-})
-
-// gulp.task('watch', ['browserSync', 'sass'], function(){
-gulp.task('build', function(){
-    gulp.watch('../css/**/*.css', ['minifycss']); 
-})
+// // gulp.task('watch', ['browserSync', 'sass'], function(){
+// gulp.task('build', function(){
+//     gulp.watch('../css/**/*.css', ['minifycss']); 
+// })

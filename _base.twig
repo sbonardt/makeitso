@@ -19,18 +19,20 @@
         <!-- Firefox, Chrome, Safari, IE 11+ and Opera. 192x192 pixels in size. -->
         <link rel="icon" href="{{ paths.theme }}favicon.png">
         <link type="text/css" rel="stylesheet" href="{{ paths.theme }}css/screen.css" media="all" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     </head>
 
     <body class="{% if app.request.pathInfo == "/" %}homepage{% endif %}{{app.request.pathInfo|split("/")|join(" ")}}">
         <header role="banner">
             <div class="inner-wrap">
                 <a class="skipcontent" href="#content">Ga naar de inhoud</a>
-                <h1 class="logo">
-                    <a href="/">
-                        <img src="{{paths.theme}}img/mob-logo.png" alt="" data-src="{{paths.theme}}img/logo.png" data-src-mobile="{{paths.theme}}img/mob-logo.png" />
-                        <span>{{ app.config.get('general/sitename') }}</span>
-                    </a>
-                </h1>
+                <a href="/" class="logo">
+                    {# <img src="{{paths.theme}}img/mob-logo.png" alt="" data-src="{{paths.theme}}img/logo.png" data-src-mobile="{{paths.theme}}img/mob-logo.png" /> #}
+                    <span>
+                        {# {{ app.config.get('general/sitename') }} #}
+                        MAKEITSO
+                    </span>
+                </a>
             </div>
         </header>
 
@@ -81,10 +83,7 @@
         </div>
     </footer>
 
-    <script src="{{ paths.theme }}js/lib/modernizr.custom.40091.js"></script>
-    <script src="{{ paths.theme }}js/lib/jquery-1.11.1.min.js"></script>
-    <script src="{{ paths.theme }}js/lib/viewportSize-min.js"></script>
-    <script src="{{ paths.theme }}js/custom.js"></script> 
+    <script src="{{ paths.theme }}js/scripts.min.js"></script> 
 
 </body>
 </html>

@@ -16,7 +16,8 @@ jQuery(function ($) {
     // /////////////////////////////////////////////////////////////////////////
     // MENU CONFIG
     // set toggleableMenu to true if the menu needs to be toggled on or off on 
-    // small screens, or 'false' if constantly want to show the mainmenu
+    // small screens, 
+    // or set it to 'false' if constantly want to show the mainmenu
     var toggleableMenu = true;
     if (toggleableMenu) {
         $('html').addClass("toggleable-menu");
@@ -26,18 +27,18 @@ jQuery(function ($) {
     // initial checks for page setup. Checks the viewport width and does some 
     // actions for the UI based on screen size
     preLoadChecks();
-
-    // alle external class links to target _blank
+    
+    // all external class links to target _blank
     $('a.external').attr('target', "_blank");
 
-    // do some checks when window is resized
+    // do preLoadChecks when window is resized
     var resizeId;
     $(window).resize(function() {       
         clearTimeout(resizeId);
         resizeId = setTimeout(preLoadChecks, 20);
     });
 
-    //toggle .search when hidden on small/mobile devices
+    // toggle .search functionality when hidden on small/mobile devices
     $(".toggle-search").on( "click", function(e) {
         e.preventDefault();
         var searchform = $(".search-block");
@@ -62,7 +63,7 @@ jQuery(function ($) {
         }
     });
 
-    // toggle the main menu when hidden on small mobile devices
+    // toggle main menu functionality when hidden on small mobile devices
     $(".toggle-menu").on( "click", function(e) {
         e.preventDefault();
         var nav = $("nav .menu");
@@ -88,11 +89,11 @@ jQuery(function ($) {
     });
 
     function preLoadChecks() {
-        // update window width
+        // update window width from viewportSize.js (cross browser JS plugin)
         windowWidth = viewportSize.getWidth(); // $(window).width();
-        windowWidthEms = (viewportSize.getWidth()) / 16;
+        windowWidthEms = (viewportSize.getWidth()) / 16; // (16px/1em/rem basis)
 
-        // do various show n hides for menu's, search and .main-image based on viewport width
+        // do various show n hides, clones and other stuff 
         if ( windowWidthEms <= breakSmall) { 
 
         }

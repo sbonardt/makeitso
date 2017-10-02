@@ -5,8 +5,8 @@
  */
 
 // WEBSITE SETTINGS. Change these as desired:
-$baseFontFamily: "Droid Sans", Arial, Sans-serif;
-$baseHeaderFontFamily: "Droid Sans", Arial, Sans-serif; //check your typography.scss for webfonts
+$baseFontFamily: 'Open Sans', "Droid Sans", Arial, Sans-serif;
+$baseHeaderFontFamily: 'Open Sans', "Droid Sans", Arial, Sans-serif; //check your typography.scss for webfonts
 $baseBottomMargin: 2.5rem;
 
 // Theme colors
@@ -41,7 +41,6 @@ $break-xxwide: 1600; //1600px
 $break-r-u-insane: 1840; //1840px
 
 $site-max-width:64rem; // insert your sane value here
-
 
 @mixin respond-to($media) {
     @if $media == midmobile {

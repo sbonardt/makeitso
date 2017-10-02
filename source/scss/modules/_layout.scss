@@ -11,7 +11,7 @@
 * 
 * page setup: body direct descendants are the main wrappers containing direct 
 * descendant with .inner-wrap class set to center the content on the page. Used in favor 
-* of a general top level wrap all wrapper for esthetics sake. 
+* of a general top level wrap all wrapper for markup esthetics sake. 
 *
 * The design pattern here is that some parts (e.g. header/footer) of the website need a full-width
 * background color, but the contents needs to be centered on the page
@@ -41,7 +41,7 @@ body {
     }
     > footer {
         min-height:5rem;
-        background-color:$black;
+        background-color:$lightGrey;
         padding:1em 0;
     }
 }
@@ -110,16 +110,23 @@ aside {
 }
 
 .logo {
-    margin-bottom:1rem;
-    a {
-        display:block;
-        margin-bottom:0;
+    line-height: 1;
+    &:link, &:visited {
+        color: $black;
+        text-decoration: none;
+        font-size: 3.5rem;
+    }
+    &:hover, &:active, &:focus {
+        text-decoration: underline;
     }
     @include respond-to(medium-screens) {
         float:left;
     }
     span {
-        display:none;
+        // display:none;
+        font-size: 3,5rem;
+        font-family: $baseHeaderFontFamily;
+        font-weight: 700;
     }
     &.centered {
         text-align: center;
