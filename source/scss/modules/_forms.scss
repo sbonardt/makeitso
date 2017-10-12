@@ -55,19 +55,6 @@ input {
     &[type="search"] {
         -webkit-appearance: none;
     }
-    &[type="submit"], button[type="submit"] {
-        border:0;
-        color:$white; 
-        float: left;
-        display: block;
-        padding: 0.35rem 0.75em;
-        line-height: 1.5;
-        display:block;
-        clear:both;
-        width:auto;  
-        background-color: $darkGrey;   
-        border-radius: 0;
-    }
     &[type="radio"] {
         width: auto;
         margin-right:0.25rem;
@@ -83,6 +70,35 @@ input {
             position: relative;
             top: 2px;
         }
+    }
+    &[type="checkbox"] {
+        width: auto;
+        margin-right:0.25rem;
+        display:inline-block;
+        margin-bottom:0;
+        margin-bottom:0;
+        & + label {
+            display: inline-block;
+            font-size: 1rem;
+            margin-right: 1rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+            position: relative;
+            top: 2px;
+        }
+    }
+    &[type="submit"], button[type="submit"] {
+        border:0;
+        color:$white; 
+        float: left;
+        display: block;
+        padding: 0.35rem 0.75em;
+        line-height: 1.5;
+        display:block;
+        clear:both;
+        width:auto;  
+        background-color: $darkGrey;   
+        border-radius: 0;
     }
 }
 

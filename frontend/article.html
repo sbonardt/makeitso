@@ -20,8 +20,8 @@
         <div class="inner-wrap">
             <a class="skipcontent" href="#content">Ga naar de inhoud</a>
             <a href="index.html" class="logo">
-                <img src="../img/mob-logo.png" alt="" data-src="../img/logo.png" data-src-mobile="../img/mob-logo.png" />
-                <span>Make it so</span>
+                <!-- <img src="../img/mob-logo.png" alt="" data-src="../img/logo.png" data-src-mobile="../img/mob-logo.png" /> -->
+                <span>Makeitso</span>
             </a>
         </div>
     </header>
@@ -67,6 +67,9 @@
                 <a id="content" tabindex="0"></a>
                 <h1>Article page</h1>     
                 <div class="body-content">
+                    <p class="introduction">
+                        Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Itaque hic ipse iam pridem est reiectus; Superiores tres erant, quae esse possent, quarum est una sola defensa, eaque vehementer. Duo Reges: constructio interrete. Negabat igitur ullam esse artem, quae ipsa a se proficisceretur; Quid ergo hoc loco intellegit honestum? Illud dico, ea, quae dicat, praeclare inter se cohaerere. Easdemne res? Primum cur ista res digna odio est.
+                    </p>
 
                     <h2>Example HTML elements</h2>
 
@@ -83,11 +86,12 @@
                     <div>This is a div element. Authors may use such elements instead of paragraph markup for various reasons.</div>
 
                     <blockquote>
-                        <p>This is a block quotation containing a single paragraph. Well, not quite, since this is not <em>really</em> quoted text, but I hope you understand the point. After all, this page does not use HTML markup very normally anyway.</p>
+                        <p>This is a block quotation containing a single paragraph.</p>
                     </blockquote>
 
                     <h2>Lists</h2>
 
+                    <h3>Unordered list</h3>
                     <ul>
                         <li>One.</li>
                         <li>Two.</li>
@@ -95,6 +99,7 @@
                         <li>Four. This is the last item in this list. </li>
                     </ul>
 
+                    <h3>Ordered list</h3>
                     <ol>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
@@ -103,14 +108,25 @@
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
                     </ol>
 
+                    <h3>Definition list</h3>
+                    <dl>
+                        <dt>Coffee</dt>
+                        <dd>Black hot drink</dd>
+                        <dt>Milk</dt>
+                        <dd>White cold drink</dd>
+                        <dt>Sinas</dt>
+                        <dd>Yellow cold drink</dd>
+                    </dl>
+                          
+
                     <h2>Text-level elements</h2>
 
                     <ul class="stripped">
-                        <li><b>bolded</b> (b element used - just bolding with unspecified semantics).</li>
-                        <li>This is <em>very</em> simple (em element used for emphasizing a word).</li>
+                        <li><b>bold text</b> (b element used - just bolding with unspecified semantics).</li>
+                        <li><em>This is very simple</em> (em element used for emphasizing a word, semantically).</li>
                         <li><i>Homo sapiens</i> (should appear in italics; i element used)</li>
-                        <li><strong>this is highlighted text</strong> (strong element used)</li>
-                        <li>Ssubscripts and superscripts (suband supmarkup) inside running text. Lorem ipsum dolor <sub>1</sub> and H<sub>2</sub>O (where subscripts occur). Superscripts: M<sup>lle</sup>, 1<sup>st</sup>, and then some mathematical notations: e<sup>x</sup>, sin<sup>2</sup> <em>x</em>, and some nested superscripts (exponents) too: e<sup>x<sup>2</sup></sup> and f(x)<sup>g(x)<sup>a+b+c</sup></sup> (where 2 and a+b+c should appear as exponents of exponents).</li>
+                        <li><strong>this is highlighted text</strong> (strong element used for louder words, semantically)</li>
+                        <li><p>Subscripts and superscripts (sub and sup markup) inside running text. Lorem ipsum dolor <sub>1</sub> and H<sub>2</sub>O (where subscripts occur). Superscripts: M<sup>lle</sup>, 1<sup>st</sup>, and then some mathematical notations: e<sup>x</sup>, sin<sup>2</sup> <em>x</em>, and some nested superscripts (exponents) too: e<sup>x<sup>2</sup></sup> and f(x)<sup>g(x)<sup>a+b+c</sup></sup> (where 2 and a+b+c should appear as exponents of exponents).</p></li>
                     </ul>
 
                     <h2>Links</h2>
@@ -212,8 +228,8 @@
                                 <input type="search" value="" id="input2" placeholder="placeholder text">
                             </div>
                             <div>
-                                <label for="input3">Label</label>
-                                <input type="text" value="" id="input3">
+                                <label for="textarea1">Label</label>
+                                <textarea></textarea>
                             </div>
                         </fieldset>
                         <fieldset>
@@ -229,19 +245,12 @@
                                 <input type="search" value="" id="input2">
                             </div>
                             <div>
-                                <label for="input6">Label</label>
-                                <input type="text" value="" id="input3">
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Legend</legend>
-                            <div>
-                                <label for="input7">Label</label>
-                                <input type="text" value="" id="input4"/>
+                                <input type="checkbox" name="check1" value="check1" id="check1">
+                                <label for="check1">Label</label>
                             </div>
                             <div>
-                                <label for="textarea1">Label</label>
-                                <textarea></textarea>
+                                <input type="checkbox" name="check2" value="check2" id="check2">
+                                <label for="check2">Label</label>
                             </div>
                         </fieldset>
                         <button type="submit">Verzenden</button>
@@ -267,22 +276,46 @@
         </div>
         <aside>
             <div class="inner-wrap">
-                <h2>Website aside</h2>
-                <p>Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Illum mallem levares, quo optimum atque humanissimum virum, Cn. Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem; Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate sapientis. Sed ad illum redeo. </p>
-                <ul>
-                    <li>Sed residamus, inquit, si placet.</li>
-                    <li>Hoc loco discipulos quaerere videtur, ut, qui asoti esse velint, philosophi ante fiant.</li>
-                    <li>Atqui haec patefactio quasi rerum opertarum, cum quid quidque sit aperitur, definitio est.</li>
-                    <li>Mihi enim satis est, ipsis non satis.</li>
-                    <li>Sumenda potius quam expetenda.</li>
-                </ul>
+                <div class="half">
+                    <h2>Lorem ipsum</h2>
+                    <p>Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Illum mallem levares, quo optimum atque humanissimum virum, Cn. Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem; Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate sapientis. Sed ad illum redeo. </p>
+                    <ul>
+                        <li>Sed residamus, inquit, si placet.</li>
+                        <li>Hoc loco discipulos quaerere videtur, ut, qui asoti esse velint, philosophi ante fiant.</li>
+                        <li>Atqui haec patefactio quasi rerum opertarum, cum quid quidque sit aperitur, definitio est.</li>
+                        <li>Mihi enim satis est, ipsis non satis.</li>
+                        <li>Sumenda potius quam expetenda.</li>
+                    </ul>
+                </div>
+                <div class="half">
+                    <h2>Lorem ipsum</h2>
+                    <p>Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Illum mallem levares, quo optimum atque humanissimum virum, Cn. Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem; Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate sapientis. Sed ad illum redeo. </p>
+                </div>
+            </div>
+            <div class="inner-wrap">
+                <div class="third">
+                    <h2>Lorem ipsum</h2>
+                    <p>Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Illum mallem levares, quo optimum atque humanissimum virum, Cn. Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem; Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate sapientis. Sed ad illum redeo. </p>
+                </div>
+                <div class="third">
+                    <h2>Dolor sit amet</h2>
+                    <p>Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Illum mallem levares, quo optimum atque humanissimum virum, Cn. <br><br>Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem; Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate sapientis. Sed ad illum redeo. </p>
+                </div>
+                <div class="third">
+                    <h2>Consectetuer</h2>
+                    <p>Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Illum mallem levares, quo optimum atque humanissimum virum, Cn. Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem; Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate sapientis. Sed ad illum redeo. </p>
+                    <ul>
+                        <li>Sed residamus, inquit, si placet.</li>
+                        <li>Hoc loco discipulos quaerere videtur, ut, qui asoti esse velint, philosophi ante fiant.</li>
+                    </ul>
+                </div>
             </div>
         </aside>
     </main>
 
     <footer>
         <div class="inner-wrap">
-            <div class="footer-block">
+            <div class="footer-block third">
                 <ul class="stripped menu">
                     <li>
                         <a href="#">Lorem ipsum</a>    
@@ -296,8 +329,8 @@
                 </ul>
             </div>
 
-            <div class="footer-block">
-                <p>Lorem ipsum dolor sit amet consectetuer adipliscing elit</p>
+            <div class="">
+                <p>Lorem ipsum dolor sit amet consectetuer adipliscing elit. Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem;</p>
             </div>
         </div>
     </footer>

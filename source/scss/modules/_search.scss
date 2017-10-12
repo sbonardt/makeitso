@@ -7,50 +7,50 @@
 
 // search block styling
 .search-block {
-    margin:2rem 0 0;
-    overflow:hidden;
-    display:block;
+    margin: 2rem 0 0;
+    overflow: hidden;
+    display: block;
     padding: 0 0.625rem;
     @include respond-to(small-screens) {
-        float:right;
+        float: right;
     }
     @include respond-to(medium-screens) {
-        max-width:220px;
-        margin-top: 0;
+        max-width: 220px;
+        margin-top: 0.8125rem;
     }
     @include respond-to(large-screens) {
-        max-width:320px;
+        max-width: 320px;
     }
     @include respond-to(xlarge-screens) {
-        max-width:none;
-        width:27%;
+        max-width: none;
+        width: 27%;
     }
     label {
-        display:none;
-        clear:both;
+        display: none;
+        clear: both;
     }
     [type="submit"] {
-        border-left:0;
-        width:90px;
+        border-left: 0;
+        width: 90px;
         clear:none;
         background-color:$darkGrey;
         color:$white;
-        border-radius: 0 3px 3px 0;
         &:hover, &:active, &:focus {
             background-color: $black;
         }
     }
     [type="text"], [type="search"] {
         width: calc(100% - 90px);
-        border-radius:3px 0 0 3px;
-        box-sizing: border-box;
     }
     input, button {
-        float:left;
-        width:calc(100% - 71px);
-        padding-left: 0.35em;
+        float: left;
+        width: calc(100% - 71px);
+        padding-left: 0.35rem;
     }
     .search_field {
-        padding: 0.45em 0.35em;
+        padding: 0.45rem 0.35rem;
+    }
+    input {
+        height: 36px;
     }
 }

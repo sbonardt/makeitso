@@ -53,11 +53,12 @@ h1, h2, h3, h4, h5 {
 }
 
 h1, .alpha {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
 }
 
 h2, .beta {
-    font-size: 2rem;
+    margin-bottom: 0.45em;
+    font-size: 2.15rem;
 }
 
 h3, .gamma {
@@ -73,7 +74,7 @@ h5, .epsilon {
     font-weight: normal;
 }
 
-p, ul, ol, dt, dd, pre, blockquote, table {
+p, ul, ol, dl, pre, blockquote, table {
     margin:0 0 1.5em 0;
     font-size: 1rem;
 }
@@ -100,8 +101,28 @@ ol {
 li ol, li ul {
     margin-top:0.5em;
 }
+
 ol ol li:last-child {
     margin-bottom:0;
+}
+
+dl {
+    @extend .group;
+    padding:0;
+    margin:0 0 $baseBottomMargin;
+}
+
+dt {
+    font-weight: bold;
+    text-decoration: underline;
+    &:after {
+        content: ":";
+    }
+}
+
+dd {
+    margin: 0;
+    padding: 0 0 0.5em 0;
 }
 
 .stripped {
@@ -120,7 +141,7 @@ blockquote {
     display:inline-block;
     clear:both;
     color:$black;
-    border-left: solid $darkGrey 3px;
+    border-left: solid $grey 3px;
     font-size: 1.5rem;
     font-weight: bold;
     margin: $baseBottomMargin auto;
@@ -137,17 +158,18 @@ blockquote {
     }
 }
 
-a, a:link, a:visited {
-    color:$baseLinkColour;
-}
-
-a:hover, a:active, a:focus {
-    text-decoration:none;
-    color: darken($baseLinkColour, 20%);
+a {
+    &:link, &:visited {
+        color:$baseLinkColour;
+    }
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+        color: darken($baseLinkColour, 20%);
+    }
 }
 
 .btn, button {
-    background-color: $black;
+    background-color: $grey;
     border:0;
     color:$white; 
     float: left;
@@ -205,3 +227,10 @@ table {
   }
 }
 
+.upper {
+    text-transform: uppercase;
+}
+
+.lower {
+    text-transform: lowercase;
+}
