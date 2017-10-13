@@ -1,6 +1,6 @@
 /**
  * File:        _typography.scss
- * Description: _typography.scss contains all text styles for makeitso 
+ * Description: _typography.scss for makeitso 
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
 
@@ -125,13 +125,8 @@ dd {
     padding: 0 0 0.5em 0;
 }
 
-.stripped {
-    padding: 0;
-    margin: 0 0 $baseBottomMargin;
-    list-style: none;
-    li {
-        margin: 0;
-    }
+mark {
+    background-color: $highlightColour;
 }
 
 blockquote {
@@ -167,6 +162,32 @@ a {
         color: darken($baseLinkColour, 20%);
     }
 }
+
+ul, ol {
+    &.stripped {
+        padding: 0;
+        margin: 0 0 $baseBottomMargin;
+        list-style: none;
+        li {
+            margin: 0;
+        }
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    text-align: left;
+    margin-bottom: $baseBottomMargin;
+    caption {
+      text-align: center;
+      border-bottom: 1px solid $grey;
+      padding-bottom: 0.25em;
+      margin-bottom: 0.25em;
+      font-weight: bold;
+    }
+  }
 
 .btn, button {
     background-color: $grey;
@@ -206,25 +227,6 @@ a {
             }
         }
     }
-}
-
-mark {
-    background-color: $highlightColour;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  text-align: left;
-  margin-bottom: $baseBottomMargin;
-  caption {
-    text-align: center;
-    border-bottom: 1px solid $grey;
-    padding-bottom: 0.25em;
-    margin-bottom: 0.25em;
-    font-weight: bold;
-  }
 }
 
 .upper {
