@@ -14,7 +14,7 @@ Clone the repo and view the three available HTML pages in your browser:
 - listing.html
 
 Or -like you should- use Bolt CMS, clone this repo in the Bolt themes folder
-and enable it. ( WIP/THIS IS NOT READY YET!)
+and enable it. ( WIP! : USING IT AS A BOLT THEME IS NOT READY YET!)
 
 ---
  
