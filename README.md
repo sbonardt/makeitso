@@ -1,7 +1,9 @@
 MAKEITSO
 ========
 
-MAKEITSO - Startup your frontend/theme development 
+MAKEITSO - get to viable at warp speed
+
+Startup your frontend/theme development 
 
 Base or startup for getting to a minimum viable product at warp speed. 
 MAKEITSO started out as 'flat' frontend project but now is incorporated
