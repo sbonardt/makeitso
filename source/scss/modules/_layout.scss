@@ -17,7 +17,7 @@
 * background color, but the contents needs to be centered on the page
 *
 * ! If no full width background-colors are in the design you can remove the inner-wrap div's and
-* set the $site-max-width on the body with margin:0 auto;
+* set the $site-max-width on the <body> with margin:0 auto;
 *
 */
 
@@ -156,6 +156,11 @@ aside {
     display:block;
 }
 
+.tagline {
+    display: block;
+    clear: both;
+}
+
 .breadcrumb {
     margin:1em 0;
 }
@@ -235,7 +240,27 @@ aside {
     }
 }
 
+
+.footer-logo {
+    margin: 4rem 0 0 0;
+    float: right;
+    .logotype {
+        // display:none;
+        color:$grey;
+        text-transform: uppercase;
+        font-size: 3rem;
+        line-height: 1;
+        font-family: 'Arial Black', $baseHeaderFontFamily;
+        font-weight: 700;
+        @include respond-to(xlarge-screens) {
+            font-size: 4rem;
+        }
+    }
+}
+
+
 .footer-block {
+    margin-bottom: $baseBottomMargin;
     @include respond-to(medium-screens) {
         float:left;
         width:46%;
@@ -278,6 +303,14 @@ aside {
         padding: 0 2rem 0 0;
     }
     & + .third + .third {
+        padding: 0;
+    }
+}
+
+.two-third {
+    @include respond-to(medium-screens) {
+        width: 67%;
+        float: left;
         padding: 0;
     }
 }

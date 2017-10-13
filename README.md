@@ -1,7 +1,20 @@
-makeitso
+MAKEITSO
 ========
 
-Make it so - Static front-end 
+MAKEITSO - Startup your frontend/theme development 
+
+Base or startup for getting to a minimum viable product at warp speed. 
+MAKEITSO started out as 'flat' frontend project but now is a Bolt theme. 
+You can view the flat frontend under: /makeitso/frontend
+
+Clone the repo and view the three available HTML pages in your browser:
+
+- index.html
+- article.html
+- listing.html
+
+Or -like you should- use Bolt CMS, clone this repo in the Bolt themes folder
+and enable it. ( WIP/THIS IS NOT READY YET!)
 
 ---
  
