@@ -36,7 +36,7 @@ other piece of content, put it in _theme.scss. If the combined amount of lines e
 5. JAVASCRIPT - Gulp compiles the javascript files into one minified scripts.min.js. Custom.js is the main JS file for UI and interaction stuff. If you would like to add a js file (of a third party) you must specify it in the gulpfile in de jsFiles variable. It will then get compiled as part of the scripts.min.js file
 
 
-MAKE IT SO
+Make it so...
 
 
 ---
