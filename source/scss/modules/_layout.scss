@@ -168,9 +168,8 @@ aside {
 .main-content {
     overflow:hidden;
     @include respond-to(large-screens) {
-        max-width: 68%;
+        max-width: 66%;
         float: left;
-        padding-right: 2rem;
     }
     aside {
         clear: none;
@@ -205,23 +204,22 @@ aside {
     border-top: 0;
     @include respond-to(large-screens) {
         float: left;
-        width: 26%;
-        margin-right: 6%;
+        width: 31%;
         clear: none;
         margin-top: 5.25rem;
     }
     & + .main-content {
         @include respond-to(large-screens) {
         float: left;
-        width: 68%;
+        width: 66%;
         }
     }
 }
 
 .sidebar.sidebar-second {
     @include respond-to(large-screens) {
-    float: right;
-    margin-right: 0;
+    float: left;
+    margin-left: 3%;
     }
 }
 
@@ -294,7 +292,7 @@ aside {
 }
 
 .third {
-    @include respond-to(medium-screens) {
+    @include respond-to(large-screens) {
         width: 33%;
         float: left;
         padding: 0 2rem 0 0;

@@ -1,7 +1,6 @@
 .body-content > .introduction {
-	text-transform: uppercase;
 	font-weight: bold;
-	line-height: 1.7;
+	font-size: 1.25rem;
 }
 
 .item-teaser {
@@ -16,7 +15,10 @@
 		}
 	}
 	img {
-		@extend .half;
+		float: left;
+		display: block;
+		width: 48%;
+		margin-right: 2%;
 		margin-bottom: 1rem;
 	}
 }
