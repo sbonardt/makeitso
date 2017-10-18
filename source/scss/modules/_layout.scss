@@ -30,7 +30,7 @@ body {
     margin: 0;
     position: relative;
     padding: 0;
-    > header, footer, main, [role="main"] {
+    > header, footer, main {
         width: 100%;
         display: block;
         overflow: hidden;
@@ -45,7 +45,7 @@ body {
     }
 }
 
-main, [role="main"] {
+main {
     margin: 0;
     padding-top: 1rem;
     @include respond-to(medium-screens) {
@@ -132,8 +132,8 @@ aside {
         // display:none;
         text-transform: uppercase;
         font-size: 3rem;
-        font-family: 'Arial Black', $baseHeaderFontFamily;
-        font-weight: 700;
+        font-family: $baseHeaderFontFamily;
+        font-weight: 800;
         @include respond-to(xlarge-screens) {
             font-size: 4rem;
         }
@@ -250,8 +250,8 @@ aside {
         text-transform: uppercase;
         font-size: 3rem;
         line-height: 1;
-        font-family: 'Arial Black', $baseHeaderFontFamily;
-        font-weight: 700;
+        font-family: $baseHeaderFontFamily;
+        font-weight: 800;
         @include respond-to(xlarge-screens) {
             font-size: 4rem;
         }

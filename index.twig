@@ -1,4 +1,4 @@
-{% extends '_base.twig' %}
+{% extends 'partials/_base.twig' %}
 
 {% block aside_sidebar_first %}
 {# <aside class="sidebar sidebar-first">
@@ -36,8 +36,9 @@
 {% endblock %}
 
 {% block aside_sidebar_second %}
-{# <aside class="sidebar sidebar-second">
-</aside> #}
+    <aside class="sidebar sidebar-second">
+    
+    </aside>
 {% endblock %}
 
 {% block main_aside_one %}
@@ -53,7 +54,7 @@
                                 {{ widgets('aside_top') }}
                                 <h2>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct}) }}</h2>
                             {% endif %}
-                            <article class="teaser">
+                        <article class="teaser">
                             <h1 class="gamma"><a href="{{record.link}}">{{ record.title }}</a></h1>
                             {{ showimage(image, 440, 0) }}
                             <p>{{record.body|excerpt(250)}}</p>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="{{ htmllang() }}">
+    <head>
+        <meta charset="utf-8">
+        {% if record is defined %}
+            <title>{{ record.title ? (app.config.get('general/sitename') ~ ' | ' ~ record.title|excerpt(55)) : app.config.get('general/sitename') }}</title>
+            <meta name="description" content="{{ record.body|excerpt(160) ? : app.config.get('general/payoff') }}">
+        {% else %}
+            <title>{{ app.config.get('general/sitename') }}</title>
+            <meta name="description" content="{{ app.config.get('general/payoff') }}">
+        {% endif %}
+        <meta http_equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0" />
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png', 'theme') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png', 'theme') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png', 'theme') }}">
+        <link rel="manifest" href="{{ asset('manifest.json', 'theme') }}">
+        <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg', 'theme') }}" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
+        <link type="text/css" rel="stylesheet" href="{{ asset('css/screen.css', 'theme') }}" media="all" />
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+    </head>
+
+    <body class="{% if app.request.pathInfo == "/" %}home{% endif %}{{app.request.pathInfo|split("/")|join(" ")}}">
+        <header>
+            <div class="inner-wrap">
+                <a class="skipcontent" href="#content">Ga naar de inhoud</a>
+                <a href="/" class="logo">
+                    {# See custom.js for logo swapping when you have a mobile logo #}
+                    {# <img src="{{paths.theme}}img/mob-logo.png" alt="" data-src="{{paths.theme}}img/logo.png" data-src-mobile="{{paths.theme}}img/mob-logo.png" /> #}
+                    <span>
+                        {# {{ app.config.get('general/sitename') }} #}
+                        MAKEITSO
+                    </span>
+                </a>
+            </div>
+        </header>
+
+        <nav>
+            <div class="inner-wrap">
+                <div class="toggle-btn-wrap">
+                    <button class="toggle-menu" role="button">menu</button>
+                    <button class=" toggle-search" role="button">zoeken</button>
+                </div>
+                <ul class="menu">                
+                    {{ menu('main', 'partials/_menu.twig') }}       
+                </ul>
+                <form action="{{ path('search') }}" method="get" accept-charset="UTF-8"  enctype="text/plain" class="search-block">
+                    <label for="search_field">Search</label>
+                    <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
+                    <input type="submit" value="search" />
+                </form>
+            </div>             
+        </nav>
+
+        <main>
+            <div class="inner-wrap">
+                {% block aside_sidebar_first %}
+                {% endblock %}
+
+                {% block body %}
+                {% endblock %}
+
+                {% block aside_sidebar_second %}
+                {% endblock %}
+            </div>
+
+            {% block main_aside_one %}
+            {% endblock %}
+            {% block main_aside_two %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            <div class="inner-wrap">
+                <ul class="footer-block third menu">
+                    {{ menu('main', 'partials/_menu_footer.twig') }}
+                </ul>
+
+                <div class="footer-block two-third">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quaesita enim virtus est, non quae relinqueret naturam, sed quae tueretur. Respondent extrema primis, media utrisque, omnia omnibus. Alterum significari idem, ut si diceretur, officia media omnia aut pleraque servantem vivere.</p>
+                </div>
+
+                <div class="footer-logo">
+                    <span class="logotype">MAKEITSO</span>
+                    <span class="tagline"><i>get to viable at warp speed</i></span>
+                </div>
+            </div>
+        </footer>
+
+        <script src="{{ asset('js/scripts.min.js', 'theme') }}"></script>
+
+</body>
+</html>

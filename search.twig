@@ -10,29 +10,17 @@
     <section class="main-content">
         <a id="content" tabindex="0"></a>
 
-        {# This template is used for 'listings': Generic pages that list a number of
-           records from a certain contenttype. These records are available as an array
-           called 'records'. In the for-loop below, we iterate over the records that
-           are on this page. It can be used for overview pages like 'all entries', or
-           'all records tagged with kittens'. #}
-
-        {# If used for listing a taxonomy, we add a heading.: #}
-        {% if taxonomytype is defined %}
-            <h1>
-                {{ __('general.phrase.overview-for') }}
-                {% if taxonomy.options[slug] is defined %}
-                    {{ taxonomy.options[slug] }}
-                {% else %}
-                    {{ slug }}
-                {% endif %}
-            </h1>
-            {# Taxonomies are fetched unordered by design except if 'has_sortorder'
-               is set to true. This way we keep 'grouping' intact in the listing. #}
-            {% if not taxonomy.has_sortorder %}
-                {# If we specified an order in config.yml, sort them here, accordingly: #}
-                {% set records = records|order(app.config.get('general/listing_sort')) %}
+        {# This template is used for search results. If 'search' is defined,
+           we display an appropriate title. The 'records' array contains all of the
+           records matching the current query. If there are no results, the
+           code in the 'else' part of the for-loop is used. #}
+        <h1>
+            {% if search is not empty %}
+                {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+            {% else %}
+                {{ __('general.phrase.search') }}
             {% endif %}
-        {% endif %}
+        </h1>
 
         {% for record in records %}
 
@@ -67,8 +55,16 @@
 {% endblock %}
 
 {% block aside_sidebar_second %}
-    {# <aside class="sidebar sidebar-second">
-    </aside> #}
+    <aside class="sidebar sidebar-second">
+        {# Perhaps we post a small teaser, stored in the 'block' named 'Search teaser' #}
+        {% setcontent block = "block/search-teaser" %}
+
+        {# check if we have 'content'. If so, we know we have have a teaser to display. #}
+        {% if block.content is defined %}
+            <h3>{{ block.title }}</h3>
+            {{ block.content }}
+        {% endif %}
+    </aside>
 {% endblock %}
 
 {% block main_aside_one %}

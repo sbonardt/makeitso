@@ -125,10 +125,6 @@ dd {
     padding: 0 0 0.5em 0;
 }
 
-mark {
-    background-color: $highlightColour;
-}
-
 blockquote {
     font-size: 1.5rem;
     padding:1em;
@@ -160,6 +156,11 @@ a {
     &:hover, &:active, &:focus {
         text-decoration: none;
         color: darken($baseLinkColour, 20%);
+    }
+    h1 &, h2 &, h3 &, h4 &, h5 & {
+        &:hover, &:active, &:focus {
+            text-decoration: underline;
+        }
     }
 }
 
