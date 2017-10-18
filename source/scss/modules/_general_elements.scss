@@ -7,7 +7,9 @@ figure {
     margin: 0 0 2rem;
     text-align: center;
     figcaption {
-        text-align: right;
+        text-align: left;
+        color: #999;
+        font-size: 90%;
     }
     > div {
         display: inline-block;

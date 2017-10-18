@@ -126,26 +126,36 @@ dd {
 }
 
 blockquote {
-    font-size: 1.5rem;
-    padding:1em;
-    background-color:$lightGrey;
+    padding: 2rem 10% 3rem;
+    // background-color:$lightGrey;
     display:inline-block;
     clear:both;
     color:$black;
-    border-left: solid $grey 3px;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: bold;
-    margin: $baseBottomMargin auto;
+    margin: 1rem auto 2.5rem;
+    position: relative;
+    text-align: center;
     @include respond-to(medium-screens) {
-        max-width:80%;
-        display:block;
+        padding: 3rem 15%;
+        font-size: 1.5rem;
     }
-    @include respond-to(large-screens) {
-        max-width: 65%;
+    &:before, &:after {
+        content: " ";
+        border-top: 3px solid $lightGrey;
+        position: absolute;
+        top: 0.625rem;
+        width: 50%;
+        height: 1px;
+        left: 25%;
+    }
+    &:after {
+        bottom: 0.625rem;
+        top: auto;
     }
     p {
         margin:0;
-        font-size: 1.5rem;
+        font-size: 1.125rem;
     }
 }
 
