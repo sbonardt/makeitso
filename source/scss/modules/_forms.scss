@@ -10,19 +10,31 @@ form {
 }
 
 fieldset {
-    margin-bottom: 1.5rem;
+    border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 3px;
+    &.ui-present {
+        border: 1px solid $grey;
+        margin-bottom: 1.5rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
 }
 
 legend {
     font-size: 1.5rem;
-    text-transform:uppercase;
 }
 
 label {
     color:$black;
-    font-size: 1.25rem;
+    font-size: 1rem;
     display:block;
     font-weight:bold;
+    margin-bottom: 0.25em;
+    &.error, .has-error & {
+        color: $errorColour;
+    }
 }
 
 .required-field {
@@ -35,25 +47,37 @@ label {
 input {
     box-sizing: border-box;
     border:1px solid $grey;
-    padding: 0.35rem 0.5rem;
+    padding: 0.5em;
     font-size: 1rem;
     margin-bottom:1.5rem;
     width:100%;
-    border-radius: 2px;
+    border-radius: 3px;
+    &:disabled {
+        background: $offWhite;
+        border-color: lighten($grey, 15%);
+        cursor: not-allowed;
+    }
     &:focus {
         border-color:$black;
     }
-    &.error {
-        background-color: lighten($red, 53%);
+    &.error, .has-error & {
+        border: 1px solid $errorColour;
+        margin-bottom: 0.625rem;
         &:focus {
-            background-color:$white;
+            border: 1px solid $grey;
         }
     }
     &[type="text"] {
         -webkit-appearance: none;
+        border-radius: 3px;
     }
     &[type="search"] {
         -webkit-appearance: none;
+        border-radius: 3px;
+    }
+    &[type="password"] {
+        -webkit-appearance: none;
+        border-radius: 3px;
     }
     &[type="radio"] {
         width: auto;
@@ -69,6 +93,12 @@ input {
             margin-bottom: 1rem;
             position: relative;
             top: 2px;
+        }
+        &.error, .has-error & {
+            border: 1px solid $errorColour;
+            & + label {
+                color: $errorColour;
+            }
         }
     }
     &[type="checkbox"] {
@@ -108,14 +138,58 @@ textarea {
     resize: vertical;
     border:1px solid $grey;
     margin-bottom:1.5rem;
+    border-radius: 3px;
+    padding: 0.5rem;
     &:focus {
         border-color:$black;
         outline:none;
     }
-    &.error {
-        background-color: lighten($red, 53%);
+    &.error, .has-error & {
+        border-color: $errorColour;
+        margin-bottom: 0.625rem;
         &:focus {
             background-color:$white;
         }
+    }
+}
+
+select {
+    max-width: 320px;
+    box-sizing: border-box;
+    border:1px solid $grey;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom:1.5rem;
+    width:100%;
+    border-radius: 3px;
+    &.error, .has-error & {
+        border-color: $errorColour;
+        margin-bottom: 0.625rem;
+        &:focus {
+            background-color:$white;
+        }
+    }
+}
+
+.form-element_error-message {
+    margin-bottom: 1.5rem;
+    color: $errorColour;
+    padding: 0.35rem 0.5em;;
+    //margin-left: 0.625rem;
+    border: 1px solid $errorColour;
+    background: $errorBackgroundColour;
+    border-radius: 4px;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        height: 8px;
+        width: 8px;
+        top: -5px;
+        left: 1.5rem;
+        border-left: 1px solid $errorColour;
+        border-top: 1px solid $errorColour;
+        transform: rotate(45deg);
+        background-color: $errorBackgroundColour;
     }
 }

@@ -152,16 +152,22 @@ blockquote {
     &:after {
         bottom: 0.625rem;
         top: auto;
+        width: 30%;
+        left: 35%;
     }
     p {
         margin:0;
-        font-size: 1.125rem;
+        font-size: 1.25rem;
+        @include respond-to(medium-screens) {
+            font-size: 1.5rem;
+        }
     }
 }
 
 a {
+    text-decoration-skip: ink;
     &:link, &:visited {
-        color:$baseLinkColour;
+        color: $baseLinkColour;
     }
     &:hover, &:active, &:focus {
         text-decoration: none;
@@ -206,7 +212,7 @@ table {
     color:$white; 
     float: left;
     display: block;
-    padding: 0.5rem 0.8125em;
+    padding: 0.625em 0.8125em 0.375em;
     line-height: 1.5;
     margin-bottom: 1.5rem;
     &:link, &:visited {

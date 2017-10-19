@@ -18,7 +18,7 @@
 <body>
     <header>
         <div class="inner-wrap">
-            <a class="skipcontent" href="#content">Ga naar de inhoud</a>
+            <a class="skipcontent" href="#content">Skip to contents</a>
             <a href="index.html" class="logo">
                 <!-- <img src="../img/mob-logo.png" alt="" data-src="../img/logo.png" data-src-mobile="../img/mob-logo.png" /> -->
                 <span>Makeitso</span>
@@ -29,8 +29,8 @@
     <nav>
         <div class="inner-wrap">
             <div class="toggle-btn-wrap">
-                <button class="toggle-menu" role="button">menu</button>
-                <button class=" toggle-search" role="button">zoeken</button>
+                <button class="toggle-menu" aria-pressed="false">menu</button>
+                <button class=" toggle-search" aria-pressed="false">zoeken</button>
             </div>
             <ul class="menu">                
                 <li class="first active">
@@ -41,7 +41,10 @@
                 </li>            
                 <li>
                     <a href="listing.html">Listing page</a>
-                </li>     
+                </li>
+                <li>
+                    <a href="form.html">Form page</a>
+                </li>
             </ul>
             <form action="/" method="post" accept-charset="UTF-8" class="search-block">
                 <label for="search_field">Search</label>
@@ -230,45 +233,25 @@
                         </tbody>
                     </table>
 
-                    <form>
-                        <fieldset>
-                            <legend>Legend</legend>
-                            <div>
-                                <label for="input1">Label</label>
-                                <input type="text" value="" id="input1">
-                            </div>
-                            <div>
-                                <label for="input2">Label</label>
-                                <input type="search" value="" id="input2" placeholder="placeholder text">
-                            </div>
-                            <div>
-                                <label for="textarea1">Label</label>
-                                <textarea></textarea>
-                            </div>
-                        </fieldset>
-                        <fieldset>
-                            <legend>Legend</legend>
-                            <div>
-                                <input type="radio" name="gender" value="male" id="radio1">
-                                <label for="radio1">Label</label>
-                                <input type="radio" name="gender" value="female" id="radio2">
-                                <label for="radio2">Label</label>
-                            </div>
-                            <div>
-                                <label for="input5">Label</label>
-                                <input type="search" value="" id="input2">
-                            </div>
-                            <div>
-                                <input type="checkbox" name="check1" value="check1" id="check1">
-                                <label for="check1">Label</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="check2" value="check2" id="check2">
-                                <label for="check2">Label</label>
-                            </div>
-                        </fieldset>
-                        <button type="submit">Verzenden</button>
-                    </form>
+                    <div class="ui-info">
+                            <p>Lorem ipsum dolor sit amet</p>
+                        </div>
+
+                    <div class="ui-info information">
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+
+                    <div class="ui-info warning">
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+
+                    <div class="ui-info error">
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </div>
+
+                    <div class="ui-info success">
+                        <p>Lorem ipsum dolor sit amet</p>
+                    </div>
 
                 </div> 
             </article>
@@ -281,6 +264,11 @@
                 </ul>
                 <div class="contentblock">    
                     <h2 class="gamma">Div class content block</h2>                    
+                    <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re.<br><a href='http://loripsum.net/'>Hoc simile tandem est?</a>.
+                    </p>
+                </div>
+                <div class="contentblock ui-info">    
+                    <h2 class="gamma">Div class content block, ui-info</h2>                    
                     <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re.<br><a href='http://loripsum.net/'>Hoc simile tandem est?</a>.
                     </p>
                 </div>
