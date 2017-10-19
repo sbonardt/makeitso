@@ -61,64 +61,64 @@
                 <h1>Form</h1>     
                 <div class="body-content">
                     <p class="introduction">
-                        This page shows you an example form and all it's form elements and controls with some basic UI awesome sauce.
+                        This page shows you an example form and all it's form elements and controls with some basic UI awesome sauce. Fieldsets are visually hidden by default. If you give a form fieldset the class 'ui-present' it will be visible explicitly with a border.
                     </p>
 
                     <form>
                         <fieldset>
                             <legend>Legend</legend>
-                            <div>
+                            <div class="form-item">
                                 <label for="input1">Input type 'text'</label>
                                 <input type="text" value="" id="input1">
                             </div>
-                            <div class="has-error">
+                            <div class="form-item has-error">
                                 <label for="input1" class="error">Input type 'text' error</label>
                                 <input type="text" value="" id="input1" class="error" aria-invalid="true" aria-describedby="input1_error-message">
-                                <div class="form-element_error-message" id="input1_error-message">This field can not be left empty</div>
+                                <div class="form-item_error-message" id="input1_error-message">This field can not be left empty</div>
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label for="input2">Input type 'text'</label>
                                 <input type="search" value="" id="input2" placeholder="placeholder text" disabled>
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label for="input3">Input type 'text' required field * <span class="sr-only">This field is required</span></label>
                                 <input type="search" value="" id="input3" placeholder="placeholder text" aria-required="true">
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label for="textarea1">Textarea</label>
                                 <textarea></textarea>
                             </div>
                         </fieldset>
-                        <fieldset class="ui-present">
-                            <legend>Input types and other elements (fieldset class 'ui-present')</legend>
-                            <div class="has-error">
+                        <fieldset>
+                            <legend>Input types and other elements</legend>
+                            <div class="form-item has-error">
                                 <label>Radio buttons</label>
                                 <input type="radio" name="gender" value="male" id="radio1" class="error" aria-invalid="true">
                                 <label for="radio1">Input type 'radio'</label>
                                 <input type="radio" name="gender" value="female" id="radio2" aria-invalid="true">
                                 <label for="radio2">Input type 'radio'</label>
-                                <div class="form-element_error-message" id="radio1_error-message">This field can not be left empty</div>
+                                <div class="form-item_error-message" id="radio1_error-message">This field can not be left empty</div>
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label for="input5">Input type 'search'</label>
                                 <input type="search" value="" id="input2">
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label for="input6">Input type 'password'</label>
                                 <input type="password" value="" id="input6">
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label>A checkbox</label>
                                 <input type="checkbox" name="check1" value="check1" id="check1">
                                 <label for="check1">Input type 'checkbox'</label>
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label>A required checkbox left blank</label>
                                 <input type="checkbox" name="check1" value="check1" id="check1" aria-required="true" aria-invalid="true">
                                 <label for="check1">Input type 'checkbox' * <span class="sr-only">This field is required</span></label>
-                                <div class="form-element_error-message" id="radio1_error-message">This field can not be left empty</div>
+                                <div class="form-item_error-message" id="radio1_error-message">This field can not be left empty</div>
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label for="select">Select</label>
                                 <select name="cars" id="select" name="select">
                                     <option value="volvo">Volvo</option>
@@ -127,7 +127,7 @@
                                     <option value="audi">Audi</option>
                                 </select>
                             </div>
-                            <div>
+                            <div class="form-item">
                                 <label for="browsers">HTML5 datalist</label>
                                 <input list="browsers" name="browser">
                                 <datalist id="browsers">
@@ -138,7 +138,7 @@
                                     <option value="Safari">
                                 </datalist> 
                             </div>
-                            <div>
+                            <div class="form-item">
                                 
                             </div>
                         </fieldset>

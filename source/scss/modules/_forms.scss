@@ -171,7 +171,11 @@ select {
     }
 }
 
-.form-element_error-message {
+.form-item {
+    max-width: 600px;
+}
+
+.form-item_error-message {
     margin-bottom: 1.5rem;
     color: $errorColour;
     padding: 0.35rem 0.5em;;
