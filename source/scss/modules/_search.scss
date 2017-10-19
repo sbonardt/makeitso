@@ -41,6 +41,8 @@
     }
     [type="text"], [type="search"] {
         width: calc(100% - 90px);
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
     input, button {
         float: left;
@@ -49,6 +51,8 @@
     }
     .search_field {
         padding: 0.45rem 0.35rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
     input {
         height: 36px;

@@ -1,0 +1,33 @@
+.ui-info {
+    padding: 0.75rem 1.125rem;
+    margin-bottom: $baseBottomMargin;
+    border-radius: 3px;
+    background-color: $offWhite;
+    border: 1px solid darken($lightGrey, 10%);
+    p {
+        margin-bottom: 0;
+    }
+    &.warning {
+        border: 1px solid $warningColour;
+        background-color: $warningBackgroundColour;
+        color: $warningColour;
+    }
+    
+    &.information {
+        border: 1px solid $informationColour;
+        background-color: $informationBackgroundColour;
+        color: $informationColour;
+    }
+    
+    &.error {
+        border: 1px solid $errorColour;
+        background-color: $errorBackgroundColour;
+        color: $errorColour;
+    }
+    
+    &.success {
+        border: 1px solid $successColour;
+        background-color: $successBackgroundColour;
+        color: $successColour;
+    }
+}

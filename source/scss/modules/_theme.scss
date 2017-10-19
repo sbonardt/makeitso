@@ -6,7 +6,7 @@
 .item-teaser {
 	margin-bottom: 4rem;
 	@extend %group;
-	a {
+	* a {
 		&:link, &:visited {
 			text-decoration: none;
 		}

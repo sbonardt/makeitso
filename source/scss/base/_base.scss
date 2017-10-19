@@ -18,17 +18,24 @@ $baseFirstThemeColour:#ccc; //this colour is "Colour name 'e.g. Pink'" the main 
 $baseSecondThemeColour:#eee; //this colour is the secondary theme colour used in
 
 // Generic helper colours
-$errorColour: #e32118;
-$succesColour: #5CC65C;
-$informationColour: #A4CAF6;
-$noticeColour: #fffbde; 
 $black: #222;
 $darkGrey: #666;
 $grey: #999;
 $lightGrey: #efefef;
 $white: #fff;
+$offWhite: #fefefe;
 $red: #f00;
 $highlightColour: $baseLinkColour;
+
+// UI colours
+$errorColour: #c21812;
+$errorBackgroundColour:#f8d5d4 ;
+$successColour: rgb(13, 146, 13);
+$successBackgroundColour: rgb(234, 247, 234);
+$informationColour: #065b9c;
+$informationBackgroundColour: #ddecf7;
+$warningColour: #bd9616;
+$warningBackgroundColour: #fdf9ec; 
 
 // Media Query Breakpoints
 $break-midmobile: 400; //400px = 25rem

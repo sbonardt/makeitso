@@ -18,7 +18,7 @@
 <body>
     <header>
         <div class="inner-wrap">
-            <a class="skipcontent" href="#content">Ga naar de inhoud</a>
+            <a class="skipcontent" href="#content">Skip to contents</a>
             <a href="index.html" class="logo">
                 <!-- <img src="../img/mob-logo.png" alt="" data-src="../img/logo.png" data-src-mobile="../img/mob-logo.png" /> -->
                 <span>Makeitso</span>
@@ -29,8 +29,8 @@
     <nav>
         <div class="inner-wrap">
             <div class="toggle-btn-wrap">
-                <button class="toggle-menu" role="button">menu</button>
-                <button class=" toggle-search" role="button">zoeken</button>
+                <button class="toggle-menu" aria-pressed="false">menu</button>
+                <button class=" toggle-search" aria-pressed="false"></button>
             </div>
             <ul class="menu">                
                 <li class="first active">
@@ -41,7 +41,10 @@
                 </li>  
                 <li>
                     <a href="listing.html" class="active">Listing page</a>
-                </li>             
+                </li>          
+                <li>
+                    <a href="form.html">Form page</a>
+                </li>                
             </ul>
             <form action="/" method="post" accept-charset="UTF-8" class="search-block">
                 <label for="search_field">Search</label>
