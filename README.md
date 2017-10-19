@@ -7,16 +7,18 @@ Startup your frontend/theme development
 
 Base or startup for getting to a minimum viable product at warp speed. 
 MAKEITSO started out as 'flat' frontend project but now is incorporated
-in a Bolt theme. You can view the flat frontend under: /makeitso/frontend
+in a Bolt theme. You can view the flat example html files in the root folder
 
-Clone the repo and view the three available HTML pages in your browser:
+Clone the repo and view the three available HTML pages in your browser, or just go 
+to http://sbonardt.github.io/makeitso-bolt
 
 - index.html
 - article.html
 - listing.html
+- form.html
 
 Or -like you should- use Bolt CMS, clone this repo in the Bolt themes folder
-and enable it. ( WIP! : USING IT AS A BOLT THEME IS NOT READY YET!)
+and enable it. 
 
 About the frontend in MAKEITSO:
 
