@@ -30,7 +30,7 @@
         <div class="inner-wrap">
             <div class="toggle-btn-wrap">
                 <button class="toggle-menu" aria-pressed="false">menu</button>
-                <button class=" toggle-search" aria-pressed="false">zoeken</button>
+                <button class=" toggle-search" aria-pressed="false">search</button>
             </div>
             <ul class="menu">
                 <li class="first active">
@@ -71,8 +71,7 @@
                 <h1>Article page</h1>
                 <div class="body-content">
                     <p class="introduction">
-                        This article page shows you HTML elements commonly used in a web page. Also, some generic styles are incoporated. For instance this one: the introduction paragraph style. Missing one?... let me know! See all other examples below.
-                    </p>
+                        This article page shows you HTML elements commonly used in a web page. Generic MAKEITSO base styles are applied. For instance this one: the introduction paragraph style for a slightly bigger introduction text. <br>Missing one?... let me know! See all other examples below.</p>
 
                     <figure>
                         <img src="img/placeholder-image.png" alt="placeholder image"/>
@@ -186,7 +185,7 @@
                     </table>
 
                     <h2>An embedded video</h2>
-                    <p>Wrap an embedded video in a div with class 'video'</p>
+                    <p>Wrap an embedded video in a div with class <code>video</code>. <cite>J. Picard: <q>Make it so!</q></cite></p>
                     <div class="video">
                     <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FaLyasJPyUU?rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
@@ -233,24 +232,26 @@
                         </tbody>
                     </table>
 
+                    <h2>Feedback/information boxes</h2>
+                    <p>Common UI usecase where feedback is given by the backend. Use a <code>div</code> with a class of <code>ui-info</code></p>
                     <div class="ui-info">
-                            <p>A <code>p</code> wrapped in a div class <code>.ui-info</code></p>
+                            <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info</code></p>
                         </div>
 
                     <div class="ui-info information">
-                        <p>A <code>p</code> wrapped in a div class <code>.ui-info .information</code></p>
+                        <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .information</code></p>
                     </div>
 
                     <div class="ui-info warning">
-                        <p>A <code>p</code> wrapped in a div class <code>.ui-info .warning</code></p>
+                        <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .warning</code></p>
                     </div>
 
                     <div class="ui-info error">
-                        <p>A <code>p</code> wrapped in a div class <code>.ui-info .error</code></p>
+                        <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .error</code></p>
                     </div>
 
                     <div class="ui-info success">
-                        <p>A <code>p</code> wrapped in a div class <code>.ui-info .succes</code></p>
+                        <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .succes</code></p>
                     </div>
 
                 </div>
@@ -267,15 +268,12 @@
                     <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re.<br><a href='http://loripsum.net/'>Hoc simile tandem est?</a>.
                     </p>
                 </div>
-                <div class="contentblock ui-info">
-                    <h2 class="gamma">Header of this block <code>div.contentblock.ui-info</code></h2>
-                    <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re.<br><a href='http://loripsum.net/'>Hoc simile tandem est?</a>.
-                    </p>
-                </div>
             </aside>
         </div>
         <aside>
             <div class="inner-wrap">
+                <h2>Grid examples</h2>
+                <p>Examples of how to create a grid for (a piece of) content. You can find these example selectors in the _theme.scss SASS partial file.</p>
                 <div class="half">
                     <h2>A div with class <code>.half</code></h2>
                     <p>Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Illum mallem levares, quo optimum atque humanissimum virum, Cn. Est enim effectrix multarum et magnarum voluptatum. Atqui reperies, inquit, in hoc quidem pertinacem; Nam quibus rebus efficiuntur voluptates, eae non sunt in potestate sapientis. Sed ad illum redeo. </p>

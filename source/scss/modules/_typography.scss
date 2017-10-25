@@ -130,7 +130,7 @@ blockquote {
     // background-color:$lightGrey;
     display:inline-block;
     clear:both;
-    color:$black;
+    color:$darkGrey;
     font-size: 1.25rem;
     font-weight: bold;
     margin: 1rem auto 2.5rem;
@@ -158,10 +158,23 @@ blockquote {
     p {
         margin:0;
         font-size: 1.25rem;
+        color: $darkGrey;
         @include respond-to(medium-screens) {
             font-size: 1.5rem;
         }
     }
+}
+
+cite {
+    font-style: italic;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+i, em {
+    font-style: italic;
 }
 
 a {
@@ -176,17 +189,6 @@ a {
     h1 &, h2 &, h3 &, h4 &, h5 & {
         &:hover, &:active, &:focus {
             text-decoration: underline;
-        }
-    }
-}
-
-ul, ol {
-    &.stripped {
-        padding: 0;
-        margin: 0 0 $baseBottomMargin;
-        list-style: none;
-        li {
-            margin: 0;
         }
     }
 }
@@ -206,7 +208,7 @@ table {
     }
   }
 
-.btn, button {
+button, .btn {
     background-color: $grey;
     border:0;
     color:$white; 
@@ -230,18 +232,13 @@ table {
     }
 }
 
-.teaser {
-    a {
-        &:link, &:visited {
-            text-decoration: none;
-            h1 {
-                text-decoration: underline;
-            }
-        }
-        &:hover, &:active, &:focus {
-            h1 {
-                text-decoration: none;
-            }
+ul {
+    &.stripped {
+        padding: 0;
+        margin: 0 0 $baseBottomMargin;
+        list-style: none;
+        li {
+            margin: 0;
         }
     }
 }
