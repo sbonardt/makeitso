@@ -9,7 +9,7 @@
 
         {{ widgets('main_top') }}
 
-        <h1 data-bolt-field="title">{{ record.title }}{% if record.editlink() %}<span class="edit-link"><a href="{{ record.editlink() }}"><strong>Edit</strong></a></span>{% endif %}</h1>
+        <h1 data-bolt-field="title">{{ record.title }}</h1>
 
         <div class="body-content">
             {# Output all fields, in the order as defined in the contenttype.
@@ -21,6 +21,8 @@
             {{ dump(record) }}
             #}
         </div>
+
+        {% include 'partials/_recordfooter.twig' with { 'record': record, 'extended': true } %}
 
     </article>
 {% endblock %}

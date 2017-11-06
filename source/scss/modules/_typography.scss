@@ -9,41 +9,33 @@
  * font-weights and styles throughout your styles!
  */
 
- @font-face {
-    font-family: 'TheMix';
-    src: url("../webfonts/TheMix_LP_500_.eot");
-    src: url("../webfonts/TheMix_LP_500_.eot?#iefix") format("embedded-opentype"), url("../webfonts/TheMix_LP_500_.woff") format("woff");
-    font-weight: 500;
-    font-style: normal; }
-  
-  @font-face {
-    font-family: 'TheMix';
-    src: url("../webfonts/TheMix_LP_700_.eot");
-    src: url("../webfonts/TheMix_LP_700_.eot?#iefix") format("embedded-opentype"), url("../webfonts/TheMix_LP_700_.woff") format("woff");
-    font-weight: 700;
-    font-style: normal; }
-  
-  @font-face {
-    font-family: 'TheSans';
-    src: url("../webfonts/TheSans_LP_500_Plain.eot");
-    src: url("../webfonts/TheSans_LP_500_Plain.eot?#iefix") format("embedded-opentype"), url("../webfonts/TheSans_LP_500_Plain.woff") format("woff");
-    font-weight: 500;
-    font-style: normal; }
-  
-  @font-face {
-    font-family: 'TheSans';
-    src: url("../webfonts/TheSans_LP_600_SemiBold.eot");
-    src: url("../webfonts/TheSans_LP_600_SemiBold.eot?#iefix") format("embedded-opentype"), url("../webfonts/TheSans_LP_600_SemiBold.woff") format("woff");
-    font-weight: 600;
-    font-style: normal; }
-  
-  @font-face {
-    font-family: 'TheSans';
-    src: url("../webfonts/TheSans_LP_700_Bold.eot");
-    src: url("../webfonts/TheSans_LP_700_Bold.eot?#iefix") format("embedded-opentype"), url("../webfonts/TheSans_LP_700_Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-}
+// @font-face { 
+//     font-family: "yourFont"; 
+//     src: url("../path/yourFont.eot"); 
+//     src: url("../path/yourFont.eot?#iefix") format("embedded-opentype"),
+//     url("../path/yourFont.woff") format("woff"),
+//     url("../path/yourFont.svg#yourFont") format("svg"); 
+//     font-weight: normal; 
+//     font-style: normal;
+// } 
+// @font-face { 
+//     font-family: "yourFontBold"; 
+//     src: url("../path/yourFontBold.eot"); 
+//     src: url("../path/yourFontBold.eot?#iefix") format("embedded-opentype"),
+//     url("../path/yourFontBold.woff") format("woff"),
+//     url("../path/yourFontBold.svg#yourFont") format("svg"); 
+//     font-weight: bold; 
+//     font-style: normal;
+// } 
+// @font-face { 
+//     font-family: "yourFontItalic"; 
+//     src: url("../path/yourFontItalic.eot"); 
+//     src: url("../path/yourFontItalic.eot?#iefix") format("embedded-opentype"),
+//     url("../path/yourFontItalic.woff") format("woff"),
+//     url("../path/yourFontItalic.svg#yourFont") format("svg"); 
+//     font-weight: normal; 
+//     font-style: italic;
+// }
 
 body {
     font-size:100%;
@@ -53,7 +45,6 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-    font-family: $baseHeaderFontFamily;
     margin-top: 0;
     color:$baseFontHeaderColour;
     margin-bottom: 0.625em;
@@ -220,14 +211,12 @@ table {
 button, .btn {
     background-color: $grey;
     border:0;
-    color: $black; 
+    color:$white; 
     float: left;
     display: block;
     padding: 0.625em 0.8125em 0.375em;
     line-height: 1.5;
     margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    font-weight: 700;
     &:link, &:visited {
         text-decoration:none;
         color:$white; 
@@ -240,38 +229,6 @@ button, .btn {
         left: 1px;
         position: relative;
         background-color: $black;
-    }
-    &.underlined {
-        position: relative;
-        overflow: visible;
-        .themed-underline, .themed-plus {
-            display: block;
-        }
-    }
-    .themed-underline {
-        display: none;
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        bottom: 0;
-        left: 0;
-        background-color: $black;
-    }
-    .themed-plus {
-        display: none;
-        position: absolute;
-        border: 3px solid $black;
-        width: 0px;
-        height: 10px;
-        bottom: 0;
-        right: 0;
-        &:after {
-            content: " ";
-            width: 20px;
-            height: 3px;
-            background-color: $black;
-            top: 4px;
-        }
     }
 }
 
@@ -297,11 +254,4 @@ ul {
 .tagline {
     font-size: 1rem;
     color: $grey;
-}
-
-.centered {
-    margin: 0 auto;
-    text-align: center;
-    display: block;
-    width: 100%;
 }
