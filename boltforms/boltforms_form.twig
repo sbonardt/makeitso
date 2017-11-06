@@ -1,0 +1,127 @@
+{#
+ # Passed in variables:
+ #   formname        — The form name
+ #   form            — The form object
+ #   fields          — Field data
+ #   result
+ #     email         — True when the form has been submitted successfully
+ #     contenttype   — True when saving of ContentType was successful
+ #     uploads       — True when file uploads were a success
+ #   html_pre        — HTML to display before successful submission
+ #   html_post       — HTML to display after successful submission
+ #   messages        — Arrays of messages by type
+ #     info          — "Informational" messages
+ #     error         — "Error" messages
+ #     debug         — "Debug" messages
+ #   webpath         — URI for the default web assets
+ #   recaptcha       — reCaptcha values
+ #     enabled
+ #     label
+ #     error_message
+ #     error_codes
+ #     valid
+ #   templates       — Array of templates configured for this form
+ #   debug           — True if debug mode is enabled
+ #}
+{# {% form_theme form templates.formtheme %} #}
+
+{% form_theme form 'boltforms/boltforms_custom.twig' %}
+
+{% block boltforms_css %}
+    {{ include(templates.css) }}
+{% endblock boltforms_css %}
+
+{% block boltforms_form %}
+    <div class="boltform">
+
+        {{ include(templates.messages) }}
+        {% import templates.recaptcha as spambot %}
+
+        {% if result.pass('email') %}
+            {# If the form is successfully submitted, this block will be displayed #}
+            {{ html_post }}
+        {% else %}
+            {{ html_pre }}
+
+            {# {{ form_start(form, form_start_param) }} #}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate' }}, form_start_param) }}
+
+            {{ form_errors(form)|replace( { 'There are errors in the form, please fix before trying to resubmit.' : 'Er deden zich problemen voor bij het verwerken van uw inzending. Bekijk de foutmeldingen en pas uw inzending aan'} ) }}
+
+            {% block boltforms_form_fields %}
+                {% for key, value in fields  %}
+                    {% if value.config.type.name != 'submit' %}
+                        {% if form[key].vars.attr.prefix is defined and form[key].vars.attr.prefix is not empty %}
+                        {{ form[key].vars.attr.prefix|raw }}
+                        {% endif %}
+                        <div class="boltforms-row{% if form[key].vars.attr.class is defined %} boltforms-{{ form[key].vars.attr.class }}-row{% endif %}{% if form_errors(form[key])|trim != "" %} has-error{% endif %}">
+                            {# <span class="boltforms-label">{{ form_label(form[key]) }}</span> #}
+                            {{ form_label(form[key]) }}
+
+                            {# <span class="boltforms-error">{{ form_errors(form[key]) }}</span> #}
+                            {# <span class="boltforms-value">{{ form_widget(form[key]) }}</span> #}
+
+                            {% if form_errors(form[key])|trim != "" %}
+                                {{ form_widget(
+                                    form[key], 
+                                    { 
+                                        attr: 
+                                        {
+                                            'aria-invalid': 'true', 
+                                            'aria-describedby': form[key].vars.id ~ '-error-message'
+                                        } 
+                                    }
+                                ) }}
+                            {% else %}
+                                {{ form_widget(form[key]) }}
+                            {% endif %}
+
+                            {{ form_errors(form[key])|replace({ 'This value should not be blank.': 'Dit veld is verplicht en dient ingevuld te worden' })|replace({ 'This value should be of type integer.': 'Dit veld mag geen letters of speciale karakters bevatten' })|raw }}
+                        </div>
+                        {% if form[key].vars.attr.postfix is defined and form[key].vars.attr.postfix is not empty %}
+                            {{ form[key].vars.attr.postfix|raw }}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {{ spambot.recaptcha(recaptcha) }}
+
+                <br>
+                {% for key, value in fields  %}
+                    {% if value.config.type.name == 'submit' %}
+                        <div class="boltforms-row{% if form[key].vars.attr.class is defined %} boltforms-{{ form[key].vars.attr.class }}-row{% endif %}">
+                            {% if recaptcha.type == 'invisible' and recaptcha.enabled %}
+                                {{ form_widget(
+                                form[key],
+                                {
+                                    attr:
+                                    {
+                                        'class': form[key].vars.attr.class ~ ' g-recaptcha-button',
+                                        'data-sitekey': recaptcha.public_key,
+                                        'data-size': 'invisible',
+                                        'data-badge': recaptcha.badge_location
+                                    }
+                                }
+                                ) }}
+                            {% else %}
+                                {{ form_widget(form[key]) }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endblock boltforms_form_fields %}
+
+            {# This is the CSRF token row and must be included if using CSRF (default) #}
+            {% if form._token is defined %}
+                {{ form_row(form._token) }}
+            {% endif %}
+
+            {{ form_end(form, { 'render_rest': false }) }}
+
+        {% endif %}
+    </div>
+{% endblock boltforms_form %}
+
+{% block boltforms_js %}
+    {{ include(templates.js) }}
+{% endblock boltforms_js %}

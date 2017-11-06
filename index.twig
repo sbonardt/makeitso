@@ -6,33 +6,29 @@
 {% endblock %}
 
 {% block body %}
-{# Make sure we can get info from both listings and single records: #}
-{% if record is not defined and records is defined %}
-    {% set record = records|first %}
-{% endif %}
-{% if record is defined %}
-    {% set image = record.image ?: theme.frontpage_image %}
-{% elseif theme.frontpage_image is defined %}
-    {% set image = theme.frontpage_image %}
-{% endif %}
-{# <div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div> #}
-    {% if record is defined %}
-        <article class="main-content">
-            <a id="content" tabindex="0"></a>
-            <h1>{{record.title}}</h1>
-            <div class="body-content">
-            {{record.body}}
-            </div>
-        </article>
-    {% else %}
-        <article class="main-content">
-            <a id="content" tabindex="0"></a>
-            <h1>No frontpage found!</h1>
-            <div class="body-content">
-            <p>No page has been set as the frontpage. Please create a page in the backend or set the frontpage to another type of content.
-            </div>
-        </article>
-    {% endif %}
+<section class="main-content">
+    <a id="content" tabindex="0"></a>
+    <h1 class="sr-only">{{ app.config.get('general/sitename') }}</h1>
+    <div class="body-content">
+        <p class="payoff alpha centered">{{ settings.websiteintro|striptags }}</p>
+
+        {% include 'partials/_life_events_highlighted.twig' %}
+
+        <p class="general-tagline alpha centered">{{ settings.generalhelpdeskpayoff|striptags }}</p>
+
+        <div class="appointment-option">
+            <p>{{ settings.appointmenttext }}</p>
+            <a href="{{ settings.appointmentlink }}" class="btn underlined">Maak een afspraak<span class="themed-underline"></span><span class="themed-plus"></span></a>
+        </div>
+
+        <div class="savingtips-option">
+            <p>{{ settings.savingstext }}</p>
+            <a href="{{ settings.savingslink }}" class="btn underlined">Bespaartips<span class="themed-underline"></span><span class="themed-plus"></span></a>
+        </div>
+
+    </div>
+</section>
+
 {% endblock %}
 
 {% block aside_sidebar_second %}
@@ -44,29 +40,7 @@
 {% block main_aside_one %}
     <aside>
         <div class="inner-wrap">
-        {% for ct in theme.frontpage_contenttypes %}
-            {% setcontent records = ct ~ "/latest/2" %}
-                {% if records %}
-                    <div class="latest-items">
-                        {% for record in records %}
-                            {% set image = record.image ?: random(theme.images) %}
-                            {% if loop.first %}
-                                {{ widgets('aside_top') }}
-                                <h2>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct}) }}</h2>
-                            {% endif %}
-                        <article class="teaser">
-                            <h1 class="gamma"><a href="{{record.link}}">{{ record.title }}</a></h1>
-                            {{ showimage(image, 440, 0) }}
-                            <p>{{record.body|excerpt(250)}}</p>
-                        </article>
-                            {% if loop.last %}
-                                <p><a href="{{ paths.root }}{{ct}}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct}) }} &raquo;</a></p>
-                                {{ widgets('aside_bottom') }}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                {% endif %}
-        {% endfor %}
+            {% include 'partials/_life_events.twig' %}
         </div>
     </aside>
 {% endblock %}

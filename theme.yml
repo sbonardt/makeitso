@@ -7,8 +7,7 @@ foo: bar
 
 # Choose which contenttypes are listed on the frontpage
 frontpage_contenttypes:
-    - entries
-#    - pages
+    - paginas
 
 # Choose which images are used on listings and record views where the record has no image
 # images:

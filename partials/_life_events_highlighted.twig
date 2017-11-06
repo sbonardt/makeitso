@@ -1,0 +1,12 @@
+{% setcontent lifeevents = 'life_events' %}
+{% if settings.lifeeventsonhome is not empty %}
+<div class="life-events-highlighted">
+{% for lifeeventhome in settings.lifeeventsonhome %}
+    <div class="life-events-highlighted_item">
+    {% setcontent lifeeventonhome = 'life_events/' ~ lifeeventhome %}
+        <h2><a href="{{ lifeeventonhome.link }}">{{ lifeeventonhome.name ? lifeeventonhome.name : lifeeventonhome.title }}</a></h2>
+        <img src="{{ image(lifeeventonhome.image) }}" alt=""/>
+    </div>
+{% endfor %}
+</div>
+{% endif %}

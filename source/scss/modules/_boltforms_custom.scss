@@ -1,0 +1,117 @@
+
+.boltforms-label {
+    .boltforms-label-hidden &, .boltforms-label-hidden-row & {
+        @extend .sr-only;
+    }
+}
+
+.boltforms-row, .mc-field-group {
+    width: 100%;
+    @extend .group;
+    padding: 1px;
+    display: block;
+    margin-bottom: 1.25rem;
+    input[type="checkbox"] {
+        width: auto;
+        float: left;
+        margin-top: 0.5rem;
+        margin-right: 0.625rem;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+    .choice-item {
+        float: left;
+        &:first-child:last-child {
+            width: 100%;
+        }
+    }
+    .choice-list {
+        .choice-item {
+            @include respond-to(small-screens) {
+            width: 48%;
+            margin-right: 4%;
+            float: left;
+            margin-bottom: 0.2rem;
+            }
+            &:nth-child(2n + 2) {
+                @include respond-to(small-screens) {
+                margin-right: 0;
+                }
+            }
+        }
+    }
+}
+
+.boltforms-choice-list {
+    .boltforms-label {
+        display: block;
+        margin-bottom: 0.75rem;
+    }
+}
+
+.boltforms-half {
+    @include respond-to(medium-screens) {
+        width: 48%;
+        margin-right: 4%;
+        float: left;
+        & + .boltforms-half {
+            margin-right: 0;  
+        }
+    }
+    &:nth-of-type(2n + 3) {
+        @include respond-to(medium-screens) {
+        margin-right: 4%;
+        }
+    }
+}
+
+.boltforms-date, .boltforms-row.date, .boltforms-small, .boltforms-row.small {
+    input {
+        width: 7rem;
+    }
+}
+
+.boltforms-medium, .boltforms-row.medium {
+    input {
+        width: 18rem;
+    }
+}
+
+.required-field {
+    color: $red;
+    font-size: 0.8rem;
+    font-weight:bold;
+    margin-left: 0.5rem;
+}
+
+.boltform label.required::after {
+    color: $red!important;
+}
+
+.boltforms-row.error {
+    input {
+        border: 1px solid $red;
+    }
+}
+
+.boltform-errors {
+    margin: 0;
+    clear: both;
+    padding: 0;
+    list-style: none;
+    li.boltform-error {
+        border: 0;
+        background-color: transparent;
+        padding-left: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-size: 0.9375rem;
+        margin-bottom: 0;
+        color: #de4a48!important;
+    }
+}
+
+.boltforms-hidden-field {
+    display: none;
+}
