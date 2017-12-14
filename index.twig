@@ -10,7 +10,7 @@
 {% if record is not defined and records is defined %}
     {% set record = records|first %}
 {% endif %}
-{% if record is defined %}
+{% if record is defined and record.image is not empty %}
     {% set image = record.image ?: theme.frontpage_image %}
 {% elseif theme.frontpage_image is defined %}
     {% set image = theme.frontpage_image %}
