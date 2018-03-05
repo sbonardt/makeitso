@@ -45,7 +45,7 @@ gulp.task('watch', function() {
 
 gulp.task('sass', function() {
     return gulp.src('scss/**/*.scss')
-    .pipe(plugins.sourcemaps.init())
+    .pipe(! isProduction ? plugins.sourcemaps.init() : gutil.noop())
     .pipe(plugins.sass({
         outputStyle: sassStyle
     }))
@@ -54,10 +54,10 @@ gulp.task('sass', function() {
         cascade: false
     }))
     .pipe(isProduction ? plugins.cleanCss() : gutil.noop())
-    .pipe(plugins.sourcemaps.write())
+    .pipe(! isProduction ?  plugins.sourcemaps.write() : gutil.noop())
     .pipe(gulp.dest('../css/'))
 });
 
 gulp.task('default', function(callback) {
     runSequence('sass', 'watch', callback);
-})
+});
