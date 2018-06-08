@@ -6,25 +6,27 @@
 
 .toggle-btn-wrap {
     @extend .group;
-    float:right;
+    float:none;
     overflow: hidden;
     margin-bottom: 0;
     padding: 0 0.625rem;
-    .toggleable-menu & {
-        overflow:hidden;
-        float:none;
-        width:100%;
-        @include respond-to(medium-screens) {
-            float:right;
-            width:auto;
-        }
+    width: 100%;
+    @include respond-to(medium-screens) {
+        float:right;
+        width:auto;
+    }
+    button {
+        margin-bottom: 0.625rem;
     }
 }
 
 .toggle-menu {
     float:left;
-    display:none;
+    display:none; //the toggle menu button is only shown when js is present
     margin-right:1em;
+    .js & {
+        display: block;
+    }
     @include respond-to(medium-screens) {
         display:none;
     }
@@ -33,23 +35,26 @@
 .toggle-search {
     float:right;
     display:none;
+    .js & {
+        display: block;
+    }
     @include respond-to(medium-screens) {
         display:none;
     }
 }
 
-nav {
-    // border-bottom:1px solid $grey;
+nav, .navigation-primary {
     padding-bottom:0.75em;
+    float:left;
+    width:100%;
     @include respond-to(medium-screens) {
         padding-bottom: 0;
     }
     .menu {
         float:left;
-        width:calc(100% - 80px);
+        width: 100%;
         margin:1rem auto;
         @include respond-to(medium-screens) {
-            //width: calc(100% - 290px);
             margin: 0 auto;
         }
     }
@@ -74,10 +79,18 @@ nav {
         @include respond-to(medium-screens) {
             margin-bottom:0;
         }
+        ul {
+            @include respond-to(medium-screens) {
+                display: none;
+            }
+        }
     }
     li {
         list-style: none;
-        float: left;
+        float:none;
+        @include respond-to(medium-screens) {
+            float: left;
+        }
         a {
             padding: 0.5em 0.75em; 
             display:block;
@@ -99,35 +112,16 @@ nav {
                 margin-left: 2px;
             }
         }
-    }
-    .toggleable-menu & {
-        float:left;
-        width:100%;
-        .menu {
-            float:left;
-            width:100%;
-            // @include respond-to(medium-screens) {
-            //     //float:none;
-            //     width:calc(100% - 80px);
-            // }
-            // @include respond-to(large-screens) {
-            //     //float:none;
-            //     width:calc(100% - 280px);
-            // }
-        }
-        li {
-            float:none;  
-        }
-        @include respond-to(medium-screens) {
-            li {
-                float:left;
+        // Bolt sets the active class by default on list items in stead of the links itself
+        &.active {
+            a {
+                background-color: $lightGrey;
             }
         }
     }
 }
 
 .menu {
-    //margin-bottom: 0;
     padding-left: 0;
     li {
         list-style : none;

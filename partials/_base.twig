@@ -20,7 +20,8 @@
         <meta name="theme-color" content="#ffffff">
         <link type="text/css" rel="stylesheet" href="{{ asset('css/screen.css', 'theme') }}" media="all" />
 
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     </head>
 
     <body class="{% if app.request.pathInfo == "/" %}home{% endif %}{{app.request.pathInfo|split("/")|join(" ")}}">
@@ -38,7 +39,7 @@
             </div>
         </header>
 
-        <nav>
+        <nav class="navigation-primary">
             <div class="inner-wrap">
                 <div class="toggle-btn-wrap">
                     <button class="toggle-menu" role="button">menu</button>

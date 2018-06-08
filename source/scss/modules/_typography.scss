@@ -46,8 +46,9 @@ body {
 
 h1, h2, h3, h4, h5 {
     margin-top: 0;
+    font-family: $baseHeaderFontFamily;
     color:$baseFontHeaderColour;
-    margin-bottom: 0.625em;
+    margin-bottom: 0.5em;
     line-height: 1.25;
     font-weight: 700;
 }
@@ -57,12 +58,11 @@ h1, .alpha {
 }
 
 h2, .beta {
-    margin-bottom: 0.45em;
-    font-size: 2.15rem;
+    font-size: 2rem;
 }
 
 h3, .gamma {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 h4, .delta {
@@ -131,18 +131,16 @@ blockquote {
     display:inline-block;
     clear:both;
     color:$darkGrey;
-    font-size: 1.25rem;
-    font-weight: bold;
     margin: 1rem auto 2.5rem;
     position: relative;
     text-align: center;
     @include respond-to(medium-screens) {
         padding: 3rem 15%;
-        font-size: 1.5rem;
+        font-size: 1.75rem;
     }
     &:before, &:after {
         content: " ";
-        border-top: 3px solid $lightGrey;
+        border-top: 1px solid $lightGrey;
         position: absolute;
         top: 0.625rem;
         width: 50%;
@@ -156,11 +154,13 @@ blockquote {
         left: 35%;
     }
     p {
+        font-family: $baseFontFamily;
+        font-weight: normal;
         margin:0;
         font-size: 1.25rem;
-        color: $darkGrey;
+        color: $black;
         @include respond-to(medium-screens) {
-            font-size: 1.5rem;
+            font-size: 1.65rem;
         }
     }
 }

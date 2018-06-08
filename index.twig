@@ -17,7 +17,7 @@
 {% endif %}
 {# <div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div> #}
     {% if record is defined %}
-        <article class="main-content">
+        <section class="main-content">
             <a id="content" tabindex="0"></a>
             <h1>{{record.title}}</h1>
             <div class="body-content">
@@ -25,13 +25,39 @@
             </div>
         </article>
     {% else %}
-        <article class="main-content">
+        <section class="main-content">
             <a id="content" tabindex="0"></a>
-            <h1>No frontpage found!</h1>
+            <h1>Homepage</h1>
             <div class="body-content">
-            <p>No page has been set as the frontpage. Please create a page in the backend or set the frontpage to another type of content.
+            <h2>No content found</h2>
+            <div class="ui-info ui-info_warning">                
+                <p><b>It seems no item is set as the homepage in config.yml or the item can not be found.</b>
+                <br>Please check your config.yml 'homepage' setting, create a page in the Bolt backend, or set the frontpage to another type of content.</p>
             </div>
-        </article>
+
+            {# START OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
+            <h2>Welcome to MAKEITSO</h2>
+            You've set MAKEITSO as the theme for this Bolt website! Nice!<br>
+            You can view the example pages of this theme at the <a href="/theme/makeitso/index.html">MAKEITSO theme folder</a>. The following example pages are present:
+            </p>
+            <ul>
+                <li>
+                    <a href="/theme/makeitso/index.html">Homepage example</a>
+                </li>
+                <li>
+                    <a href="/theme/makeitso/article.html">Article page example with HTML elements</a>
+                </li>
+                <li>
+                    <a href="/theme/makeitso/listing.html">Listing page example</a>
+                </li>
+                <li>
+                    <a href="/theme/makeitso/form.html">Form page example</a>
+                </li>
+            </ul>
+            {# END OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
+
+            </div>
+        </section>
     {% endif %}
 {% endblock %}
 

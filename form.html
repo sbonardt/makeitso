@@ -13,6 +13,9 @@
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
     <link type="text/css" rel="stylesheet" href="css/screen.css" media="all" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 </head>
 
 <body>
@@ -26,14 +29,14 @@
         </div>
     </header>
 
-    <nav>
+    <nav class="navigation-primary">
         <div class="inner-wrap">
             <div class="toggle-btn-wrap">
                 <button class="toggle-menu" aria-pressed="false">menu</button>
                 <button class=" toggle-search" aria-pressed="false">search</button>
             </div>
             <ul class="menu">                
-                <li class="first active">
+                <li class="first">
                     <a href="index.html">Home</a>
                 </li>
                 <li>
@@ -70,6 +73,13 @@
                         <li><p><code>aria-invalid</code> to use when validation shows the input field does not have a valid value</p></li>
                         <li><p><code>aria-describedby</code> to use when the validated input field with an error has an error description in an element with that ID</p></li>
                     </ul>
+
+                    <div class="ui-info ui-info_success">
+                        <p>
+                            <b>Example succes message</b><br>
+                            Thank you submitting this form. We'll contact you shortly!
+                        </p>
+                    </div>
 
                     <form>
                         <fieldset>

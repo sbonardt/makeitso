@@ -1,33 +1,35 @@
 .ui-info {
     padding: 0.75rem 1.125rem;
     margin-bottom: $baseBottomMargin;
-    border-radius: 3px;
+    border-radius: 0 3px 3px 0;
     background-color: $offWhite;
-    border: 1px solid darken($lightGrey, 10%);
+    border-style: solid;
+    border-color: darken($lightGrey, 10%);
+    border-width: 1px 1px 1px 8px;
     p {
         margin-bottom: 0;
     }
-    &.warning {
-        border: 1px solid $warningColour;
+    &.ui-info_warning {
+        border-color: $warningBorderColour;
         background-color: $warningBackgroundColour;
-        color: $warningColour;
+        color: $warningTextColour;
     }
     
-    &.information {
-        border: 1px solid $informationColour;
+    &.ui-info_information {
+        border-color: $informationBorderColour;
         background-color: $informationBackgroundColour;
-        color: $informationColour;
+        color: $informationTextColour;
     }
     
-    &.error {
-        border: 1px solid $errorColour;
+    &.ui-info_error {
+        border-color: $errorBorderColour;
         background-color: $errorBackgroundColour;
-        color: $errorColour;
+        color: $errorTextColour;
     }
     
-    &.success {
-        border: 1px solid $successColour;
+    &.ui-info_success {
+        border-color: $successBorderColour;
         background-color: $successBackgroundColour;
-        color: $successColour;
+        color: $successTextColour;
     }
 }

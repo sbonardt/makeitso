@@ -5,8 +5,8 @@
  */
 
 // WEBSITE SETTINGS. Change these as desired:
-$baseFontFamily: 'Open Sans', "Droid Sans", Arial, Sans-serif;
-$baseHeaderFontFamily: 'Open Sans', "Droid Sans", Arial, Sans-serif; //check your typography.scss for webfonts
+$baseFontFamily: 'Lato', "Droid Sans", Arial, Sans-serif;
+$baseHeaderFontFamily: 'Montserrat', "Droid Sans", Arial, Sans-serif; //check your typography.scss for webfonts
 
 $baseBottomMargin: 2.5rem;
 
@@ -28,14 +28,18 @@ $red: #f00;
 $highlightColour: $baseLinkColour;
 
 // UI colours
-$errorColour: #c21812;
-$errorBackgroundColour:#fceeee ;
-$successColour: rgb(13, 146, 13);
-$successBackgroundColour: rgb(234, 247, 234);
-$informationColour: #065b9c;
-$informationBackgroundColour: #ddecf7;
-$warningColour: #bd9616;
-$warningBackgroundColour: #fdf9ec; 
+$errorTextColour: #a94442;
+$errorBackgroundColour:#f2dede;
+$errorBorderColour: darken($errorBackgroundColour, 5%);
+$successTextColour: #3c763d;
+$successBackgroundColour: #dff0d8;
+$successBorderColour: darken($successBackgroundColour, 5%);
+$informationTextColour: #31708f;
+$informationBackgroundColour: #d9edf7;
+$informationBorderColour: darken($informationBackgroundColour, 5%);
+$warningTextColour: #8a6d3b;
+$warningBackgroundColour: #fcf8e3;
+$warningBorderColour: darken($warningBackgroundColour, 5%); 
 
 // Media Query Breakpoints
 $break-midmobile: 400; //400px = 25rem

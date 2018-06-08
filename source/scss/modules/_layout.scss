@@ -76,16 +76,19 @@ aside {
     max-width: $site-max-width;
     position:relative;
     @include respond-to(large-screens) {
-        padding: 1rem 1.25em;
+        padding: 1rem 1.25rem;
     }
     main > & {
-        padding: 2rem 0.625rem 0;
+        padding: 0 0.625rem 1rem;
         @include respond-to(large-screens) {
-            padding: 2rem 1.25rem 0;
+            padding: 1.25rem;
         }
     }
     header > & {
-        padding-top: 1rem;
+        padding: 1rem 0.625rem;
+        @include respond-to(large-screens) {
+            padding: 1rem 1.25rem;
+        }
     }
 }
 
@@ -170,6 +173,10 @@ aside {
     @include respond-to(large-screens) {
         max-width: 66%;
         float: left;
+        padding-right: 1rem;
+    }
+    @include respond-to(xlarge-screens) {
+        padding-right: 3rem;
     }
     aside {
         clear: none;
@@ -206,7 +213,7 @@ aside {
         float: left;
         width: 31%;
         clear: none;
-        margin-top: 5.25rem;
+        margin-top: 5rem;
     }
     & + .main-content {
         @include respond-to(large-screens) {
