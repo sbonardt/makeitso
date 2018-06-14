@@ -1,0 +1,27 @@
+{
+  "name": "makeitso",
+  "version": "1.0.0",
+  "description": "package json for makeitso",
+  "main": "index.js",
+  "scripts": {
+    "scss": "node-sass --output-style compressed -o dist/css source/scss/screen.scss",
+    "autoprefixer": "postcss -u autoprefixer -r dist/css/*",
+    "build:css": "npm run scss && npm run autoprefixer",
+    "watch:css": "onchange 'source/scss/**/*.scss' -- npm run build:css",
+    "uglifyjs": "mkdir -p dist/js && uglifyjs source/js/lib/modernizr.custom.40091.js source/js/lib/jquery-1.11.1.min.js source/js/lib/viewportSize-min.js source/js/custom.js -m -c -o dist/js/scripts.js",
+    "build:js": "npm run uglifyjs",
+    "watch:js": "onchange 'source/js/**/*.js' -- npm run build:js",
+    "start": "parallelshell 'npm run watch:css' 'npm run watch:js'"
+  },
+  "author": "S. Bonardt",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^8.6.2",
+    "node-sass": "^4.9.0",
+    "onchange": "^4.0.0",
+    "parallelshell": "^3.0.2",
+    "postcss-cli": "^5.0.0",
+    "run-sequence": "^1.2.2",
+    "uglify-js": "^3.4.0"
+  }
+}
