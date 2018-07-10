@@ -33,7 +33,7 @@ partials. _layout.scss should only contain layout/positioning for the scaffoldin
 names of the other partials should give you insight into what's there to find. As a general rule, if it's styling for a block or 
 other piece of content, put it in _theme.scss. If the combined amount of lines exceeds around 50, put it in it's own partial file. (e.g. _search.scss)
 
-3. GULP - Stuff is done with Gulp! After you've cloned this repo do a 'npm install' in the /makeitso/source folder to get all required stuff; then run 'gulp' in your CMD window
+3. NPM START - in the theme folder, type NPM start to start compiling JS and CSS. Just run the command in your terminal window.
 
 4. CSS - Gulp compiles the CSS to screen.min.css in the 'css' folder. If for development you want a not-minified css file run gulp --dev (See the gulpfile.js itself) 
 
