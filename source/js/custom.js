@@ -1,33 +1,52 @@
 jQuery(function ($) {
 
-    // define breakpoints, responsive design
+    // Define breakpoints, responsive design
     var breakXsmall = 25; //400px is 400/16 is 25em
     var breakSmall = 30; //480px is 30em
     var breakMedium = 37.5; //600px is 37.5em
     var breakLarge = 48; //768px is 48em
     var breakXlarge = 60; //960px is 60em
     var breakWide = 80; //1280px is 80em    
-    var windowWidth = viewportSize.getWidth(); //replaces buggy and unreliable $(window).width();
-    // assume base font size is 16px and set windowWidth in em
+
+    // Replace buggy and unreliable $(window).width(); viewportSize-min.js required
+    var windowWidth = viewportSize.getWidth(); 
+    // Assume base font size is 16px and set windowWidth var in em
     var windowWidthEm = ((viewportSize.getWidth()) / 16);
 
-    // Run initial checks for page setup. Checks the viewport width 
+    /* Run the preLoadChecks function
+    // Initial checks for page setup. Checks the viewport width 
     // and does some actions for the UI based on screen size
+    */
     preLoadChecks();
-    
-    // set all links with class 'external' to have target _blank
-    $('a.external').attr('target', "_blank");
 
-    // do preLoadChecks when window is resized
+    // Execute preLoadChecks function when window is resized. Handy for development, when resizing window
     var resizeId;
     $(window).resize(function() { 
         // add setTimeout to reduce resize events      
         clearTimeout(resizeId);
         resizeId = setTimeout(preLoadChecks, 20);
     });
+        
+    // Set all links with class 'external' to have target _blank
+    $('a.external').attr('target', "_blank");
 
-    // toggle .search functionality when search gets hidden on small/mobile devices
-    // In this design, this works together with the primary menu. Only one can be open
+
+    /*
+    // MENU AND SEARCH TOGGLE FUNCTIONALITY
+    // This code adds the toggle buttons for the main menu and search block on small screens up to medium screens
+    // Also, toggle functionality is bound to the two toggle buttons
+    // If you do not want this in your project, or have another cuastm solution you can:
+    // 1. Remove this whole block of code
+    // 2, Adjust/remove the SCSS lines in _navigation.scss for '.toggle-' classes
+    // 3. You're done
+    */
+
+    // Add menu and search toggle buttons to navigation on load
+    $('.navigation-primary .inner-wrap').prepend('<div class="toggle-btn-wrap"><button class="toggle-menu" aria-pressed="false">menu</button><button class=" toggle-search" aria-pressed="false">search</button></div>');
+
+    /* Toggle .search-block functionality when search gets hidden on small/mobile devices
+    // In this setup, this works together with the primary menu. Only one can be open
+    */
     $(".toggle-search").on( "click", function(e) {
         e.preventDefault();
         var searchform = $(".search-block");
@@ -52,8 +71,9 @@ jQuery(function ($) {
         }
     });
 
-    // toggle main menu functionality when primary navigation gets hidden on small/mobile devices
-    // In this design, this works together with the primary menu. Only one can be open
+    /* Toggle main menu functionality when primary navigation gets hidden on small/mobile devices
+    // In this setup, this works together with the search block. Only one can be open
+    */
     $(".toggle-menu").on( "click", function(e) {
         e.preventDefault();
         var nav = $(".navigation-primary .menu");
@@ -77,11 +97,17 @@ jQuery(function ($) {
             }
         }
     });
+    /*
+    // ////////////////////////////////////////
+    // END MENU AND SEARCH TOGGLE FUNCTIONALITY
+    // ////////////////////////////////////////
+    */
+
 
 
     /*
-    // function preLoadChecks: 
-    // checks and does some visual UI changes on page load, based on viewport width.
+    // Function preLoadChecks: 
+    // Checks and does some visual UI changes on page load, based on viewport width.
     // As we have a mobile first approach, we trigger this function on window resize
     // Mainly to put all moved, cloned and shown items back in the state they were on small screens
     // This mostly concerns the statements in the smaller than '<' parts
@@ -99,7 +125,7 @@ jQuery(function ($) {
         // with the breakpoints defined and used in your css
 
         // if the windowWidth is smaller than the Small Breakpoint
-        if ( windowWidthEm <= breakSmall) { 
+        if ( windowWidthEm < breakSmall) { 
             // nothing specified
         }
 
@@ -112,21 +138,19 @@ jQuery(function ($) {
             if ($('body > header .search-block').length > 0) {
                 $(".search-block").appendTo('body > nav > .inner-wrap');
             }
-            // subsequently hide the search block, and display the toggle-search button
-            $(".search-block").hide();
-            $(".toggle-search").show(); 
 
-            // hide the primary-navigation, and show the toggle-menu button
-            $(".navigation-primary .menu").hide();
-            $(".toggle-menu").show();
-            
+            // Hide the search block and primary-navigation, and display the toggle buttons for menu and search
+            $(".search-block, .navigation-primary .menu").hide();
+            $(".toggle-search, .toggle-menu").show(); 
+           
             // use the mobile logo image on smaller screens again after resize
             $(".logo img").attr("src", $(".logo img").attr("data-src-mobile") );
         }
         // if the windowWidth is greater than the Medium Breakpoint
         else {
-            // place the search block in the header
+            // place the search block in the header and show it
             $(".search-block").appendTo('body > header .inner-wrap').show();
+
             // hide the toggle-search button, because from this breakpoint on
             // the search functionality is visible, so hide the search toggle button
             $(".toggle-search").hide(); 
@@ -134,6 +158,7 @@ jQuery(function ($) {
             $(".navigation-primary .menu").show();
             // the menu is visible from this breakpoint on, so hide the menu toggle button
             $(".toggle-menu").hide();
+
             // replace the mobile logo with the larger version
             $(".logo img").attr("src", $(".logo img").attr("data-src") );
         }

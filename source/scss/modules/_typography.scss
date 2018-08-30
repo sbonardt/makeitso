@@ -224,12 +224,6 @@ button, .btn {
     &:hover, &:active, &:focus {
         background-color: $darkGrey;
     }
-    &:active {
-        top: 1px;
-        left: 1px;
-        position: relative;
-        background-color: $black;
-    }
 }
 
 ul {

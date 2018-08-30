@@ -41,10 +41,6 @@
 
         <nav class="navigation-primary">
             <div class="inner-wrap">
-                <div class="toggle-btn-wrap">
-                    <button class="toggle-menu" role="button">menu</button>
-                    <button class=" toggle-search" role="button">zoeken</button>
-                </div>
                 <ul class="menu">                
                     {{ menu('main', 'partials/_menu.twig') }}       
                 </ul>
@@ -91,7 +87,7 @@
             </div>
         </footer>
 
-        <script src="{{ asset('dist/js/scripts.min.js', 'theme') }}"></script>
+        <script src="{{ asset('dist/js/scripts.js', 'theme') }}"></script>
 
 </body>
 </html>

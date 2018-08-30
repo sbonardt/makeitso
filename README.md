@@ -7,84 +7,61 @@ Startup your frontend/theme development
 
 Base or startup for getting to a minimum viable product at warp speed. 
 MAKEITSO started out as 'flat' frontend project but now is incorporated
-in a Bolt theme. You can view the flat example html files in the root folder
+in a Bolt theme. You can view the 'flat' example html files in the /dist/frontend folder
 
-Clone the repo and view the three available HTML pages in your browser, or just go 
+Clone the repo and view the four available HTML pages in your browser, or just go 
 to http://sbonardt.github.io/makeitso-bolt
+
+Or -like you should- use Bolt CMS, clone this repo in the Bolt themes folder
+and enable it. 
+
+
+MAKEITSO templates, available in /dist:
 
 - index.html
 - article.html
 - listing.html
 - form.html
 
-Or -like you should- use Bolt CMS, clone this repo in the Bolt themes folder
-and enable it. 
+Base templates are viewable in your browser after running 'npm install' and 'npm run start' or,
+in a Bolt installation, after cloning the theme in the themes folder: [webroot]/theme/makeitso/dist/index.html
 
-About the frontend in MAKEITSO:
 
-1. MAKEITSO is a stripped down startup kit. Not a frontend framework. It has some basic styling to get you started. The styling is plain css, not applying classes to your HTML and be done with it. This is not Foundation off course...
+Installation of MAKEITSO:
 
-2. The CSS is compiled with GULP and SASS. There is a screen.scss file in /makeitso/source. This references all 
+1. Clone the repo, preferably in the /theme folder of your Bolt installation
+2. Go to /makeitso and run 'npm install' to install all required modules/packages
+3. For development, run 'npm run start'. This will build and watch the scss and js files, and set up a browsersynced environment for you to check. See package.json for all scripts
+
+
+Technical information about the frontend in MAKEITSO:
+
+1. MAKEITSO is a stripped down startup kit. Not a frontend framework. It has some basic styling to get you started. The styling is plain (s)css, not applying classes to your HTML and be done with it.
+
+2. SASS is compiled with NPM scripts. There is a screen.scss file in /source/scss. This references all 
 required partials. You can see in the file it starts with _base.scss. The _base.scss file contains all your settings,
-variables [vair-ee-uh-buh-l's], and mixins. After _normalize.scss is used. This is a copy of the version of normalize.css,
-just renamed to .scss
-All scss partials are in the _modules subfolder. Some choices have been made about dividing/spliiting up scss into several 
+variables [vair-ee-uh-buh-l's], and mixins. After that _normalize.scss is imported and used. This is a copy of the version of normalize.css,
+just renamed to .scss. I update it now and then.
+All SASS partials are in the _modules subfolder. Some choices have been made about dividing/splitting up SCSS into several 
 partials. _layout.scss should only contain layout/positioning for the scaffolding/setup of the page(s) at a high level. The
 names of the other partials should give you insight into what's there to find. As a general rule, if it's styling for a block or 
-other piece of content, put it in _theme.scss. If the combined amount of lines exceeds around 50, put it in it's own partial file. (e.g. _search.scss)
+other piece of content, put it in _theme.scss. If the combined amount of lines exceeds around 50 lines of code, put it in it's own partial file. (e.g. _search.scss)
 
-3. GULP - Stuff is done with Gulp! After you've cloned this repo do a 'npm install' in the /makeitso/source folder to get all required stuff; then run 'gulp' in your CMD window
+3. NPM Scripts. All compiling, autoprefixing, minifying and compressing is done with NPM Scripts. In the past we relied on GULP as a NPM task runner, but we made the change to bare NPM scripts. That's the way the young and cool kids work these days!
 
-4. CSS - Gulp compiles the CSS to screen.min.css in the 'css' folder. If for development you want a not-minified css file run gulp --dev (See the gulpfile.js itself) 
+4. CSS - in package.json you'll see some scripts for compiling the scss to the main screen.css file in the '/dist/css/' folder. If for development you want a not-minified CSS file, change the compressed parameter in the 'scss:' task in package.json
 
-5. JAVASCRIPT - Gulp compiles the javascript files into one minified scripts.min.js. Custom.js is the main JS file for UI and interaction stuff. If you would like to add a js file (of a third party) you must specify it in the gulpfile in de jsFiles variable. It will then get compiled as part of the scripts.min.js file
+5. JAVASCRIPT - in package.json you'll see some scripts for combining and minifying the javascript files into one minified scripts.js. That one is available at /dist/js/. The custom.js fiel is the main JS file for UI and interaction stuff. If you would like to add a js file (of a third party) you must specify it in the package.json file in the jsFiles variable and add the file to the /source/js/lib folder. Add the file location to the "uglifyjs" task in package.json, in the js order you would like
 
 
 Make it so...
 
 
----
- 
-	                  xxxXRRRMMMMMMMMMMMMMMMxxx,.
-	              xXXRRRRRXXXVVXVVXXXXXXXRRRRRMMMRx,
-	            xXRRXRVVVVVVVVVVVVVVVXXXXXRXXRRRMMMMMRx.
-	          xXRXXXVVVVVVVVVVVVVVVVXXXXVXXXXXXRRRRRMMMMMxx.
-	        xXRRXXVVVVVttVtVVVVVVVVVtVXVVVVXXXXXRRRRRRRMMMMMXx
-	      xXXRXXVVVVVtVttttttVtttttttttVXXXVXXXRXXRRRRRRRMMMMMMXx
-	     XRXRXVXXVVVVttVtttVttVttttttVVVVXXXXXXXXXRRRRRRRMMMMMMMMVx
-	    XRXXRXVXXVVVVtVtttttVtttttittVVVXXVXVXXXRXRRRRRMRRMMMMMMMMMX,
-	   XRRRMRXRXXXVVVXVVtttittttttttttVVVVXXVXXXXXXRRRRRMRMMMMMMMMMMM,
-	   XXXRRRRRXXXXXXVVtttttttttttttttttVtVXVXXXXXXXRRRRRMMMMMMMMMMMMM,
-	   XXXXRXRXRXXVXXVtVtVVttttttttttttVtttVXXXXXXXRRRRRMMMMMMMMMMMMMMMR
-	   VVXXXVRVVXVVXVVVtttititiitttttttttttVVXXXXXXRRRRRMRMMMMMMMMMMMMMMV
-	   VttVVVXRXVVXtVVVtttii|iiiiiiittttttttitXXXRRRRRRRRRRMMMMMMMMMMMMMM
-	   tiRVVXRVXVVVVVit|ii||iii|||||iiiiiitiitXXXXXXXXRRRRRRMMMMMMMMMMMMM
-	    +iVtXVttiiii|ii|+i+|||||i||||||||itiiitVXXVXXXRRRRRRRRMMMMMMRMMMX
-	    `+itV|++|tttt|i|+||=+i|i|iiii|iiiiiiiitiVtti+++++|itttRRRRRMVXVit
-	     +iXV+iVt+,tVit|+=i|||||iiiiitiiiiiiii|+||itttti+=++|+iVXVRV:,|t
-	     +iXtiXRXXi+Vt|i||+|++itititttttttti|iiiiitVt:.:+++|+++iXRMMXXMR
-	     :iRtiXtiV||iVVt||||++ttittttttttttttttXXVXXRXRXXXtittt|iXRMMXRM
-	      :|t|iVtXV+=+Xtti+|++itiiititittttVttXXXXXXXRRRXVtVVtttttRRMMMM|
-	        +iiiitttt||i+++||+++|iiiiiiiiitVVVXXRXXXRRRRMXVVVVttVVVXRMMMV
-	         :itti|iVttt|+|++|++|||iiiiiiiittVVXRRRMMMMMMRVtitittiVXRRMMMV
-	           `i|iitVtXt+=||++++|++++|||+++iiiVVXVRXRRRV+=|tttttttiRRRMMM|
-	             i+++|+==++++++++++++++|||||||||itVVVViitt|+,,+,,=,+|itVX'
-	              |+++++.,||+|++++=+++++++|+|||||iitt||i||ii||||||itXt|
-	              t||+++,.=i+|+||+++++++++++++|i|ittiiii|iiitttttXVXRX|
-	              :||+++++.+++++++++|++|++++++|||iii||+:,:.-+:+|iViVXV
-	              iii||+++=.,+=,=,==++++++++++|||itttt|itiittXRXXXitV'
-	             ;tttii||++,.,,,.,,,,,=++++++++++|iittti|iiiiVXXXXXXV
-	            tVtttiii||++++=,,.  . ,,,=+++++++|itiiiiiii||||itttVt
-	           tVVttiiiii||||++++==,. ..,.,+++=++iiiiiitttttVVXXRRXXV
-	        ..ttVVttitttii||i|||||+|+=,.    .,,,,==+iittVVVXRRMXRRRV
-	...'''ittitttttitVttttiiiiii|ii|++++=+=..... ,.,,||+itiVVXXVXV
-	      ,|iitiiitttttttiiiii||ii||||||||+++++,.i|itVt+,,=,==.........
-	        ,|itiiiVtVtiii||iiiiii|||||||++||||tt|VXXRX|  ....  ..     ' ' '.
-	          ,,i|ii||i||+|i|i|iiiiiiii||||ittRVVXRXRMX+, .  ...   .         ,
-	    .       .,+|++|||||ii|i|iiiitttVVttXVVXVXRRRRXt+. .....  . .       ,. .
-	  . .          ,,++|||||||i|iiitVVVXXXXVXXVXXRRRV+=,.....  ....  ..       ..
-	                  .,,++|||i|iittXXXXRMViRXXXXRVt+=, ..    ...... .        ..
-	                   ,XX+.=+++iitVVXXXRXVtXXVRRV++=,..... .,, .              .
-	            ....       +XX+|i,,||tXRRRXVXti|+++,,. .,,. . . .. .      . ....
-	  . .          .      ..  .(C):JE:.....++,,..,...,.... ..             .. ...
-
+                                _____
+                       __...---'-----`---...__
+                  _===============================
+ ______________,/'      `---..._______...---'
+(____________LL). .    ,--'
+ /    /.---'       `. /
+'--------_  - - - - _/
+          `~~~~~~~~'

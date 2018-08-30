@@ -26,9 +26,9 @@
     margin-right:1em;
     .js & {
         display: block;
-    }
-    @include respond-to(medium-screens) {
-        display:none;
+        @include respond-to(medium-screens) {
+            display:none;
+        }
     }
 }
 
@@ -37,9 +37,9 @@
     display:none;
     .js & {
         display: block;
-    }
-    @include respond-to(medium-screens) {
-        display:none;
+        @include respond-to(medium-screens) {
+            display:none;
+        }
     }
 }
 

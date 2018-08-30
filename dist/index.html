@@ -6,13 +6,13 @@
     <meta http_equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0" />
     <meta name="description" content="Make it so, startup and engage theme" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5">
     <meta name="theme-color" content="#ffffff">
-    <link type="text/css" rel="stylesheet" href="dist/css/screen.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="css/screen.css" media="all" />
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
@@ -31,10 +31,6 @@
 
     <nav class="navigation-primary">
         <div class="inner-wrap">
-            <div class="toggle-btn-wrap">
-                <button class="toggle-menu" aria-pressed="false">menu</button>
-                <button class=" toggle-search" aria-pressed="false">search</button>
-            </div>
             <ul class="menu">                
                 <li class="first active">
                     <a href="index.html" class="active">Home</a>
@@ -63,19 +59,20 @@
                 <a id="content" tabindex="0"></a>
                 <h1>About MakeItSo</h1>
                 <div class="body-content">
-                    <p class="introduction"><b><i>MakeItSo</i></b> is a bare startup theme with the minimum of styling. It is set up with the assumption a website is centered and full width. It is however very easy to create a max-width and centered layout like this one.</p>
-                    <h2>This is <em>not</em> a HTML framework</h2>
-                    <p><strong><i>MakeItSo</i></strong> <i>strives</i> to not give you unneeded and excessive markup, styles and classes or pre-made design patterns. You don't need Foundation or Bootstrap to built a sleek and efficient front-end, nor should you need <b><i>MakeItSo</i></b> for that matter. For protoyping, a framework like Foundation can be handy.</p>
+                    <p class="introduction"><b><i>MakeItSo</i></b> is a bare startup theme with the <em>minimum</em> of styling. It is however set up with the assumption a website is centered and full width. However, with a set max-width and some HTML tweaks it is easy to create a centered layout like this one.</p>
+                    <h2>A base project setup</h2>
+                    <p><strong>MakeItSo</strong> <i>strives</i> to not give you unneeded and excessive markup, CSS styles and classes or pre-made design patterns. There is some base styling in place or else this would look like the 90's. Remove or change the SCSS partials as desired. Or just go ahead on this base and add your css to _theme.scss or create your own partials.</p>
+                    <p>You don't need Foundation or Bootstrap to built a sleek and efficient front-end, nor should you need <b><i>MakeItSo</i></b> for that matter. For protoyping though, a framework like Foundation can be handy. So use your head, creative skills and ye'olde CSS plus some good accessible HTML!</p>
+                    <h3>Some important details:</h3>
                     <ul>
-                        <li>Normalize.css is used as default to align browsers' rendering appearrance and positioning. The rest is bare bones... </li>
+                        <li>Normalize.css is used as default to align browsers' rendering appearrance and positioning.</li>
                         <li>Need a grid in place at a certain break-point? Just declare (wrapper) widths in percentages, float them and be done with it. Not 'col-6', 'spacer-3' or 'med-12-4-1-grid_home_bloat' classes... See the example classes in _theme.scss for 2 or three columns.</li>
+                        <li>To go from a fluid centered layout to a site wide fluid layout you can remove the wrapping divs with the CSS class <code>'inner-wrap'</code> in the main structure blocks. Also, change the SCSS variable <code>$site-max-width</code> in the partial _base.scss</li>
+                        <li>Probably the most opinionated (but small) piece of functionality in this project is the mobile menu toggle functionality on small screens in combination with the search block. If you don't like it, take it out. It's fairly easy and a small effort: remove the lines of code in source/js/custom.js</li>
                     </ul>                    
-                    <blockquote>
-                        </p>Use your head, your creative skills and ye'olde CSS plus good accessible HTML!</p>
-                    </blockquote>
                     <h2>HTML elements example page</h2>
                     <p>The <a href="article.html">article example page</a> contains base HTML elements to show how the base styling looks in this setup. If you still miss an element here for reference, please let me know. The <a href="form.html">form example page</a> shows you the default generic styling of a form and form elements. Go check them out.</p>
-                    <p><strong><i>MakeItSo</i></strong> is <i>responsive</i> and built <i>mobile first</i>. Any changes and additions you make should be added in a mobile first workflow. As the viewport widens with every larger sized medium, styles get applied and/or overwritten.</p>
+                    <div class="ui-info ui-info_information"><p><strong><i>MakeItSo</i></strong> is <i>responsive</i> and built <i>mobile first</i>. Any changes and additions you make, should be added in a mobile first approach. As the viewport widens with every larger sized medium, styles get applied and/or overwritten.</p></div>
                 </div>
             </section>
             
@@ -116,7 +113,7 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="dist/js/scripts.min.js"></script>   
+    <script type="text/javascript" src="js/scripts.js"></script>   
 
 </body>
 </html>
