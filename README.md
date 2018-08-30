@@ -17,6 +17,7 @@ and enable it.
 
 
 MAKEITSO templates, available in /dist:
+---------------------------------------
 
 - index.html
 - article.html
@@ -28,6 +29,7 @@ in a Bolt installation, after cloning the theme in the themes folder: [webroot]/
 
 
 Installation of MAKEITSO:
+-------------------------
 
 1. Clone the repo, preferably in the /theme folder of your Bolt installation
 2. Go to /makeitso and run 'npm install' to install all required modules/packages
@@ -35,6 +37,7 @@ Installation of MAKEITSO:
 
 
 Technical information about the frontend in MAKEITSO:
+-----------------------------------------------------
 
 1. MAKEITSO is a stripped down startup kit. Not a frontend framework. It has some basic styling to get you started. The styling is plain (s)css, not applying classes to your HTML and be done with it.
 
