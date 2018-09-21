@@ -1,0 +1,160 @@
+@keyframes icon-expand-expanding {
+    to {transform: rotate(180deg);}
+}
+
+@keyframes icon-expand-collapsing {
+    to {transform: rotate(-180deg);}
+}
+
+.collapsing span {
+    transition: 300ms all ease-in-out;
+    animation: icon-expand-collapsing .3s linear 1;
+    &:after {
+        display: block;
+    }
+}
+
+.expanding span {
+    transition: 300ms all ease-in-out;
+    animation: icon-expand-expanding .3s linear 1;
+    &:after {
+        display: none;
+    }
+}
+
+.general-expandable-field-wrap {
+    margin-bottom: 3.5rem;
+    overflow: hidden;
+}
+
+.general-expandable-field {
+    border: 1px solid #999;
+    position: relative;
+    overflow:hidden;
+    &:first-child {
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    &:last-child {
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+    .expandable-field_toggler {
+        font-weight: 700;
+        display: block;
+        width: 100%;
+        display: inline-block;
+        white-space: normal;
+        &:link, &:visited {
+            text-decoration: none;
+        }
+        &:hover, &:active, &:focus {
+            text-decoration: underline;
+        }
+    }
+    & + .general-expandable-field {
+        margin-top: -1px;
+    }
+}
+
+.expandable-field_body {
+    padding: 0.25rem 0.625rem;
+}
+
+.expandable-field_body {
+    @include respond-to(medium-screens) {
+        padding-right: 4rem;
+    }
+}
+
+.expandable-field_toggler {
+    padding: 0.625rem 0.625rem;
+    .expandable-field_toggle-icon {
+        text-indent: -999px;
+        position: absolute;
+        right: 0.5rem;
+        top: 0.75rem;
+        width: 1.5333rem;
+        height: 1.5rem;
+        border: 0;
+        display: block;
+        overflow: hidden;
+        padding: 0.25rem;
+        opacity: 0.6;
+        // transition: 400ms padding ease-in-out;
+        // animation: icon-expand-toggling .4s linear 1;
+        .icon-plus {
+            position: relative;
+            display: block;
+            width: 0.9375rem;
+            height: 0.9375rem;
+            &:after {
+                content: "";
+                width: 3px;
+                height: 100%;
+                display: block;
+                position: absolute;
+                left: 37%;
+                top: 0%;
+                background-color: $black;
+            }
+            &:before {
+                content: "";
+                width: 100%;
+                height: 3px;
+                display: block;
+                position: absolute;
+                left: -4%;
+                top: 40%;
+                background-color: $black;
+            }
+        }
+        .icon-arrow {
+            position: relative;
+            display: block;
+            width: 0.8rem;
+            height: 0.8rem;
+            &:after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+                left: 0;
+                top: -4px;
+                border-top: 2px solid $black;
+                border-right: 2px solid $black;
+                transform: rotate(135deg);
+            }
+        }
+        &.expand-icon-expanded {
+            span {
+                &:after {
+                    display: none
+                }
+            }
+        }
+    }
+    &.active {
+        .icon-plus {
+            position: relative;
+            display: block;
+            width: 0.9375rem;
+            height: 0.9375rem;
+            &:after {
+                display: none;
+            }
+        }
+        .icon-arrow {
+            &:after {
+                transform: rotate(-45deg);
+                top: 4px;
+            }
+        }
+    }
+    &:hover, &:active, &:focus {
+        .expandable-field_toggle-icon {
+            opacity: 1;
+        }
+    }
+}

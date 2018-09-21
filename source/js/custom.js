@@ -13,10 +13,11 @@ jQuery(function ($) {
     // Assume base font size is 16px and set windowWidth var in em
     var windowWidthEm = ((viewportSize.getWidth()) / 16);
 
-    /* Run the preLoadChecks function
-    // Initial checks for page setup. Checks the viewport width 
-    // and does some actions for the UI based on screen size
-    */
+    /* 
+     * Run the preLoadChecks function
+     * Initial checks for page setup. Checks the viewport width 
+     * and does some actions for the UI based on screen size
+     */
     preLoadChecks();
 
     // Execute preLoadChecks function when window is resized. Handy for development, when resizing window
@@ -27,26 +28,28 @@ jQuery(function ($) {
         resizeId = setTimeout(preLoadChecks, 20);
     });
         
-    // Set all links with class 'external' to have target _blank
+    /*
+     * Set all links with class 'external' to have target _blank
+     */
     $('a.external').attr('target', "_blank");
 
 
     /*
-    // MENU AND SEARCH TOGGLE FUNCTIONALITY
-    // This code adds the toggle buttons for the main menu and search block on small screens up to medium screens
-    // Also, toggle functionality is bound to the two toggle buttons
-    // If you do not want this in your project, or have another cuastm solution you can:
-    // 1. Remove this whole block of code
-    // 2, Adjust/remove the SCSS lines in _navigation.scss for '.toggle-' classes
-    // 3. You're done
-    */
+     * MENU AND SEARCH TOGGLE FUNCTIONALITY
+     * This code adds the toggle buttons for the main menu and search block on small screens up to medium screens
+     * Also, toggle functionality is bound to the two toggle buttons
+     * If you do not want this in your project, or have another cuastm solution you can:
+     * 1. Remove this whole block of code
+     * 2, Adjust/remove the SCSS lines in _navigation.scss for '.toggle-' classes
+     * 3. You're done
+     */
 
     // Add menu and search toggle buttons to navigation on load
     $('.navigation-primary .inner-wrap').prepend('<div class="toggle-btn-wrap"><button class="toggle-menu" aria-pressed="false">menu</button><button class=" toggle-search" aria-pressed="false">search</button></div>');
 
     /* Toggle .search-block functionality when search gets hidden on small/mobile devices
-    // In this setup, this works together with the primary menu. Only one can be open
-    */
+     * In this setup, this works together with the primary menu. Only one can be open
+     */
     $(".toggle-search").on( "click", function(e) {
         e.preventDefault();
         var searchform = $(".search-block");
@@ -71,9 +74,10 @@ jQuery(function ($) {
         }
     });
 
-    /* Toggle main menu functionality when primary navigation gets hidden on small/mobile devices
-    // In this setup, this works together with the search block. Only one can be open
-    */
+    /* 
+     * Toggle main menu functionality when primary navigation gets hidden on small/mobile devices
+     * In this setup, this works together with the search block. Only one can be open
+     */
     $(".toggle-menu").on( "click", function(e) {
         e.preventDefault();
         var nav = $(".navigation-primary .menu");
@@ -97,23 +101,54 @@ jQuery(function ($) {
             }
         }
     });
-    /*
-    // ////////////////////////////////////////
-    // END MENU AND SEARCH TOGGLE FUNCTIONALITY
-    // ////////////////////////////////////////
-    */
-
-
 
     /*
-    // Function preLoadChecks: 
-    // Checks and does some visual UI changes on page load, based on viewport width.
-    // As we have a mobile first approach, we trigger this function on window resize
-    // Mainly to put all moved, cloned and shown items back in the state they were on small screens
-    // This mostly concerns the statements in the smaller than '<' parts
-    // Put all checks in order of windowWidth because with a mobile first approach the windowwidth
-    // only gets larger!
-    */
+     * Expandable field logic
+     */
+    $('.expandable-field_toggler').on('click', function(e) {
+        e.preventDefault();
+        var expandableTrigger = $(this);
+        var expandableParent = $(this).parents('.expandable-field');
+        var expandableTarget = expandableParent.find('.expandable-field_toggle-target');
+
+        if (expandableTrigger.hasClass('active')) {
+            //expandableTrigger.removeClass('expanding').addClass('collapsing'); 
+            // expandableTarget.slideUp( 600, "easeInOutCubic", function() {
+            expandableTarget.slideUp( 400, function() {
+                expandableTrigger.removeClass('active').attr('aria-expanded', 'false').removeClass('collapsing');
+                expandableTarget.attr('aria-hidden', 'true');
+                expandableParent.removeClass('expandable-field_expanded');
+                expandableParent.addClass('expandable-field_collapsed');
+            });
+        } else {
+            //expandableTrigger.removeClass('collapsing').addClass('expanding');
+            expandableParent.removeClass('expandable-field_expanded-partially');
+            // expandableTarget.slideDown( 600, "easeInOutCubic", function() {
+            expandableTarget.slideDown( 400, function() {
+                expandableTrigger.addClass('active').attr('aria-expanded', 'true').removeClass('expanding');
+                expandableTarget.attr('aria-hidden', 'false');
+                expandableParent.removeClass('expandable-field_collapsed');
+                expandableParent.addClass('expandable-field_expanded');
+            });
+        }
+    });
+
+    // hide all expandable fields by triggering the bound click
+    if ($('.expandable-field').length > 0) {   
+        //console.log('hide expandable fields');
+        $('.expandable-field .expandable-field_toggler').trigger('click');
+    }
+
+    
+    /*
+     * Function preLoadChecks: 
+     * Checks and does some visual UI changes on page load, based on viewport width.
+     * As we have a mobile first approach, we trigger this function on window resize
+     * Mainly to put all moved, cloned and shown items back in the state they were on small screens
+     * This mostly concerns the statements in the smaller than '<' parts
+     * Put all checks in order of windowWidth because with a mobile first approach the windowwidth
+     * only gets larger!
+     */
     function preLoadChecks() {
         // update windoWidth from viewportSize.js (cross browser JS plugin), 
         // because this needs to be checked again after window resize

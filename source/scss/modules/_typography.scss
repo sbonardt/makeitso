@@ -208,24 +208,6 @@ table {
     }
   }
 
-button, .btn {
-    background-color: $grey;
-    border:0;
-    color:$white; 
-    float: left;
-    display: block;
-    padding: 0.625em 0.8125em 0.375em;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    &:link, &:visited {
-        text-decoration:none;
-        color:$white; 
-    }
-    &:hover, &:active, &:focus {
-        background-color: $darkGrey;
-    }
-}
-
 ul {
     &.stripped {
         padding: 0;
