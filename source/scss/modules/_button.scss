@@ -1,0 +1,154 @@
+button, .button {
+    background-color: lighten($darkGrey, 4%);
+    border:0;
+    color:$white; 
+    // float: left;
+    display: inline-block;
+    padding: 0.4em 0.625em 0.275em;
+    line-height: 1.5;
+    margin: 0 0.625rem 1.5rem 0;
+    border-radius: 3px;
+    font-family: $baseFontFamily;
+    border: 1px solid $darkGrey;
+    &:link, &:visited {
+        text-decoration:none;
+        color:$white; 
+    }
+    &:hover, &:active, &:focus {
+        background-color: darken($darkGrey, 5%);
+    }
+}
+
+.button_small {
+    padding: 0.25em 0.625em 0.2em;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+.button_light {
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: $darkGrey;
+    text-decoration: underline;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    cursor: pointer;
+    &:hover, &:active, &:focus {
+        background-color: transparent;
+        text-decoration: none;
+    }
+}
+.button_bordered {
+    background-color: $lightGrey;
+    border: 1px solid $grey;
+    cursor: pointer;
+    color: $darkGrey;
+    &:link, &:visited {
+        color: $darkGrey;
+        text-decoration: none;
+    }
+    &:hover, &:active, &:focus {
+        background-color: transparent;
+    }
+}
+
+.button_as-link {
+    color: #000;
+    padding: 0 0.625rem;
+    text-decoration: underline;
+    text-transform: lowercase;
+    float: left;
+    border: 0;
+    width: 100%;
+    color: $baseLinkColour;
+    &:hover, &:active, &:focus {
+        background-color: $white;
+        text-decoration: none;
+        color: $baseLinkColour;
+    }
+}
+
+.button-group {
+    margin: 0 0.625rem 1.5rem 0;
+    position: relative;
+    .js & {
+        display: inline-block;        
+    }
+    button, .button {
+        display: inline-block;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin:0;
+        &:hover, &:active, &:focus {
+            cursor: pointer;
+        }
+        & + .button_dropdown-toggler {
+            width: 24px;
+            text-indent: 2rem;
+            padding-left: 0.125rem;
+            border-radius: 0 2px 2px 0;
+        }
+    }
+    .button_dropdown-toggler {
+        border-radius: 3px;
+        position: relative;
+        padding: 0.4em 1.75em 0.275em 0.625rem;
+        //width: 24px;
+        overflow: hidden;
+        white-space: pre;
+        //text-indent: 2rem;
+        &:after {
+            content: "";
+            width: 0.5rem;
+            height: 0.5rem;
+            display: inline-block;
+            border-bottom: 1px solid $white;
+            border-right: 1px solid $white;
+            right: 0.7rem;
+            top: 0.8125rem;
+            position: absolute;
+            transform: rotate(45deg);
+        }
+        &[aria-expanded="true"] {
+            background-color: darken($darkGrey, 10%);
+        }
+    }
+}
+
+.button-options-list {
+    clear: both;
+    background-color: $white;
+    padding: 0.25rem 0;
+    list-style: none;
+    z-index: 1001;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    border-radius: 0 0 5px 5px;
+    position: relative;
+    li {
+        border-bottom: 1px solid #efefef;
+        &:last-child {
+            border: 0;
+        }
+    }
+    a, button, span {
+        display: block;
+        padding: 0.35rem 0.625rem;;
+        background-color: #fff;
+    }
+    // if we have .js enabled, act like a hovering box on click
+    .js & {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 5px 5px 5px rgba(200, 200, 200, 0.4);
+    }
+    &.button-options-list_right-aligned {
+        left: auto;
+        right: 0;
+        a {
+            text-align: left;
+        }
+    }
+}
