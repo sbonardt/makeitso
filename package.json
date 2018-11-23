@@ -12,16 +12,17 @@
     "build:js": "npm run uglifyjs",
     "watch:js": "onchange 'source/js/**/*.js' -- npm run build:js",
     "imageminify": "imagemin source/images/* --out-dir=dist/images",
-    "serve": "browser-sync start --server --files 'dist/css/*.css, dist/js/*.js'",
-    "start": "parallelshell 'npm run watch:css' 'npm run watch:js' 'npm run imageminify' 'npm run serve'"
+    "serve": "browser-sync start --proxy 'your.localdev.env' --files 'dist/css/*.css, dist/js/*.js'",
+    "start": "npm-run-all --parallel watch:css watch:js imageminify serve"
   },
   "author": "S. Bonardt",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^8.6.2",
-    "browser-sync": "^2.24.7",
+    "browser-sync": "^2.26.3",
     "imagemin-cli": "^3.0.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.3",
     "onchange": "^4.0.0",
     "parallelshell": "^3.0.2",
     "postcss": "^7.0.2",
