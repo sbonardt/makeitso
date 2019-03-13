@@ -8,6 +8,7 @@
     border-width: 1px 1px 1px 8px;
     p {
         margin-bottom: 0;
+        font-family: $baseHeaderFontFamily;
     }
     &.ui-info_warning {
         border-color: $warningBorderColour;
