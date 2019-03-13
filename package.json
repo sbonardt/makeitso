@@ -4,8 +4,8 @@
   "description": "package json for makeitso, frontend base project setup",
   "main": "index.js",
   "scripts": {
-    "scss": "node-sass --output-style compressed -o dist/css source/scss/screen.scss",
-    "autoprefixer": "postcss -r dist/css/*",
+    "scss": "node-sass --output-style compressed --source-map true -o dist/css source/scss/screen.scss",
+    "autoprefixer": "postcss -r dist/css/**/*.css",
     "build:css": "npm run scss && npm run autoprefixer",
     "watch:css": "onchange 'source/scss/**/*.scss' -- npm run build:css",
     "uglifyjs": "mkdir -p dist/js && uglifyjs source/js/lib/modernizr.custom.40091.js source/js/lib/jquery-1.11.1.min.js source/js/lib/viewportSize-min.js source/js/custom.js -m -c -o dist/js/scripts.js",

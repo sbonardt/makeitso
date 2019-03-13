@@ -2,3 +2,4 @@
 node_modules
 *_
 .sass-cache
+/dist/css/*.map

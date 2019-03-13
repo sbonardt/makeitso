@@ -5,16 +5,17 @@ MAKEITSO - get to viable at warp speed
 
 Startup your frontend/theme development 
 
-Base or startup for getting to a minimum viable product at warp speed. 
+1. Frontend setup
+2. Bolt theme starting point
+
 MAKEITSO started out as 'flat' frontend project but now is incorporated
-in a Bolt theme. You can view the 'flat' example html files in the /dist/frontend folder
+in a Bolt (bolt.cm) theme. You can view the 'flat' example html files in the /dist/frontend folder
 
-Clone the repo and view the four available HTML pages in your browser, or just go 
-to http://sbonardt.github.io/makeitso-bolt
+Clone the repo and view the four available HTML pages in your browser by going to
+"/dist/index.html"
 
-Or -like you should- use Bolt CMS, clone this repo in the Bolt themes folder
-and enable it. 
-
+Or -like you should- use Bolt CMS, clone this repo in the Bolt themes folder of you project and
+go to: "[projectroot]/theme/makeitso/dist/index.html"
 
 MAKEITSO templates, available in /dist:
 ---------------------------------------
@@ -31,15 +32,16 @@ in a Bolt installation, after cloning the theme in the themes folder: [webroot]/
 Installation of MAKEITSO:
 -------------------------
 
-1. Clone the repo, preferably in the /theme folder of your Bolt installation
-2. Go to /makeitso and run 'npm install' to install all required modules/packages
-3. For development, run 'npm start'. This will build and watch the scss and js files, and set up a browsersynced environment for you to check. See package.json for all scripts
+1. Clone the repo. Preferably in the /theme folder of your Bolt installation
+2. Go to /makeitso and run 'npm install' to install all required devdependecies
+3. See package.json for all scripts and set your localdev environment.
+3. Run 'npm start'. This will build and watch the scss and js files, and set up a browsersynced environment
 
 
 Technical information about the frontend in MAKEITSO:
 -----------------------------------------------------
 
-1. MAKEITSO is a stripped down startup kit. Not a frontend framework. It has some basic styling to get you started. The styling is plain (s)css.
+1. MAKEITSO is a stripped down startup kit. Not a frontend framework. It has some basic styling to get you started. 
 
 2. SASS is compiled with NPM scripts. There is a screen.scss file in /source/scss. This references all 
 required partials. You can see in the file it starts with _base.scss. The _base.scss file contains all your settings,
@@ -50,7 +52,7 @@ partials. _layout.scss should only contain layout/positioning for the scaffoldin
 names of the other partials should give you insight into what's there to find. As a general rule, if it's styling for a block or 
 other piece of content, put it in _theme.scss. If the combined amount of lines exceeds around 50 lines of code, put it in it's own partial file. (e.g. _search.scss)
 
-3. NPM Scripts. All compiling, autoprefixing, minifying and compressing is done with NPM Scripts. In the past we relied on GULP as a NPM task runner, but MAKEITSO changed to bare NPM scripts. That's the way the young, cool kids work these days!
+3. NPM Scripts. All compiling, autoprefixing, minifying and compressing is done with NPM Scripts. That's the way the young cool kids work these days!
 
 4. CSS - in package.json you'll see some scripts for compiling the scss to the main screen.css file in the '/dist/css/' folder. If for development you want a not-minified CSS file, change the compressed parameter in the 'scss:' task in package.json
 
