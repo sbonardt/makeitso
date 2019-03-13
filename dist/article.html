@@ -72,16 +72,22 @@
                     <p class="introduction">
                         This article page shows you HTML elements commonly used in a web page. Generic MAKEITSO base styles are applied. For instance this one: the introduction paragraph style for a slightly bigger introduction text. <br>Missing one?... let me know! See all other examples below.
                     </p>
-                    <p>TIP: the basic styles are useful as a base reference / startingpoint.</p>
-                    <figure>
+
+                    <div class="ui-info ui-info_information">
+                        <p>These basic styles are useful as a base reference or startingpoint for your project.</p>
+                    </div>
+
+                    <h2 id="paragraph">Paragraph</h2>
+                    <p>This is a paragraph. Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Itaque hic ipse iam pridem est reiectus; Superiores tres erant, quae esse possent, quarum est una sola defensa, eaque vehementer. <strong>Re mihi non aeque satisfacit, et quidem locis pluribus.</strong> Duo Reges: constructio interrete. </p>
+
+                    <figure id="figure">
                         <img src="images/placeholder-image.png" alt="placeholder image"/>
                         <figcaption>Placeholder image with a caption</figcaption>
                     </figure>
 
                     <h2>Example HTML elements</h2>
 
-                    <p>This is a paragraph. Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Itaque hic ipse iam pridem est reiectus; Superiores tres erant, quae esse possent, quarum est una sola defensa, eaque vehementer. <strong>Re mihi non aeque satisfacit, et quidem locis pluribus.</strong> Duo Reges: constructio interrete. </p>
-
+                    <a id="headings"></a>
                     <h1>1st level heading <code>h1</code> or <code>.alpha</code></h1>
                     <h2>2nd level heading <code>h2</code> or <code>.beta</code></h2>
                     <h3>3rd level heading <code>h3</code> or <code>.gamma</code></h3>
@@ -90,15 +96,7 @@
                     <p>Basic paragraph to follow heading</p>
                     <h2>Basic block level elements</h2>
 
-                    <div>This is a div element.</div>
-
-                    <p>This is a paragraph.</p>
-
-                    <blockquote>
-                        <p>This is a blockquote. This blockquote contains a paragraph.</p>
-                    </blockquote>
-
-                    <h2>Lists</h2>
+                    <h2 id="html-lists">HMTL Lists</h2>
 
                     <h3>Unordered list</h3>
                     <ul>
@@ -127,26 +125,51 @@
                         <dd>Yellow cold drink</dd>
                     </dl>
 
-
-                    <h2>Textual elements</h2>
+                    <h2 id="textual-elements">Textual elements</h2>
 
                     <ul class="stripped">
                         <li><b>Bold look text</b></li>
                         <li><em>Emphasized text</em></li>
                         <li><i>Italic text</i></li>
                         <li><strong>Strong text</strong></li>
-                        <il><mark>Marked text</mark></il>
-                        <li><p>Subscripts and superscripts (sub and sup markup). Lorem ipsum dolor <sub>1</sub> and H<sub>2</sub>O (where subscripts occur). Superscripts: M<sup>lle</sup>, 1<sup>st</sup>, and then some mathematical notations: e<sup>x</sup>, sin<sup>2</sup> <em>x</em>, and some nested superscripts (exponents) too: e<sup>x<sup>2</sup></sup> and f(x)<sup>g(x)<sup>a+b+c</sup></sup> (where 2 and a+b+c should appear as exponents of exponents).</p></li>
+                        <li><mark>Marked text</mark></li>
+                        <li><p>Subscripts and superscripts (sub and sup markup).<br>Lorem ipsum dolor <sub>1</sub> and H<sub>2</sub>O (where subscripts occur).</p><p> Superscripts: M<sup>lle</sup>, 1<sup>st</sup>, and then some mathematical notations: e<sup>x</sup>, sin<sup>2</sup> <em>x</em>, and some nested superscripts (exponents) too: e<sup>x<sup>2</sup></sup> and f(x)<sup>g(x)<sup>a+b+c</sup></sup> (where 2 and a+b+c should appear as exponents of exponents).</p></li>
                     </ul>
 
-                    <h2>Links</h2>
+                    <h2 id="links">Links</h2>
                     <ul class="stripped">
                         <li><a href="#">Link <code>a</code></a></li>
                         <li><a href="#" class="read-more">Link <code>a.read-more</code></a></li>
                         <li><a href="#" class="button">Link button <code>a.btn</code></a></li>
                     </ul>
 
-                    <h2>Tables</h2>
+                    <h2 id="buttons">Buttons</h2>
+
+                    <div>
+                        <button>button</button>
+                        <button disabled="disabled">disabled button</button>
+                        <button class="button_bordered">button bordered</button>
+                    </div>
+                    <div>
+                        <button class="button_small">button small</button>
+                        <button class="button_small" disabled="disabled">disabled button</button>
+                        <button class="button_small button_bordered">button bordered</button>
+                    </div>
+
+                    <div class="button-group">
+                        <button>button</button><button class="button_dropdown-toggler" aria-expanded="false">Actions</button>
+                        <ul aria-hidden="false" class="button-options-list">
+                            <li><a href="#"">button</a></li>
+                            <li><a href="#"">button</a></li>
+                            <li><a href="#"">button</a></li>
+                        </ul>
+                    </div>
+                    
+                    <blockquote cite="http://www.worldwildlife.org/who/index.html" id="blockquote">
+                        For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+                    </blockquote> 
+
+                    <h2 id="tables">Tables</h2>
 
                     <table summary="Each row names a Nordic country and specifies its total area and land area, in square kilometers">
                         <caption>Sample table: Areas of the Nordic countries, in sq km</caption>
@@ -184,13 +207,13 @@
                         </tbody>
                     </table>
 
-                    <h2>An embedded video</h2>
+                    <h2 id="video">An embedded video</h2>
                     <p>Wrap an embedded video in a div with class <code>video</code>. <cite>J. Picard: <q>Make it so!</q></cite></p>
                     <div class="video">
                     <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FaLyasJPyUU?rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
 
-                    <h2>Characters tests</h2>
+                    <h2 id="html-characters">Characters tests</h2>
 
                     <table>
                         <tbody>
@@ -232,7 +255,7 @@
                         </tbody>
                     </table>
 
-                    <h2>Feedback/information boxes</h2>
+                    <h2 id="ui-feedback">Feedback/information boxes</h2>
                     <p>Common UI usecase where feedback is given by the backend. Use a <code>div</code> with a class of <code>ui-info</code></p>
                     <div class="ui-info">
                             <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info</code></p>
@@ -254,7 +277,7 @@
                         <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_success</code></p>
                     </div>
 
-                    <h2>Expandable fields</h2>
+                    <h2 id="expandable-fields">Expandable fields</h2>
                     <p>These expandable fields are ARIA enhanced and accessible!</p>
                     <div class="general-expandable-field-wrap">
                         <div class="general-expandable-field expandable-field">
@@ -280,11 +303,21 @@
                 </div>
             </article>
             <aside class="sidebar sidebar-second">
-                <h2 class="gamma">Sub menu</h2>
+                <h2 class="gamma">Elements</h2>
                 <ul class="menu menu_block menu_sub-menu">
-                    <li><a href="#">Lorem ipsum</a></li>
-                    <li><a href="#">Dolor sit amet</a></li>
-                    <li><a href="#">Consectetuer adipliscing</a></li>
+                    <li><a href="#paragraph">Paragraphs</a></li>
+                    <li><a href="#figure">Figure</a></li>
+                    <li><a href="#headings">Headings</a></li>
+                    <li><a href="#html-lists">HTML lists</a></li>
+                    <li><a href="#textual-elements">Textual elements</a></li>
+                    <li><a href="#links">Links</a></li>
+                    <li><a href="#buttons">Buttons</a></li>
+                    <li><a href="#blockquote">Blockquote</a></li>
+                    <li><a href="#tables">Tables</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#html-characters">HTML characters</a></li>
+                    <li><a href="#ui-feedback">UI feedback</a></li>
+                    <li><a href="#expandable-fields">Expandable fields</a></li>
                 </ul>
                 <div class="contentblock">
                     <h2 class="gamma">Header of this block <code>div.contentblock</code></h2>
@@ -294,7 +327,7 @@
             </aside>
         </div>
         <aside>
-            <div class="inner-wrap">
+            <div id="grid" class="inner-wrap">
                 <h2>Grid with floated elements examples</h2>
                 <p>Examples of how to create a grid for (a piece of) content. You can find these example selectors in the _theme.scss SASS partial file. <br><strong>Soon proper CSS Grid!!</strong></p>
                 <div class="half">

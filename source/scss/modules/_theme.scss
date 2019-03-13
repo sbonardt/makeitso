@@ -42,6 +42,10 @@
 }
 // End Examples grid with floated elements
 
+
+/*
+** Theme specific styles
+*/
 .introduction {
 	font-weight: bold;
 	font-size: 1.25rem;
@@ -61,8 +65,11 @@
 	img {
 		float: left;
 		display: block;
-		width: 48%;
 		margin-right: 2%;
-		margin-bottom: 1rem;
+        margin-bottom: 1rem;
+        @include respond-to(medium-screens) {
+            width: 36%;
+            margin-top: 0.45rem;
+        }
 	}
 }

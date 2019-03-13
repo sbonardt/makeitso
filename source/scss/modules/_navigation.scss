@@ -35,6 +35,7 @@
 .toggle-search {
     float:right;
     display:none;
+    margin-right: 0;
     .js & {
         display: block;
         @include respond-to(medium-screens) {

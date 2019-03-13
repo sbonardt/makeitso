@@ -1,6 +1,5 @@
 button, .button {
     background-color: lighten($darkGrey, 4%);
-    border:0;
     color:$white; 
     // float: left;
     display: inline-block;
@@ -19,30 +18,22 @@ button, .button {
     }
 }
 
+button[disabled=disabled] {
+    cursor: not-allowed;
+    background-color: lighten($darkGrey, 30%);
+    border: 1px solid lighten($darkGrey, 30%);
+}
+
 .button_small {
-    padding: 0.25em 0.625em 0.2em;
+    padding: 0.125em 0.5em 0.125em;
     line-height: 1.5;
     margin-bottom: 1.5rem;
     font-size: 0.875rem;
 }
-.button_light {
-    border: 1px solid transparent;
-    background-color: transparent;
-    color: $darkGrey;
-    text-decoration: underline;
-    padding-left: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    cursor: pointer;
-    &:hover, &:active, &:focus {
-        background-color: transparent;
-        text-decoration: none;
-    }
-}
+
 .button_bordered {
-    background-color: $lightGrey;
+    background-color: transparent;
     border: 1px solid $grey;
-    cursor: pointer;
     color: $darkGrey;
     &:link, &:visited {
         color: $darkGrey;
@@ -50,6 +41,7 @@ button, .button {
     }
     &:hover, &:active, &:focus {
         background-color: transparent;
+        text-decoration: underline;
     }
 }
 
@@ -58,12 +50,12 @@ button, .button {
     padding: 0 0.625rem;
     text-decoration: underline;
     text-transform: lowercase;
-    float: left;
     border: 0;
-    width: 100%;
     color: $baseLinkColour;
+    background-color: transparent;
+    cursor: pointer;
     &:hover, &:active, &:focus {
-        background-color: $white;
+        background-color: transparent;
         text-decoration: none;
         color: $baseLinkColour;
     }

@@ -5,11 +5,14 @@
  */
 
 @import "base/_base.scss";
+@import "base/_mixins.scss";
 @import "base/_normalize-8.0.1.scss";
+
 @import "modules/_overrides.scss";
 @import "modules/_defaults.scss";
 @import "modules/_animation.scss";
 @import "modules/_layout.scss";
+
 @import "modules/_general_elements.scss";
 @import "modules/_typography.scss";
 @import "modules/_button.scss";
@@ -17,8 +20,9 @@
 @import "modules/_forms.scss";
 @import "modules/_search.scss";
 @import "modules/_ui-info.scss";
-@import "modules/_theme.scss";
 @import "modules/_expandable-field.scss";
+
+@import "modules/_theme.scss";
 
 // 3rd party
 @import "modules/_cycle2.scss";

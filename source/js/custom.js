@@ -139,6 +139,45 @@ jQuery(function ($) {
         $('.expandable-field .expandable-field_toggler').trigger('click');
     }
 
+
+    /**
+     * Button groups
+     * Checks for button groups and adds toggle functionality and ARIA stuff
+    */
+   $('.button-group').each(function() {
+    var btnDropdownOptions = $(this).find('.button-options-list');
+    var btnDropdownToggler = $(this).find('.button_dropdown-toggler');
+
+    btnDropdownOptions.hide().attr('aria-hidden', 'true');
+    btnDropdownToggler.attr('aria-controls', btnDropdownOptions.attr('id')).on('click', function() {
+    //bind toggling of options
+        if (btnDropdownOptions.attr('aria-hidden') == "true") {
+            // expand'eth you!
+            btnDropdownToggler.attr('aria-expanded', 'true');
+            btnDropdownOptions.show();
+            btnDropdownOptions.attr('aria-hidden', 'false');
+        } else if (btnDropdownOptions.attr('aria-hidden') == "false") {
+            // contract'eth you
+            btnDropdownOptions.hide();
+            btnDropdownOptions.attr('aria-hidden', 'true');
+            btnDropdownToggler.attr('aria-expanded', 'false');
+        }
+        });
+    });
+
+    /* click anywhere to close active options */
+    $(document).click(function() {
+        buttonGroupDropdownsClose();
+    });
+
+    $('.button_dropdown-toggler').click(function(e) {
+        e.stopPropagation();
+    });
+
+    function buttonGroupDropdownsClose() {
+        $('button[aria-expanded="true"]').trigger('click');
+    };
+
     
     /*
      * Function preLoadChecks: 
