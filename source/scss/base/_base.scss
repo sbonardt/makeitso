@@ -29,8 +29,8 @@ $highlightColour: $baseLinkColour;
 
 // UI colours
 $errorTextColour: #a94442;
-$errorBackgroundColour:#f2dede;
-$errorBorderColour: darken($errorBackgroundColour, 5%);
+$errorBackgroundColour:#faeded;
+$errorBorderColour: darken($errorBackgroundColour, 10%);
 $successTextColour: #3c763d;
 $successBackgroundColour: #dff0d8;
 $successBorderColour: darken($successBackgroundColour, 5%);
