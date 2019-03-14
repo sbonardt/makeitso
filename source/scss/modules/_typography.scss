@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5 {
 }
 
 h1, .alpha {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
 }
 
 h2, .beta {
@@ -62,7 +62,7 @@ h2, .beta {
 }
 
 h3, .gamma {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 h4, .delta {
@@ -76,7 +76,7 @@ h5, .epsilon {
 
 p, ul, ol, dl, pre, blockquote, table {
     margin:0 0 1.5em 0;
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 ul {
@@ -126,6 +126,7 @@ dd {
 }
 
 blockquote {
+    font-family: $baseHeaderFontFamily;
     padding: 2rem 10% 3rem;
     // background-color:$lightGrey;
     display:inline-block;
@@ -220,6 +221,10 @@ ul {
             margin: 0;
         }
     }
+}
+
+code {
+    font-family: monospace;
 }
 
 .upper {

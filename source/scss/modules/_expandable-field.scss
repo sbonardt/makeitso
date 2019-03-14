@@ -40,13 +40,16 @@
         border-bottom-right-radius: 3px;
     }
     .expandable-field_toggler {
-        font-weight: 700;
+        font-family: $baseHeaderFontFamily;
+        font-size: 1.125rem;
+        font-weight: 600;
         display: block;
         width: 100%;
         display: inline-block;
         white-space: normal;
         &:link, &:visited {
             text-decoration: none;
+            color: $black;
         }
         &:hover, &:active, &:focus {
             text-decoration: underline;

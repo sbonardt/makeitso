@@ -93,6 +93,7 @@ nav, .navigation-primary {
             float: left;
         }
         a {
+            font-family: $baseHeaderFontFamily;
             padding: 0.5em 0.75em; 
             display:block;
             margin:0;

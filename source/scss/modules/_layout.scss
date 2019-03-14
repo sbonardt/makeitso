@@ -176,7 +176,10 @@ aside {
         padding-right: 1rem;
     }
     @include respond-to(xlarge-screens) {
-        padding-right: 3rem;
+        padding-right: 4rem;
+    }
+    @include respond-to(xwide-screens) {
+        padding-right: 8rem;
     }
     aside {
         clear: none;
