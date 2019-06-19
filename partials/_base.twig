@@ -21,8 +21,7 @@
         <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/screen.css', 'theme') }}" media="all" />
 
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,700" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"> 
     </head>
 
     <body class="{% if app.request.pathInfo == "/" %}home{% endif %}{{app.request.pathInfo|split("/")|join(" ")}}">
