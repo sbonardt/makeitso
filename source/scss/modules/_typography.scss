@@ -185,11 +185,11 @@ a {
         color: $baseLinkColour;
     }
     &:visited {
-        color: darken($baseLinkColour, 25%);
+        color: darken($baseLinkColour, 15%);
     }
     &:hover, &:active, &:focus {
         text-decoration: none;
-        color: darken($baseLinkColour, 25%);
+        color: darken($baseLinkColour, 15%);
     }
     h1 &, h2 &, h3 &, h4 &, h5 & {
         &:hover, &:active, &:focus {
