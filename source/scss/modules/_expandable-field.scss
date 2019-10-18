@@ -22,12 +22,12 @@
     }
 }
 
-.general-expandable-field-wrap {
+.expandable-fields-wrap {
     margin-bottom: 3.5rem;
     overflow: hidden;
 }
 
-.general-expandable-field {
+.expandable-field {
     border: 1px solid #999;
     position: relative;
     overflow:hidden;
@@ -39,7 +39,7 @@
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
     }
-    .expandable-field_toggler {
+    .expandable-field__toggler {
         font-family: $baseHeaderFontFamily;
         font-size: 1.125rem;
         display: block;
@@ -54,24 +54,21 @@
             text-decoration: underline;
         }
     }
-    & + .general-expandable-field {
+    & + .expandable-field {
         margin-top: -1px;
     }
 }
 
-.expandable-field_body {
+.expandable-field__body {
     padding: 0.25rem 0.625rem;
-}
-
-.expandable-field_body {
     @include respond-to(medium-screens) {
         padding-right: 4rem;
     }
 }
 
-.expandable-field_toggler {
+.expandable-field__toggler {
     padding: 0.625rem 0.625rem;
-    .expandable-field_toggle-icon {
+    .expandable-field__toggle-icon {
         text-indent: -999px;
         position: absolute;
         right: 0.5rem;
@@ -155,7 +152,7 @@
         }
     }
     &:hover, &:active, &:focus {
-        .expandable-field_toggle-icon {
+        .expandable-field__toggle-icon {
             opacity: 1;
         }
     }

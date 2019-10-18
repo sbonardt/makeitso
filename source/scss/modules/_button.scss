@@ -1,4 +1,27 @@
-button, .button {
+// button element
+button {
+    background-color: lighten($darkGrey, 4%);
+    color:$white; 
+    display: inline-block;
+    padding: 0.4em 0.625em 0.275em;
+    line-height: 1.5;
+    margin: 0 0.625rem 1.5rem 0;
+    border-radius: 3px;
+    font-family: $baseFontFamily;
+    border: 1px solid $darkGrey;
+    color:$white; 
+    &:hover, &:active, &:focus {
+        background-color: darken($darkGrey, 5%);
+    }
+    &[disabled=disabled] {
+        cursor: not-allowed;
+        background-color: lighten($darkGrey, 30%);
+        border: 1px solid lighten($darkGrey, 30%);
+    }
+}
+
+// links style butto
+.button {
     background-color: lighten($darkGrey, 4%);
     color:$white; 
     // float: left;
@@ -18,20 +41,16 @@ button, .button {
     }
 }
 
-button[disabled=disabled] {
-    cursor: not-allowed;
-    background-color: lighten($darkGrey, 30%);
-    border: 1px solid lighten($darkGrey, 30%);
-}
-
-.button_small {
+// button style small
+.button--small {
     padding: 0.125em 0.5em 0.125em;
     line-height: 1.5;
     margin-bottom: 1.5rem;
     font-size: 0.875rem;
 }
 
-.button_bordered {
+// button style bordered
+.button--bordered {
     background-color: transparent;
     border: 1px solid $grey;
     color: $darkGrey;
@@ -45,7 +64,8 @@ button[disabled=disabled] {
     }
 }
 
-.button_as-link {
+// button style as link
+.button--as-link {
     color: #000;
     padding: 0 0.625rem;
     text-decoration: underline;
@@ -61,6 +81,7 @@ button[disabled=disabled] {
     }
 }
 
+// button with grouped options dropdown
 .button-group {
     margin: 0 0.625rem 1.5rem 0;
     position: relative;
@@ -75,14 +96,14 @@ button[disabled=disabled] {
         &:hover, &:active, &:focus {
             cursor: pointer;
         }
-        & + .button_dropdown-toggler {
+        & + .button__dropdown-toggler {
             width: 24px;
             text-indent: 2rem;
             padding-left: 0.125rem;
             border-radius: 0 2px 2px 0;
         }
     }
-    .button_dropdown-toggler {
+    .button__dropdown-toggler {
         border-radius: 3px;
         position: relative;
         padding: 0.4em 1.75em 0.275em 0.625rem;
@@ -136,7 +157,7 @@ button[disabled=disabled] {
         left: 0;
         box-shadow: 5px 5px 5px rgba(200, 200, 200, 0.4);
     }
-    &.button-options-list_right-aligned {
+    &.button-options-list--right-aligned {
         left: auto;
         right: 0;
         a {
