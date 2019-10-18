@@ -14,12 +14,13 @@ fieldset {
     padding-left: 0;
     padding-right: 0;
     border-radius: 3px;
-    &.ui-fieldset-present {
-        border: 1px solid $grey;
-        margin-bottom: 1.5rem;
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-    }
+}
+
+.fieldset--bordered {
+    border: 1px solid $grey;
+    margin-bottom: 1.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
 }
 
 legend {

@@ -1,9 +1,13 @@
-// The _theme.scss file is where you put all your theming classes that make up the design you want to implement. As a general rule of thumb it's good practice to put a group of style declarations in it's own logical
+/*
+** The _theme.scss file is where you put all your theming classes that make up 
+** the design you want to implement. As a general rule of thumb it's good practice 
+** to put a group of style declarations that belong to a single component in it's own
+** partial.
+*/
 
 /*
 ** Theme specific styles
 */
-
 .inner-wrap {
     main &, .main & {
         display: grid;

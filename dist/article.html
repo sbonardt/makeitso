@@ -70,7 +70,7 @@
                 <h1>Article page</h1>
                 <div class="body-content">
                     <p class="introduction">
-                        This article page shows you HTML elements commonly used in a web page. Generic MAKEITSO base styles are applied. For instance this one: the introduction paragraph style for a slightly bigger introduction text. <br>Missing one?... let me know! See all other examples below.
+                        This article page shows you HTML elements commonly used in a web page. MAKEITSO is not a design framework, but does have some sensible defaults. These defaults are for you to change or adapt. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with.
                     </p>
 
                     <div class="ui-info ui-info_information">
@@ -120,8 +120,8 @@
                         <dd>Black hot drink</dd>
                         <dt>Milk</dt>
                         <dd>White cold drink</dd>
-                        <dt>Sinas</dt>
-                        <dd>Yellow cold drink</dd>
+                        <dt>Tea</dt>
+                        <dd>Hot drink made from tea leafs and water</dd>
                     </dl>
 
                     <h2 id="textual-elements">Textual elements</h2>
@@ -133,13 +133,14 @@
                         <li><strong>Strong text</strong></li>
                         <li><mark>Marked text</mark></li>
                         <li><p>Subscripts and superscripts (sub and sup markup).<br>Lorem ipsum dolor <sub>1</sub> and H<sub>2</sub>O (where subscripts occur).</p><p> Superscripts: M<sup>lle</sup>, 1<sup>st</sup>, and then some mathematical notations: e<sup>x</sup>, sin<sup>2</sup> <em>x</em>, and some nested superscripts (exponents) too: e<sup>x<sup>2</sup></sup> and f(x)<sup>g(x)<sup>a+b+c</sup></sup> (where 2 and a+b+c should appear as exponents of exponents).</p></li>
+                        <li><small>Small text</small></li>
                     </ul>
 
                     <h2 id="links">Links</h2>
                     <ul class="stripped">
                         <li><a href="#">Link <code>a</code></a></li>
                         <li><a href="#" class="read-more">Link <code>a.read-more</code></a></li>
-                        <li><a href="#" class="button">Link button <code>a.btn</code></a></li>
+                        <li><a href="#" class="button">Link button <code>a.button</code></a></li>
                     </ul>
 
                     <h2 id="buttons">Buttons</h2>
@@ -156,7 +157,16 @@
                     </div>
 
                     <div class="button-group">
-                        <button>button</button><button class="button_dropdown-toggler" aria-expanded="false">Actions</button>
+                        <button class="button_dropdown-toggler" aria-expanded="false">Button toggler</button>
+                        <ul aria-hidden="false" class="button-options-list">
+                            <li><a href="#"">button</a></li>
+                            <li><a href="#"">button</a></li>
+                            <li><a href="#"">button</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="button-group">
+                        <button>button separate toggler</button><button class="button_dropdown-toggler" aria-expanded="false">Actions</button>
                         <ul aria-hidden="false" class="button-options-list">
                             <li><a href="#"">button</a></li>
                             <li><a href="#"">button</a></li>
@@ -164,8 +174,9 @@
                         </ul>
                     </div>
                     
-                    <blockquote cite="http://www.worldwildlife.org/who/index.html" id="blockquote">
-                        For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.
+                    <blockquote cite="https://en.wikipedia.org/wiki/Tears_in_rain_monologue" id="blockquote">
+                        "I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. I watched C-beams glitter in the dark near the Tannhäuser Gate. All those moments will be lost in time, like tears in rain."
+                        <small> - Roy Batty</small>
                     </blockquote> 
 
                     <h2 id="tables">Tables</h2>

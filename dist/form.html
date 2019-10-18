@@ -60,16 +60,27 @@
                 <h1>Form</h1>     
                 <div class="body-content">
                     <p class="introduction">
-                        This page shows you an example form and all it's form elements and controls with basic/default UI set in place. Fieldsets are visually hidden by default. If you give a form fieldset the class 'ui-fieldset-present' it will be visible explicitly with a border.
+                        This page shows you an example form and all it's form elements and controls with basic/default UI set in place. These defaults are for you to change or adapt. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with.
                     </p>
-                    <h2>ARIA attributes</h2>
-                    <p>Aria attributes are present to facilitate and help those browsing the internet with special screen reading software. More information about this on <a href="https://a11yproject.com">https://a11yproject.com</a>. Currently the following examples are present:</p>
+                    <p>
+                        MAKEITSO hides fieldsets visually by default.
+                    </p>
+                    <h2>ARIA attributes in this form</h2>
+                    <p>Aria attributes are present to facilitate and help those browsing the internet with special screen reading software. Currently the following examples are present:</p>
                     <ul>
                         <li><code>aria-required</code> to indicate an input field is a required field</li>
                         <li><code>aria-invalid</code> to use when validation shows the input field does not have a valid value</li>
                         <li><code>aria-describedby</code> to use when the validated input field with an error has an error description in an element with that ID</li>
                     </ul>
+                    <div class="ui-info ui-info_information">
+                        <p>
+                            Please note: The ARIA attributes are added/enhanced progressively with JavaScript.
+                        </p>
+                    </div>
 
+                    <p>More information about ARIA, accessibility and the A11Y project on <a href="https://a11yproject.com">https://a11yproject.com</a>.</p>
+
+                    <h2>UI information / feedback after submission</h2>
                     <div class="ui-info ui-info_success">
                         <p>
                             <b>Example succes message</b><br>
@@ -83,6 +94,9 @@
                             There are errors in the form fields. Please review your submission in the fields below.
                         </p>
                     </div>
+
+
+                    <h2>Example form</h2>
 
                     <form>
                         <fieldset>

@@ -60,13 +60,18 @@
                 <a id="content" tabindex="0"></a>
                 <h1>About MakeItSo</h1>
                 <div class="body-content">
-                    <p class="introduction"><b><i>MakeItSo</i></b> is a bare startup theme with the <em>minimum</em> of styling. It is however set up with the assumption a website is centered and full width.</p>
+                    <p class="introduction"><b><i>MAKEITSO</i></b> is a bare startup theme with a <em>minimum</em> of styling bases on some sensible defaults. These defaults are for you to change or adapt. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with.</p>
+                    
+                    <div class="ui-info ui-info_information"><p><strong><i>MAKEITSO</i></strong> is <i>responsive</i>, is progressively enhanced and is built <i>mobile first</i>.</p></div>
+
                     <h2>A base project setup</h2>
-                    <p><strong>MakeItSo</strong> <i>strives</i> to not give you unneeded and excessive markup, CSS styles and classes or pre-made design patterns. There is some base styling in place or else this would look like the 90's. Remove or change the SCSS partials as desired. Or just go ahead on this base and add your css to _theme.scss or create your own partials.</p>
+
+                    <p><strong>MAKEITSO</strong> <i>strives</i> to not give you unneeded and excessive markup, CSS styles and classes or pre-made design patterns. </p>
+
                     <h3>Some important details:</h3>
                     <ul>
-                        <li>Normalize.css is used as default to align browsers' rendering appearrance and positioning.</li>
-                        <li>Need a grid in place at a certain break-point? Just declare (wrapper) widths in percentages, float them and be done with it. No 'col-6', 'spacer-3' or 'med-12-4-1-grid_home_bloat'. See the example classes in _theme.scss for 2 or three columns. Modern CSS Grid examples are in preparation.</li>
+                        <li>Normalize.css is used as a default to align browsers' rendering appearrance and positioning.</li>
+                        <li>CSS Grid is used to layout the main <code>inner-wrap</code> class elements. See <code>_theme.scss</code> for examples</li>
                         <li>Probably the most opinionated (but small) piece of functionality in this project is the mobile menu toggle functionality on small screens in combination with the search block. If you don't like it, take it out. It's fairly easy and a small effort: remove the lines of code in source/js/custom.js</li>
                     </ul>                                       
                 </div>
@@ -74,14 +79,13 @@
         </section>
 
         <aside class="sidebar sidebar-second">
-
                 <div class="contentblock">
                     <h2>HTML elements example pages</h2>                    
-                    <p>The <a href="article.html">article example page</a> contains base HTML elements to show how the base styling looks in this setup. If you still miss an element here for reference, please let me know.</p><p>The <a href="form.html">form example page</a> shows you the default generic styling of a form and form elements. Go check them out.</p>
+                    <p>The <a href="article.html">article example page</a> contains base HTML elements to show how the base styling looks in this setup.</p>
+                    <a class="button" href="article.html">article example page</a>
+                    <p>The <a href="form.html">form example page</a> shows you the default generic styling of a form and form elements. Go check them out.</p>
+                    <a class="button" href="form.html">form example page</a>
                 </div>
-
-                <div class="ui-info ui-info_information"><p><strong><i>MakeItSo</i></strong> is <i>responsive</i> and built <i>mobile first</i>.</p></div>
-            </div>
         </aside>
     </div>
     </main>
