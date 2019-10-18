@@ -105,11 +105,11 @@ jQuery(function ($) {
     /*
      * Expandable field logic
      */
-    $('.expandable-field_toggler').on('click', function(e) {
+    $('.expandable-field__toggler').on('click', function(e) {
         e.preventDefault();
         var expandableTrigger = $(this);
         var expandableParent = $(this).parents('.expandable-field');
-        var expandableTarget = expandableParent.find('.expandable-field_toggle-target');
+        var expandableTarget = expandableParent.find('.expandable-field__toggle-target');
 
         if (expandableTrigger.hasClass('active')) {
             //expandableTrigger.removeClass('expanding').addClass('collapsing'); 
@@ -117,18 +117,18 @@ jQuery(function ($) {
             expandableTarget.slideUp( 400, function() {
                 expandableTrigger.removeClass('active').attr('aria-expanded', 'false').removeClass('collapsing');
                 expandableTarget.attr('aria-hidden', 'true');
-                expandableParent.removeClass('expandable-field_expanded');
-                expandableParent.addClass('expandable-field_collapsed');
+                expandableParent.removeClass('expandable-field--expanded');
+                expandableParent.addClass('expandable-field--collapsed');
             });
         } else {
             //expandableTrigger.removeClass('collapsing').addClass('expanding');
-            expandableParent.removeClass('expandable-field_expanded-partially');
+            expandableParent.removeClass('expandable-field--expanded-partially');
             // expandableTarget.slideDown( 600, "easeInOutCubic", function() {
             expandableTarget.slideDown( 400, function() {
                 expandableTrigger.addClass('active').attr('aria-expanded', 'true').removeClass('expanding');
                 expandableTarget.attr('aria-hidden', 'false');
-                expandableParent.removeClass('expandable-field_collapsed');
-                expandableParent.addClass('expandable-field_expanded');
+                expandableParent.removeClass('expandable-field--collapsed');
+                expandableParent.addClass('expandable-field--expanded');
             });
         }
     });
@@ -136,7 +136,7 @@ jQuery(function ($) {
     // hide all expandable fields by triggering the bound click
     if ($('.expandable-field').length > 0) {   
         //console.log('hide expandable fields');
-        $('.expandable-field .expandable-field_toggler').trigger('click');
+        $('.expandable-field .expandable-field__toggler').trigger('click');
     }
 
 
@@ -146,7 +146,7 @@ jQuery(function ($) {
     */
    $('.button-group').each(function() {
     var btnDropdownOptions = $(this).find('.button-options-list');
-    var btnDropdownToggler = $(this).find('.button_dropdown-toggler');
+    var btnDropdownToggler = $(this).find('.button__dropdown-toggler');
 
     btnDropdownOptions.hide().attr('aria-hidden', 'true');
     btnDropdownToggler.attr('aria-controls', btnDropdownOptions.attr('id')).on('click', function() {
@@ -170,7 +170,7 @@ jQuery(function ($) {
         buttonGroupDropdownsClose();
     });
 
-    $('.button_dropdown-toggler').click(function(e) {
+    $('.button__dropdown-toggler').click(function(e) {
         e.stopPropagation();
     });
 
