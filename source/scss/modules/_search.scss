@@ -17,6 +17,7 @@
     @include respond-to(medium-screens) {
         max-width: 220px;
         margin-top: 0.8125rem;
+        padding: 0;
     }
     @include respond-to(large-screens) {
         max-width: 320px;

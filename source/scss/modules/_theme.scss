@@ -1,51 +1,40 @@
 // The _theme.scss file is where you put all your theming classes that make up the design you want to implement. As a general rule of thumb it's good practice to put a group of style declarations in it's own logical
 
 /*
-// Example of how to create a grid with floats. 
-// As these are all floated do not forget to set overflow hidden
-// on the wrapping div or use a clearfix/.group class.
-// Whatever floats your boat... 
+** Theme specific styles
 */
-.half {
-    @include respond-to(medium-screens) {
-        width: 50%;
-        float: left;
-        padding: 0 2rem 0 0;
+
+.inner-wrap {
+    main &, .main & {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: 1.5rem;
+        justify-content: center;
+        > * {
+            grid-column: 1/-1;
+            grid-row: auto;
+            @include respond-to(large-screens) {
+                grid-column: 2/-2;
+            }
+            @include respond-to(xlarge-screens) {
+                grid-column: 1/-1;
+            }
+        }
     }
-    & + .half {
-        @include respond-to(medium-screens) {
-        padding: 0;
+    .layout-sidebar & {
+        .main-content {
+            @include respond-to(xlarge-screens) {
+                grid-column: 1/8;
+            }
+        }
+        .sidebar {
+            @include respond-to(xlarge-screens) {
+                grid-column: 10/-1;
+            }
         }
     }
 }
 
-.third {
-    @include respond-to(large-screens) {
-        width: 33%;
-        float: left;
-        padding: 0 2rem 0 0;
-    }
-    & + .third {
-        padding: 0 2rem 0 0;
-    }
-    & + .third + .third {
-        padding: 0;
-    }
-}
-
-.two-third {
-    @include respond-to(medium-screens) {
-        width: 67%;
-        float: left;
-        padding: 0;
-    }
-}
-// End Examples grid with floated elements
-
-
-/*
-** Theme specific styles
-*/
 .introduction {
 	font-weight: bold;
 	font-size: 1rem;

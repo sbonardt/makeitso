@@ -60,9 +60,6 @@ main {
 }
 
 aside {
-    border-top: 1px solid $lightGrey;
-    overflow: hidden;
-    clear: both;
     margin-bottom: 2rem;
     &:last-child {
         margin-bottom: 0;
@@ -70,7 +67,7 @@ aside {
 }
 
 .inner-wrap {
-    @extend %group;
+    //@extend %group;
     margin: 0 auto;
     padding: 2rem 0.625rem;
     max-width: $site-max-width;
@@ -168,88 +165,6 @@ aside {
     margin:1em 0;
 }
 
-.main-content {
-    overflow:hidden;
-    @include respond-to(large-screens) {
-        max-width: 66%;
-        float: left;
-        padding-right: 1rem;
-    }
-    @include respond-to(xlarge-screens) {
-        padding-right: 4rem;
-    }
-    @include respond-to(xwide-screens) {
-        padding-right: 8rem;
-    }
-    aside {
-        clear: none;
-        background-color: transparent;
-        @include respond-to(xlarge-screens) {
-            display: block;
-            clear: both;
-            max-width: 44rem;
-        }
-    }
-}
-
-
-// body content is the content-wrapper used _in_ main-content
-.body-content {
-    @extend .group;
-    margin-bottom: $baseBottomMargin;
-    // @include respond-to(large-screens) {
-    //     max-width:44rem;
-    // }
-    // @include respond-to(xlarge-screens) {
-    //     float: left;
-    //     width:66%;
-    // }
-    // @include respond-to(wide-screens) {
-    //     max-width:50rem;
-    // }
-}
-
-// aside class 'sidebar'
-.sidebar {
-    background-color: transparent;
-    border-top: 0;
-    @include respond-to(large-screens) {
-        float: left;
-        width: 31%;
-        clear: none;
-        margin-top: 5rem;
-    }
-    & + .main-content {
-        @include respond-to(large-screens) {
-        float: left;
-        width: 66%;
-        }
-    }
-}
-
-.sidebar.sidebar-second {
-    @include respond-to(large-screens) {
-    float: left;
-    margin-left: 3%;
-    }
-}
-
-
-.two-sidebars {
-    .main-content {
-        @include respond-to(large-screens) {
-            
-        }
-    }
-    // both asides on level with main-content left and right when there's 'room' xlarge and up
-    & ~ aside {
-        @include respond-to(large-screens) {
-
-        }
-    }
-}
-
-
 .footer-logo {
     margin: 4rem 0 0 0;
     float: right;
@@ -267,15 +182,12 @@ aside {
     }
 }
 
-
 .footer-block {
     margin-bottom: $baseBottomMargin;
     @include respond-to(medium-screens) {
         float:left;
         width:46%;
         margin-right:2%;
-
-
     }
     @include respond-to(large-screens) {
         width:33%;
