@@ -18,18 +18,18 @@
   "author": "S. Bonardt",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^9.6.5",
+    "autoprefixer": "^9.7.4",
     "browser-sync": "2.26.7",
-    "imagemin": "^7.0.0",
-    "imagemin-cli": "^5.0.0",
-    "node-sass": "^4.12.0",
+    "imagemin": "^7.0.1",
+    "imagemin-cli": "^5.1.0",
+    "node-sass": "^4.13.1",
     "npm-run-all": "^4.1.5",
     "onchange": "^6.1.0",
     "parallelshell": "^3.0.2",
-    "postcss": "^7.0.18",
-    "postcss-cli": "^6.1.3",
+    "postcss": "^7.0.27",
+    "postcss-cli": "^7.1.0",
     "run-sequence": "^2.2.1",
-    "uglify-js": "^3.6.2"
+    "uglify-js": "^3.8.0"
   },
   "dependencies": {
     "braces": "^3.0.2",
