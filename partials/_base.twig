@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html lang="{{ htmllang() }}">
     <head>
-        <meta charset="utf-8">
-        {% if record is defined %}
-            <title>{{ record.title ? (app.config.get('general/sitename') ~ ' | ' ~ record.title|excerpt(55)) : app.config.get('general/sitename') }}</title>
-            <meta name="description" content="{{ record.body|excerpt(160) ? : app.config.get('general/payoff') }}">
-        {% else %}
-            <title>{{ app.config.get('general/sitename') }}</title>
-            <meta name="description" content="{{ app.config.get('general/payoff') }}">
-        {% endif %}
-        <meta http_equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {# make sure we always display a proper title: The record's title if there is one, appended with the
+        sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
+        <title>
+            {%- if record|default and record.title -%}
+            {{- record.title ~ ' | ' -}}
+            {%- endif -%}
+            {{- config.get('general/sitename') -}}
+            {%- if record|default == null and config.has('general/payoff') -%}
+            {{- ' | ' ~ config.get('general/payoff') -}}
+            {%- endif -%}
+        </title>
 
-        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png', 'theme') }}">
-        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png', 'theme') }}">
-        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png', 'theme') }}">
-        <link rel="manifest" href="{{ asset('manifest.json', 'theme') }}">
-        <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg', 'theme') }}" color="#5bbad5">
-        <meta name="theme-color" content="#ffffff">
-        <link type="text/css" rel="stylesheet" href="{{ asset('dist/css/screen.css', 'theme') }}" media="all" />
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
 
+        <link rel="stylesheet" href="{{ asset('dist/css/screen.css') }}" media="all" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"> 
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('manifest.json') }}">
+        <link rel="mask-icon" href="{{ asset('safari-pinned-tab.svg') }}" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
     </head>
 
     <body class="{% if app.request.pathInfo == "/" %}home{% endif %}{{app.request.pathInfo|split("/")|join(" ")}}">
@@ -40,8 +50,8 @@
 
         <nav class="navigation-primary">
             <div class="inner-wrap">
-                <ul class="menu">                
-                    {{ menu('main', 'partials/_menu.twig') }}       
+                <ul class="menu">      
+                    {{ menu('main', template='partials/_menu.twig') }}
                 </ul>
                 <form action="{{ path('search') }}" method="get" accept-charset="UTF-8"  enctype="text/plain" class="search-block">
                     <label for="search_field">Search</label>
@@ -87,7 +97,7 @@
                     </li>
                 </ul>
                 {# <ul class="footer-block third menu">
-                    {{ menu('main', 'partials/_menu_footer.twig') }}
+                    {{ menu('main', template='partials/_menu_footer.twig') }}
                 </ul> #}
 
                 <div class="footer-logo">
@@ -97,7 +107,7 @@
             </div>
         </footer>
 
-        <script src="{{ asset('dist/js/scripts.js', 'theme') }}"></script>
+        <script src="{{ asset('dist/js/scripts.js') }}"></script>
 
 </body>
 </html>
