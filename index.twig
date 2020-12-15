@@ -1,96 +1,58 @@
 {% extends 'partials/_base.twig' %}
 
+{% block bodyclass %}home overview layout-sidebar{% endblock %}
+
 {% block aside_sidebar_first %}
-{# <aside class="sidebar sidebar-first">
-</aside> #}
 {% endblock %}
 
-{% block body %}
-{# Make sure we can get info from both listings and single records: #}
-{% if record is not defined and records is defined %}
-    {% set record = records|first %}
-{% endif %}
-{% if record is defined and record.image is not empty %}
-    {% set image = record.image ?: theme.frontpage_image %}
-{% elseif theme.frontpage_image is defined %}
-    {% set image = theme.frontpage_image %}
-{% endif %}
-{# <div class="headerimage" style="background-image:url({{image(image, 1920, 1080)}})"></div> #}
-    {% if record is defined %}
-        <section class="main-content">
-            <a id="content" tabindex="0"></a>
-            <h1>{{record.title}}</h1>
-            <div class="body-content">
-            {{record.body}}
-            </div>
-        </article>
-    {% else %}
-        <section class="main-content">
-            <a id="content" tabindex="0"></a>
-            <h1>You installed MAKEITSO on Bolt!</h1>
-            <div class="body-content">
+{% block main %}
+    <section class="main-content">
+        <a id="content" tabindex="0"></a>
+        <h1>You installed MAKEITSO on Bolt!</h1>
+        <div class="body-content">
             <div class="ui-info ui-info_warning">                
                 <p><b>It seems no item is set as the homepage in config.yml or the item can not be found.</b>
                 <br>Please check your config.yml 'homepage' setting, create a page in the Bolt backend, or set the frontpage to another type of content.</p>
             </div>
+        </div>
 
-            {# START OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
-            <p><b>You've set MAKEITSO as the theme for this Bolt website! Nice!<br>
-            You can view the example pages of this theme in the <code>/dist</code> folder in the <a href="/theme/makeitso/dist/index.html">MAKEITSO theme folder</a>.<br><br>The following example pages are present:</b>
-            </p>
-            <ul>
-                <li>
-                    <a href="{{ paths.theme }}dist/index.html">About MAKEITSO</a>
-                </li>
-                <li>
-                    <a href="{{ paths.theme }}dist/article.html">Article page example with HTML elements</a>
-                </li>
-                <li>
-                    <a href="{{ paths.theme }}dist/listing.html">Listing page example</a>
-                </li>
-                <li>
-                    <a href="{{ paths.theme }}dist/form.html">Form page example</a>
-                </li>
-            </ul>
-            {# END OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
 
-            </div>
-        </section>
-    {% endif %}
+        {# START OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
+        <p><b>You've set MAKEITSO as the theme for this Bolt website! Nice!<br>
+        You can view the example pages of this theme in the <code>/dist</code> folder in the <a href="/theme/makeitso/dist/index.html">MAKEITSO theme folder</a>.<br><br>The following example pages are present:</b>
+        </p>
+        <ul>
+            <li>
+                <a href="{{ asset('dist/index.html') }}">About MAKEITSO</a>
+            </li>
+            <li>
+                <a href="{{ asset('dist/article.html') }}">Article page example with HTML elements</a>
+            </li>
+            <li>
+                <a href="{{ asset('dist/listing.html') }}">Listing page example</a>
+            </li>
+            <li>
+                <a href="{{ asset('dist/form.html') }}">Form page example</a>
+            </li>
+        </ul>
+        {# END OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
+    </section>
+
 {% endblock %}
 
 {% block aside_sidebar_second %}
     <aside class="sidebar sidebar-second">
-    
+
+        <div class="contentblock">
+            <h2>HTML elements example pages</h2>                    
+            <p>The <a href="article.html">article example page</a> contains base HTML elements to show how the base styling looks in this setup.</p>
+            <a class="button" href="article.html">article example page</a>
+            <p>The <a href="form.html">form example page</a> shows you the default generic styling of a form and form elements. Go check them out.</p>
+            <a class="button" href="form.html">form example page</a>
+        </div>
+
     </aside>
 {% endblock %}
 
 {% block main_aside_one %}
-    <aside>
-        <div class="inner-wrap">
-        {% for ct in theme.frontpage_contenttypes %}
-            {% setcontent records = ct ~ "/latest/2" %}
-                {% if records %}
-                    <div class="latest-items">
-                        {% for record in records %}
-                            {% set image = record.image ?: random(theme.images) %}
-                            {% if loop.first %}
-                                {{ widgets('aside_top') }}
-                                <h2>{{ __('contenttypes.generic.recent', {'%contenttypes%': ct}) }}</h2>
-                            {% endif %}
-                        <article class="teaser">
-                            <h1 class="gamma"><a href="{{record.link}}">{{ record.title }}</a></h1>
-                            {{ showimage(image, 440, 0) }}
-                            <p>{{record.body|excerpt(250)}}</p>
-                        </article>
-                            {% if loop.last %}
-                                <p><a href="{{ paths.root }}{{ct}}">{{ __('contenttypes.generic.overview',{'%contenttypes%': ct}) }} &raquo;</a></p>
-                                {{ widgets('aside_bottom') }}
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                {% endif %}
-        {% endfor %}
-        </div>
-    </aside>
 {% endblock %}

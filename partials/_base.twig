@@ -33,81 +33,29 @@
         <meta name="theme-color" content="#ffffff">
     </head>
 
-    <body class="{% if app.request.pathInfo == "/" %}home{% endif %}{{app.request.pathInfo|split("/")|join(" ")}}">
-        <header>
-            <div class="inner-wrap">
-                <a class="skipcontent" href="#content">Ga naar de inhoud</a>
-                <a href="/" class="logo">
-                    {# See custom.js for logo swapping when you have a mobile logo #}
-                    {# <img src="{{paths.theme}}img/mob-logo.png" alt="" data-src="{{paths.theme}}img/logo.png" data-src-mobile="{{paths.theme}}img/mob-logo.png" /> #}
-                    <span>
-                        {# {{ app.config.get('general/sitename') }} #}
-                        MAKEITSO
-                    </span>
-                </a>
-            </div>
-        </header>
+    <body class="{% block bodyclass %}{% endblock bodyclass %}">
 
-        <nav class="navigation-primary">
-            <div class="inner-wrap">
-                <ul class="menu">      
-                    {{ menu('main', template='partials/_menu.twig') }}
-                </ul>
-                <form action="{{ path('search') }}" method="get" accept-charset="UTF-8"  enctype="text/plain" class="search-block">
-                    <label for="search_field">Search</label>
-                    <input type="search" value="{% if search is defined %}{{ search|escape }}{% endif %}" placeholder="{{ __('general.phrase.search-ellipsis') }}" name="search">
-                    <input type="submit" value="search" />
-                </form>
-            </div>             
-        </nav>
+        {% include 'partials/_icons.twig' %}
 
+        {% include 'partials/_header.twig' %}
+
+        {% include 'partials/_navigation.twig' %}
+  
         <main>
             <div class="inner-wrap">
-                {% block aside_sidebar_first %}
-                {% endblock %}
-
-                {% block body %}
-                {% endblock %}
+                {% block main %}
+                (This is <code>block main</code>)
+                {% endblock main %}
 
                 {% block aside_sidebar_second %}
-                {% endblock %}
+                (This is <code>block main</code>)
+                {% endblock aside_sidebar_second %}
             </div>
-
-            {% block main_aside_one %}
-            {% endblock %}
-            {% block main_aside_two %}
-            {% endblock %}
         </main>
 
-        <footer>
-            <div class="inner-wrap">
-                
-                <ul class="footer-block third menu">
-                    <li>
-                        <a href="index.html">About MAKEITSO</a>
-                    </li>
-                    <li>
-                        <a href="article.html">Article page</a>
-                    </li>
-                    <li>
-                        <a href="listing.html">Listing page</a>   
-                    </li>
-                    <li>
-                        <a href="form.html">Form page</a>    
-                    </li>
-                </ul>
-                {# <ul class="footer-block third menu">
-                    {{ menu('main', template='partials/_menu_footer.twig') }}
-                </ul> #}
+        {% include 'partials/_footer.twig' %}
 
-                <div class="footer-logo">
-                    <span class="logotype">MAKEITSO</span>
-                    <span class="tagline">get to viable at warp speed</span>
-                </div>
-            </div>
-        </footer>
-
-        <script src="{{ asset('dist/js/scripts.js') }}"></script>
+    <script defer src="{{ asset('dist/js/scripts.js') }}"></script>
 
 </body>
 </html>

@@ -1,0 +1,27 @@
+<nav class="navigation-primary">
+    <div class="inner-wrap">
+        <ul class="menu">                
+
+            {{ menu('main', template='partials/_menu.twig') }}
+
+            {# <li class="first active">
+                <a href="index.html" class="active"><span>Over YogaSchaap</span></a>
+            </li>
+            <li>
+                <a href="article.html"><span>Lessen</span></a>
+            </li>
+            <li>
+                <a href="listing.html"><span>Yoga voor kinderen</span></a>
+            </li>
+            <li>
+                <a href="form.html"><span>Contact</span></a>
+            </li>         #}
+        </ul>
+
+        <form action="/" method="post" accept-charset="UTF-8" class="search-block">
+            <label for="search_field">Search</label>
+            <input title="Enter the terms you wish to search for" type="search" name="search_field" value="" class="search_field" />
+            <input type="submit" value="search" />
+        </form>
+    </div>             
+</nav>
