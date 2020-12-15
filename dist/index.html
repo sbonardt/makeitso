@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 </head>
 
-<body class="home overview layout-sidebar">
+<body class="home overview layout--sidebar">
     <header>
         <div class="inner-wrap">
             <a class="skipcontent" href="#content">Skip to contents</a>
@@ -54,8 +54,10 @@
     </nav>
 
     <main>
-        <div class="inner-wrap">
-        <section class="main-content">
+
+        <section class="layout__main main-content">
+            
+            <div class="inner-wrap">
 
                 <a id="content" tabindex="0"></a>
                 <h1>About MakeItSo</h1>
@@ -75,10 +77,13 @@
                         <li>Probably the most opinionated (but small) piece of functionality in this project is the mobile menu toggle functionality on small screens in combination with the search block. If you don't like it, take it out. It's fairly easy and a small effort: remove the lines of code in source/js/custom.js</li>
                     </ul>                                       
                 </div>
+                
+            </div>
 
         </section>
 
-        <aside class="sidebar sidebar-second">
+        <aside class="layout__sidebar sidebar sidebar--second">
+            <div class="inner-wrap">
                 <div class="contentblock">
                     <h2>HTML elements example pages</h2>                    
                     <p>The <a href="article.html">article example page</a> contains base HTML elements to show how the base styling looks in this setup.</p>
@@ -86,8 +91,9 @@
                     <p>The <a href="form.html">form example page</a> shows you the default generic styling of a form and form elements. Go check them out.</p>
                     <a class="button" href="form.html">form example page</a>
                 </div>
+            </div>
         </aside>
-    </div>
+
     </main>
 
     <footer>

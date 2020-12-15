@@ -8,36 +8,24 @@
 /*
 ** Theme specific styles
 */
-.inner-wrap {
-    main &, .main & {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-column-gap: 1.5rem;
-        justify-content: center;
-        > * {
-            grid-column: 1/-1;
-            grid-row: auto;
-            @include respond-to(large-screens) {
-                grid-column: 2/-2;
-            }
-            @include respond-to(xlarge-screens) {
-                grid-column: 1/-1;
-            }
-        }
-    }
-    .layout-sidebar & {
-        .main-content {
-            @include respond-to(xlarge-screens) {
-                grid-column: 1/8;
-            }
-        }
-        .sidebar {
-            @include respond-to(xlarge-screens) {
-                grid-column: 10/-1;
-            }
-        }
-    }
-}
+// .inner-wrap {
+//     main &, .main & {
+//         display: grid;
+//         grid-template-columns: repeat(12, 1fr);
+//         grid-column-gap: 1.5rem;
+//         justify-content: center;
+//         > * {
+//             grid-column: 1/-1;
+//             grid-row: auto;
+//             @include respond-to(large-screens) {
+//                 grid-column: 2/-2;
+//             }
+//             @include respond-to(xlarge-screens) {
+//                 grid-column: 1/-1;
+//             }
+//         }
+//     }
+// }
 
 .introduction {
 	font-weight: bold;

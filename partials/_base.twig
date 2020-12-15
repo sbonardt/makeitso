@@ -42,15 +42,17 @@
         {% include 'partials/_navigation.twig' %}
   
         <main>
-            <div class="inner-wrap">
-                {% block main %}
-                (This is <code>block main</code>)
-                {% endblock main %}
 
-                {% block aside_sidebar_second %}
-                (This is <code>block main</code>)
-                {% endblock aside_sidebar_second %}
-            </div>
+            {% block aside_first %}
+            {% endblock aside_first %}
+
+            {% block main %}
+            (This is <code>block main</code>)
+            {% endblock main %}
+
+            {% block aside_second %}
+            {% endblock aside_second %}
+            
         </main>
 
         {% include 'partials/_footer.twig' %}

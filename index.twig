@@ -1,12 +1,9 @@
 {% extends 'partials/_base.twig' %}
 
-{% block bodyclass %}home overview layout-sidebar{% endblock %}
-
-{% block aside_sidebar_first %}
-{% endblock %}
+{% block bodyclass %}home overview layout--sidebar{% endblock %}
 
 {% block main %}
-    <section class="main-content">
+    <section class="layout__main main-content">
         <a id="content" tabindex="0"></a>
         <h1>You installed MAKEITSO on Bolt!</h1>
         <div class="body-content">
@@ -16,9 +13,8 @@
             </div>
         </div>
 
-
         {# START OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
-        <p><b>You've set MAKEITSO as the theme for this Bolt website! Nice!<br>
+        <p><b>You've set MAKEITSO as the theme for this Bolt website!<br>
         You can view the example pages of this theme in the <code>/dist</code> folder in the <a href="/theme/makeitso/dist/index.html">MAKEITSO theme folder</a>.<br><br>The following example pages are present:</b>
         </p>
         <ul>
@@ -37,11 +33,13 @@
         </ul>
         {# END OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
     </section>
-
 {% endblock %}
 
-{% block aside_sidebar_second %}
-    <aside class="sidebar sidebar-second">
+{% block aside_first %}
+{% endblock %}
+
+{% block aside_second %}
+    <aside class="layout__sidebar sidebar sidebar-second">
 
         <div class="contentblock">
             <h2>HTML elements example pages</h2>                    
@@ -52,7 +50,4 @@
         </div>
 
     </aside>
-{% endblock %}
-
-{% block main_aside_one %}
 {% endblock %}

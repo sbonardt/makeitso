@@ -45,7 +45,7 @@ body {
     }
 }
 
-main {
+main, .main {
     margin: 0;
     padding-top: 1.5rem;
     @include respond-to(medium-screens) {
@@ -75,16 +75,52 @@ aside {
     @include respond-to(large-screens) {
         padding: 1rem 1.25rem;
     }
-    main > & {
+    main > &,
+    .main > & {
         padding: 0 0.625rem 1rem;
         @include respond-to(large-screens) {
             padding: 1.25rem;
         }
     }
-    header > & {
+    header > &,
+    .header > &  {
         padding: 1rem 0.625rem;
         @include respond-to(large-screens) {
             padding: 1rem 1.25rem;
+        }
+    }
+}
+
+.layout {
+    main, .main {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-column-gap: 1.5rem;
+        justify-content: center;
+    }
+    .layout__main {
+        grid-column: 1/-1;
+        grid-row: auto;
+        max-width: $setting-main-centered-max-width;
+        margin: 0 auto;
+    }
+    .layout__sidebar {
+        grid-column: 1/-1;
+        grid-row: auto;
+        max-width: $setting-main-centered-max-width;
+        margin: 0 auto;
+    }
+}
+
+.layout--sidebar {
+    .layout__main {
+        @include respond-to(xlarge-screens) {
+            grid-column: 1/9;
+        }
+    }
+    .layout__sidebar {
+        @include respond-to(xlarge-screens) {
+            grid-column: 9/-1;
         }
     }
 }
