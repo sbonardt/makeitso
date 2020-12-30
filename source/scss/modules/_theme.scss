@@ -28,8 +28,8 @@
 // }
 
 .introduction {
-	font-weight: bold;
-	font-size: 1rem;
+	font-weight: 600;
+	// font-size: 1rem;
 }
 
 .item-teaser {
@@ -53,4 +53,20 @@
             margin-top: 0.45rem;
         }
 	}
+}
+
+.icon {
+	width: 14px;
+	height: 14px;
+	display: block;
+	fill: #000;
+	color: #000;
+	flex: 0 0 auto;
+	&:first-child {
+		margin-right: 6px;
+	}
+}
+
+.icon--envelope {
+	stroke: none;
 }

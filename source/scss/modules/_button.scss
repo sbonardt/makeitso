@@ -3,7 +3,7 @@ button {
     background-color: lighten($darkGrey, 4%);
     color:$white; 
     display: inline-block;
-    padding: 0.4em 0.625em 0.275em;
+    padding: 0.4rem 0.8125rem 0.275rem;
     line-height: 1.5;
     margin: 0 0.625rem 1.5rem 0;
     border-radius: 3px;
@@ -11,18 +11,18 @@ button {
     border: 1px solid $darkGrey;
     color:$white; 
     &:hover, &:active, &:focus {
-        background-color: darken($darkGrey, 5%);
+        background-color: $grey;
     }
     &[disabled=disabled] {
         cursor: not-allowed;
-        background-color: lighten($darkGrey, 30%);
-        border: 1px solid lighten($darkGrey, 30%);
+        opacity: 0.7;
+        cursor: forbidden; 
     }
 }
 
 // links style butto
 .button {
-    background-color: lighten($darkGrey, 4%);
+    background-color: lighten($grey, 4%);
     color:$white; 
     // float: left;
     display: inline-block;
@@ -31,13 +31,13 @@ button {
     margin: 0 0.625rem 1.5rem 0;
     border-radius: 3px;
     font-family: $baseFontFamily;
-    border: 1px solid $darkGrey;
+    border: 1px solid $grey;
     &:link, &:visited {
         text-decoration:none;
         color:$white; 
     }
     &:hover, &:active, &:focus {
-        background-color: darken($darkGrey, 5%);
+        background-color: darken($grey, 5%);
     }
 }
 

@@ -1,7 +1,7 @@
 jQuery(function ($) {
 
     // Define breakpoints, responsive design
-    var breakXsmall = 25; //400px is 400/16 is 25em
+    var breakXsmall = 23.125; //370px is 23.125em
     var breakSmall = 30; //480px is 30em
     var breakMedium = 37.5; //600px is 37.5em
     var breakLarge = 48; //768px is 48em
@@ -45,7 +45,7 @@ jQuery(function ($) {
      */
 
     // Add menu and search toggle buttons to navigation on load
-    $('.navigation-primary .inner-wrap').prepend('<div class="toggle-btn-wrap"><button class="toggle-menu" aria-pressed="false">menu</button><button class=" toggle-search" aria-pressed="false">search</button></div>');
+    $('<div class="toggle-btn-wrap"><button class="button buttin--with-icon toggle-menu" aria-pressed="false"><span class="icon icon--close"></span><span>menu</span></button></div>').appendTo('body > header > .inner-wrap');
 
     /* Toggle .search-block functionality when search gets hidden on small/mobile devices
      * In this setup, this works together with the primary menu. Only one can be open
@@ -53,23 +53,26 @@ jQuery(function ($) {
     $(".toggle-search").on( "click", function(e) {
         e.preventDefault();
         var searchform = $(".search-block");
-        var nav = $(".navigation-primary .menu");
+        var nav = $(".navigation-primary");
         if (searchform.hasClass("expanded")) {
             $(this).removeClass("toggle-active");
-            searchform.slideUp('fast').removeClass("expanded");
+            searchform.removeClass("expanded");
+            $('body').removeClass('search-overlay--active');
         }
         else if (!(searchform.hasClass("expanded"))) {
             if (nav.hasClass("expanded")) {
-                nav.slideUp('fast', function() {
+                
                     nav.removeClass("expanded");
                     $(".toggle-menu").removeClass("toggle-active");
                     $(".toggle-search").addClass("toggle-active");
                     searchform.slideDown().addClass("expanded");
-                });             
+                    $('body').addClass('nav-overlay--active');
+                         
             }
             else {
                 $(this).addClass("toggle-active");
                 searchform.slideDown().addClass("expanded");
+                $('body').addClass('search-overlay--active');
             }
         }
     });
@@ -80,24 +83,27 @@ jQuery(function ($) {
      */
     $(".toggle-menu").on( "click", function(e) {
         e.preventDefault();
-        var nav = $(".navigation-primary .menu");
+        var nav = $(".navigation-primary");
         var searchform = $(".search-block");
         if (nav.hasClass("expanded")) {
             $(this).removeClass("toggle-active");
-            nav.slideUp('fast').removeClass("expanded");
+            nav.removeClass("expanded");
+            $('body').removeClass('nav-overlay--active');
         }
         else if (!(nav.hasClass("expanded"))) {
             if (searchform.hasClass("expanded")) {
-                searchform.slideUp('fast', function() {
+                
                     searchform.removeClass("expanded");
                     $(".toggle-search").removeClass("toggle-active");
                     $(".toggle-menu").addClass("toggle-active");
-                    nav.slideDown().addClass("expanded");
-                });
+                    nav.addClass("expanded");
+                    $('body').addClass('nav-overlay--active');
+
             }
             else {
                 $(this).addClass("toggle-active");
-                nav.slideDown('fast').addClass("expanded");
+                nav.addClass("expanded");
+                $('body').addClass('nav-overlay--active');
             }
         }
     });
@@ -205,42 +211,74 @@ jQuery(function ($) {
 
         // if the windowWidth is smaller than the Medium Breakpoint
         if (windowWidthEm < breakMedium) {
+            // // we go back screen widths smaller than medium breakpoint after resize
+            // // if the search block is present in the header because it got placed there
+            // // on window resize to greater than Medium Breakpint, copy that back to the primary nav
+            // // in order tot toggle between either the menu or the search
+            // if ($('body > header .search-block').length > 0) {
+            //     $(".search-block").appendTo('.navigation-primary > .inner-wrap');
+            // }
+
+            // // Hide the search block and primary-navigation, and display the toggle buttons for menu and search
+            // //$(".search-block, .navigation-primary").hide();
+            // //$(".navigation-primary").hide();
+            // $(".toggle-search, .toggle-menu").show(); 
+           
+            // // use the mobile logo image on smaller screens again after resize
+            // $(".logo img").attr("src", $(".logo img").attr("data-src-mobile") );
+        }
+        // if the windowWidth is greater than the Medium Breakpoint
+        else {
+            // // place the search block in the header and show it
+            // $(".search-block").appendTo('body > .header .inner-wrap').show();
+
+            // // hide the toggle-search button, because from this breakpoint on
+            // // the search functionality is visible, so hide the search toggle button
+            // $(".toggle-search").hide(); 
+            // // show the primary navigation from this breakpoint on
+            // //$(".navigation-primary").show();
+            // // the menu is visible from this breakpoint on, so hide the menu toggle button
+            // $(".toggle-menu").hide();
+
+            // // replace the mobile logo with the larger version
+            // $(".logo img").attr("src", $(".logo img").attr("data-src") );
+        }
+        if (windowWidthEm < breakXlarge) {
+            // nothing specified
+
             // we go back screen widths smaller than medium breakpoint after resize
             // if the search block is present in the header because it got placed there
             // on window resize to greater than Medium Breakpint, copy that back to the primary nav
             // in order tot toggle between either the menu or the search
-            if ($('body > header .search-block').length > 0) {
-                $(".search-block").appendTo('body > nav > .inner-wrap');
-            }
+            // if ($('body > header .search-block').length > 0) {
+            //     $(".search-block").appendTo('.navigation-primary > .inner-wrap');
+            // }
 
             // Hide the search block and primary-navigation, and display the toggle buttons for menu and search
-            $(".search-block, .navigation-primary .menu").hide();
-            $(".toggle-search, .toggle-menu").show(); 
+            //$(".search-block, .navigation-primary").hide();
+            //$(".navigation-primary").hide();
+            //$(".toggle-search, .toggle-menu").show(); 
            
             // use the mobile logo image on smaller screens again after resize
             $(".logo img").attr("src", $(".logo img").attr("data-src-mobile") );
-        }
-        // if the windowWidth is greater than the Medium Breakpoint
-        else {
-            // place the search block in the header and show it
-            $(".search-block").appendTo('body > header .inner-wrap').show();
 
-            // hide the toggle-search button, because from this breakpoint on
-            // the search functionality is visible, so hide the search toggle button
-            $(".toggle-search").hide(); 
-            // show the primary navigation from this breakpoint on
-            $(".navigation-primary .menu").show();
-            // the menu is visible from this breakpoint on, so hide the menu toggle button
-            $(".toggle-menu").hide();
-
-            // replace the mobile logo with the larger version
-            $(".logo img").attr("src", $(".logo img").attr("data-src") );
-        }
-        if (windowWidthEm < breakLarge) {
-            // nothing specified
         }
         else {
             // ...
+
+            // place the search block in the header and show it
+            //$(".search-block").appendTo('body > .header .inner-wrap').show();
+
+            // hide the toggle-search button, because from this breakpoint on
+            // the search functionality is visible, so hide the search toggle button
+            //$(".toggle-search").hide(); 
+            // show the primary navigation from this breakpoint on
+            //$(".navigation-primary").show();
+            // the menu is visible from this breakpoint on, so hide the menu toggle button
+            //$(".toggle-menu").hide();
+
+            // replace the mobile logo with the larger version
+            $(".logo img").attr("src", $(".logo img").attr("data-src") );
         }
     }
 });

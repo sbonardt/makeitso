@@ -7,24 +7,48 @@
 
 // search block styling
 .search-block {
-    margin: 2rem 0 0;
+    margin: 0 0 0 auto;
     overflow: hidden;
     display: block;
     padding: 0 0.625rem;
-    @include respond-to(small-screens) {
-        float: right;
-    }
     @include respond-to(medium-screens) {
-        max-width: 220px;
-        margin-top: 0.8125rem;
-        padding: 0;
+        padding: 0.5rem 2rem;
     }
     @include respond-to(large-screens) {
+        padding: 0.25rem 0;
+        margin: 0 2rem;
         max-width: 320px;
     }
     @include respond-to(xlarge-screens) {
         max-width: none;
-        width: 32%;
+        position: fixed;
+        right: 0;
+        top: 70px;
+        margin: 0;
+        height: 0;
+        padding: 0;
+        display: flex;
+        transition: 200ms all ease-in-out;
+        z-index: -1;
+        opacity: 0;
+        background-color: $lightGrey;
+    }
+    .search-overlay--active & {
+        @include respond-to(xlarge-screens) {
+            height: 100vh;
+            z-index: 1;
+            opacity: 1;
+        }
+    }
+    .inner-wrap {
+        @include respond-to(xlarge-screens) {
+            background-color: $lightGrey;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+            padding: 20vh 4rem 0;
+            justify-content: center;
+        }
     }
     label {
         display: none;
@@ -32,30 +56,46 @@
     }
     [type="submit"] {
         border-left: 0;
-        width: 90px;
+        width: 100px;
         clear:none;
-        background-color:$darkGrey;
-        color:$white;
+        background-color: darken($lightGrey, 5%);
+        border: 1px solid darken($lightGrey, 5%);
+        color: #222;
+        margin: 0;
+        font-size: 0.875rem;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        @include respond-to(xlarge-screens) {
+            height: 44px;
+        }
         &:hover, &:active, &:focus {
-            background-color: $black;
+            background-color: darken($lightGrey, 8%);
         }
     }
     [type="text"], [type="search"] {
-        width: calc(100% - 90px);
+        width: calc(100% - 100px);
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
+        border: 1px solid darken($lightGrey, 5%);
+        appearance: none;
+        outline: none;
     }
     input, button {
         float: left;
         width: calc(100% - 71px);
-        padding-left: 0.35rem;
+        //padding-left: 0.35rem;
+        @include respond-to(xlarge-screens) {
+            height: 44px;
+        }
     }
     .search_field {
-        padding: 0.45rem 0.35rem;
+        padding: 0.45rem 0.625rem;
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
-    }
-    input {
-        height: 36px;
+        margin-bottom: 0;
+        @include respond-to(xlarge-screens) {
+            max-width: 400px;
+        }
     }
 }

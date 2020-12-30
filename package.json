@@ -12,7 +12,7 @@
     "build:js": "npm run uglifyjs",
     "watch:js": "onchange 'source/js/**/*.js' -- npm run build:js",
     "imageminify": "imagemin source/images/* --out-dir=dist/images",
-    "serve": "browser-sync start --proxy 'your.localdev.env' --files 'dist/css/*.css, dist/js/*.js'",
+    "serve": "browser-sync start --proxy 'innertrails.local:8888' --files 'dist/css/*.css, dist/js/*.js'",
     "start": "npm-run-all --parallel watch:css watch:js imageminify serve"
   },
   "author": "S. Bonardt",

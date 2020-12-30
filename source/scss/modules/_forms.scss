@@ -48,7 +48,7 @@ label {
 input {
     box-sizing: border-box;
     border:1px solid $grey;
-    padding: 0.5em;
+    padding: 0.5rem 0.625rem;
     font-size: 1rem;
     margin-bottom:1.5rem;
     width:100%;
@@ -123,12 +123,12 @@ input {
         color:$white; 
         float: left;
         display: block;
-        padding: 0.35rem 0.75em;
+        padding: 0.35rem 0.75rem;
         line-height: 1.5;
         display:block;
         clear:both;
         width:auto;  
-        background-color: $darkGrey;   
+        background-color: $grey;   
         border-radius: 0;
     }
 }

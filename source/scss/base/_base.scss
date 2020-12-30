@@ -19,9 +19,9 @@ $baseSecondThemeColour:#eee; //this colour is the secondary theme colour used in
 
 // Generic helper colours
 $black: #222;
-$darkGrey: #666;
+$darkGrey: #555;
 $grey: #999;
-$lightGrey: #efefef;
+$lightGrey: #f9f9f9;
 $white: #fff;
 $offWhite: #fefefe;
 $red: #f00;
@@ -42,7 +42,7 @@ $warningBackgroundColour: #fcf8e3;
 $warningBorderColour: darken($warningBackgroundColour, 5%); 
 
 // Media Query Breakpoints
-$break-midmobile: 400; //400px = 25rem
+$break-midmobile: 370; //370px = 2rem
 $break-small: 481; //481px
 $break-medium: 600; //600px
 $break-large: 768; //700px custom break at 700 for the tabs between generic iupad break and 600

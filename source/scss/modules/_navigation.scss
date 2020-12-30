@@ -4,41 +4,79 @@
  * Author:      Sebastiaan Bonardt - @_sebbon
  */
 
-.toggle-btn-wrap {
+.toggle-btn-wrap,
+.navigation-toggle {
     @extend .group;
     float:none;
     overflow: hidden;
     margin-bottom: 0;
-    padding: 0 0.625rem;
-    width: 100%;
-    @include respond-to(medium-screens) {
-        float:right;
-        width:auto;
-    }
-    button {
-        margin-bottom: 0.625rem;
+    padding: 0 0 0 0.625rem;
+    margin-left: auto;
+    @include respond-to(xlarge-screens) {
+        display: none;
     }
 }
 
 .toggle-menu {
-    float:left;
     display:none; //the toggle menu button is only shown when js is present
-    margin-right:1em;
-    .js & {
+    margin: 0;
+    background-color: darken($lightGrey, 4%);
+    color: #222;
+    border: 1px solid darken($lightGrey, 4%);
+    transition: 200ms all;
+    font-size: 0.875rem;
+    &:hover, &:active {
+        background-color: darken($lightGrey, 6%);
+        border-color: darken($lightGrey, 6%);
+    }
+    .icon {
+        margin-right: 0.5rem;
+        position: relative;
+        height: 14px;
+        width: 16px;
         display: block;
-        @include respond-to(medium-screens) {
-            display:none;
+        color: currentColor;
+        border-top: 2px solid currentColor;
+        transition: 240ms all ease;
+        &:before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+            transition: 250ms all ease-in-out;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: currentColor;
+            transition: 350ms all ease-in-out;
         }
     }
-}
-
-.toggle-search {
-    float:right;
-    display:none;
-    margin-right: 0;
+    &.toggle-active {
+        .icon {
+            width: 18px;
+            border-color: transparent;
+            &:before {
+                top: 48%;
+                transform: translateY(-50%) rotate(45deg);
+            }
+            &:after {
+                top: 48%;
+                transform: translateY(-50%) rotate(-45deg);
+            }
+        }
+    }
     .js & {
-        display: block;
-        @include respond-to(medium-screens) {
+        display: flex;
+        align-items: center;
+        @include respond-to(xlarge-screens) {
             display:none;
         }
     }
@@ -46,80 +84,228 @@
 
 nav, .navigation-primary {
     padding-bottom:0.75em;
-    float:left;
-    width:100%;
+    width: calc(100% - 2rem);
+    position: fixed;
+    background-color: $lightGrey;
+    opacity: 0;
+    transition: 200ms all;
+    z-index: 0;
+    top: 57px;
+    margin: 0 -1rem;
+
+    height: 0;
+    overflow: hidden;
     @include respond-to(medium-screens) {
+        margin: 0 -2rem;
+        top: 70px;
+    }
+    @include respond-to(xlarge-screens) {
         padding-bottom: 0;
+        z-index: 1;
+        opacity: 1;
+        background-color: #fff;
+        margin: 0;
+        width: 100%;
+        width: auto;
+        flex: 1 0 auto;
+        padding-left: 2rem;
+        height: auto;
+    }
+    @include respond-to(xlarge-screens) {
+        top: 0;
+        // margin-top: -10px;
+        background-color: transparent;
+        position: relative;
+    }
+    .nav-overlay--active & {
+        opacity: 1;
+        top: 60px;
+        width: 100%;
+        height: calc(100vh - 60px);
+        @include respond-to(xlarge-screens) {
+            top: 0;
+            position: relative;
+        }
+        @include respond-to(xlarge-screens) {
+            top: 0;
+            height: auto;
+        }
     }
     .menu {
-        float:left;
         width: 100%;
-        margin:1rem auto;
-        @include respond-to(medium-screens) {
+        margin: 0 auto 2rem;
+        @include respond-to(xlarge-screens) {
             margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+        @include respond-to(xlarge-screens) {
+            // justify-content: flex-end;
+            //padding-left: 225px;
         }
     }
     .inner-wrap {
-        padding: 0;
-        position: inherit;
-        @include respond-to(medium-screens) {
-            padding: 0 0.625rem;
+        padding: 0.625rem 0;
+        // position: inherit;
+        width: 100%;
+        @include respond-to(xlarge-screens) {
+            padding: 0.625rem 1.125rem;
+            display: flex;
+            flex-direction: column-reverse;
+            padding: 0;
+            align-items: flex-start;
         }
-        @include respond-to(large-screens) {
-            padding: 0 1.125rem;
-        }
-        @include respond-to(large-screens) {
+        // @include respond-to(large-screens) {
+        //     padding: 0 1.125rem;
+        // }
+        @include respond-to(xlarge-screens) {
             max-width: $site-max-width;
             //padding: 0 0.625rem;
-            margin:0 auto;
+            margin: 0 auto;
+            height: 100%;
         }
     }
     ul {
         padding:0;
         overflow:hidden;
-        @include respond-to(medium-screens) {
+        @include respond-to(xlarge-screens) {
             margin-bottom:0;
         }
         ul {
-            @include respond-to(medium-screens) {
+            @include respond-to(xlarge-screens) {
                 display: none;
             }
         }
     }
     li {
         list-style: none;
-        float:none;
-        @include respond-to(medium-screens) {
-            float: left;
-        }
         a {
             font-family: $baseHeaderFontFamily;
-            padding: 0.5em 0.75em; 
-            display:block;
+            padding: 0.5rem 1rem; 
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
             margin:0;
             color: $darkGrey;
-            text-transform: uppercase;
+            // text-transform: uppercase;
+            border-bottom: 0;
+            transition: 200ms all;
+            font-size: 0.875rem;
+            @include respond-to(medium-screens) {
+                padding: 0.5rem 2rem;
+            }
+            @include respond-to(xlarge-screens) {
+                padding: 0;
+                margin: 0 1.125rem;
+            }
             &:link, &:visited {
                 color: $darkGrey;
                 text-decoration: none;
             }
             &:hover, &:active, &:focus {
                 background-color: $lightGrey;
+                @include respond-to(xlarge-screens) {
+                    background-color: transparent;
+                    color: darken($darkGrey, 10%);
+                    border-bottom: 1px solid darken($lightGrey, 20%);
+                }
             }
             &.active {
                 background-color: $lightGrey;
+                font-weight: 800;
+                @include respond-to(xlarge-screens) {
+                    background-color: transparent;
+                    border-bottom: 1px solid darken($lightGrey, 20%);
+                }
             }
-            @include respond-to(medium-screens) {
-                padding: 0.5rem 1.125rem;
-                margin-left: 2px;
+            &.search__search-toggle {
+                display: none;
+                @include respond-to(xlarge-screens) {
+                    display: flex;
+                }
+                &:hover, &:active, &:focus {
+                    .icon {
+                        color: darken($darkGrey, 10%);
+                        fill: darken($darkGrey, 10%);
+                        stroke: darken($darkGrey, 10%);
+                    }
+                }
+                .icon {
+                    transition: 200ms all;
+                    color: $grey;
+                    fill: $grey;
+                    stroke: $grey;
+                }
+                &.toggle-active {
+                    &:link, &:visited {
+                        color: darken($darkGrey, 10%);
+                    }
+                    .icon {
+                        color: darken($darkGrey, 10%);
+                        fill: darken($darkGrey, 10%);
+                        stroke: darken($darkGrey, 10%);
+                    }
+                }
             }
         }
         // Bolt sets the active class by default on list items in stead of the links itself
         &.active {
             a {
-                background-color: $lightGrey;
+                &:link, &:visited {
+                    background-color: $lightGrey;
+                }
             }
         }
+    }
+    .menu--primary {
+        margin-top: 2rem;
+        @include respond-to(xlarge-screens) {
+            margin: 0;
+            width: auto;
+            align-self: flex-start;
+        }
+        li {
+            a {
+                font-size: 0.875rem;
+                @include respond-to(xlarge-screens) {
+                    padding-bottom: 1.25rem;
+                }
+            }
+        }
+    }
+    .menu--secondary {
+        @include respond-to(xlarge-screens) {
+            margin-bottom: 0.625rem;
+            align-self: flex-end;
+        }
+        li {
+            a {
+                border-bottom: 1px solid transparent;
+                font-size: 0.75rem;
+                @include respond-to(xlarge-screens) {
+                    padding: 0; 
+                }
+                &:link, &:visited {
+                    color: $grey;
+                }
+                &:hover, &:active, &:focus {
+                    background-color: $lightGrey;
+                    @include respond-to(xlarge-screens) {
+                        background-color: transparent;
+                        color: darken($darkGrey, 10%);
+                        //border-bottom: 1px solid currentColor;
+                    }
+                }
+                &.active {
+                    background-color: $lightGrey;
+                    font-weight: 800;
+                    @include respond-to(xlarge-screens) {
+                        background-color: transparent;
+                        //border-bottom: 1px solid currentColor;
+                    }
+                }
+            }
+        }   
     }
 }
 
