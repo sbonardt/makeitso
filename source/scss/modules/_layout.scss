@@ -106,7 +106,7 @@ aside {
         @include respond-to(xlarge-screens) {
             padding: 0 3rem;
             justify-content: stretch;
-            min-height: 90px;
+            min-height: 85px;
             align-items: stretch;
         }
     }
@@ -203,7 +203,10 @@ aside {
         }
     }
     img {
-        width: 345px;
+        width: 80%;
+        @include respond-to(medium-screens) {
+            width: auto;
+        }
     }
 }
 
