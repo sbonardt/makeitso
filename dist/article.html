@@ -35,7 +35,7 @@
           </symbol>
     </svg>
     <header class="header">
-        <div class="inner-wrap">
+        <div class="layout__inner-wrap">
             <a class="skipcontent" href="#content">Skip to contents</a>
             <a href="/" class="logo">
                 <img src="images/logo.svg" alt="" />
@@ -43,7 +43,7 @@
             </a>
 
             <nav class="navigation-primary">
-                <div class="inner-wrap">
+                <div class="layout__inner-wrap">
                     <ul class="menu menu--primary">
                         <li class="first">
                             <a href="index.html">About MAKEITSO</a>
@@ -69,12 +69,12 @@
                                 <svg class="icon icon--search">
                                     <use xlink:href="#icon-search" />
                                 </svg>
-                                <span class="">Search</span>
+                                <span><span class="search__search-toggle-inner"></span>Search</span>
                             </a>
                         </li>
                     </ul>
                     <form action="/" method="post" accept-charset="UTF-8" class="search-block">
-                        <div class="inner-wrap">
+                        <div class="layout__inner-wrap">
                             <label for="search_field">Search</label>
                             <input title="Enter the terms you wish to search for" type="text" name="search_field" value="" class="search_field" id="search_field" />
                             <button type="submit" value="search">
@@ -83,6 +83,7 @@
                                 </svg>
                                 Zoeken
                             </button>
+                            <a href="#" class="toggle-search search__search-toggle-inner"><span class="sr-only">Sluiten</span></a>
                         </div>
                     </form>
                 </div>
@@ -92,301 +93,291 @@
     </header>
 
     <main>
-            <!-- <aside class="sidebar sidebar-first">
-                <h2 class="sr-only gamma">Sub navigation</h2>
-                <ul class="menu menu_sub-menu">
-                    <li><a href="#">Lorem ipsum</a></li>
-                    <li><a href="#">Dolor sit amet</a></li>
-                    <li><a href="#">Consectetuer adipliscing</a></li>
-                    <li><a href="#">Duo Reges</a></li>
-                    <li><a href="#">Construccio Interrete</a></li>
-                </ul>
-            </aside> -->
 
-            <article class="layout__main main-content">
+        <article class="layout__main main-content">
 
-                <div class="inner-wrap">
+            <header class="main-content__header">
+                <div class="layout__inner-wrap grid grid--medium">
                     <a id="content" tabindex="0"></a>
                     <h1>Article page</h1>
-                    <div class="body-content">
-                        <p class="introduction">
-                            This article page shows you HTML elements commonly used in a web page. MAKEITSO is not a design framework, but does have some sensible defaults. These defaults are for you to change or adapt. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with.
-                        </p>
-
-                        <div class="ui-info ui-info_information">
-                            <p>These basic styles are useful as a base reference or startingpoint for your project.</p>
-                        </div>
-
-                        <h2 id="paragraph">Paragraph</h2>
-                        <p>This is a paragraph. Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Itaque hic ipse iam pridem est reiectus; Superiores tres erant, quae esse possent, quarum est una sola defensa, eaque vehementer. <strong>Re mihi non aeque satisfacit, et quidem locis pluribus.</strong> Duo Reges: constructio interrete. </p>
-
-                        <figure id="figure">
-                            <img src="images/placeholder-image.png" alt="placeholder image"/>
-                            <figcaption>Placeholder image with a caption</figcaption>
-                        </figure>
-
-                        <h2>Example HTML elements</h2>
-
-                        <a id="headings"></a>
-                        <h1>1st level heading <code>h1</code> or <code>.alpha</code></h1>
-                        <h2>2nd level heading <code>h2</code> or <code>.beta</code></h2>
-                        <h3>3rd level heading <code>h3</code> or <code>.gamma</code></h3>
-                        <h4>4th level heading <code>h4</code> or <code>.delta</code></h4>
-                        <h5>5th level heading <code>h5</code> or <code>.epsilon</code></h5>
-                        <p>Basic paragraph to follow heading</p>
-
-                        <h2 id="html-lists">HMTL Lists</h2>
-
-                        <h3>Unordered list</h3>
-                        <ul>
-                            <li>One.</li>
-                            <li>Two.</li>
-                            <li>Three. Note that for short items lists look better if they are compactly presented, whereas for long items, it would be better to have more vertical spacing between items.</li>
-                            <li>Four. This is the last item in this list. </li>
-                        </ul>
-
-                        <h3>Ordered list</h3>
-                        <ol>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
-                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
-                        </ol>
-
-                        <h3>Definition list</h3>
-                        <dl>
-                            <dt>Coffee</dt>
-                            <dd>Black hot drink</dd>
-                            <dt>Milk</dt>
-                            <dd>White cold drink</dd>
-                            <dt>Tea</dt>
-                            <dd>Hot drink made from tea leafs and water</dd>
-                        </dl>
-
-                        <h2 id="textual-elements">Textual elements</h2>
-
-                        <ul class="stripped">
-                            <li><b>Bold look text</b></li>
-                            <li><em>Emphasized text</em></li>
-                            <li><i>Italic text</i></li>
-                            <li><strong>Strong text</strong></li>
-                            <li><mark>Marked text</mark></li>
-                            <li><p>Subscripts and superscripts (sub and sup markup).<br>Lorem ipsum dolor <sub>1</sub> and H<sub>2</sub>O (where subscripts occur).</p><p> Superscripts: M<sup>lle</sup>, 1<sup>st</sup>, and then some mathematical notations: e<sup>x</sup>, sin<sup>2</sup> <em>x</em>, and some nested superscripts (exponents) too: e<sup>x<sup>2</sup></sup> and f(x)<sup>g(x)<sup>a+b+c</sup></sup> (where 2 and a+b+c should appear as exponents of exponents).</p></li>
-                            <li><small>Small text</small></li>
-                        </ul>
-
-                        <h2 id="links">Links</h2>
-                        <ul class="stripped">
-                            <li><a href="#">Link <code>a</code></a></li>
-                            <li><a href="#" class="read-more">Link <code>a.read-more</code></a></li>
-                            <li><a href="#" class="button">Link button <code>a.button</code></a></li>
-                        </ul>
-
-                        <h2 id="buttons">Buttons</h2>
-
-                        <div>
-                            <button>button</button>
-                            <button disabled="disabled">disabled button</button>
-                            <button class="button--bordered">button bordered</button>
-                        </div>
-                        <div>
-                            <button class="button--small">button small</button>
-                            <button class="button--small" disabled="disabled">disabled button</button>
-                            <button class="button--small button--bordered">button bordered</button>
-                        </div>
-
-                        <div class="button-group">
-                            <button class="button__dropdown-toggler" aria-expanded="false">Button toggler</button>
-                            <ul aria-hidden="false" class="button-options-list">
-                                <li><a href="#"">button</a></li>
-                                <li><a href="#"">button</a></li>
-                                <li><a href="#"">button</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="button-group">
-                            <button>button separate toggler</button><button class="button__dropdown-toggler" aria-expanded="false">Actions</button>
-                            <ul aria-hidden="false" class="button-options-list">
-                                <li><a href="#"">button</a></li>
-                                <li><a href="#"">button</a></li>
-                                <li><a href="#"">button</a></li>
-                            </ul>
-                        </div>
-                        
-                        <blockquote cite="https://en.wikipedia.org/wiki/Tears_in_rain_monologue" id="blockquote">
-                            "I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. I watched C-beams glitter in the dark near the Tannhäuser Gate. All those moments will be lost in time, like tears in rain."
-                            <small> - Roy Batty</small>
-                        </blockquote> 
-
-                        <h2 id="tables">Tables</h2>
-
-                        <table summary="Each row names a Nordic country and specifies its total area and land area, in square kilometers">
-                            <caption>Sample table: Areas of the Nordic countries, in sq km</caption>
-                            <tbody>
-                                <tr>
-                                    <th scope="col">Country</th>
-                                    <th scope="col">Total area</th>
-                                    <th scope="col">Land area</th>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Denmark</th>
-                                    <td>43,070</td>
-                                    <td>42,370</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Finland</th>
-                                    <td>337,030</td>
-                                    <td>305,470</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Iceland</th>
-                                    <td>103,000</td>
-                                    <td>100,250</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Norway</th>
-                                    <td>324,220</td>
-                                    <td>307,860</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Sweden</th>
-                                    <td>449,964</td>
-                                    <td>410,928</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 id="video">An embedded video</h2>
-                        <p>Wrap an embedded video in a div with class <code>video</code>. <cite>J. Picard: <q>Make it so!</q></cite></p>
-                        <div class="video">
-                        <!-- <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FaLyasJPyUU?rel=0" frameborder="0" allowfullscreen></iframe> -->
-                        </div>
-
-                        <h2 id="html-characters">Characters tests</h2>
-
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <th>Char.</th>
-                                    <th>Explanation</th>
-                                    <th>Notes</th>
-                                </tr>
-                                <tr>
-                                    <td>ê</td>
-                                    <td>e with circumflex</td>
-                                    <td>Latin 1 character, should be ok</td>
-                                </tr>
-                                <tr>
-                                    <td>—</td>
-                                    <td>em dash</td>
-                                    <td>Windows Latin 1 character, should be ok, too</td>
-                                </tr>
-                                <tr>
-                                    <td>Ā</td>
-                                    <td>A with macron (line above)</td>
-                                    <td>Latin Extended-A character, not present in all fonts</td>
-                                </tr>
-                                <tr>
-                                    <td>Ω</td>
-                                    <td>capital omega</td>
-                                    <td>A Greek letter</td>
-                                </tr>
-                                <tr>
-                                    <td>−</td>
-                                    <td>minus sign</td>
-                                    <td>Unicode minus</td>
-                                </tr>
-                                <tr>
-                                    <td>⌀</td>
-                                    <td>diameter sign</td>
-                                    <td>relatively rare in fonts</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <h2 id="ui-feedback">Feedback / information boxes</h2>
-                        <p>Common UI usecase where feedback is given by the backend. Use a <code>div</code> with a class of <code>ui-info</code></p>
-                        <div class="ui-info">
-                                <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info</code></p>
-                            </div>
-
-                        <div class="ui-info ui-info_information">
-                            <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_information</code></p>
-                        </div>
-
-                        <div class="ui-info ui-info_warning">
-                            <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_warning</code></p>
-                        </div>
-
-                        <div class="ui-info ui-info_error">
-                            <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_error</code></p>
-                        </div>
-
-                        <div class="ui-info ui-info_success">
-                            <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_success</code></p>
-                        </div>
-
-                        <h2 id="expandable-fields">Expandable fields</h2>
-                        <p>These expandable fields are ARIA enhanced and accessible!</p>
-                        <div class="expandable-fields-wrap">
-                            <div class="expandable-field">
-                                <a href="#" class="expandable-field__toggler active" aria-expanded="true">Toggler<div class="expandable-field__toggle-icon"><span class="icon-arrow"></span></div></a>
-                                <div class="expandable-field__body expandable-field__toggle-target" aria-hidden="false">
-                                    <p>Content</p>
-                                </div>
-                            </div>
-                            <div class="expandable-field">
-                                <a href="#" class="expandable-field__toggler active" aria-expanded="true">Toggler<div class="expandable-field__toggle-icon"><span class="icon-arrow"></span></div></a>
-                                <div class="expandable-field__body expandable-field__toggle-target" aria-hidden="false">
-                                    <p>Content</p>
-                                </div>
-                            </div>
-                            <div class="expandable-field">
-                                <a href="#" class="expandable-field__toggler active" aria-expanded="true">Toggler<div class="expandable-field__toggle-icon"><span class="icon-arrow"></span></div></a>
-                                <div class="expandable-field__body expandable-field__toggle-target" aria-hidden="false">
-                                    <p>Content</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
+                    <p class="introduction">
+                        This article page shows you HTML elements commonly used in a web page. MAKEITSO is not a design framework, but does have some sensible defaults. These defaults are for you to change or adapt. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with.
+                    </p>
                 </div>
-            </article>
+            </header>
 
-            <aside class="layout__sidebar sidebar sidebar-second">
-                <div class="inner-wrap">
-                    <h2 class="gamma">Elements</h2>
-                    <ul class="menu menu_block menu_sub-menu">
-                        <li><a href="#paragraph">Paragraphs</a></li>
-                        <li><a href="#figure">Figure</a></li>
-                        <li><a href="#headings">Headings</a></li>
-                        <li><a href="#html-lists">HTML lists</a></li>
-                        <li><a href="#textual-elements">Textual elements</a></li>
-                        <li><a href="#links">Links</a></li>
-                        <li><a href="#buttons">Buttons</a></li>
-                        <li><a href="#blockquote">Blockquote</a></li>
-                        <li><a href="#tables">Tables</a></li>
-                        <li><a href="#video">Video</a></li>
-                        <li><a href="#html-characters">HTML characters</a></li>
-                        <li><a href="#ui-feedback">UI feedback</a></li>
-                        <li><a href="#expandable-fields">Expandable fields</a></li>
+            <div class="layout__inner-wrap grid grid--medium">
+
+                <div class="ui-info ui-info_information">
+                    <p>These basic styles are useful as a base reference or startingpoint for your project.</p>
+                </div>
+
+                <h2 id="paragraph">Paragraph</h2>
+                <p>This is a paragraph. Lorem ipsum dolor sit amet, <em>consectetur</em> adipiscing elit. Itaque hic ipse iam pridem est reiectus; Superiores tres erant, quae esse possent, quarum est una sola defensa, eaque vehementer. <strong>Re mihi non aeque satisfacit, et quidem locis pluribus.</strong> Duo Reges: constructio interrete. </p>
+
+                <figure id="figure">
+                    <img src="images/placeholder-image.png" alt="placeholder image"/>
+                    <figcaption>Placeholder image with a caption</figcaption>
+                </figure>
+
+                <h2>Example HTML elements</h2>
+
+                <a id="headings"></a>
+                <h1>1st level heading <code>h1</code> or <code>.alpha</code></h1>
+                <h2>2nd level heading <code>h2</code> or <code>.beta</code></h2>
+                <h3>3rd level heading <code>h3</code> or <code>.gamma</code></h3>
+                <h4>4th level heading <code>h4</code> or <code>.delta</code></h4>
+                <h5>5th level heading <code>h5</code> or <code>.epsilon</code></h5>
+                <p>Basic paragraph to follow heading</p>
+
+                <h2 id="html-lists">HMTL Lists</h2>
+
+                <h3>Unordered list</h3>
+                <ul>
+                    <li>One.</li>
+                    <li>Two.</li>
+                    <li>Three. Note that for short items lists look better if they are compactly presented, whereas for long items, it would be better to have more vertical spacing between items.</li>
+                    <li>Four. This is the last item in this list. </li>
+                </ul>
+
+                <h3>Ordered list</h3>
+                <ol>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cur deinde Metrodori liberos commendas? Quarum ambarum rerum cum medicinam pollicetur</li>
+                </ol>
+
+                <h3>Definition list</h3>
+                <dl>
+                    <dt>Coffee</dt>
+                    <dd>Black hot drink</dd>
+                    <dt>Milk</dt>
+                    <dd>White cold drink</dd>
+                    <dt>Tea</dt>
+                    <dd>Hot drink made from tea leafs and water</dd>
+                </dl>
+
+                <h2 id="textual-elements">Textual elements</h2>
+
+                <ul class="stripped">
+                    <li><b>Bold look text</b></li>
+                    <li><em>Emphasized text</em></li>
+                    <li><i>Italic text</i></li>
+                    <li><strong>Strong text</strong></li>
+                    <li><mark>Marked text</mark></li>
+                    <li><p>Subscripts and superscripts (sub and sup markup).<br>Lorem ipsum dolor <sub>1</sub> and H<sub>2</sub>O (where subscripts occur).</p><p> Superscripts: M<sup>lle</sup>, 1<sup>st</sup>, and then some mathematical notations: e<sup>x</sup>, sin<sup>2</sup> <em>x</em>, and some nested superscripts (exponents) too: e<sup>x<sup>2</sup></sup> and f(x)<sup>g(x)<sup>a+b+c</sup></sup> (where 2 and a+b+c should appear as exponents of exponents).</p></li>
+                    <li><small>Small text</small></li>
+                </ul>
+
+                <h2 id="links">Links</h2>
+                <ul class="stripped">
+                    <li><a href="#">Link <code>a</code></a></li>
+                    <li><a href="#" class="read-more">Link <code>a.read-more</code></a></li>
+                    <li><a href="#" class="button">Link button <code>a.button</code></a></li>
+                </ul>
+
+                <h2 id="buttons">Buttons</h2>
+
+                <div>
+                    <button>button</button>
+                    <button disabled="disabled">disabled button</button>
+                    <button class="button--bordered">button bordered</button>
+                </div>
+                <div>
+                    <button class="button--small">button small</button>
+                    <button class="button--small" disabled="disabled">disabled button</button>
+                    <button class="button--small button--bordered">button bordered</button>
+                </div>
+
+                <div class="button-group">
+                    <button class="button__dropdown-toggler" aria-expanded="false">Button toggler</button>
+                    <ul aria-hidden="false" class="button-options-list">
+                        <li><a href="#"">button</a></li>
+                        <li><a href="#"">button</a></li>
+                        <li><a href="#"">button</a></li>
                     </ul>
-                    <div class="contentblock">
-                        <h2 class="gamma">Header of this block <code>div.contentblock</code></h2>
-                        <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re.<br><a href='http://loripsum.net/'>Hoc simile tandem est?</a>.
-                        </p>
-                    </div>
-                
                 </div>
-            </aside>
 
-       
+                <div class="button-group">
+                    <button>button separate toggler</button><button class="button__dropdown-toggler" aria-expanded="false">Actions</button>
+                    <ul aria-hidden="false" class="button-options-list">
+                        <li><a href="#"">button</a></li>
+                        <li><a href="#"">button</a></li>
+                        <li><a href="#"">button</a></li>
+                    </ul>
+                </div>
+                
+                <blockquote cite="https://en.wikipedia.org/wiki/Tears_in_rain_monologue" id="blockquote">
+                    "I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion. I watched C-beams glitter in the dark near the Tannhäuser Gate. All those moments will be lost in time, like tears in rain."
+                    <small> - Roy Batty</small>
+                </blockquote> 
+
+                <h2 id="tables">Tables</h2>
+
+                <table summary="Each row names a Nordic country and specifies its total area and land area, in square kilometers">
+                    <caption>Sample table: Areas of the Nordic countries, in sq km</caption>
+                    <tbody>
+                        <tr>
+                            <th scope="col">Country</th>
+                            <th scope="col">Total area</th>
+                            <th scope="col">Land area</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">Denmark</th>
+                            <td>43,070</td>
+                            <td>42,370</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Finland</th>
+                            <td>337,030</td>
+                            <td>305,470</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Iceland</th>
+                            <td>103,000</td>
+                            <td>100,250</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Norway</th>
+                            <td>324,220</td>
+                            <td>307,860</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sweden</th>
+                            <td>449,964</td>
+                            <td>410,928</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="video">An embedded video</h2>
+                <p>Wrap an embedded video in a div with class <code>video</code>. <cite>J. Picard: <q>Make it so!</q></cite></p>
+                <div class="video">
+                <!-- <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FaLyasJPyUU?rel=0" frameborder="0" allowfullscreen></iframe> -->
+                </div>
+
+                <h2 id="html-characters">Characters tests</h2>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Char.</th>
+                            <th>Explanation</th>
+                            <th>Notes</th>
+                        </tr>
+                        <tr>
+                            <td>ê</td>
+                            <td>e with circumflex</td>
+                            <td>Latin 1 character, should be ok</td>
+                        </tr>
+                        <tr>
+                            <td>—</td>
+                            <td>em dash</td>
+                            <td>Windows Latin 1 character, should be ok, too</td>
+                        </tr>
+                        <tr>
+                            <td>Ā</td>
+                            <td>A with macron (line above)</td>
+                            <td>Latin Extended-A character, not present in all fonts</td>
+                        </tr>
+                        <tr>
+                            <td>Ω</td>
+                            <td>capital omega</td>
+                            <td>A Greek letter</td>
+                        </tr>
+                        <tr>
+                            <td>−</td>
+                            <td>minus sign</td>
+                            <td>Unicode minus</td>
+                        </tr>
+                        <tr>
+                            <td>⌀</td>
+                            <td>diameter sign</td>
+                            <td>relatively rare in fonts</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="ui-feedback">Feedback / information boxes</h2>
+                <p>Common UI usecase where feedback is given by the backend. Use a <code>div</code> with a class of <code>ui-info</code></p>
+                <div class="ui-info">
+                        <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info</code></p>
+                    </div>
+
+                <div class="ui-info ui-info_information">
+                    <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_information</code></p>
+                </div>
+
+                <div class="ui-info ui-info_warning">
+                    <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_warning</code></p>
+                </div>
+
+                <div class="ui-info ui-info_error">
+                    <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_error</code></p>
+                </div>
+
+                <div class="ui-info ui-info_success">
+                    <p>A <code>p</code> wrapped in a <code>div</code> with class <code>.ui-info .ui-info_success</code></p>
+                </div>
+
+                <h2 id="expandable-fields">Expandable fields</h2>
+                <p>These expandable fields are ARIA enhanced and accessible!</p>
+                <div class="expandable-fields-wrap">
+                    <div class="expandable-field">
+                        <a href="#" class="expandable-field__toggler active" aria-expanded="true">Toggler<div class="expandable-field__toggle-icon"><span class="icon-arrow"></span></div></a>
+                        <div class="expandable-field__body expandable-field__toggle-target" aria-hidden="false">
+                            <p>Content</p>
+                        </div>
+                    </div>
+                    <div class="expandable-field">
+                        <a href="#" class="expandable-field__toggler active" aria-expanded="true">Toggler<div class="expandable-field__toggle-icon"><span class="icon-arrow"></span></div></a>
+                        <div class="expandable-field__body expandable-field__toggle-target" aria-hidden="false">
+                            <p>Content</p>
+                        </div>
+                    </div>
+                    <div class="expandable-field">
+                        <a href="#" class="expandable-field__toggler active" aria-expanded="true">Toggler<div class="expandable-field__toggle-icon"><span class="icon-arrow"></span></div></a>
+                        <div class="expandable-field__body expandable-field__toggle-target" aria-hidden="false">
+                            <p>Content</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+        <aside class="layout__sidebar sidebar sidebar-second">
+            <div class="layout__inner-wrap grid grid--medium">
+                <h2 class="gamma">Elements</h2>
+                <ul class="menu menu_block menu_sub-menu">
+                    <li><a href="#paragraph">Paragraphs</a></li>
+                    <li><a href="#figure">Figure</a></li>
+                    <li><a href="#headings">Headings</a></li>
+                    <li><a href="#html-lists">HTML lists</a></li>
+                    <li><a href="#textual-elements">Textual elements</a></li>
+                    <li><a href="#links">Links</a></li>
+                    <li><a href="#buttons">Buttons</a></li>
+                    <li><a href="#blockquote">Blockquote</a></li>
+                    <li><a href="#tables">Tables</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#html-characters">HTML characters</a></li>
+                    <li><a href="#ui-feedback">UI feedback</a></li>
+                    <li><a href="#expandable-fields">Expandable fields</a></li>
+                </ul>
+                <div class="contentblock">
+                    <h2 class="gamma">Header of this block <code>div.contentblock</code></h2>
+                    <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re.<br><a href='http://loripsum.net/'>Hoc simile tandem est?</a>.
+                    </p>
+                </div>
+            
+            </div>
+        </aside>
     </main>
 
     <footer class="footer">
-        <div class="inner-wrap">
+        <div class="layout__inner-wrap">
             <div class="footer-block third">
                 <ul class="stripped menu">
                     <li>

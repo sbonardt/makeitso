@@ -34,7 +34,7 @@ body {
         padding-top: 72px;
     }
     @include respond-to(xlarge-screens) {
-        padding-top: 90px;
+        padding-top: 85px;
     }
     &.nav-overlay--active,
     &.search-overlay--active {
@@ -46,6 +46,7 @@ body {
         overflow: hidden;
     }
     > footer {
+
         min-height: 20rem;
         background-color: $lightGrey;
         padding: 1em 0;
@@ -63,10 +64,6 @@ body {
 
 main, .main {
     margin: 0;
-    padding-top: 1.5rem;
-    @include respond-to(medium-screens) {
-        padding-top: 4rem;
-    } 
     > aside, article, section {
         margin-bottom: 2rem;
     }
@@ -82,7 +79,52 @@ aside {
     }
 }
 
-.inner-wrap {
+.layout {
+    main, .main {
+        // display: grid;
+        // grid-template-columns: repeat(12, 1fr);
+        // grid-column-gap: 1.25rem;
+        // justify-content: center;
+    }
+    .layout__main {
+        // grid-column: 1/-1;
+        // grid-row: auto;
+        // max-width: $setting-main-centered-max-width;
+        // margin: 0 auto;
+    }
+    .layout__sidebar {
+        // grid-column: 1/-1;
+        // grid-row: auto;
+        // max-width: $setting-main-centered-max-width;
+        // margin: 0 auto;
+    }
+}
+
+.layout--sidebar {
+    main, .main {
+            @include respond-to(xlarge-screens) {
+            display: grid;
+            max-width: $site-max-width;
+            grid-template-columns: repeat(12, 1fr);
+            grid-column-gap: 1.25rem;
+            margin: 0 auto;
+        }
+    }
+    .layout__main {
+        @include respond-to(xlarge-screens) {
+            grid-column: 1/9;
+            grid-row: auto;
+        }
+    }
+    .layout__sidebar {
+        @include respond-to(xlarge-screens) {
+            grid-column: 9/-1;
+            grid-row: auto;
+        }
+    }
+}
+
+.layout__inner-wrap {
     //@extend %group;
     overflow: hidden;
     margin: 0 auto;
@@ -112,39 +154,40 @@ aside {
     }
 }
 
-.layout {
-    main, .main {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        grid-column-gap: 1.5rem;
-        justify-content: center;
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    justify-content: center;
+    column-gap: 1rem;
+    @include respond-to(medium-screens) {
+        column-gap: 1.25rem;
     }
-    .layout__main {
+    > * {
         grid-column: 1/-1;
         grid-row: auto;
-        max-width: $setting-main-centered-max-width;
-        margin: 0 auto;
-    }
-    .layout__sidebar {
-        grid-column: 1/-1;
-        grid-row: auto;
-        max-width: $setting-main-centered-max-width;
-        margin: 0 auto;
+        @include respond-to(large-screens) {
+            grid-column: 2/-2;
+        }
+        @include respond-to(xlarge-screens) {
+            grid-column: 1/-1;
+        }
     }
 }
 
-.layout--sidebar {
-    .layout__main {
-        @include respond-to(xlarge-screens) {
-            grid-column: 1/9;
-        }
-    }
-    .layout__sidebar {
-        @include respond-to(xlarge-screens) {
-            grid-column: 9/-1;
-        }
-    }
+.grid--large {
+    max-width: 67rem;
 }
+
+.grid--medium {
+    max-width: 54rem;
+}
+
+.grid--small {
+    max-width: 40rem;
+}
+
 
 .main-wrap {
     @extend %group;
@@ -178,6 +221,8 @@ aside {
     font-size: 2.15rem;
     font-weight: 600;
     font-family: $baseHeaderFontFamily;
+    display: flex;
+    align-items: center;
     @include respond-to(midmobile) {
         font-size: 2.5rem;
     }

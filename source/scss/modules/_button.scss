@@ -10,6 +10,7 @@ button {
     font-family: $baseFontFamily;
     border: 1px solid $darkGrey;
     color:$white; 
+    font-size: 0.9375rem;
     &:hover, &:active, &:focus {
         background-color: $grey;
     }

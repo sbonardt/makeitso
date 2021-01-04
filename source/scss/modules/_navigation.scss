@@ -62,7 +62,7 @@
     }
     &.toggle-active {
         .icon {
-            width: 18px;
+            width: 16px;
             border-color: transparent;
             &:before {
                 top: 48%;
@@ -145,7 +145,7 @@ nav, .navigation-primary {
             //padding-left: 225px;
         }
     }
-    .inner-wrap {
+    .layout__inner-wrap {
         padding: 0.625rem 0;
         // position: inherit;
         width: 100%;
@@ -223,6 +223,7 @@ nav, .navigation-primary {
                 display: none;
                 @include respond-to(xlarge-screens) {
                     display: flex;
+                    position: relative;
                 }
                 &:hover, &:active, &:focus {
                     .icon {
@@ -245,6 +246,10 @@ nav, .navigation-primary {
                         color: darken($darkGrey, 10%);
                         fill: darken($darkGrey, 10%);
                         stroke: darken($darkGrey, 10%);
+                        opacity: 0;
+                    }
+                    .search__search-toggle-inner {
+                        opacity: 1;
                     }
                 }
             }

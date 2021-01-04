@@ -45,7 +45,7 @@ jQuery(function ($) {
      */
 
     // Add menu and search toggle buttons to navigation on load
-    $('<div class="toggle-btn-wrap"><button class="button buttin--with-icon toggle-menu" aria-pressed="false"><span class="icon icon--close"></span><span>menu</span></button></div>').appendTo('body > header > .inner-wrap');
+    $('<div class="toggle-btn-wrap"><button class="button buttin--with-icon toggle-menu" aria-pressed="false"><span class="icon icon--close"></span><span>menu</span></button></div>').appendTo('body > header > .layout__inner-wrap');
 
     /* Toggle .search-block functionality when search gets hidden on small/mobile devices
      * In this setup, this works together with the primary menu. Only one can be open
@@ -67,12 +67,13 @@ jQuery(function ($) {
                     $(".toggle-search").addClass("toggle-active");
                     searchform.slideDown().addClass("expanded");
                     $('body').addClass('nav-overlay--active');
-                         
+                    $('.search-block .search_field ').focus();
             }
             else {
                 $(this).addClass("toggle-active");
                 searchform.slideDown().addClass("expanded");
                 $('body').addClass('search-overlay--active');
+                $('.search-block .search_field ').focus();
             }
         }
     });
