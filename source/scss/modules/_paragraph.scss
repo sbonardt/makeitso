@@ -1,0 +1,9 @@
+.paragraph {
+    margin-bottom: 2rem;
+    &--with-background {
+        padding-bottom: 2rem;
+        margin-bottom: 3rem;
+        background-color: $lightGrey;
+    }
+}
+

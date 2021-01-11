@@ -56,11 +56,20 @@ h1, h2, h3, h4, h5 {
 h1, .alpha {
     font-size: 2.75rem;
     font-weight: 400;
+    .sub {
+        font-size: 1.825rem;
+        line-height: 0.9273;
+        display: block;
+    }
 }
 
 h2, .beta {
     font-size: 1.825rem;
     font-weight: 400;
+    .sub {
+        font-size: 1.5rem;
+        display: block;
+    }
 }
 
 h3, .gamma {
@@ -182,6 +191,7 @@ i, em {
 
 a {
     text-decoration-skip-ink: auto;
+    transition: $ui-transition-speed all ease;
     &:link {
         color: $baseLinkColour;
     }
@@ -235,9 +245,4 @@ code {
 
 .lower {
     text-transform: lowercase;
-}
-
-.tagline {
-    font-size: 1rem;
-    color: $grey;
 }

@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600&display=swap" rel="stylesheet"> 
 </head>
 
-<body class="layout layout--sidebar">
+<body class="layout">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="icon-envelope" viewBox="0 0 32 32">
             <path d="M29.439 26.061v-13.284q-0.553 0.623-1.194 1.142-4.636 3.563-7.369 5.846-0.882 0.744-1.436 1.159t-1.496 0.839-1.773 0.424h-0.035q-0.83 0-1.773-0.424t-1.496-0.839-1.436-1.159q-2.733-2.283-7.369-5.846-0.64-0.519-1.194-1.142v13.284q0 0.225 0.164 0.389t0.389 0.164h25.462q0.225 0 0.389-0.164t0.164-0.389zM29.439 7.882v-0.424q0 0-0.009-0.225t-0.052-0.216-0.095-0.156-0.156-0.13-0.242-0.043h-25.462q-0.225 0-0.389 0.164t-0.164 0.389q0 2.906 2.543 4.912 3.338 2.629 6.936 5.483 0.104 0.087 0.605 0.51t0.796 0.649 0.77 0.545 0.873 0.476 0.744 0.156h0.035q0.346 0 0.744-0.156t0.873-0.476 0.77-0.545 0.796-0.649 0.605-0.51q3.598-2.854 6.936-5.483 0.934-0.744 1.738-1.998t0.804-2.275zM31.653 7.242v18.819q0 1.142-0.813 1.955t-1.955 0.813h-25.462q-1.142 0-1.955-0.813t-0.813-1.955v-18.819q0-1.142 0.813-1.955t1.955-0.813h25.462q1.142 0 1.955 0.813t0.813 1.955z"></path>
@@ -48,10 +48,10 @@
                             <a href="index.html">About MAKEITSO</a>
                         </li>
                         <li>
-                            <a href="article.html" class="active">Article page</a>
+                            <a href="article.html">Article page</a>
                         </li>
                         <li>
-                            <a href="listing.html">Listing page</a>
+                            <a href="listing.html" class="active">Listing page</a>
                         </li>
                         <li>
                             <a href="form.html">Form page</a>
@@ -94,74 +94,84 @@
     <main>
         <section class="layout__main main-content">
 
-            <header class="main-content__header">
+            <header class="paragraph main-content__header">
                 <div class="layout__inner-wrap grid">
-                    <a id="content" tabindex="0"></a>
-                    <h1>Listing page</h1>
-                    <p class="introduction">
-                        This article page shows you HTML elements commonly used in a web page. MAKEITSO is not a design framework, but does have some sensible defaults. These defaults are for you to change or adapt. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with.
-                    </p>
+                    <div class="grid-column">
+                        <a id="content" tabindex="0"></a>
+                        <h1>Listing page template</h1>
+                        <p class="introduction">
+                            This listing page shows you HTML elements commonly used in an overview or category page: content teasers or introductory content.
+                        </p>
+                    </div>
                 </div>
             </header>
 
-            <div class="content-listing">
+            <div class="paragraph paragraph--content-listing">
                 <div class="layout__inner-wrap grid">
-                    <ul class="stripped content-listing__list">
-                        <li>
-                            <article class="item-teaser">
-                                <h2 class="beta"><a href="article.html">Lorem ipsum dolor sit amet</a></h2>
-                                <img src="images/placeholder-image.png" alt="placeholder-image"/>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sic enim censent, oportunitatis esse beate vivere.Quid igitur dubitamus in tota eius natura quaerere quid sit effectum? Et quod est munus, quod opus sapientiae? In schola desinis. Quamquam te quidem video minime esse deterritum. Quid est igitur, cur ita semper deum appellet Epicurus beatum et aeternum? Duo Reges: constructio interrete.
-                                </p>
-                                <a class="read-more" href="#">read more<span class="sr-only"> about Article title</span></a>
-                            </article>
-                        </li>
-                        <li>
-                            <article class="item-teaser">
-                                <h2 class="beta"><a href="article.html">Sic enim censent, oportunitatis esse beate</a></h2>
-                                <img src="images/placeholder-image.png" alt="placeholder-image"/>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sic enim censent, oportunitatis esse beate vivere.Quid igitur dubitamus in tota eius natura quaerere quid sit effectum? Et quod est munus, quod opus sapientiae? In schola desinis. Quamquam te quidem video minime esse deterritum. Quid est igitur, cur ita semper deum appellet Epicurus beatum et aeternum? Duo Reges: constructio interrete.
-                                </p>
-                                <a class="read-more" href="#">read more<span class="sr-only"> about Article title</span></a>
-                            </article>
-                        </li>
-                    </ul>   
+                    <div class="grid-column grid-column--two-thirds">
 
-                    <ul class="pager">
-                        <li class="prev">
-                            <a href="#"><span class="sr-only">go to the </span>previous<span> page</span></a>
-                        </li>
-                        <li class="active">
-                            <a href="#" class="active"><span class="sr-only">go to page </span>1</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="sr-only">go to page </span>2</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="sr-only">go to page </span>3</a>
-                        </li>
-                        <li>
-                            <a href="#"><span class="sr-only">go to page </span>4</a>
-                        </li>
-                        <li class="next">
-                            <a href="#"><span class="sr-only">go to the </span>next<span> page</span></a>
-                        </li>
-                    </ul>
+                        <div class="content-listing">
+                            <ul class="stripped content-listing__list">
+                                <li>
+
+                                    <article class="item-teaser">
+                                        <h2 class="beta"><a href="article.html">Lorem ipsum dolor sit amet</a></h2>
+                                        <img src="images/placeholder-image.png" alt="placeholder-image"/>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sic enim censent, oportunitatis esse beate vivere.Quid igitur dubitamus in tota eius natura quaerere quid sit effectum? Et quod est munus, quod opus sapientiae? In schola desinis. Quamquam te quidem video minime esse deterritum. Quid est igitur, cur ita semper deum appellet Epicurus beatum et aeternum? Duo Reges: constructio interrete.
+                                        </p>
+                                        <a class="read-more" href="#">read more<span class="sr-only"> about Article title</span></a>
+                                    </article>
+
+                                </li>
+                                <li>
+
+                                    <article class="item-teaser">
+                                        <h2 class="beta"><a href="article.html">Sic enim censent, oportunitatis esse beate</a></h2>
+                                        <img src="images/placeholder-image.png" alt="placeholder-image"/>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sic enim censent, oportunitatis esse beate vivere.Quid igitur dubitamus in tota eius natura quaerere quid sit effectum? Et quod est munus, quod opus sapientiae? In schola desinis. Quamquam te quidem video minime esse deterritum. Quid est igitur, cur ita semper deum appellet Epicurus beatum et aeternum? Duo Reges: constructio interrete.
+                                        </p>
+                                        <a class="read-more" href="#">read more<span class="sr-only"> about Article title</span></a>
+                                    </article>
+
+                                </li>
+                            </ul>   
+
+                            <ul class="pager">
+                                <li class="prev">
+                                    <a href="#"><span class="sr-only">go to the </span>previous<span> page</span></a>
+                                </li>
+                                <li class="active">
+                                    <a href="#" class="active"><span class="sr-only">go to page </span>1</a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="sr-only">go to page </span>2</a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="sr-only">go to page </span>3</a>
+                                </li>
+                                <li>
+                                    <a href="#"><span class="sr-only">go to page </span>4</a>
+                                </li>
+                                <li class="next">
+                                    <a href="#"><span class="sr-only">go to the </span>next<span> page</span></a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                    <div class="grid-column grid-column--one-third">
+                        <div class="ui-info ui-info_information">
+                            <p>side column</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </section>
-
-        <div class="layout__sidebar sidebar sidebar-second">
-            <div class="layout__inner-wrap grid">
-                <div class="contentblock">
-                    <h2 class="gamma">Header of this block <code>div.contentblock</code></h2>
-                    <p><i>Erat enim res aperta.</i> Gloriosa ostentatio in constituendo summo bono. Et ille ridens: Video, inquit, quid agas; Eiuro, inquit adridens, iniquum, hac quidem de re.<br><a href='http://loripsum.net/'>Hoc simile tandem est?</a>.</p>
-                </div>
-            </div>
-        </div>
-
     </main>
 
     <footer class="footer">

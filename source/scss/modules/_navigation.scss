@@ -24,7 +24,7 @@
     background-color: darken($lightGrey, 4%);
     color: #222;
     border: 1px solid darken($lightGrey, 4%);
-    transition: 200ms all;
+    transition: $ui-transition-speed all;
     font-size: 0.875rem;
     &:hover, &:active {
         background-color: darken($lightGrey, 6%);
@@ -89,7 +89,7 @@ nav, .navigation-primary {
     position: fixed;
     background-color: $lightGrey;
     opacity: 0;
-    transition: 200ms all;
+    transition: $ui-transition-speed all;
     z-index: 0;
     top: 57px;
     margin: 0 -1rem;
@@ -189,8 +189,8 @@ nav, .navigation-primary {
             margin:0;
             color: $darkGrey;
             // text-transform: uppercase;
-            border-bottom: 0;
-            transition: 200ms all;
+            border-bottom: 1px solid transparent;
+            transition: $ui-transition-speed all;
             font-size: 0.875rem;
             @include respond-to(medium-screens) {
                 padding: 0.5rem 2rem;
@@ -233,7 +233,7 @@ nav, .navigation-primary {
                     }
                 }
                 .icon {
-                    transition: 200ms all;
+                    transition: $ui-transition-speed all;
                     color: $grey;
                     fill: $grey;
                     stroke: $grey;

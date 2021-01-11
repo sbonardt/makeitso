@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
-    <title>MakeItSo - get to viable at warp speed</title>
+    <title>MakeItSo - Article page</title>
     <meta charset="utf-8" />
     <meta http_equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=10.0" />
@@ -14,90 +14,135 @@
     <meta name="theme-color" content="#ffffff">
     <link type="text/css" rel="stylesheet" href="css/screen.css" media="all" />
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600&display=swap" rel="stylesheet"> 
 </head>
 
-<body class="home overview layout--sidebar">
-    <header>
-        <div class="inner-wrap">
+<body class="layout">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-envelope" viewBox="0 0 32 32">
+            <path d="M29.439 26.061v-13.284q-0.553 0.623-1.194 1.142-4.636 3.563-7.369 5.846-0.882 0.744-1.436 1.159t-1.496 0.839-1.773 0.424h-0.035q-0.83 0-1.773-0.424t-1.496-0.839-1.436-1.159q-2.733-2.283-7.369-5.846-0.64-0.519-1.194-1.142v13.284q0 0.225 0.164 0.389t0.389 0.164h25.462q0.225 0 0.389-0.164t0.164-0.389zM29.439 7.882v-0.424q0 0-0.009-0.225t-0.052-0.216-0.095-0.156-0.156-0.13-0.242-0.043h-25.462q-0.225 0-0.389 0.164t-0.164 0.389q0 2.906 2.543 4.912 3.338 2.629 6.936 5.483 0.104 0.087 0.605 0.51t0.796 0.649 0.77 0.545 0.873 0.476 0.744 0.156h0.035q0.346 0 0.744-0.156t0.873-0.476 0.77-0.545 0.796-0.649 0.605-0.51q3.598-2.854 6.936-5.483 0.934-0.744 1.738-1.998t0.804-2.275zM31.653 7.242v18.819q0 1.142-0.813 1.955t-1.955 0.813h-25.462q-1.142 0-1.955-0.813t-0.813-1.955v-18.819q0-1.142 0.813-1.955t1.955-0.813h25.462q1.142 0 1.955 0.813t0.813 1.955z"></path>
+        </symbol>
+        
+        <symbol id="icon-facebook" viewBox="0 0 32 32">
+            <path d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h13v-14h-4v-4h4v-2c0-3.306 2.694-6 6-6h4v4h-4c-1.1 0-2 0.9-2 2v2h6l-1 4h-5v14h9c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3z"></path>
+        </symbol>
+    
+        <symbol id="icon-search" viewBox="0 0 34 32">
+            <path d="M13.19 0c7.284 0 13.19 5.902 13.19 13.182 0 2.874-0.921 5.534-2.483 7.7l9.882 9.875-1.244 1.243-9.764-9.759c-2.404 2.539-5.808 4.122-9.581 4.122-7.284 0-13.19-5.902-13.19-13.182s5.905-13.182 13.19-13.182zM13.19 1.758c-6.313 0-11.431 5.115-11.431 11.424s5.118 11.424 11.431 11.424c6.313 0 11.431-5.115 11.431-11.424s-5.118-11.424-11.431-11.424z"></path>
+          </symbol>
+    </svg>
+
+    <header class="header">
+        <div class="layout__inner-wrap">
             <a class="skipcontent" href="#content">Skip to contents</a>
             <a href="/" class="logo">
-                <!-- <img src="../img/mob-logo.png" alt="" data-src="../img/logo.png" data-src-mobile="../img/mob-logo.png" /> -->
-                <span>Makeitso</span>
+                <img src="images/logo.svg" alt="" />
+                <!-- <span>Makeitso</span> -->
             </a>
+
+            <nav class="navigation-primary">
+                <div class="layout__inner-wrap">
+                    <ul class="menu menu--primary">
+                        <li class="first">
+                            <a href="index.html">About MAKEITSO</a>
+                        </li>
+                        <li>
+                            <a href="article.html" class="active">Article page</a>
+                        </li>
+                        <li>
+                            <a href="listing.html">Listing page</a>
+                        </li>
+                        <li>
+                            <a href="form.html">Form page</a>
+                        </li>
+                    </ul>
+                    <ul class="menu menu--secondary">
+                        <li>
+                            <a href="#">
+                                Contact
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="toggle-search search__search-toggle">
+                                <svg class="icon icon--search">
+                                    <use xlink:href="#icon-search" />
+                                </svg>
+                                <span><span class="search__search-toggle-inner"></span>Search</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <form action="/" method="post" accept-charset="UTF-8" class="search-block">
+                        <div class="layout__inner-wrap">
+                            <label for="search_field">Search</label>
+                            <input title="Enter the terms you wish to search for" type="text" name="search_field" value="" class="search_field" id="search_field" />
+                            <button type="submit" value="search">
+                                <svg class="icon icon--search">
+                                    <use xlink:href="#icon-search" />
+                                </svg>
+                                Zoeken
+                            </button>
+                            <a href="#" class="toggle-search search__search-toggle-inner"><span class="sr-only">Sluiten</span></a>
+                        </div>
+                    </form>
+                </div>
+            </nav>
+
         </div>
     </header>
 
-    <nav class="navigation-primary">
-        <div class="inner-wrap">
-            <ul class="menu">                
-                <li class="first active">
-                    <a href="index.html" class="active">About MAKEITSO</a>
-                </li>
-                <li>
-                    <a href="article.html">Article page</a>
-                </li>
-                <li>
-                    <a href="listing.html">Listing page</a>
-                </li>
-                <li>
-                    <a href="form.html">Form page</a>
-                </li>        
-            </ul>
-            <form action="/" method="post" accept-charset="UTF-8" class="search-block">
-                <label for="search_field">Search</label>
-                <input title="Enter the terms you wish to search for" type="search" name="search_field" value="" class="search_field" />
-                <input type="submit" value="search" />
-            </form>
-        </div>             
-    </nav>
-
     <main>
+        <article class="layout__main main-content">
 
-        <section class="layout__main main-content">
-            
-            <div class="inner-wrap">
-
-                <a id="content" tabindex="0"></a>
-                <h1>About MakeItSo</h1>
-                <div class="body-content">
-                    <p class="introduction"><b><i>MAKEITSO</i></b> is a bare startup theme with a <em>minimum</em> of styling bases on some sensible defaults. These defaults are for you to change or adapt. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with.</p>
-                    
-                    <div class="ui-info ui-info_information"><p><strong><i>MAKEITSO</i></strong> is <i>responsive</i>, <i>progressively enhanced</i> and built <i>mobile first</i>.</p></div>
-
-                    <h2>A base project setup</h2>
-
-                    <p><strong>MAKEITSO</strong> <i>strives</i> to not give you unneeded and excessive markup, CSS styles and classes or pre-made design patterns. </p>
-
-                    <h3>Some important details:</h3>
-                    <ul>
-                        <li>Normalize.css is used as a default to align browsers' rendering appearrance and positioning.</li>
-                        <li>CSS Grid is used to layout the main <code>inner-wrap</code> class elements. See <code>_theme.scss</code> for examples</li>
-                        <li>Probably the most opinionated (but small) piece of functionality in this project is the mobile menu toggle functionality on small screens in combination with the search block. If you don't like it, take it out. It's fairly easy and a small effort: remove the lines of code in source/js/custom.js</li>
-                    </ul>                                       
+            <header class="paragraph paragraph--with-background main-content__header">
+                <div class="layout__inner-wrap grid">
+                    <a id="content" tabindex="0"></a>
+                    <div class="grid-column--two-thirds">
+                        <a id="content" tabindex="0"></a>
+                        <h1 class="beta">MAKEITSO<span class="sub">a front-end base setup and Bolt CMS theme</span></h1>
+                        <p><b><i>MAKEITSO</i></b> is a bare startup theme with a <em>minimalistic</em> styling based on some sensible defaults. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with. This is a Bolt CMS theme</p>
+                    </div>
                 </div>
-                
+            </header>
+
+            <div class="paragraph">
+                <div class="layout__inner-wrap grid">
+
+                    <div class="grid-column grid-column--two-thirds">                           
+                        <h2>A base project setup</h2>
+                        <p><strong>MAKEITSO</strong> <i>strives</i> to not give you unneeded and excessive markup, CSS styles and classes or pre-made design patterns. It does however have some base components and layout patterns which give you a lot of flexibility in setting up an creating a custom, Bolt managed website.</p> 
+                        <p>The following templates are available:</p>
+                        <ul>
+                            <li>
+                                <a href="/theme/makeitso/dist/article.html">Article page example</a> with various base HTML elements
+                            </li>
+                            <li>
+                                <a href="/theme/makeitso/dist/listing.html">Listing page example</a> for creating overview type pages or listings
+                            </li>
+                            <li>
+                                <a href="/theme/makeitso/dist/form.html">Form page example</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="grid-column grid-column--one-third">
+                        <h3>Some important details:</h3>
+                        <ul>
+                            <li>A more opinionated base design for this version. As it's a theme for the CMS Bolt v4 as well</li>
+                            <li>Normalize.css is used as a default to align browsers' rendering appearrance and positioning.</li>
+                            <li>CSS Grid based layout for content</li>
+                        </ul>  
+                        <div class="ui-info ui-info_information"><p><strong><i>MAKEITSO</i></strong> is <i>responsive</i>, <i>progressively enhanced</i> and built <i>mobile first</i>.</p></div>
+                    </div>
+
+                </div>
             </div>
 
-        </section>
-
-        <aside class="layout__sidebar sidebar sidebar--second">
-            <div class="inner-wrap">
-                <div class="contentblock">
-                    <h2>HTML elements example pages</h2>                    
-                    <p>The <a href="article.html">article example page</a> contains base HTML elements to show how the base styling looks in this setup.</p>
-                    <a class="button" href="article.html">article example page</a>
-                    <p>The <a href="form.html">form example page</a> shows you the default generic styling of a form and form elements. Go check them out.</p>
-                    <a class="button" href="form.html">form example page</a>
-                </div>
-            </div>
-        </aside>
-
+        </article>
     </main>
 
-    <footer>
-        <div class="inner-wrap">
+    <footer class="footer">
+        <div class="layout__inner-wrap">
             <div class="footer-block third">
                 <ul class="stripped menu">
                     <li>
@@ -122,7 +167,7 @@
         </div>
     </footer>
 
-    <script type="text/javascript" src="js/scripts.js"></script>   
+    <script type="text/javascript" src="js/scripts.js"></script> 
 
 </body>
 </html>
