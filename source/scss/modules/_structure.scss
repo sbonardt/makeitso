@@ -46,6 +46,11 @@ body {
         display: block;
         overflow: hidden;
     }
+    > .header {
+        @include respond-to(xlarge-screens) {
+            overflow: visible;
+        }
+    }
     > footer {
 
         min-height: 12rem;
@@ -121,6 +126,7 @@ aside {
     font-family: $baseHeaderFontFamily;
     display: flex;
     align-items: center;
+    flex: 0 1 270px;
     @include respond-to(midmobile) {
         font-size: 2.5rem;
     }

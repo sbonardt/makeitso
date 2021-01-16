@@ -1,53 +1,62 @@
 {% extends 'partials/_base.twig' %}
 
-{% block bodyclass %}home overview layout--sidebar{% endblock %}
+{% block bodyclass %}homepage{% endblock %}
 
 {% block main %}
-    <section class="layout__main main-content">
-        <a id="content" tabindex="0"></a>
-        <h1>You installed MAKEITSO on Bolt!</h1>
-        <div class="body-content">
-            <div class="ui-info ui-info_warning">                
-                <p><b>It seems no item is set as the homepage in config.yml or the item can not be found.</b>
-                <br>Please check your config.yml 'homepage' setting, create a page in the Bolt backend, or set the frontpage to another type of content.</p>
+<article class="layout__main main-content">
+
+    <header class="paragraph paragraph--with-background main-content__header">
+        <div class="layout__inner-wrap grid">
+            <a id="content" tabindex="0"></a>
+            <div class="grid-column--two-thirds">
+                <a id="content" tabindex="0"></a>
+                <h1>MAKEITSO<span class="sub">a front-end base setup &amp;<br> Bolt theme</span></h1>
+                <p><b><i>MAKEITSO</i></b> is a bare startup theme with a <em>minimalistic</em> styling based on some sensible defaults. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with. This is a Bolt CMS theme</p>
             </div>
         </div>
+    </header>
 
-        {# START OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
-        <p><b>You've set MAKEITSO as the theme for this Bolt website!<br>
-        You can view the example pages of this theme in the <code>/dist</code> folder in the <a href="/theme/makeitso/dist/index.html">MAKEITSO theme folder</a>.<br><br>The following example pages are present:</b>
-        </p>
-        <ul>
-            <li>
-                <a href="{{ asset('dist/index.html') }}">About MAKEITSO</a>
-            </li>
-            <li>
-                <a href="{{ asset('dist/article.html') }}">Article page example with HTML elements</a>
-            </li>
-            <li>
-                <a href="{{ asset('dist/listing.html') }}">Listing page example</a>
-            </li>
-            <li>
-                <a href="{{ asset('dist/form.html') }}">Form page example</a>
-            </li>
-        </ul>
-        {# END OF MAKEITSO WELCOME: YOU CAN REMOVE THIS FROM THE TEMPLATE AFTER READING #}
-    </section>
-{% endblock %}
+    <div class="paragraph">
+        <div class="layout__inner-wrap grid">
 
-{% block aside_first %}
-{% endblock %}
+            <div class="grid-column grid-column--two-thirds">                           
+                <h2>A base project setup</h2>
+                <p><strong>MAKEITSO</strong> <i>strives</i> to not give you unneeded and excessive markup, CSS styles and classes or pre-made design patterns. It does however have some base components and layout patterns which give you a lot of flexibility in setting up an creating a custom, Bolt managed website.</p> 
+                <p>The following templates are available:</p>
+                <ul>
+                    <li>
+                        <a href="{{ asset('dist/index.html') }}">About MAKEITSO</a>
+                    </li>
+                    <li>
+                        <a href="{{ asset('dist/article.html') }}">Article page example with HTML elements</a>
+                    </li>
+                    <li>
+                        <a href="{{ asset('dist/listing.html') }}">Listing page example</a>
+                    </li>
+                    <li>
+                        <a href="{{ asset('dist/form.html') }}">Form page example</a>
+                    </li>
+                </ul>
+            </div>
 
-{% block aside_second %}
-    <aside class="layout__sidebar sidebar sidebar-second">
+            <div class="grid-column grid-column--one-third">
+                <h3>Some important details:</h3>
+                <ul>
+                    <li>A more opinionated base design for this version. As it's a theme for the CMS Bolt v4 as well</li>
+                    <li>Normalize.css is used as a default to align browsers' rendering appearrance and positioning.</li>
+                    <li>CSS Grid based layout for content</li>
+                </ul>  
+                <div class="ui-info ui-info_information"><p><strong><i>MAKEITSO</i></strong> is <i>responsive</i>, <i>progressively enhanced</i> and built <i>mobile first</i>.</p></div>
+            </div>
 
-        <div class="contentblock">
-            <h2>HTML elements example pages</h2>                    
-            <p>The <a href="article.html">article example page</a> contains base HTML elements to show how the base styling looks in this setup.</p>
-            <a class="button" href="article.html">article example page</a>
-            <p>The <a href="form.html">form example page</a> shows you the default generic styling of a form and form elements. Go check them out.</p>
-            <a class="button" href="form.html">form example page</a>
         </div>
+    </div>
 
-    </aside>
+</article>
 {% endblock %}
+
+
+
+
+
+

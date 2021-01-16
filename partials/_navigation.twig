@@ -1,27 +1,33 @@
 <nav class="navigation-primary">
-    <div class="inner-wrap">
-        <ul class="menu">                
-
+    <div class="layout__inner-wrap">
+        <ul class="menu menu--primary">
             {{ menu('main', template='partials/_menu.twig') }}
-
-            {# <li class="first active">
-                <a href="index.html" class="active"><span>Over YogaSchaap</span></a>
-            </li>
+        </ul>
+        <ul class="menu menu--secondary">
+            {{ menu('main--secondary', template='partials/_menu.twig') }}
             <li>
-                <a href="article.html"><span>Lessen</span></a>
+                <a href="#" class="toggle-search search__search-toggle">
+                    <svg class="icon icon--search">
+                        <use xlink:href="#icon-search" />
+                    </svg>
+                    <span><span class="search__search-toggle-inner"></span>Search</span>
+                </a>
             </li>
-            <li>
-                <a href="listing.html"><span>Yoga voor kinderen</span></a>
-            </li>
-            <li>
-                <a href="form.html"><span>Contact</span></a>
-            </li>         #}
         </ul>
 
-        <form action="/" method="post" accept-charset="UTF-8" class="search-block">
-            <label for="search_field">Search</label>
-            <input title="Enter the terms you wish to search for" type="search" name="search_field" value="" class="search_field" />
-            <input type="submit" value="search" />
+        <form action="{{ path('search') }}" method="get" class="search-block" enctype="text/plain">
+            <div class="layout__inner-wrap">
+                <label for="search_field">Search</label>
+                <input type="search" name="search_field" value="{{ search|default|escape }}" class="search_field" id="search_field"  placeholder="Your search term{{ __('general.phrase.search-ellipsis') }}"/>
+                <button type="submit" value="search">
+                    <svg class="icon icon--search">
+                        <use xlink:href="#icon-search" />
+                    </svg>
+                    {{ __('action.search') }}
+                </button>
+                <a href="#" class="toggle-search search__search-toggle-inner"><span class="sr-only">Sluiten</span></a>
+            </div>
         </form>
-    </div>             
+        
+    </div>
 </nav>

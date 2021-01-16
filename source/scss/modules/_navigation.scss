@@ -111,6 +111,8 @@ nav, .navigation-primary {
         flex: 1 0 auto;
         padding-left: 2rem;
         height: auto;
+
+        overflow: visible;
     }
     @include respond-to(xlarge-screens) {
         top: 0;
@@ -145,6 +147,26 @@ nav, .navigation-primary {
             //padding-left: 225px;
         }
     }
+    .menu--submenu {
+        padding-left: 1.125rem;
+        margin-bottom: 0;
+        @include respond-to(xlarge-screens) {
+            position: absolute;
+            width:220px;
+            display: flex;
+            flex-direction: column;
+            padding-top: 0.625rem;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.05);
+
+            display: none;
+        }
+    }
+    li.dropdown:hover {
+
+        .menu--submenu {
+            display: block;
+        }
+    }
     .layout__inner-wrap {
         padding: 0.625rem 0;
         // position: inherit;
@@ -155,6 +177,8 @@ nav, .navigation-primary {
             flex-direction: column-reverse;
             padding: 0;
             align-items: flex-start;
+
+            overflow: visible;
         }
         // @include respond-to(large-screens) {
         //     padding: 0 1.125rem;
@@ -173,6 +197,7 @@ nav, .navigation-primary {
             margin-bottom:0;
         }
         ul {
+            margin-bottom: 1rem;
             @include respond-to(xlarge-screens) {
                 display: none;
             }
@@ -275,6 +300,32 @@ nav, .navigation-primary {
                 font-size: 0.875rem;
                 @include respond-to(xlarge-screens) {
                     padding-bottom: 1.25rem;
+                    position: relative;
+                }
+            }
+        }
+        .menu--submenu {
+            @include respond-to(xlarge-screens) {
+                background-color: $lightGrey;
+            }
+            li {
+                a {
+                    font-size: 0.75rem;
+                    @include respond-to(xlarge-screens) {
+                        margin: 0;
+                        padding-bottom: 0.5rem;
+                        margin-bottom: 0.25rem;
+                        display: inline-block;
+                    }
+                    &:link,
+                    &:visited {
+                        //border-bottom: 1px solid
+                    }
+                    &:hover,
+                    &:active,
+                    &:focus {
+                        //border-bottom-color: transparent;
+                    }
                 }
             }
         }

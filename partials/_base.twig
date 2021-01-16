@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ htmllang() }}">
+<html class="no-js" lang="{{ htmllang() }}">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         {# make sure we always display a proper title: The record's title if there is one, appended with the
         sitename. If there is no title, we append the sitename with the payoff, if there is one. #}
         <title>
@@ -20,10 +19,10 @@
         <meta name="keywords" content="">
         <meta name="author" content="">
 
-        <link rel="stylesheet" href="{{ asset('dist/css/screen.css') }}" media="all" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;600&display=swap" rel="stylesheet"> 
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600" rel="stylesheet"> 
+        <link rel="stylesheet" href="{{ asset('dist/css/screen.css') }}" media="all" />
 
         <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
@@ -33,31 +32,21 @@
         <meta name="theme-color" content="#ffffff">
     </head>
 
-    <body class="{% block bodyclass %}{% endblock bodyclass %}">
-
+    <body class="layout {% block bodyclass %}{% endblock bodyclass %}">
         {% include 'partials/_icons.twig' %}
 
         {% include 'partials/_header.twig' %}
-
-        {% include 'partials/_navigation.twig' %}
   
         <main>
-
-            {% block aside_first %}
-            {% endblock aside_first %}
 
             {% block main %}
             (This is <code>block main</code>)
             {% endblock main %}
 
-            {% block aside_second %}
-            {% endblock aside_second %}
-            
         </main>
 
         {% include 'partials/_footer.twig' %}
 
     <script defer src="{{ asset('dist/js/scripts.js') }}"></script>
-
 </body>
 </html>

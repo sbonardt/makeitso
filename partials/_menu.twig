@@ -17,12 +17,12 @@
         {{ item.submenu|default(false) ? ' dropdown sub-menu' -}}
         {{ item|current ? ' active' }}">
 
-        <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='{{ item.class|default('') }}'>
+        <a href="{{ item.link }}" title='{{ item.title|default('')|escape }}' class='{{ item.class|default('') }}{{ item|current ? ' active' }}'>
             {{ item.label|default('-') }}
         </a>
 
-        {% if item.submenu is defined %}
-            <ul class="sub-menu-items">
+        {% if item.submenu %}
+            <ul class="menu menu--submenu">
                 {% for submenu in item.submenu %}{{ display_menu_item(submenu, loop) }}{% endfor %}
             </ul>
         {% endif %}

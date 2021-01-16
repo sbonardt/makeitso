@@ -41,7 +41,7 @@
     }
     .expandable-field__toggler {
         font-family: $baseHeaderFontFamily;
-        font-size: 1.125rem;
+        font-size: 1rem;
         display: block;
         width: 100%;
         display: inline-block;
@@ -111,8 +111,8 @@
         .icon-arrow {
             position: relative;
             display: block;
-            width: 0.8rem;
-            height: 0.8rem;
+            width: 0.6rem;
+            height: 0.6rem;
             &:after {
                 content: "";
                 width: 100%;
@@ -120,7 +120,7 @@
                 display: block;
                 position: absolute;
                 left: 0;
-                top: -4px;
+                top: -2px;
                 border-top: 2px solid $black;
                 border-right: 2px solid $black;
                 transform: rotate(135deg);

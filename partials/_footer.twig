@@ -1,29 +1,30 @@
-<footer class="main-footer">
-	<div class="inner-wrap">
-		<div class="footer__logo">
-			<img src="{{ asset('dist/images/logo.svg') }}" alt="">
-		</div>
-
-		<div class="footer-block">
-			<p>
-				All content &copy; {{ "now"|date('Y') }}
-			</p>
-
-			<ul class="menu menu--footer">
+<footer class="footer">
+	<div class="layout__inner-wrap">
+		<div class="footer-block third">
+			<ul class="stripped menu">
 				<li>
-					<a href="#">Lorem ipsum</a>    
+					<a href="index.html">Index page</a>
 				</li>
 				<li>
-					<a href="#">Privacy statement</a>   
+					<a href="article.html">Article page</a>
+				</li>
+				<li>
+					<a href="listing.html">Listing page</a>   
+				</li>
+				<li>
+					<a href="form.html">Form page</a>    
 				</li>
 			</ul>
-
-			<a rel="noopener noreferrer" href="#" class="social-link--facebook">
-				<span>Facebook</span>
-				<svg class="icon icon-facebook">
-					<use xlink:href="#icon-facebook" />
-				</svg>
-			</a>
 		</div>
+
+		<div class="footer-logo">
+		{# <img src="{{ asset('dist/images/logo.svg') }}" alt=""> #}
+			<span class="logotype">MAKEITSO</span>
+			<span class="tagline"><i>get to mvp at warp speed</i></span>
+		</div>
+
+		{# <p>
+			All content &copy; {{ "now"|date('Y') }} <a href="https://boltcms.io" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">Built with Bolt</a>
+		</p> #}
 	</div>
 </footer>
