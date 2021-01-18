@@ -109,8 +109,28 @@ jQuery(function ($) {
         }
     });
 
-    /*
-     * Expandable field logic
+
+    /* WINDOW SCROLL FUNCTIONALITY
+     * Do some actions when scrolling the page
+     */
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+    
+         //>=, not <=
+        if (scroll >= 50) {
+            //clearHeader, not clearheader - caps H
+            $("body .header").addClass("header--scrolled");
+        }
+        else {
+            $("body .header").removeClass("header--scrolled");
+        }
+    });
+
+
+    /* EXPANDABLE FIELDS FUNCTIONALITY
+     * Expandable field logic. A toggler makes a following elelemtn expand it's height
+     * Fields with class .expandable-field__toggle-target are collapsed upon page load
+     * by triggering a click on the .expandable-field__toggler
      */
     $('.expandable-field__toggler').on('click', function(e) {
         e.preventDefault();
@@ -147,8 +167,11 @@ jQuery(function ($) {
     }
 
 
-    /**
-     * Button groups
+
+
+    /* BUTTON GROUPS FUNCTIONALITY
+     * Base functionality for having a button toggler to toggle subbuttons in
+     * dropdown like button.
      * Checks for button groups and adds toggle functionality and ARIA stuff
     */
    $('.button-group').each(function() {
@@ -171,7 +194,6 @@ jQuery(function ($) {
         }
         });
     });
-
     /* click anywhere to close active options */
     $(document).click(function() {
         buttonGroupDropdownsClose();
@@ -209,77 +231,19 @@ jQuery(function ($) {
         if ( windowWidthEm < breakSmall) { 
             // nothing specified
         }
-
         // if the windowWidth is smaller than the Medium Breakpoint
         if (windowWidthEm < breakMedium) {
-            // // we go back screen widths smaller than medium breakpoint after resize
-            // // if the search block is present in the header because it got placed there
-            // // on window resize to greater than Medium Breakpint, copy that back to the primary nav
-            // // in order tot toggle between either the menu or the search
-            // if ($('body > header .search-block').length > 0) {
-            //     $(".search-block").appendTo('.navigation-primary > .inner-wrap');
-            // }
-
-            // // Hide the search block and primary-navigation, and display the toggle buttons for menu and search
-            // //$(".search-block, .navigation-primary").hide();
-            // //$(".navigation-primary").hide();
-            // $(".toggle-search, .toggle-menu").show(); 
-           
-            // // use the mobile logo image on smaller screens again after resize
-            // $(".logo img").attr("src", $(".logo img").attr("data-src-mobile") );
+            // nothing specified
         }
         // if the windowWidth is greater than the Medium Breakpoint
         else {
-            // // place the search block in the header and show it
-            // $(".search-block").appendTo('body > .header .inner-wrap').show();
-
-            // // hide the toggle-search button, because from this breakpoint on
-            // // the search functionality is visible, so hide the search toggle button
-            // $(".toggle-search").hide(); 
-            // // show the primary navigation from this breakpoint on
-            // //$(".navigation-primary").show();
-            // // the menu is visible from this breakpoint on, so hide the menu toggle button
-            // $(".toggle-menu").hide();
-
-            // // replace the mobile logo with the larger version
-            // $(".logo img").attr("src", $(".logo img").attr("data-src") );
+            // nothing specified
         }
         if (windowWidthEm < breakXlarge) {
             // nothing specified
-
-            // we go back screen widths smaller than medium breakpoint after resize
-            // if the search block is present in the header because it got placed there
-            // on window resize to greater than Medium Breakpint, copy that back to the primary nav
-            // in order tot toggle between either the menu or the search
-            // if ($('body > header .search-block').length > 0) {
-            //     $(".search-block").appendTo('.navigation-primary > .inner-wrap');
-            // }
-
-            // Hide the search block and primary-navigation, and display the toggle buttons for menu and search
-            //$(".search-block, .navigation-primary").hide();
-            //$(".navigation-primary").hide();
-            //$(".toggle-search, .toggle-menu").show(); 
-           
-            // use the mobile logo image on smaller screens again after resize
-            $(".logo img").attr("src", $(".logo img").attr("data-src-mobile") );
-
         }
         else {
-            // ...
-
-            // place the search block in the header and show it
-            //$(".search-block").appendTo('body > .header .inner-wrap').show();
-
-            // hide the toggle-search button, because from this breakpoint on
-            // the search functionality is visible, so hide the search toggle button
-            //$(".toggle-search").hide(); 
-            // show the primary navigation from this breakpoint on
-            //$(".navigation-primary").show();
-            // the menu is visible from this breakpoint on, so hide the menu toggle button
-            //$(".toggle-menu").hide();
-
-            // replace the mobile logo with the larger version
-            $(".logo img").attr("src", $(".logo img").attr("data-src") );
+            // nothing specified
         }
     }
 });

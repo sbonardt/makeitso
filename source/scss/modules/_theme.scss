@@ -27,6 +27,16 @@
 //     }
 // }
 
+
+.header {
+	transition: box-shadow 200ms ease-in-out;
+	&.header--scrolled {
+		@include respond-to(xlarge-screens) {
+			box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+		}
+	}
+}
+
 .introduction {
 	font-weight: 600;
 	// font-size: 1rem;

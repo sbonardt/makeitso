@@ -3,7 +3,7 @@
 {% block bodyclass %}homepage{% endblock %}
 
 {% block main %}
-<article class="layout__main main-content">
+<section class="layout__main main-content">
 
     <header class="paragraph paragraph--with-background main-content__header">
         <div class="layout__inner-wrap grid">
@@ -11,7 +11,7 @@
             <div class="grid-column--two-thirds">
                 <a id="content" tabindex="0"></a>
                 <h1>MAKEITSO<span class="sub">a front-end base setup &amp;<br> Bolt theme</span></h1>
-                <p><b><i>MAKEITSO</i></b> is a bare startup theme with a <em>minimalistic</em> styling based on some sensible defaults. It is advised to keep the base scss partials, as the selectors and css cascade are a good basis for implementing your design with. This is a Bolt CMS theme</p>
+                <p><b><i>MAKEITSO</i></b> is a bare startup theme with a <em>minimalistic</em> styling based on some sensible defaults. It is advised to keep the base scss partials/modules, as the selectors and css cascade are a good basis for implementing your design with. This is a Bolt CMS theme.</p>
             </div>
         </div>
     </header>
@@ -25,7 +25,7 @@
                 <p>The following templates are available:</p>
                 <ul>
                     <li>
-                        <a href="{{ asset('dist/index.html') }}">About MAKEITSO</a>
+                        <a href="{{ asset('dist/index.html') }}">Homepage/index page example: About MAKEITSO</a>
                     </li>
                     <li>
                         <a href="{{ asset('dist/article.html') }}">Article page example with HTML elements</a>
@@ -52,7 +52,7 @@
         </div>
     </div>
 
-</article>
+</section>
 {% endblock %}
 
 

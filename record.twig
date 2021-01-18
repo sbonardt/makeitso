@@ -1,36 +1,41 @@
 {% extends 'partials/_base.twig' %}
 
-{% block bodyclass %}layout-sidebar{% endblock %}
+{% block bodyclass %}{% endblock %}
 
-{% block body %}
-    <article class="main-content">
-        <div class="inner-wrap">
-            <a id="content" tabindex="0"></a>
+{% block main %}
 
-            {{ widgets('main_top') }}
-
-            <h1 data-bolt-field="title">{{ record.title }}</h1>
-
-            <div class="body-content">
-                {# Output all fields, in the order as defined in the contenttype.
-                To change the generated html and configure the options, see:
-                https://docs.bolt.cm/templating/fields-tag #}
-                {{ fields(template = 'partials/_sub_fields.twig') }}
-
-                {# Uncomment this if you wish to dump the entire record to the client, for debugging purposes.
-                {{ dump(record) }}
-                #}
+    <article class="layout__main main-content">
+        <header class="paragraph paragraph--with-background main-content__header">
+            <div class="layout__inner-wrap grid">
+                <div class="grid-column">
+                    <a id="content" tabindex="0"></a>
+                    <h1>Article page template</h1>
+                    <p class="introduction">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut alios omittam, hunc appello, quem ille unum secutus est. Haec dicuntur fortasse ieiunius; Quos quidem tibi studiose et diligenter tractandos magnopere censeo. Duo Reges: constructio interrete. Quod autem ratione actum est, id officium appellamus. At iam decimum annum in spelunca iacet. Si qua in iis corrigere voluit, deteriora fecit.
+                    </p>
+                </div>
             </div>
+        </header>
 
-            {% include 'partials/_recordfooter.twig' with { 'record': record, 'extended': true } %}
-        
+        <div class="paragraph">
+            <div class="layout__inner-wrap grid">
+
+                <div class="grid-column grid-column--two-thirds">
+
+                    {# Output all fields, in the order as defined in the contenttype.
+                    To change the generated html and configure the options, see:
+                    https://docs.bolt.cm/templating #}
+                    {% with { 'record': record, 'exclude': [record|image.fieldname|default()] } %}
+                        {{ block('sub_fields', 'helpers/_fields.twig') }}
+                    {% endwith %}
+                </div>
+                <div class="grid-column grid-column--one-third">
+                    <div class="ui-info ui-info_information">
+                        <p>side column</p>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </article>
-{% endblock %}
 
-{% block aside_first %}
-{% endblock %}
-
-{% block aside_second %}
 {% endblock %}
