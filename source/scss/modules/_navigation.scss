@@ -93,9 +93,9 @@ nav, .navigation-primary {
     z-index: 0;
     top: 57px;
     margin: 0 -1rem;
-
     height: 0;
-    overflow: hidden;
+
+    overflow: scroll;
     @include respond-to(medium-screens) {
         margin: 0 -2rem;
         top: 70px;
@@ -122,7 +122,7 @@ nav, .navigation-primary {
     }
     .nav-overlay--active & {
         opacity: 1;
-        top: 60px;
+        top: 70px;
         width: 100%;
         height: calc(100vh - 60px);
         @include respond-to(xlarge-screens) {
@@ -283,7 +283,7 @@ nav, .navigation-primary {
         &.active {
             a {
                 &:link, &:visited {
-                    background-color: $lightGrey;
+                    //background-color: $lightGrey;
                 }
             }
         }

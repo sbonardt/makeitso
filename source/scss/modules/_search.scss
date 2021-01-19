@@ -10,7 +10,7 @@
     margin: 0 0 0 auto;
     overflow: hidden;
     display: block;
-    padding: 0 0.625rem;
+    padding: 0 1rem;
     @include respond-to(medium-screens) {
         padding: 0.5rem 2rem;
     }
@@ -95,6 +95,7 @@
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         margin-bottom: 0;
+        min-height: 36px;
         @include respond-to(xlarge-screens) {
             max-width: 400px;
         }
