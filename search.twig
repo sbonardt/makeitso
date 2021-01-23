@@ -1,75 +1,87 @@
 {% extends 'partials/_base.twig' %}
 
-{% block aside_sidebar_first %}
-    {# <aside class="sidebar sidebar-first">
-    </aside> #}
-{% endblock %}
+{% block bodyclass %}{% endblock %}
 
-{% block body %}
+{% block main %}
 
-    <section class="main-content">
-        <a id="content" tabindex="0"></a>
+    <section class="layout__main main-content">
+        <header class="paragraph main-content__header">
+            <div class="layout__inner-wrap grid">
+                <div class="grid-column">
+                    <a id="content" tabindex="0"></a>
+                    {# This template is used for search results. If 'search' is defined,
+                    we display an appropriate title. The 'records' array contains all of the
+                    records matching the current query. If there are no results, the
+                    code in the 'else' part of the for-loop is used. #}
+                    <h1>
+                        {% if search is not empty %}
+                            {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+                        {% else %}
+                            {{ __('general.phrase.search') }}
+                        {% endif %}
+                    </h1>
+                </div>
+            </div>
+        </header>
 
-        {# This template is used for search results. If 'search' is defined,
-           we display an appropriate title. The 'records' array contains all of the
-           records matching the current query. If there are no results, the
-           code in the 'else' part of the for-loop is used. #}
-        <h1>
-            {% if search is not empty %}
-                {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
-            {% else %}
-                {{ __('general.phrase.search') }}
-            {% endif %}
-        </h1>
+        <div class="paragraph paragraph--content-listing">
+            <div class="layout__inner-wrap grid">
+                <div class="grid-column grid-column--two-thirds">
 
-        {% for record in records %}
+                    <div class="content-listing">
+                        <ul class="stripped content-listing__list">
 
-            <article class="item-teaser">
-                <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
-                {% include 'partials/_recordfooter.twig' with { 'record': record } %}
-                <img src="{{ image(record.image, 1200, 500) }}" />
-                {# display something introduction-like.. #}
-                {% if record.introduction %}
-                    {{ record.introduction }}
-                {% elseif record.teaser %}
-                    {{ record.teaser }}
-                {% else %}
-                    <p>{{ record.excerpt(300, false, search|default('')) }}</p>
-                {% endif %}
-            </article>
+                            {% for record in records %}
+                            <li>
+                                <article class="item-teaser">
+                                    <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+                                    {% if record.image is defined and record.image is not empty %}
+                                    <img src="{{ record.image|thumbnail(1200, 500) }}" />
+                                    {% endif %}
+                                    {# display something introduction-like.. #}
+                                    {% if record.introduction %}
+                                        <p>{{ record.introduction }}</p>
+                                    {% elseif record.teaser %}
+                                        <p>{{ record.teaser }}</p>
+                                    {% else %}
+                                        <p>{{ record.excerpt(300, false, search|default('')) }}</p>
+                                    {% endif %}
+                                    <a class="read-more" href="{{ record.link }}">read more<span class="sr-only"> about Article title</span></a>
+                                </article>
+                            </li>
+                            {% else %}
+                            <li>
+                                <article class="item-teaser">
+                                    <h2>{{ __('general.phrase.no-content-found') }}</h2>
+                                    <p>
+                                        {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
+                                    </p>
+                                </article>
+                            </li>
+                            {% endfor %}
+                        </ul>   
 
-        {% else %}
+                        {# If there are more records than will fit on one page, the pager is shown. #}
+                        {# {{ pager(template = 'partials/_sub_pager.twig') }} #}
 
-            <article>
-                <h2>{{ __('general.phrase.no-content-found') }}</h2>
-                <p>
-                    {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
-                </p>
-            </article>
-        {% endfor %}
+                    </div>
 
-        {# If there are more records than will fit on one page, the pager is shown. #}
-        {{ pager(template = 'partials/_sub_pager.twig') }}
+                </div>
+
+                <div class="grid-column grid-column--one-third">
+                    {# Perhaps we post a small teaser, stored in the 'block' named 'Search teaser' #}
+                    {% setcontent block = "block/search-teaser" %}
+
+                    {# check if we have 'content'. If so, we know we have have a teaser to display. #}
+                    {% if block.content is defined %}
+                    <div class="">
+                        <h3>{{ block.title }}</h3>
+                        {{ block.content }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
 
     </section>
-{% endblock %}
-
-{% block aside_sidebar_second %}
-    <aside class="sidebar sidebar-second">
-        {# Perhaps we post a small teaser, stored in the 'block' named 'Search teaser' #}
-        {% setcontent block = "block/search-teaser" %}
-
-        {# check if we have 'content'. If so, we know we have have a teaser to display. #}
-        {% if block.content is defined %}
-            <h3>{{ block.title }}</h3>
-            {{ block.content }}
-        {% endif %}
-    </aside>
-{% endblock %}
-
-{% block main_aside_one %}
-    {# <aside>
-        <div class="inner-wrap">
-        </div>
-    </aside> #}
 {% endblock %}

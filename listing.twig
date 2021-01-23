@@ -1,79 +1,88 @@
 {% extends 'partials/_base.twig' %}
 
-{% block aside_sidebar_first %}
-    {# <aside class="sidebar sidebar-first">
-    </aside> #}
-{% endblock %}
+{% block bodyclass %}{% endblock %}
 
-{% block body %}
+{% block main %}
 
-    <section class="main-content">
-        <a id="content" tabindex="0"></a>
+    <section class="layout__main main-content">
+        <header class="paragraph main-content__header">
+            <div class="layout__inner-wrap grid">
+                <div class="grid-column">
+                    <a id="content" tabindex="0"></a>
+                    {% if taxonomytype is defined %}
+                    <h1>
+                        {{ __('general.phrase.overview-for') }}
+                        {% if taxonomy.options[slug] is defined %}
+                            {{ taxonomy.options[slug] }}
+                        {% else %}
+                            {{ slug }}
+                        {% endif %}
+                    </h1>
+                    {# Taxonomies are fetched unordered by design except if 'has_sortorder'
+                    is set to true. This way we keep 'grouping' intact in the listing. #}
+                        {% if not taxonomy.has_sortorder %}
+                            {# If we specified an order in config.yml, sort them here, accordingly: #}
+                            {% set records = records|order(app.config.get('general/listing_sort')) %}
+                        {% endif %}
+                    {% endif %}
+                    <p class="introduction">
+                        This listing page shows you HTML elements commonly used in an overview or category page: content teasers or introductory content.
+                    </p>
+                </div>
+            </div>
+        </header>
 
-        {# This template is used for 'listings': Generic pages that list a number of
-           records from a certain contenttype. These records are available as an array
-           called 'records'. In the for-loop below, we iterate over the records that
-           are on this page. It can be used for overview pages like 'all entries', or
-           'all records tagged with kittens'. #}
+        <div class="paragraph paragraph--content-listing">
+            <div class="layout__inner-wrap grid">
+                <div class="grid-column grid-column--two-thirds">
 
-        {# If used for listing a taxonomy, we add a heading.: #}
-        {% if taxonomytype is defined %}
-            <h1>
-                {{ __('general.phrase.overview-for') }}
-                {% if taxonomy.options[slug] is defined %}
-                    {{ taxonomy.options[slug] }}
-                {% else %}
-                    {{ slug }}
-                {% endif %}
-            </h1>
-            {# Taxonomies are fetched unordered by design except if 'has_sortorder'
-               is set to true. This way we keep 'grouping' intact in the listing. #}
-            {% if not taxonomy.has_sortorder %}
-                {# If we specified an order in config.yml, sort them here, accordingly: #}
-                {% set records = records|order(app.config.get('general/listing_sort')) %}
-            {% endif %}
-        {% endif %}
+                    <div class="content-listing">
+                        <ul class="stripped content-listing__list">
 
-        {% for record in records %}
+                            {% for record in records %}
+                            <li>
+                                <article class="item-teaser">
+                                    <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
+                                    {% if record.image is defined and record.image is not empty %}
+                                    <img src="{{ record.image|thumbnail(1200, 500) }}" />
+                                    {% endif %}
+                                    {# display something introduction-like.. #}
+                                    {% if record.introduction %}
+                                        <p>{{ record.introduction }}</p>
+                                    {% elseif record.teaser %}
+                                        <p>{{ record.teaser }}</p>
+                                    {% else %}
+                                        <p>{{ record.excerpt(300, false, search|default('')) }}</p>
+                                    {% endif %}
+                                    <a class="read-more" href="{{ record.link }}">read more<span class="sr-only"> about Article title</span></a>
+                                </article>
+                            </li>
+                            {% else %}
+                            <li>
+                                <article class="item-teaser">
+                                    <h2>{{ __('general.phrase.no-content-found') }}</h2>
+                                    <p>
+                                        {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
+                                    </p>
+                                </article>
+                            </li>
+                            {% endfor %}
+                        </ul>   
 
-            <article class="item-teaser">
-                <h2><a href="{{ record.link }}">{{ record.title }}</a></h2>
-                {% include 'partials/_recordfooter.twig' with { 'record': record } %}
-                <img src="{{ image(record.image, 1200, 500) }}" />
-                {# display something introduction-like.. #}
-                {% if record.introduction %}
-                    {{ record.introduction }}
-                {% elseif record.teaser %}
-                    {{ record.teaser }}
-                {% else %}
-                    <p>{{ record.excerpt(300, false, search|default('')) }}</p>
-                {% endif %}
-            </article>
+                        {# If there are more records than will fit on one page, the pager is shown. #}
+                        {{ pager(template = 'partials/_sub_pager.twig') }}
 
-        {% else %}
+                    </div>
 
-            <article>
-                <h2>{{ __('general.phrase.no-content-found') }}</h2>
-                <p>
-                    {{ __("Unfortunately, no content could be found. Try another page, or go to the <a href=\"%paths_root%\">homepage</a>.", {'%paths_root%': path('homepage')} ) }}
-                </p>
-            </article>
-        {% endfor %}
+                </div>
 
-        {# If there are more records than will fit on one page, the pager is shown. #}
-        {{ pager(template = 'partials/_sub_pager.twig') }}
+                <div class="grid-column grid-column--one-third">
+                    <div class="ui-info ui-info_information">
+                        <p>side column</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </section>
-{% endblock %}
-
-{% block aside_sidebar_second %}
-    {# <aside class="sidebar sidebar-second">
-    </aside> #}
-{% endblock %}
-
-{% block main_aside_one %}
-    {# <aside>
-        <div class="inner-wrap">
-        </div>
-    </aside> #}
 {% endblock %}
