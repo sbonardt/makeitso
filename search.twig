@@ -69,9 +69,14 @@
                 </div>
 
                 <div class="grid-column grid-column--one-third">
+
+                    <div class="ui-info ui-info_default">
+                        <p>side column</p>
+                    </div>
+
+
                     {# Perhaps we post a small teaser, stored in the 'block' named 'Search teaser' #}
                     {% setcontent block = "block/search-teaser" %}
-
                     {# check if we have 'content'. If so, we know we have have a teaser to display. #}
                     {% if block.content is defined %}
                     <div class="">
