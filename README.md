@@ -62,3 +62,28 @@ other piece of content, put it in _theme.scss. If the combined amount of lines e
 
 Make it so
 
+Screenshots
+-----------
+
+Homepage
+
+<img src="https://github.com/sbonardt/makeitso/blob/master/dist/images/theme-screenshots/01-MAKEITSO-homepage-desktop.png" width="100%">
+
+Homepage on tablets
+
+<img src="https://github.com/sbonardt/makeitso/blob/master/dist/images/theme-screenshots/01-MAKEITSO-homepage-tablet.png" width="480" style="max-width: 100%">
+
+Menu mobile
+
+<img src="https://github.com/sbonardt/makeitso/blob/master/dist/images/theme-screenshots/01-MAKEITSO-menu-mobile.png" width="480" style="max-width: 100%">
+
+Form page
+
+<img src="https://github.com/sbonardt/makeitso/blob/master/dist/images/theme-screenshots/02-MAKEITSO-form-desktop-1.png" width="100%">
+
+Form page, 2
+
+<img src="https://github.com/sbonardt/makeitso/blob/master/dist/images/theme-screenshots/02-MAKEITSO-form-desktop-2.png" width="100%">
+
+
+
