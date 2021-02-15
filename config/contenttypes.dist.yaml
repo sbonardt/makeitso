@@ -1,0 +1,65 @@
+__nodes:
+    field_contentblocks: &field_contentblocks
+        contentblocks:
+            label: Inhoud
+            type: collection
+            fields:
+                contenblock-general:
+                    type: set
+                    label: Content block
+                    fields:
+                        contentblocklabel:
+                            label: Label
+                            type: text
+                            class: narrow
+                            postfix: Dit veld wordt gebruikt in het CMS als label
+                        text:
+                            label: Tekst
+                            type: redactor
+                        image:
+                            label: Afbeelding
+                            type: image
+                        highlight:
+                            type: checkbox
+                            label: Vink aan indien dit een kort geel blok met tekst moet zijn
+                contenblock-video:
+                    type: set
+                    label: Video (Youtube of Vimeo)
+                    fields:
+                        contenblocklabel:
+                            label: Label
+                            type: text
+                            class: narrow
+                            postfix: Dit veld wordt gebruikt in het CMS als label
+                        title:
+                            label: Titel
+                            type: text
+                        embedded:
+                            label: Video (van Youtube of Vimeo)
+                            type: embed
+                contenblock-gallery:
+                    type: set
+                    label: Foto galerij
+                    fields:
+                        contenblocklabel:
+                            label: Label
+                            type: text
+                            class: narrow
+                            postfix: Dit veld wordt gebruikt in het CMS als label
+                        images:
+                            type: imagelist
+                            label: Afbeeldingen
+
+pages:
+    name: Pages
+    singular_name: Page
+    fields:
+        title:
+            type: text
+            class: large
+        <<: *field_contentblocks
+        slug:
+            type: slug
+            uses: title
+            group: Meta
+    record_template: record.twig

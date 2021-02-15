@@ -60,6 +60,9 @@ other piece of content, put it in _theme.scss. If the combined amount of lines e
 
 5. JAVASCRIPT - in package.json you'll see some scripts for combining and minifying the javascript files into one minified scripts.js. That one is available at /dist/js/. The custom.js fiel is the main JS file for UI and interaction stuff. If you would like to add a js file (of a third party) you must specify it in the package.json file in the jsFiles variable and add the file to the /source/js/lib folder. Add the file location to the "uglifyjs" task in package.json, in the js order you would like
 
+6. EXTRA CONTENTBLOCKS example yaml file for Bolt 4 websites - In the MAKEITSO theme 'config' subfolder you will find an example 'contenttypes.dist.yaml' file. This contains a yaml repeated node you can use in your Bolt 4 contenttypes.yaml in the main Bolt installation 'config' folder. When added this works together with the templating in the file '_contentblocks.twig' which you can find in the MAKEITSO theme subfolder 'partials'. The basic Bolt 4 templates in MAKEITSO already include this partial.
+
+
 Make it so
 
 Screenshots

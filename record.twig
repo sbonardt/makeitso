@@ -5,7 +5,7 @@
 {% block main %}
 
     <article class="layout__main main-content">
-        <header class="paragraph paragraph--with-background main-content__header">
+        <header class="contentblock contentblock--with-background main-content__header">
             <div class="layout__inner-wrap grid">
                 <div class="grid-column">
                     <a id="content" tabindex="0"></a>
@@ -25,7 +25,7 @@
                     {# Output all fields, in the order as defined in the contenttype.
                     To change the generated html and configure the options, see:
                     https://docs.bolt.cm/templating #}
-                    {% with { 'record': record, 'exclude': [record|image.fieldname|default()] } %}
+                    {% with { 'record': record, 'exclude': [record|image.fieldname|default(), 'contentblocks'] } %}
                         {{ block('sub_fields', 'helpers/_fields.twig') }}
                     {% endwith %}
                 </div>
@@ -36,6 +36,9 @@
                 </div>
             </div>
         </div>
+ 
+        {% include 'partials/_contentblocks.twig' %}
+
     </article>
 
 {% endblock %}

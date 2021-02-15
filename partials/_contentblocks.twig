@@ -1,0 +1,17 @@
+{% for contentblock in record.contentblocks %}
+
+    {% if contentblock.name === 'contenblock-general' %}
+
+        {% include 'partials/contentblocks/_contenblock-general.twig' %}
+
+    {% elseif contentblock.name === 'contenblock-video' %}
+
+        {% include 'partials/contentblocks/_contenblock-video.twig' %}
+
+    {% elseif contentblock.name === 'contenblock-gallery' %}
+
+        {% include 'partials/contentblocks/_contenblock-gallery.twig' %}
+
+    {% endif %}
+
+{% endfor %}

@@ -1,0 +1,26 @@
+<div class="contentblock {{ contentblock.name }}{% if contentblock.highlight == "1" %} contentblock--with-background{% endif %}">
+    <div class="layout__inner-wrap grid">
+        <div class="grid-column grid-column--two-thirds">
+
+            {{ contentblock.text }}
+
+            {% if contentblock.image is not empty and contentblock.image.filename is not empty %}
+            <figure>
+                <picture>
+                    <source media="(min-width:600px)" srcset="{{ contentblock.image|thumbnail(1200, 1200) }}">
+                    <source srcset="{{ contentblock.image|thumbnail(600, 600) }}">
+                    {{ contentblock.image|thumbnail(600, 600)|showimage }}
+                </picture>
+                {% set imagemedia = contentblock.image|media %}
+                {# {{ dump(imagemedia) }} #}
+                {% if imagemedia.description is defined and imagemedia.description is not empty %}
+                <figcaption>
+                    {{ imagemedia.description }}
+                </figcaption>
+                {% endif %}
+            </figure>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
