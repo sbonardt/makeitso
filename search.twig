@@ -14,8 +14,8 @@
                     records matching the current query. If there are no results, the
                     code in the 'else' part of the for-loop is used. #}
                     <h1>
-                        {% if search is not empty %}
-                            {{ __('general.phrase.search-results-for-variable', { '%search%': search }) }}
+                        {% if searchTerm is not empty %}
+                            {{ __('general.phrase.search-results-for', { '%search%': searchTerm }) }}
                         {% else %}
                             {{ __('general.phrase.search') }}
                         {% endif %}

@@ -18,12 +18,12 @@
         <form action="{{ path('search') }}" method="get" class="search-block" enctype="text/plain">
             <div class="layout__inner-wrap">
                 <label for="search_field">Search</label>
-                <input type="search" name="search_field" value="{{ search|default|escape }}" class="search_field" id="search_field"  placeholder="Your search term{{ __('general.phrase.search-ellipsis') }}"/>
+                <input type="search" value="{{ searchTerm|default() }}" class="search_field" id="search_field"  placeholder="{{ __('general.phrase.search-ellipsis') }}" name="searchTerm"/>
                 <button type="submit" value="search">
                     <svg class="icon icon--search">
                         <use xlink:href="#icon-search" />
                     </svg>
-                    {{ __('action.search') }}
+                    {{ __('general.phrase.search') }}
                 </button>
                 <a href="#" class="toggle-search search__search-toggle-inner"><span class="sr-only">Sluiten</span></a>
             </div>
