@@ -18,7 +18,7 @@
         <form action="{{ path('search') }}" method="get" class="search-block" enctype="text/plain">
             <div class="layout__inner-wrap">
                 <label for="search_field">Search</label>
-                <input type="search" value="{{ searchTerm|default() }}" class="search_field" id="search_field"  placeholder="{{ __('general.phrase.search-ellipsis') }}" name="searchTerm"/>
+                <input type="search" value="{{ searchTerm|default() }}" class="search_field" id="search_field" name="searchTerm"/>
                 <button type="submit" value="search">
                     <svg class="icon icon--search">
                         <use xlink:href="#icon-search" />

@@ -62,21 +62,27 @@
     @include respond-to(xlarge-screens) {
         padding: 0 3rem;
     }
+    @include respond-to(xwide-screens) {
+        padding: 0 4rem;
+    }
     .header > &  {
         padding: 0.625rem 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         @include respond-to(medium-screens) {
-            padding: 1rem 2rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
         @include respond-to(xlarge-screens) {
             padding: 0 3rem;
             justify-content: stretch;
             min-height: 85px;
             align-items: stretch;
-            overflow: visible;
-            
+            overflow: visible;   
+        }
+        @include respond-to(xwide-screens) {
+            padding: 0 4rem;
         }
     }
     .layout__sidebar & {

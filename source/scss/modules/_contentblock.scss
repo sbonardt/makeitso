@@ -6,3 +6,21 @@
         background-color: $lightGrey;
     }
 }
+
+.contentblock--header {
+    .grid {
+        .grid-column {
+            grid-column: 1/-1;
+        }
+        .grid-column--two-thirds {
+            @include respond-to(xlarge-screens) {
+            grid-column: 1/10;
+            }
+            & + .grid-column--one-third {
+                @include respond-to(xlarge-screens) {
+                grid-column: 11/-1;
+                }
+            }
+        }
+    }
+}
